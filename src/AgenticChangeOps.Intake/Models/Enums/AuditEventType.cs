@@ -5,5 +5,6 @@ public enum AuditEventType
     Submitted,
     Approved,
     Rejected,
-    Deferred
+    Deferred,
+    DraftGenerated
 }
