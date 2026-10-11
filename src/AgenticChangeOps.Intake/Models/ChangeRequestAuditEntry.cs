@@ -7,4 +7,8 @@ public sealed record ChangeRequestAuditEntry(
     Guid ChangeRequestId,
     AuditEventType EventType,
     DateTime OccurredAt,
-    string? Details);
+    string? Details,
+    string? ApproverName = null,
+    string? Reason = null,
+    ChangeRequestStatus? StatusBefore = null,
+    ChangeRequestStatus? StatusAfter = null);

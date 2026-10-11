@@ -58,7 +58,10 @@ ensure the system augments human judgment rather than replacing it.
 - Records MUST include at minimum: `ChangeRequestId`, `AgentName`, `Timestamp`,
   `InputPayload`, `OutputPayload`, and `ApprovalStatus` where applicable.
 - Schema changes to persisted record types are breaking changes and MUST follow the amendment
-  procedure in the Governance section.
+  procedure in the Governance section. Purely additive changes (new optional/nullable members
+  defaulting to null, or new enum values appended at the end) that leave every existing
+  construction, persisted entry, and serialized value valid are non-breaking and only require
+  the change to be recorded in the owning slice's plan (Complexity Tracking).
 
 **Rationale**: Auditability is a first-class requirement for enterprise change management.
 Typed records make the system inspectable, testable, and refactorable without silent data
@@ -162,4 +165,4 @@ Commit messages MUST reference the change request ID or slice name.
 - This constitution does not expire, but SHOULD be reviewed whenever a major new capability
   or agent is proposed.
 
-**Version**: 1.0.0 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-10
+**Version**: 1.0.1 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-11
