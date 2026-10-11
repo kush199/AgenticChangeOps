@@ -55,6 +55,28 @@ public sealed class StoreTests
         Assert.Empty(result);
     }
 
+    [Fact]
+    public void Update_ExistingId_ReplacesStoredRecord()
+    {
+        var store = new InMemoryChangeRequestStore();
+        var id = Guid.NewGuid();
+        var original = MakeChangeRequest(id);
+        store.Save(original);
+
+        var updated = original with { Status = ChangeRequestStatus.Approved };
+        store.Update(updated);
+
+        Assert.Equal(updated, store.FindById(id));
+    }
+
+    [Fact]
+    public void Update_UnknownId_ThrowsInvalidOperationException()
+    {
+        var store = new InMemoryChangeRequestStore();
+        var cr = MakeChangeRequest(Guid.NewGuid());
+        Assert.Throws<InvalidOperationException>(() => store.Update(cr));
+    }
+
     // Smoke tests for production infrastructure wrappers
     // (non-deterministic calls; verified to return valid values)
 

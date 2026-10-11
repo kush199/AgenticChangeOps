@@ -15,6 +15,14 @@ public sealed class InMemoryChangeRequestStore : IChangeRequestStore
         _changeRequests[changeRequest.ChangeRequestId] = changeRequest;
     }
 
+    public void Update(ChangeRequest changeRequest)
+    {
+        if (!_changeRequests.ContainsKey(changeRequest.ChangeRequestId))
+            throw new InvalidOperationException(
+                $"No change request with id {changeRequest.ChangeRequestId} exists to update.");
+        _changeRequests[changeRequest.ChangeRequestId] = changeRequest;
+    }
+
     public ChangeRequest? FindById(Guid id) =>
         _changeRequests.TryGetValue(id, out var cr) ? cr : null;
 
