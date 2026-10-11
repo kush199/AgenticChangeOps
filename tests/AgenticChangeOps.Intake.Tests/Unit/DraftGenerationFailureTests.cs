@@ -16,6 +16,43 @@ public sealed class DraftGenerationFailureTests
         Assert.Empty(_f.Store.GetDrafts(id));
     }
 
+    [Theory]
+    [InlineData(GenerationFailureCategory.Unreachable)]
+    [InlineData(GenerationFailureCategory.TimedOut)]
+    [InlineData(GenerationFailureCategory.ResponseTooLarge)]
+    [InlineData(GenerationFailureCategory.MalformedOutput)]
+    public async Task GeneratorReportsACategory_ErrorNamesTheCategoryAndNothingIsStored(
+        GenerationFailureCategory category)
+    {
+        var id = _f.SubmitSynthetic();
+        var requestBefore = _f.Store.FindById(id);
+        var auditBefore = _f.Store.GetAuditEntries(id);
+        _f.Generator.Behavior = FakeDraftGenerator.Throws(new DraftGenerationException(category));
+
+        var result = await _f.Drafting.DraftAsync(id);
+
+        Assert.False(result.IsSuccess);
+        var error = Assert.Single(result.Errors);
+        Assert.Equal("Generator", error.FieldName);
+        Assert.Equal($"The content generator failed ({category}).", error.Message);
+        AssertNothingChanged(id, requestBefore, auditBefore);
+    }
+
+    [Fact]
+    public async Task CategoryFailureThenSuccess_NextDraftIsVersionOneWithNoGap()
+    {
+        var id = _f.SubmitSynthetic();
+        _f.Generator.Behavior = FakeDraftGenerator.Throws(
+            new DraftGenerationException(GenerationFailureCategory.TimedOut));
+        await _f.Drafting.DraftAsync(id);
+        _f.Generator.Behavior = FakeDraftGenerator.Returns(FakeDraftGenerator.ValidContent());
+
+        var result = await _f.Drafting.DraftAsync(id);
+
+        Assert.True(result.IsSuccess);
+        Assert.Equal(1, result.Draft!.Version);
+    }
+
     [Fact]
     public async Task GeneratorThrows_ReturnsGeneratorErrorWithoutLeakingTheMessage()
     {
