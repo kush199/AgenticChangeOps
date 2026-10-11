@@ -11,4 +11,6 @@ public sealed record ChangeRequestAuditEntry(
     string? ApproverName = null,
     string? Reason = null,
     ChangeRequestStatus? StatusBefore = null,
-    ChangeRequestStatus? StatusAfter = null);
+    ChangeRequestStatus? StatusAfter = null,
+    string? AgentName = null,
+    int? DraftVersion = null);
