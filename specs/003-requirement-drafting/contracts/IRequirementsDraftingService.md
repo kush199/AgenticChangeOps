@@ -22,6 +22,7 @@ public interface IRequirementsDraftingService
 | Unknown id | `Failure([ChangeRequestId])` | None; generator not called |
 | Status not `Submitted`/`Deferred` | `Failure([Status])`, message names the current status | None; generator not called |
 | Generator throws, is cancelled, or returns null | `Failure([Generator])` | None; no version consumed |
+| Generator throws `DraftGenerationException` (slice 004) | `Failure([Generator])`, message `The content generator failed (<Category>).` where Category is `Unreachable`, `TimedOut`, `ResponseTooLarge` or `MalformedOutput` | None; no version consumed |
 | Content missing/empty/oversized sections | `Failure([<section>, ...])`, one error per failing section | None; no version consumed |
 | Status changed to non-draftable during generation | `Failure([Status])` | None |
 

@@ -40,6 +40,14 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
         {
             generated = await _generator.GenerateAsync(request!, cancellationToken).ConfigureAwait(false);
         }
+        catch (DraftGenerationException ex)
+        {
+            // The category is the only detail a generator may report.
+            return DraftingResult.Failure(new[]
+            {
+                new ValidationError("Generator", $"The content generator failed ({ex.Category}).")
+            });
+        }
         catch (Exception ex)
         {
             // Only the exception type is reported: messages from real clients can embed
