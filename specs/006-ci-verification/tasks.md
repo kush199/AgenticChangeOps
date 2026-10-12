@@ -62,7 +62,7 @@ break, a failing test and a zero-test run are each red without opening a log.
 
 ### Tests for User Story 1 (scenarios first)
 
-- [ ] T006 [US1] Prepare the four scenario branches as local commits on top of `feature/ci-pipeline` without pushing: `feature/ci-pipeline-scn-pass` (one-line README edit), `feature/ci-pipeline-scn-build-break` (a syntax error in `src/AgenticChangeOps.Intake/` any `.cs` file), `feature/ci-pipeline-scn-test-fail` (one assertion flipped in `tests/AgenticChangeOps.Intake.Tests/`), `feature/ci-pipeline-scn-no-tests` (every `[Fact]` in `tests/AgenticChangeOps.Api.Tests/` changed to `[Fact(Skip = "synthetic")]` and the same in the Intake tests)
+- [X] T006 [US1] Prepare the four scenario branches as local commits on top of `feature/ci-pipeline` without pushing: `feature/ci-pipeline-scn-pass` (one-line README edit), `feature/ci-pipeline-scn-build-break` (a syntax error in `src/AgenticChangeOps.Intake/` any `.cs` file), `feature/ci-pipeline-scn-test-fail` (one assertion flipped in `tests/AgenticChangeOps.Intake.Tests/`), `feature/ci-pipeline-scn-no-tests` (every `[Fact]` in `tests/AgenticChangeOps.Api.Tests/` changed to `[Fact(Skip = "synthetic")]` and the same in the Intake tests)
 - [X] T007 [US1] Record the expected red state of quickstart scenarios 1 to 4 against the placeholder workflow from T004: the `verify` check appears but is green for all four, which is wrong for scenarios 2, 3 and 4 (a green on a broken change is the failure the slice exists to remove); show this table to the user
 
 **CHECKPOINT**: User replies "approved" to the scenario list and expected states before T008.
