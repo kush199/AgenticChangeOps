@@ -12,7 +12,6 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
     private readonly IIdGenerator _idGenerator;
     private readonly IRequirementsDraftGenerator _generator;
     private readonly DraftContentValidator _validator;
-    private readonly object _gate = new();
 
     public RequirementsDraftingService(
         IChangeRequestStore store,
@@ -43,10 +42,9 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
         catch (DraftGenerationException ex)
         {
             // The category is the only detail a generator may report.
-            return DraftingResult.Failure(new[]
-            {
-                new ValidationError("Generator", $"The content generator failed ({ex.Category}).")
-            });
+            return DraftingResult.Failure(
+                new[] { new ValidationError("Generator", $"The content generator failed ({ex.Category}).") },
+                ex.Category);
         }
         catch (Exception ex)
         {
@@ -60,7 +58,7 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
 
         var (content, errors) = _validator.Validate(generated);
         if (errors.Count > 0)
-            return DraftingResult.Failure(errors);
+            return DraftingResult.Failure(errors, GenerationFailureCategory.MalformedOutput);
 
         return StoreDraft(changeRequestId, content!);
     }
@@ -71,7 +69,7 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
             return QueryResult<RequirementsDraft?>.Failure(new[] { NotFound(changeRequestId) });
 
         IReadOnlyList<RequirementsDraft> drafts;
-        lock (_gate)
+        lock (_store.SyncRoot)
             drafts = _store.GetDrafts(changeRequestId);
 
         return QueryResult<RequirementsDraft?>.Success(drafts.Count == 0 ? null : drafts[^1]);
@@ -83,7 +81,7 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
             return QueryResult<IReadOnlyList<RequirementsDraft>>.Failure(new[] { NotFound(changeRequestId) });
 
         // Read under the same lock as the save step so a reader never sees a draft mid-store.
-        lock (_gate)
+        lock (_store.SyncRoot)
             return QueryResult<IReadOnlyList<RequirementsDraft>>.Success(_store.GetDrafts(changeRequestId));
     }
 
@@ -91,7 +89,7 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
     // uninterrupted step, so overlapping calls cannot take the same version.
     private DraftingResult StoreDraft(Guid changeRequestId, DraftContent content)
     {
-        lock (_gate)
+        lock (_store.SyncRoot)
         {
             var current = _store.FindById(changeRequestId);
             var eligibilityError = CheckEligibility(changeRequestId, current);

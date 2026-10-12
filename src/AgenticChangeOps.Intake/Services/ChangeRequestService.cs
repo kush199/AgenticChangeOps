@@ -44,8 +44,6 @@ public sealed class ChangeRequestService : IChangeRequestService
             Status: ChangeRequestStatus.Submitted,
             SubmittedAt: submittedAt);
 
-        _store.Save(changeRequest);
-
         var auditEntry = new ChangeRequestAuditEntry(
             AuditEntryId: _idGenerator.NewId(),
             ChangeRequestId: changeRequestId,
@@ -53,7 +51,12 @@ public sealed class ChangeRequestService : IChangeRequestService
             OccurredAt: submittedAt,
             Details: null);
 
-        _store.SaveAuditEntry(auditEntry);
+        // The request and its first audit entry become visible together.
+        lock (_store.SyncRoot)
+        {
+            _store.Save(changeRequest);
+            _store.SaveAuditEntry(auditEntry);
+        }
 
         return SubmissionResult.Success(changeRequest);
     }

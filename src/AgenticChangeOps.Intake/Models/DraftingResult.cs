@@ -1,3 +1,5 @@
+using AgenticChangeOps.Intake.Models.Enums;
+
 namespace AgenticChangeOps.Intake.Models;
 
 public sealed class DraftingResult
@@ -6,11 +8,22 @@ public sealed class DraftingResult
     public RequirementsDraft? Draft { get; }
     public IReadOnlyList<ValidationError> Errors { get; }
 
-    private DraftingResult(bool isSuccess, RequirementsDraft? draft, IReadOnlyList<ValidationError> errors)
+    /// <summary>
+    /// Set only when drafting failed because generation failed or its content was unusable.
+    /// Null for success and for eligibility failures.
+    /// </summary>
+    public GenerationFailureCategory? FailureCategory { get; }
+
+    private DraftingResult(
+        bool isSuccess,
+        RequirementsDraft? draft,
+        IReadOnlyList<ValidationError> errors,
+        GenerationFailureCategory? failureCategory = null)
     {
         IsSuccess = isSuccess;
         Draft = draft;
         Errors = errors;
+        FailureCategory = failureCategory;
     }
 
     public static DraftingResult Success(RequirementsDraft draft) =>
@@ -18,4 +31,7 @@ public sealed class DraftingResult
 
     public static DraftingResult Failure(IReadOnlyList<ValidationError> errors) =>
         new(false, null, errors);
+
+    public static DraftingResult Failure(IReadOnlyList<ValidationError> errors, GenerationFailureCategory category) =>
+        new(false, null, errors, category);
 }

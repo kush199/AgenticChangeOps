@@ -4,6 +4,12 @@ namespace AgenticChangeOps.Intake.Stores;
 
 public interface IChangeRequestStore
 {
+    /// <summary>
+    /// The lock every store operation takes. A service that must check and then write as one
+    /// uninterrupted step holds it for the whole sequence (the monitor is re-entrant).
+    /// </summary>
+    object SyncRoot { get; }
+
     void Save(ChangeRequest changeRequest);
     void Update(ChangeRequest changeRequest);
     ChangeRequest? FindById(Guid id);
