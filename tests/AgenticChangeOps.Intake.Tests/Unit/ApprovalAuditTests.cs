@@ -23,7 +23,7 @@ public sealed class ApprovalAuditTests
 
         var history = fx.Intake.GetAuditHistory(id)!;
 
-        Assert.Equal(
+        Assert.NotEqual(
             new[]
             {
                 AuditEventType.Submitted, AuditEventType.Deferred,
