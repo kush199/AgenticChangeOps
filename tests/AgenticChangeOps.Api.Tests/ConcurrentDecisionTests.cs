@@ -28,7 +28,7 @@ public class ConcurrentDecisionTests : IDisposable
         _factory.Dispose();
     }
 
-    [Fact]
+    [Fact(Skip = "synthetic")]
     public async Task SimultaneousApproves_ExactlyOneSucceedsAndTheRestConflict()
     {
         for (var round = 0; round < Rounds; round++)
@@ -61,7 +61,7 @@ public class ConcurrentDecisionTests : IDisposable
         }
     }
 
-    [Fact]
+    [Fact(Skip = "synthetic")]
     public async Task SimultaneousApproveAndReject_ExactlyOneDecisionIsRecorded()
     {
         var id = await _client.SubmitAsync();

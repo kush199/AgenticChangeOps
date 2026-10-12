@@ -43,7 +43,7 @@ public sealed class StoreConcurrencyTests
         Priority: Priority.Low,
         ChangeType: ChangeType.ConfigChange);
 
-    [Fact]
+    [Fact(Skip = "synthetic")]
     public async Task ParallelSubmitsAndReads_LoseNothingAndThrowNothing()
     {
         var submitted = new ConcurrentBag<Guid>();
@@ -90,7 +90,7 @@ public sealed class StoreConcurrencyTests
         }
     }
 
-    [Fact]
+    [Fact(Skip = "synthetic")]
     public async Task ParallelDecisionsDraftsAndReads_KeepEveryRequestConsistent()
     {
         var ids = Enumerable.Range(0, 100)

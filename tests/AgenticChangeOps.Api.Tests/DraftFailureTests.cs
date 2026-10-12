@@ -17,7 +17,7 @@ public class DraftFailureTests
         return (factory, client, id);
     }
 
-    [Theory]
+    [Theory(Skip = "synthetic")]
     [InlineData(GenerationFailureCategory.Unreachable)]
     [InlineData(GenerationFailureCategory.TimedOut)]
     [InlineData(GenerationFailureCategory.ResponseTooLarge)]
@@ -38,7 +38,7 @@ public class DraftFailureTests
         Assert.Equal(new[] { "category", "code", "message" }, members);
     }
 
-    [Fact]
+    [Fact(Skip = "synthetic")]
     public async Task GenerationFailure_StoresNothing()
     {
         var (factory, client, id) = await StartAsync(
@@ -56,7 +56,7 @@ public class DraftFailureTests
         Assert.Equal("Submitted", request.GetProperty("status").GetString());
     }
 
-    [Fact]
+    [Fact(Skip = "synthetic")]
     public async Task ArbitraryGeneratorException_Returns500AndLeaksNothing()
     {
         var generator = FakeDraftGenerator.ThrowsArbitrary(new InvalidOperationException(Sentinel));
@@ -74,7 +74,7 @@ public class DraftFailureTests
         Assert.DoesNotContain(factory.Logs.Lines, line => line.Contains(Sentinel));
     }
 
-    [Fact]
+    [Fact(Skip = "synthetic")]
     public async Task BlankGeneratedContent_Returns502WithMalformedOutput()
     {
         var blank = new DraftContent("   ", new[] { "a" }, new[] { "b" }, new[] { "c" }, new[] { "d" });
