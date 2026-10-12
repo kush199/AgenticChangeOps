@@ -26,6 +26,14 @@ public sealed class ApprovalService : IApprovalService
 
     public DecisionResult RecordDecision(ApprovalDecisionRequest request)
     {
+        // Validate, update and audit form one uninterrupted step, so of several overlapping
+        // decisions exactly one wins and the rest are refused by the final-state rule.
+        lock (_store.SyncRoot)
+            return RecordDecisionLocked(request);
+    }
+
+    private DecisionResult RecordDecisionLocked(ApprovalDecisionRequest request)
+    {
         var existing = _store.FindById(request.ChangeRequestId);
         var errors = _validator.Validate(request, existing);
         if (errors.Count > 0)

@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgenticChangeOps.Intake.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgenticChangeOps.Intake.AzureOpenAI", "src\AgenticChangeOps.Intake.AzureOpenAI\AgenticChangeOps.Intake.AzureOpenAI.csproj", "{11194B5C-4B83-4539-973C-2C1744154FCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgenticChangeOps.Api", "src\AgenticChangeOps.Api\AgenticChangeOps.Api.csproj", "{97AB2EFE-1F9F-4E9B-8711-BF056C3DF9F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgenticChangeOps.Api.Tests", "tests\AgenticChangeOps.Api.Tests\AgenticChangeOps.Api.Tests.csproj", "{8DF957F2-95BC-45DC-9A8C-A1DF3E2EACEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,10 +38,20 @@ Global
 		{11194B5C-4B83-4539-973C-2C1744154FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11194B5C-4B83-4539-973C-2C1744154FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11194B5C-4B83-4539-973C-2C1744154FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97AB2EFE-1F9F-4E9B-8711-BF056C3DF9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97AB2EFE-1F9F-4E9B-8711-BF056C3DF9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97AB2EFE-1F9F-4E9B-8711-BF056C3DF9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97AB2EFE-1F9F-4E9B-8711-BF056C3DF9F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF957F2-95BC-45DC-9A8C-A1DF3E2EACEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF957F2-95BC-45DC-9A8C-A1DF3E2EACEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF957F2-95BC-45DC-9A8C-A1DF3E2EACEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF957F2-95BC-45DC-9A8C-A1DF3E2EACEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F6FA5923-47D9-47E7-B63C-0081BAF22447} = {E4510646-9DEA-439D-9984-61641CEDB7EE}
 		{E5B0E514-0A66-4810-8845-A79B9CBDE8A0} = {0245E704-1777-4EAE-9920-E324E8DDEE88}
 		{11194B5C-4B83-4539-973C-2C1744154FCD} = {E4510646-9DEA-439D-9984-61641CEDB7EE}
+		{97AB2EFE-1F9F-4E9B-8711-BF056C3DF9F0} = {E4510646-9DEA-439D-9984-61641CEDB7EE}
+		{8DF957F2-95BC-45DC-9A8C-A1DF3E2EACEE} = {0245E704-1777-4EAE-9920-E324E8DDEE88}
 	EndGlobalSection
 EndGlobal
