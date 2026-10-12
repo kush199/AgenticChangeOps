@@ -29,6 +29,13 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      # The runner image ships newer SDKs, and `dotnet --version` reports the newest one. A
+      # global.json created here (never committed, so local builds are unaffected) makes the
+      # installed 8.0.x SDK the one every later step uses.
+      - name: Select .NET 8 SDK
+        run: |
+          printf '%s\n' '{ "sdk": { "version": "8.0.100", "rollForward": "latestFeature" } }' > global.json
+
       - name: Require .NET 8
         run: |
           v="$(dotnet --version)"
