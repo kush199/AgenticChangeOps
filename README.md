@@ -156,3 +156,5 @@ never call a real model; an opt-in live check runs only when
 ## License
 
 [MIT](LICENSE)
+
+<!-- ci scenario: passing change (synthetic) -->
