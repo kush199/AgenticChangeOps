@@ -1,4 +1,6 @@
-namespace AgenticChangeOps.Intake.Models;
+using AgenticChangeOps.Intake.Models;
+
+namespace AgenticChangeOps.Agents.Requirement;
 
 /// <summary>
 /// Raw output of the content generator, before validation. A null member means the section

@@ -1,5 +1,6 @@
 using AgenticChangeOps.Api.Contracts;
 using AgenticChangeOps.Intake.Models;
+using AgenticChangeOps.Agents.Requirement;
 
 namespace AgenticChangeOps.Api.Errors;
 

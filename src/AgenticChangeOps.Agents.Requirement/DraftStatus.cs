@@ -1,4 +1,6 @@
-namespace AgenticChangeOps.Intake.Models.Enums;
+using AgenticChangeOps.Intake.Models;
+
+namespace AgenticChangeOps.Agents.Requirement;
 
 public enum DraftStatus
 {

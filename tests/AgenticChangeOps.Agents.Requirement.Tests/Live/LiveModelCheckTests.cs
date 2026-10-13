@@ -1,8 +1,7 @@
-using AgenticChangeOps.Intake.AzureOpenAI;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 
-namespace AgenticChangeOps.Intake.Tests.Live;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Live;
 
 /// <summary>
 /// Manual, opt-in check against the real model. Not part of the routine suite: it is skipped

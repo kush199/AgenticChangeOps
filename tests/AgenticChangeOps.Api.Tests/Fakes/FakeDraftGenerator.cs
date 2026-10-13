@@ -1,6 +1,8 @@
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Services;
+using AgenticChangeOps.ModelAccess;
+using AgenticChangeOps.Agents.Requirement;
 
 namespace AgenticChangeOps.Api.Tests.Fakes;
 

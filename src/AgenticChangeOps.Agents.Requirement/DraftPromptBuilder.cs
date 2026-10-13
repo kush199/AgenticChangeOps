@@ -1,7 +1,7 @@
 using System.Text.Json;
 using AgenticChangeOps.Intake.Models;
 
-namespace AgenticChangeOps.Intake.AzureOpenAI;
+namespace AgenticChangeOps.Agents.Requirement;
 
 public static class DraftPromptBuilder
 {

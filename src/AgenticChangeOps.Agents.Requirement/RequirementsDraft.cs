@@ -1,6 +1,6 @@
-using AgenticChangeOps.Intake.Models.Enums;
+using AgenticChangeOps.Intake.Models;
 
-namespace AgenticChangeOps.Intake.Models;
+namespace AgenticChangeOps.Agents.Requirement;
 
 public sealed record RequirementsDraft(
     Guid DraftId,
@@ -13,7 +13,7 @@ public sealed record RequirementsDraft(
     IReadOnlyList<string> FunctionalRequirements,
     IReadOnlyList<string> AcceptanceCriteria,
     IReadOnlyList<string> Assumptions,
-    IReadOnlyList<string> OpenQuestions)
+    IReadOnlyList<string> OpenQuestions) : IAgentOutput
 {
     public const string RequirementAgentName = "RequirementAgent";
 }

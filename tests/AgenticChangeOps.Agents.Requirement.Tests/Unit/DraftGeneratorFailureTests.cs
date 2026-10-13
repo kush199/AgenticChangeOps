@@ -1,9 +1,10 @@
-using AgenticChangeOps.Intake.AzureOpenAI;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Tests.Fakes;
+using AgenticChangeOps.ModelAccess;
+using AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Unit;
 
 public class DraftGeneratorFailureTests
 {

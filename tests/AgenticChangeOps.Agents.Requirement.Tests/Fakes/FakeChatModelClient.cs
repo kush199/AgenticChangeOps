@@ -1,6 +1,6 @@
-using AgenticChangeOps.Intake.AzureOpenAI;
+using AgenticChangeOps.ModelAccess;
 
-namespace AgenticChangeOps.Intake.Tests.Fakes;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
 /// <summary>Stand-in model client: never touches a network. Records what it was asked.</summary>
 public sealed class FakeChatModelClient : IChatModelClient

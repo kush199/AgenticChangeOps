@@ -1,8 +1,9 @@
 using System.Text.Json;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
+using AgenticChangeOps.ModelAccess;
 
-namespace AgenticChangeOps.Intake.AzureOpenAI;
+namespace AgenticChangeOps.Agents.Requirement;
 
 /// <summary>
 /// Turns the model's answer into <see cref="DraftContent"/>. Accepts the JSON object alone or

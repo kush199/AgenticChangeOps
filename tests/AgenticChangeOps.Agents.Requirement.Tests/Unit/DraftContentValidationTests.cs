@@ -2,8 +2,9 @@ using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Services;
 using AgenticChangeOps.Intake.Tests.Fakes;
 using Xunit;
+using AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Unit;
 
 public sealed class DraftContentValidationTests
 {

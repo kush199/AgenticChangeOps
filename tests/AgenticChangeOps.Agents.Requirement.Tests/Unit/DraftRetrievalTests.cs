@@ -1,8 +1,9 @@
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Tests.Fakes;
 using Xunit;
+using AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Unit;
 
 public sealed class DraftRetrievalTests
 {
@@ -26,7 +27,7 @@ public sealed class DraftRetrievalTests
     public async Task GetDraftHistory_ReturnsAllVersionsInAscendingOrder()
     {
         var id = _f.SubmitSynthetic();
-        var returned = new List<Models.RequirementsDraft>();
+        var returned = new List<RequirementsDraft>();
         for (var i = 0; i < 3; i++)
             returned.Add((await _f.Drafting.DraftAsync(id)).Draft!);
 

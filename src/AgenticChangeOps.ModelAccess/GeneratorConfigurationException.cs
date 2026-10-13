@@ -1,4 +1,4 @@
-namespace AgenticChangeOps.Intake.AzureOpenAI;
+namespace AgenticChangeOps.ModelAccess;
 
 /// <summary>
 /// Raised when generator configuration is missing or invalid. The message names the setting

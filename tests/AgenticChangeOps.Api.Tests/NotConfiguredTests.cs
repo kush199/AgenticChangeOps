@@ -1,8 +1,8 @@
 using System.Net;
 using AgenticChangeOps.Api.Composition;
 using AgenticChangeOps.Api.Tests.Fakes;
-using AgenticChangeOps.Intake.AzureOpenAI;
 using Microsoft.Extensions.DependencyInjection;
+using AgenticChangeOps.ModelAccess;
 
 namespace AgenticChangeOps.Api.Tests;
 

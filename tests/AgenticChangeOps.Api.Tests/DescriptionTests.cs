@@ -1,7 +1,7 @@
 using System.Net;
 using System.Text.Json;
 using AgenticChangeOps.Api.Tests.Fakes;
-using AgenticChangeOps.Intake.AzureOpenAI;
+using AgenticChangeOps.ModelAccess;
 
 namespace AgenticChangeOps.Api.Tests;
 

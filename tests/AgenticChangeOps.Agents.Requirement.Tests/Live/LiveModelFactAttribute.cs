@@ -1,4 +1,4 @@
-namespace AgenticChangeOps.Intake.Tests.Live;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Live;
 
 /// <summary>
 /// Marks a test that calls the real model. It is skipped unless a person explicitly opts in by

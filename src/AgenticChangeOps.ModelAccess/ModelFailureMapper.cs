@@ -1,6 +1,4 @@
-using AgenticChangeOps.Intake.Models.Enums;
-
-namespace AgenticChangeOps.Intake.AzureOpenAI;
+namespace AgenticChangeOps.ModelAccess;
 
 /// <summary>
 /// Maps service and client errors onto the four failure categories. The error code is only

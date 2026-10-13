@@ -6,8 +6,9 @@ using AgenticChangeOps.Intake.Services;
 using AgenticChangeOps.Intake.Stores;
 using AgenticChangeOps.Intake.Tests.Fakes;
 using Xunit;
+using AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Unit;
 
 /// <summary>
 /// The services share one in-memory store across request threads. Overlapping submit, read,

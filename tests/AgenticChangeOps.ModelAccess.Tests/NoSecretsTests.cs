@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.ModelAccess.Tests;
 
 /// <summary>
 /// Repository hygiene guard (Constitution Principle I, spec FR-011/FR-012): no key, token, real
@@ -25,7 +25,7 @@ public class NoSecretsTests
     private static IEnumerable<string> Files(string root, params string[] topLevelFolders)
     {
         var thisFile = Path.GetFullPath(
-            Path.Combine(root, "tests", "AgenticChangeOps.Intake.Tests", "Unit", "NoSecretsTests.cs"));
+            Path.Combine(root, "tests", "AgenticChangeOps.ModelAccess.Tests", "NoSecretsTests.cs"));
 
         foreach (var folder in topLevelFolders)
         {
@@ -99,7 +99,7 @@ public class NoSecretsTests
     public void GeneratorProject_DefinesNoSettingNameThatCouldHoldASecret()
     {
         var root = RepositoryRoot();
-        var projectFolder = Path.Combine("src", "AgenticChangeOps.Intake.AzureOpenAI");
+        var projectFolder = Path.Combine("src", "AgenticChangeOps.ModelAccess");
         var upperSnakeLiteral = new Regex("\"([A-Z][A-Z0-9_]{4,})\"");
         var secretWords = new[] { "KEY", "TOKEN", "SECRET", "PASSWORD" };
 
@@ -115,5 +115,49 @@ public class NoSecretsTests
         }
 
         Assert.Empty(offenders);
+    }
+
+    // Slice 007: the same rule for the Requirement agent project, which now holds the generator.
+    [Fact]
+    public void RequirementAgentProject_DefinesNoSettingNameThatCouldHoldASecret()
+    {
+        var root = RepositoryRoot();
+        var projectFolder = Path.Combine("src", "AgenticChangeOps.Agents.Requirement");
+        Assert.True(Directory.Exists(Path.Combine(root, projectFolder)), $"{projectFolder} does not exist.");
+
+        var upperSnakeLiteral = new Regex("\"([A-Z][A-Z0-9_]{4,})\"");
+        var secretWords = new[] { "KEY", "TOKEN", "SECRET", "PASSWORD" };
+
+        var sourceFiles = Files(root, projectFolder)
+            .Where(f => f.EndsWith(".cs", StringComparison.OrdinalIgnoreCase))
+            .ToList();
+        Assert.NotEmpty(sourceFiles);
+
+        var offenders = new List<string>();
+        foreach (var file in sourceFiles)
+        {
+            foreach (Match match in upperSnakeLiteral.Matches(File.ReadAllText(file)))
+            {
+                var name = match.Groups[1].Value;
+                if (secretWords.Any(word => name.Contains(word, StringComparison.Ordinal)))
+                    offenders.Add($"{Path.GetFileName(file)}: {name}");
+            }
+        }
+
+        Assert.Empty(offenders);
+    }
+
+    // Slice 007 guard: the file walker silently skips a missing folder, so a moved project
+    // would make the scan above pass without scanning anything.
+    [Fact]
+    public void GeneratorProjectFolder_ExistsAndIsScanned()
+    {
+        var root = RepositoryRoot();
+        var projectFolder = Path.Combine("src", "AgenticChangeOps.ModelAccess");
+
+        Assert.True(Directory.Exists(Path.Combine(root, projectFolder)), $"{projectFolder} does not exist.");
+        Assert.Contains(
+            Files(root, projectFolder),
+            file => file.EndsWith(".cs", StringComparison.OrdinalIgnoreCase));
     }
 }

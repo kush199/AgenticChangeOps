@@ -1,8 +1,9 @@
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Services;
+using AgenticChangeOps.ModelAccess;
 
-namespace AgenticChangeOps.Intake.AzureOpenAI;
+namespace AgenticChangeOps.Agents.Requirement;
 
 /// <summary>
 /// Produces draft content by asking a language model. Generates content only: it never changes

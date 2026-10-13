@@ -3,6 +3,7 @@ using AgenticChangeOps.Api.Contracts;
 using AgenticChangeOps.Api.Errors;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Services;
+using AgenticChangeOps.Agents.Requirement;
 
 namespace AgenticChangeOps.Api.Endpoints;
 

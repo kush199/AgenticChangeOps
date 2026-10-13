@@ -1,11 +1,12 @@
-using AgenticChangeOps.Intake.AzureOpenAI;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Services;
 using AgenticChangeOps.Intake.Stores;
 using AgenticChangeOps.Intake.Tests.Fakes;
+using AgenticChangeOps.ModelAccess;
+using AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Unit;
 
 /// <summary>
 /// The real intake, store, validator and drafting service with the model-backed generator over

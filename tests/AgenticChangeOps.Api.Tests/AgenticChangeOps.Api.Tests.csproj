@@ -22,9 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\AgenticChangeOps.ModelAccess\AgenticChangeOps.ModelAccess.csproj" />
     <ProjectReference Include="..\..\src\AgenticChangeOps.Api\AgenticChangeOps.Api.csproj" />
     <ProjectReference Include="..\..\src\AgenticChangeOps.Intake\AgenticChangeOps.Intake.csproj" />
-    <ProjectReference Include="..\..\src\AgenticChangeOps.Intake.AzureOpenAI\AgenticChangeOps.Intake.AzureOpenAI.csproj" />
+    <ProjectReference Include="..\..\src\AgenticChangeOps.Agents.Requirement\AgenticChangeOps.Agents.Requirement.csproj" />
   </ItemGroup>
 
 </Project>

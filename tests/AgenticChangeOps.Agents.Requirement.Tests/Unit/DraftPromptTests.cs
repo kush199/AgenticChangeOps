@@ -1,9 +1,8 @@
 using System.Text.Json;
-using AgenticChangeOps.Intake.AzureOpenAI;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Unit;
 
 public class DraftPromptTests
 {

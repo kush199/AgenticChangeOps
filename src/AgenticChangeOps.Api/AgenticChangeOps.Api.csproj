@@ -8,7 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AgenticChangeOps.Intake\AgenticChangeOps.Intake.csproj" />
-    <ProjectReference Include="..\AgenticChangeOps.Intake.AzureOpenAI\AgenticChangeOps.Intake.AzureOpenAI.csproj" />
+    <ProjectReference Include="..\AgenticChangeOps.ModelAccess\AgenticChangeOps.ModelAccess.csproj" />
+    <ProjectReference Include="..\AgenticChangeOps.Agents.Requirement\AgenticChangeOps.Agents.Requirement.csproj" />
   </ItemGroup>
 
   <ItemGroup>

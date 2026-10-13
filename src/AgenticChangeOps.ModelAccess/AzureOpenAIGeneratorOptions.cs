@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace AgenticChangeOps.Intake.AzureOpenAI;
+namespace AgenticChangeOps.ModelAccess;
 
 /// <summary>
 /// Run-time settings for the model-backed generator. Endpoint and deployment name are required

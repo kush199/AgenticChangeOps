@@ -1,35 +1,13 @@
-using AgenticChangeOps.Intake.AzureOpenAI;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Tests.Fakes;
+using AgenticChangeOps.ModelAccess;
+using AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Unit;
 
 public class ModelFailureMapperTests
 {
-    [Fact]
-    public void RequestTimeoutStatus_IsTimedOut() =>
-        Assert.Equal(GenerationFailureCategory.TimedOut, ModelFailureMapper.FromError(408, null));
-
-    [Theory]
-    [InlineData(401)]
-    [InlineData(403)]
-    [InlineData(404)]
-    [InlineData(429)]
-    [InlineData(500)]
-    [InlineData(502)]
-    [InlineData(503)]
-    public void AuthThrottleAndServiceSideStatuses_AreUnreachable(int status) =>
-        Assert.Equal(GenerationFailureCategory.Unreachable, ModelFailureMapper.FromError(status, null));
-
-    [Fact]
-    public void ContentFilterBlock_IsMalformedOutput() =>
-        Assert.Equal(GenerationFailureCategory.MalformedOutput, ModelFailureMapper.FromError(400, "content_filter"));
-
-    [Fact]
-    public void TimeoutException_IsTimedOut() =>
-        Assert.Equal(GenerationFailureCategory.TimedOut, ModelFailureMapper.FromException(new TimeoutException()));
-
     // Local stand-ins named like the identity library's exceptions, so no cloud package is
     // needed to exercise the mapping.
     private sealed class CredentialUnavailableException(string message) : Exception(message);
@@ -62,14 +40,5 @@ public class ModelFailureMapperTests
         Assert.DoesNotContain("CredentialUnavailableException", ex.Message);
         Assert.DoesNotContain("AuthenticationFailedException", ex.Message);
         Assert.Null(ex.InnerException);
-    }
-
-    [Fact]
-    public void NetworkAndOtherExceptions_AreUnreachable()
-    {
-        Assert.Equal(GenerationFailureCategory.Unreachable,
-            ModelFailureMapper.FromException(new HttpRequestException("synthetic")));
-        Assert.Equal(GenerationFailureCategory.Unreachable,
-            ModelFailureMapper.FromException(new InvalidOperationException("synthetic")));
     }
 }

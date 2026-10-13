@@ -2,8 +2,9 @@ using AgenticChangeOps.Intake.Infrastructure;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Stores;
+using AgenticChangeOps.ModelAccess;
 
-namespace AgenticChangeOps.Intake.Services;
+namespace AgenticChangeOps.Agents.Requirement;
 
 public sealed class RequirementsDraftingService : IRequirementsDraftingService
 {

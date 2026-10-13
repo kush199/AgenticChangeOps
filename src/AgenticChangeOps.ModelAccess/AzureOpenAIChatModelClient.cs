@@ -2,11 +2,9 @@ using System.ClientModel;
 using System.ClientModel.Primitives;
 using Azure.AI.OpenAI;
 using Azure.Identity;
-using AgenticChangeOps.Intake.Models;
-using AgenticChangeOps.Intake.Models.Enums;
 using OpenAI.Chat;
 
-namespace AgenticChangeOps.Intake.AzureOpenAI;
+namespace AgenticChangeOps.ModelAccess;
 
 /// <summary>
 /// The only place that talks to the model service. Authenticates with the operator's cloud
@@ -26,7 +24,7 @@ public sealed class AzureOpenAIChatModelClient : IChatModelClient
 
         var clientOptions = new AzureOpenAIClientOptions
         {
-            // One attempt per draft request; the caller may simply ask again (FR-010).
+            // One attempt per model request; the caller may simply ask again.
             RetryPolicy = new ClientRetryPolicy(0)
         };
 

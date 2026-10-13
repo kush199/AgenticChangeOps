@@ -1,8 +1,9 @@
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Tests.Fakes;
 using Xunit;
+using AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
-namespace AgenticChangeOps.Intake.Tests.Unit;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Unit;
 
 public sealed class DraftEligibilityTests
 {
@@ -63,7 +64,7 @@ public sealed class DraftEligibilityTests
         _f.Generator.Behavior = (request, _) =>
         {
             _f.Store.Update(request with { Status = ChangeRequestStatus.Approved });
-            return Task.FromResult<Models.DraftContent?>(FakeDraftGenerator.ValidContent());
+            return Task.FromResult<DraftContent?>(FakeDraftGenerator.ValidContent());
         };
 
         var result = await _f.Drafting.DraftAsync(id);
@@ -76,7 +77,7 @@ public sealed class DraftEligibilityTests
 
         _f.SeedStatus(id, ChangeRequestStatus.Submitted);
         _f.Generator.Behavior = (_, _) =>
-            Task.FromResult<Models.DraftContent?>(FakeDraftGenerator.ValidContent());
+            Task.FromResult<DraftContent?>(FakeDraftGenerator.ValidContent());
         var retry = await _f.Drafting.DraftAsync(id);
 
         Assert.True(retry.IsSuccess);

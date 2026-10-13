@@ -1,6 +1,6 @@
 using AgenticChangeOps.Intake.Models;
 
-namespace AgenticChangeOps.Intake.Services;
+namespace AgenticChangeOps.Agents.Requirement;
 
 /// <summary>
 /// Produces draft content for a change request. Implementations generate content only; they

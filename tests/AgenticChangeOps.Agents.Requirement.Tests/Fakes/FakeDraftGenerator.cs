@@ -1,7 +1,7 @@
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Services;
 
-namespace AgenticChangeOps.Intake.Tests.Fakes;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
 /// <summary>
 /// Stand-in content generator: never calls a model. Behaviour is configurable per test and

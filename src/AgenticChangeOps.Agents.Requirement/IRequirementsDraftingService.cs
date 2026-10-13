@@ -1,6 +1,6 @@
 using AgenticChangeOps.Intake.Models;
 
-namespace AgenticChangeOps.Intake.Services;
+namespace AgenticChangeOps.Agents.Requirement;
 
 public interface IRequirementsDraftingService
 {

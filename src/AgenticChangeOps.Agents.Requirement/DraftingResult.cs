@@ -1,6 +1,8 @@
 using AgenticChangeOps.Intake.Models.Enums;
+using AgenticChangeOps.ModelAccess;
+using AgenticChangeOps.Intake.Models;
 
-namespace AgenticChangeOps.Intake.Models;
+namespace AgenticChangeOps.Agents.Requirement;
 
 public sealed class DraftingResult
 {

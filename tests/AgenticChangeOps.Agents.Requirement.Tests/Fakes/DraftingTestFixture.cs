@@ -1,9 +1,10 @@
+using AgenticChangeOps.Intake.Tests.Fakes;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Services;
 using AgenticChangeOps.Intake.Stores;
 
-namespace AgenticChangeOps.Intake.Tests.Fakes;
+namespace AgenticChangeOps.Agents.Requirement.Tests.Fakes;
 
 /// <summary>
 /// Wires one in-memory store, fake clock, counting id generator and fake draft generator into
