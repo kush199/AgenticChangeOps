@@ -1,0 +1,46 @@
+Baseline before slice 009 (branch feature/shared-agent-plumbing, commit a49108f, 2026-10-13), dotnet test AgenticChangeOps.sln
+
+AgenticChangeOps.Intake.Tests             Passed 112  Skipped 0   Total 112
+AgenticChangeOps.ModelAccess.Tests        Passed 62   Skipped 0   Total 62
+AgenticChangeOps.Agents.Requirement.Tests Passed 153  Skipped 1   Total 154  (live model check, opt-in)
+AgenticChangeOps.Agents.Architect.Tests   Passed 115  Skipped 1   Total 116  (live model check, opt-in)
+AgenticChangeOps.Api.Tests                Passed 134  Skipped 0   Total 134
+
+Total: 576 passed, 2 skipped, 0 failed.
+
+After adding the model-backed baseline (T004 to T008), still on unchanged src, commit a49108f plus new test files:
+AgenticChangeOps.Api.Tests                Passed 135  Skipped 0   Total 135  (+1: SharedPlumbingBaselineTests)
+Golden captured: tests/AgenticChangeOps.Api.Tests/Baseline/golden/shared-plumbing-transcript.txt
+  258 recorded responses, 86 model behaviours across both agents; stable on two re-runs; no sentinel in any response, header or log.
+
+After the extraction (T024 to T037), dotnet test AgenticChangeOps.sln, 0 warnings:
+AgenticChangeOps.Intake.Tests             Passed 112  Skipped 0   Total 112
+AgenticChangeOps.ModelAccess.Tests        Passed 152  Skipped 0   Total 152  (+90: shared pieces, stand-in agent, neutrality)
+AgenticChangeOps.Agents.Requirement.Tests Passed 158  Skipped 1   Total 159  (+5: shared-behaviour structure scan)
+AgenticChangeOps.Agents.Architect.Tests   Passed 120  Skipped 1   Total 121  (+5: shared-behaviour structure scan)
+AgenticChangeOps.Api.Tests                Passed 135  Skipped 0   Total 135  (+1: model-backed baseline, unchanged golden)
+
+Total: 677 passed, 2 skipped (the opt-in live checks, not run), 0 failed.
+Every test that passed before still passes; no existing test file or golden was edited.
+
+After convergence (T039 to T043), dotnet test AgenticChangeOps.sln, 0 warnings:
+AgenticChangeOps.Intake.Tests             Passed 112  Skipped 0   Total 112
+AgenticChangeOps.ModelAccess.Tests        Passed 152  Skipped 0   Total 152
+AgenticChangeOps.Agents.Requirement.Tests Passed 158  Skipped 1   Total 159
+AgenticChangeOps.Agents.Architect.Tests   Passed 120  Skipped 1   Total 121
+AgenticChangeOps.Api.Tests                Passed 137  Skipped 0   Total 137  (+2: DesignOperationsBaselineTests, CallerCancellationBaselineTests)
+
+Total: 679 passed, 2 skipped (the opt-in live checks, not run), 0 failed.
+New goldens design-operations-transcript.txt and caller-cancellation-transcript.txt were captured from
+commit a49108f (before the extraction, via a temporary worktree) and pass unchanged on the current code.
+
+After the second convergence pass (T044 to T045), dotnet test AgenticChangeOps.sln, 0 warnings:
+AgenticChangeOps.Intake.Tests             Passed 112  Skipped 0   Total 112
+AgenticChangeOps.ModelAccess.Tests        Passed 158  Skipped 0   Total 158  (+6: one scan over every agent folder, replacing the per-agent pair)
+AgenticChangeOps.Agents.Requirement.Tests Passed 153  Skipped 1   Total 154  (back to the pre-slice count)
+AgenticChangeOps.Agents.Architect.Tests   Passed 115  Skipped 1   Total 116  (back to the pre-slice count)
+AgenticChangeOps.Api.Tests                Passed 137  Skipped 0   Total 137
+
+Total: 675 passed, 2 skipped (the opt-in live checks, not run), 0 failed.
+Production duplication unchanged at 155 shared lines (was 240). Test duplication between the agents' test
+projects back at 545 (the pre-slice figure). git diff HEAD -- tests, *.csproj, *.sln shows no tracked change.

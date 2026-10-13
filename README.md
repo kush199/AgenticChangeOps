@@ -48,7 +48,8 @@ Requirement agent  (AgenticChangeOps.Agents.Requirement)   Architect agent  (Age
    │  drafting rules, prompt → one model call → parse → typed draft (each agent the same way)
    ▼
 Model access  (AgenticChangeOps.ModelAccess)
-                                   model seam, Azure OpenAI client, settings, failure mapping
+                                   model seam, Azure OpenAI client, settings, failure mapping,
+                                   and the shared model call, answer reading and section normalising
 ```
 
 Dependencies point one way: an agent depends on Intake and ModelAccess; Intake and ModelAccess
@@ -60,7 +61,7 @@ depend on no agent, and ModelAccess does not depend on Intake.
 src/
   AgenticChangeOps.Api/                 HTTP API (minimal API + Swagger); the composition root
   AgenticChangeOps.Intake/              change requests, approval gate, audit, in-memory store
-  AgenticChangeOps.ModelAccess/         agent-neutral model access: seam, Azure client, settings
+  AgenticChangeOps.ModelAccess/         agent-neutral model access: seam, Azure client, settings, shared call and parsing
   AgenticChangeOps.Agents.Requirement/  everything specific to the Requirement agent
   AgenticChangeOps.Agents.Architect/    everything specific to the Architect agent
 tests/
@@ -80,8 +81,9 @@ Requirement agent or to ModelAccess:
 
 1. Create `src/AgenticChangeOps.Agents.<Name>`, referencing `AgenticChangeOps.Intake` and
    `AgenticChangeOps.ModelAccess` (never another agent). Put the agent's records, validation,
-   service, interface, prompt, parser, generator and its output type (implementing
-   `IAgentOutput`) there.
+   service, interface, prompt, section names and generator and its output type (implementing
+   `IAgentOutput`) there. Use `ModelCaller`, `ModelAnswerReader` and `SectionNormaliser` from
+   ModelAccess for the model call, answer reading and list/text limits instead of copying them.
 2. Create `tests/AgenticChangeOps.Agents.<Name>.Tests` and add both projects to the solution.
 3. Reference the new project from `AgenticChangeOps.Api` and register its services in
    `Composition/ApiServiceRegistration.cs`, the one place allowed to know every agent.
@@ -98,6 +100,7 @@ in the solution, and an agent project references only Intake and ModelAccess.
 | HTTP API | `specs/005-web-api` |
 | Organise agent code by agent | `specs/007-organise-by-agent` |
 | Architect design drafting | `specs/008-architect-design-drafting` |
+| Shared agent plumbing | `specs/009-shared-agent-plumbing` |
 
 ## Getting started
 

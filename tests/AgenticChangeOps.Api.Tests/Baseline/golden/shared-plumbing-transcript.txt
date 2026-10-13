@@ -1,0 +1,5125 @@
+### Requirement valid bare object: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-1>/drafts/latest
+body: 
+{
+  "draftId": "<id-2>",
+  "changeRequestId": "<id-1>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid bare object: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-2>",
+  "changeRequestId": "<id-1>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid bare object: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-3>",
+    "changeRequestId": "<id-1>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-4>",
+    "changeRequestId": "<id-1>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement valid padded and blank items: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-5>/drafts/latest
+body: 
+{
+  "draftId": "<id-6>",
+  "changeRequestId": "<id-5>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "padded text",
+  "functionalRequirements": [
+    "first item",
+    "second item"
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid padded and blank items: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-6>",
+  "changeRequestId": "<id-5>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "padded text",
+  "functionalRequirements": [
+    "first item",
+    "second item"
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid padded and blank items: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-7>",
+    "changeRequestId": "<id-5>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-8>",
+    "changeRequestId": "<id-5>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement valid fence unlabelled: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-9>/drafts/latest
+body: 
+{
+  "draftId": "<id-10>",
+  "changeRequestId": "<id-9>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid fence unlabelled: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-10>",
+  "changeRequestId": "<id-9>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid fence unlabelled: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-11>",
+    "changeRequestId": "<id-9>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-12>",
+    "changeRequestId": "<id-9>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement valid fence json: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-13>/drafts/latest
+body: 
+{
+  "draftId": "<id-14>",
+  "changeRequestId": "<id-13>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid fence json: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-14>",
+  "changeRequestId": "<id-13>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid fence json: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-15>",
+    "changeRequestId": "<id-13>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-16>",
+    "changeRequestId": "<id-13>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement valid fence JSON upper: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-17>/drafts/latest
+body: 
+{
+  "draftId": "<id-18>",
+  "changeRequestId": "<id-17>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid fence JSON upper: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-18>",
+  "changeRequestId": "<id-17>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement valid fence JSON upper: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-19>",
+    "changeRequestId": "<id-17>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-20>",
+    "changeRequestId": "<id-17>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement fence other label: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement fence other label: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement fence other label: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-21>",
+    "changeRequestId": "<id-22>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement fence unterminated: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement fence unterminated: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement fence unterminated: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-23>",
+    "changeRequestId": "<id-24>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement fence inner fence: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement fence inner fence: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement fence inner fence: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-25>",
+    "changeRequestId": "<id-26>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement fence no newline: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement fence no newline: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement fence no newline: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-27>",
+    "changeRequestId": "<id-28>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement root array: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement root array: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement root array: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-29>",
+    "changeRequestId": "<id-30>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement root string: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement root string: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement root string: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-31>",
+    "changeRequestId": "<id-32>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement not json: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement not json: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement not json: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-33>",
+    "changeRequestId": "<id-34>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement plain prose: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement plain prose: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement plain prose: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-35>",
+    "changeRequestId": "<id-36>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement missing key: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement missing key: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement missing key: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-37>",
+    "changeRequestId": "<id-38>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement text value is number: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement text value is number: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement text value is number: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-39>",
+    "changeRequestId": "<id-40>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement text value is null: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement text value is null: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement text value is null: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-41>",
+    "changeRequestId": "<id-42>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement list is string: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement list is string: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement list is string: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-43>",
+    "changeRequestId": "<id-44>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement list item is number: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement list item is number: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement list item is number: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-45>",
+    "changeRequestId": "<id-46>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement list item is null: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement list item is null: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement list item is null: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-47>",
+    "changeRequestId": "<id-48>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement required text blank: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement required text blank: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement required text blank: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-49>",
+    "changeRequestId": "<id-50>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement required text empty: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement required text empty: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement required text empty: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-51>",
+    "changeRequestId": "<id-52>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement required list empty: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement required list empty: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement required list empty: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-53>",
+    "changeRequestId": "<id-54>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement required list only blanks: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement required list only blanks: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement required list only blanks: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-55>",
+    "changeRequestId": "<id-56>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement optional list empty is accepted: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-57>/drafts/latest
+body: 
+{
+  "draftId": "<id-58>",
+  "changeRequestId": "<id-57>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": []
+}
+
+### Requirement optional list empty is accepted: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-58>",
+  "changeRequestId": "<id-57>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": []
+}
+
+### Requirement optional list empty is accepted: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-59>",
+    "changeRequestId": "<id-57>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-60>",
+    "changeRequestId": "<id-57>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement list over item limit: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement list over item limit: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement list over item limit: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-61>",
+    "changeRequestId": "<id-62>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement list at item limit: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-63>/drafts/latest
+body: 
+{
+  "draftId": "<id-64>",
+  "changeRequestId": "<id-63>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "item 1",
+    "item 2",
+    "item 3",
+    "item 4",
+    "item 5",
+    "item 6",
+    "item 7",
+    "item 8",
+    "item 9",
+    "item 10",
+    "item 11",
+    "item 12",
+    "item 13",
+    "item 14",
+    "item 15",
+    "item 16",
+    "item 17",
+    "item 18",
+    "item 19",
+    "item 20",
+    "item 21",
+    "item 22",
+    "item 23",
+    "item 24",
+    "item 25",
+    "item 26",
+    "item 27",
+    "item 28",
+    "item 29",
+    "item 30",
+    "item 31",
+    "item 32",
+    "item 33",
+    "item 34",
+    "item 35",
+    "item 36",
+    "item 37",
+    "item 38",
+    "item 39",
+    "item 40",
+    "item 41",
+    "item 42",
+    "item 43",
+    "item 44",
+    "item 45",
+    "item 46",
+    "item 47",
+    "item 48",
+    "item 49",
+    "item 50"
+  ]
+}
+
+### Requirement list at item limit: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-64>",
+  "changeRequestId": "<id-63>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "item 1",
+    "item 2",
+    "item 3",
+    "item 4",
+    "item 5",
+    "item 6",
+    "item 7",
+    "item 8",
+    "item 9",
+    "item 10",
+    "item 11",
+    "item 12",
+    "item 13",
+    "item 14",
+    "item 15",
+    "item 16",
+    "item 17",
+    "item 18",
+    "item 19",
+    "item 20",
+    "item 21",
+    "item 22",
+    "item 23",
+    "item 24",
+    "item 25",
+    "item 26",
+    "item 27",
+    "item 28",
+    "item 29",
+    "item 30",
+    "item 31",
+    "item 32",
+    "item 33",
+    "item 34",
+    "item 35",
+    "item 36",
+    "item 37",
+    "item 38",
+    "item 39",
+    "item 40",
+    "item 41",
+    "item 42",
+    "item 43",
+    "item 44",
+    "item 45",
+    "item 46",
+    "item 47",
+    "item 48",
+    "item 49",
+    "item 50"
+  ]
+}
+
+### Requirement list at item limit: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-65>",
+    "changeRequestId": "<id-63>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-66>",
+    "changeRequestId": "<id-63>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement item over length: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement item over length: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement item over length: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-67>",
+    "changeRequestId": "<id-68>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement item at length: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-69>/drafts/latest
+body: 
+{
+  "draftId": "<id-70>",
+  "changeRequestId": "<id-69>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  ]
+}
+
+### Requirement item at length: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-70>",
+  "changeRequestId": "<id-69>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  ]
+}
+
+### Requirement item at length: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-71>",
+    "changeRequestId": "<id-69>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-72>",
+    "changeRequestId": "<id-69>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement text over length: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement text over length: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement text over length: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-73>",
+    "changeRequestId": "<id-74>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement text at length: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-75>/drafts/latest
+body: 
+{
+  "draftId": "<id-76>",
+  "changeRequestId": "<id-75>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement text at length: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-76>",
+  "changeRequestId": "<id-75>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement text at length: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-77>",
+    "changeRequestId": "<id-75>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-78>",
+    "changeRequestId": "<id-75>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement answer cut off: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "ResponseTooLarge"
+}
+
+### Requirement answer cut off: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement answer cut off: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-79>",
+    "changeRequestId": "<id-80>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement answer empty: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement answer empty: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement answer empty: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-81>",
+    "changeRequestId": "<id-82>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement answer whitespace: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement answer whitespace: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement answer whitespace: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-83>",
+    "changeRequestId": "<id-84>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement client category Unreachable: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "Unreachable"
+}
+
+### Requirement client category Unreachable: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client category Unreachable: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-85>",
+    "changeRequestId": "<id-86>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement client category TimedOut: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "TimedOut"
+}
+
+### Requirement client category TimedOut: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client category TimedOut: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-87>",
+    "changeRequestId": "<id-88>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement client category ResponseTooLarge: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "ResponseTooLarge"
+}
+
+### Requirement client category ResponseTooLarge: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client category ResponseTooLarge: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-89>",
+    "changeRequestId": "<id-90>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement client category MalformedOutput: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Requirement client category MalformedOutput: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client category MalformedOutput: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-91>",
+    "changeRequestId": "<id-92>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement client arbitrary exception: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "Unreachable"
+}
+
+### Requirement client arbitrary exception: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client arbitrary exception: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-93>",
+    "changeRequestId": "<id-94>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement client timeout exception: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "TimedOut"
+}
+
+### Requirement client timeout exception: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client timeout exception: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-95>",
+    "changeRequestId": "<id-96>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement client http-like exception: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "Unreachable"
+}
+
+### Requirement client http-like exception: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client http-like exception: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-97>",
+    "changeRequestId": "<id-98>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement time limit expires: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "TimedOut"
+}
+
+### Requirement time limit expires: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement time limit expires: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-99>",
+    "changeRequestId": "<id-100>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement answer at size limit: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-101>/drafts/latest
+body: 
+{
+  "draftId": "<id-102>",
+  "changeRequestId": "<id-101>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement answer at size limit: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-102>",
+  "changeRequestId": "<id-101>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Move the sample report job to a quieter window.",
+  "functionalRequirements": [
+    "The job runs at the new time."
+  ],
+  "acceptanceCriteria": [
+    "The report arrives inside the window."
+  ],
+  "assumptions": [
+    "No other batch jobs compete."
+  ],
+  "openQuestions": [
+    "Do weekends differ?"
+  ]
+}
+
+### Requirement answer at size limit: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-103>",
+    "changeRequestId": "<id-101>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-104>",
+    "changeRequestId": "<id-101>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  }
+]
+
+### Requirement answer over size limit: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "ResponseTooLarge"
+}
+
+### Requirement answer over size limit: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement answer over size limit: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-105>",
+    "changeRequestId": "<id-106>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect valid bare object: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-107>/designs/latest
+body: 
+{
+  "designId": "<id-108>",
+  "changeRequestId": "<id-107>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid bare object: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-108>",
+  "changeRequestId": "<id-107>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid bare object: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-109>",
+    "changeRequestId": "<id-107>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-110>",
+    "changeRequestId": "<id-107>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-111>",
+    "changeRequestId": "<id-107>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect valid padded and blank items: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-112>/designs/latest
+body: 
+{
+  "designId": "<id-113>",
+  "changeRequestId": "<id-112>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "padded text",
+  "affectedComponents": [
+    "first item",
+    "second item"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid padded and blank items: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-113>",
+  "changeRequestId": "<id-112>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "padded text",
+  "affectedComponents": [
+    "first item",
+    "second item"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid padded and blank items: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-114>",
+    "changeRequestId": "<id-112>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-115>",
+    "changeRequestId": "<id-112>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-116>",
+    "changeRequestId": "<id-112>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect valid fence unlabelled: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-117>/designs/latest
+body: 
+{
+  "designId": "<id-118>",
+  "changeRequestId": "<id-117>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid fence unlabelled: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-118>",
+  "changeRequestId": "<id-117>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid fence unlabelled: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-119>",
+    "changeRequestId": "<id-117>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-120>",
+    "changeRequestId": "<id-117>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-121>",
+    "changeRequestId": "<id-117>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect valid fence json: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-122>/designs/latest
+body: 
+{
+  "designId": "<id-123>",
+  "changeRequestId": "<id-122>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid fence json: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-123>",
+  "changeRequestId": "<id-122>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid fence json: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-124>",
+    "changeRequestId": "<id-122>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-125>",
+    "changeRequestId": "<id-122>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-126>",
+    "changeRequestId": "<id-122>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect valid fence JSON upper: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-127>/designs/latest
+body: 
+{
+  "designId": "<id-128>",
+  "changeRequestId": "<id-127>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid fence JSON upper: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-128>",
+  "changeRequestId": "<id-127>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect valid fence JSON upper: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-129>",
+    "changeRequestId": "<id-127>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-130>",
+    "changeRequestId": "<id-127>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-131>",
+    "changeRequestId": "<id-127>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect fence other label: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect fence other label: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect fence other label: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-132>",
+    "changeRequestId": "<id-133>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-134>",
+    "changeRequestId": "<id-133>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect fence unterminated: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect fence unterminated: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect fence unterminated: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-135>",
+    "changeRequestId": "<id-136>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-137>",
+    "changeRequestId": "<id-136>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect fence inner fence: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect fence inner fence: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect fence inner fence: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-138>",
+    "changeRequestId": "<id-139>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-140>",
+    "changeRequestId": "<id-139>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect fence no newline: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect fence no newline: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect fence no newline: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-141>",
+    "changeRequestId": "<id-142>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-143>",
+    "changeRequestId": "<id-142>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect root array: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect root array: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect root array: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-144>",
+    "changeRequestId": "<id-145>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-146>",
+    "changeRequestId": "<id-145>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect root string: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect root string: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect root string: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-147>",
+    "changeRequestId": "<id-148>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-149>",
+    "changeRequestId": "<id-148>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect not json: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect not json: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect not json: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-150>",
+    "changeRequestId": "<id-151>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-152>",
+    "changeRequestId": "<id-151>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect plain prose: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect plain prose: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect plain prose: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-153>",
+    "changeRequestId": "<id-154>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-155>",
+    "changeRequestId": "<id-154>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect missing key: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect missing key: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect missing key: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-156>",
+    "changeRequestId": "<id-157>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-158>",
+    "changeRequestId": "<id-157>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect text value is number: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect text value is number: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect text value is number: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-159>",
+    "changeRequestId": "<id-160>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-161>",
+    "changeRequestId": "<id-160>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect text value is null: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect text value is null: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect text value is null: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-162>",
+    "changeRequestId": "<id-163>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-164>",
+    "changeRequestId": "<id-163>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect list is string: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect list is string: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect list is string: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-165>",
+    "changeRequestId": "<id-166>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-167>",
+    "changeRequestId": "<id-166>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect list item is number: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect list item is number: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect list item is number: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-168>",
+    "changeRequestId": "<id-169>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-170>",
+    "changeRequestId": "<id-169>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect list item is null: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect list item is null: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect list item is null: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-171>",
+    "changeRequestId": "<id-172>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-173>",
+    "changeRequestId": "<id-172>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect required text blank: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect required text blank: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect required text blank: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-174>",
+    "changeRequestId": "<id-175>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-176>",
+    "changeRequestId": "<id-175>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect required text empty: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect required text empty: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect required text empty: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-177>",
+    "changeRequestId": "<id-178>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-179>",
+    "changeRequestId": "<id-178>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect required list empty: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect required list empty: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect required list empty: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-180>",
+    "changeRequestId": "<id-181>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-182>",
+    "changeRequestId": "<id-181>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect required list only blanks: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect required list only blanks: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect required list only blanks: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-183>",
+    "changeRequestId": "<id-184>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-185>",
+    "changeRequestId": "<id-184>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect optional list empty is accepted: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-186>/designs/latest
+body: 
+{
+  "designId": "<id-187>",
+  "changeRequestId": "<id-186>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": []
+}
+
+### Architect optional list empty is accepted: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-187>",
+  "changeRequestId": "<id-186>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": []
+}
+
+### Architect optional list empty is accepted: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-188>",
+    "changeRequestId": "<id-186>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-189>",
+    "changeRequestId": "<id-186>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-190>",
+    "changeRequestId": "<id-186>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect list over item limit: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect list over item limit: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect list over item limit: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-191>",
+    "changeRequestId": "<id-192>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-193>",
+    "changeRequestId": "<id-192>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect list at item limit: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-194>/designs/latest
+body: 
+{
+  "designId": "<id-195>",
+  "changeRequestId": "<id-194>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "item 1",
+    "item 2",
+    "item 3",
+    "item 4",
+    "item 5",
+    "item 6",
+    "item 7",
+    "item 8",
+    "item 9",
+    "item 10",
+    "item 11",
+    "item 12",
+    "item 13",
+    "item 14",
+    "item 15",
+    "item 16",
+    "item 17",
+    "item 18",
+    "item 19",
+    "item 20",
+    "item 21",
+    "item 22",
+    "item 23",
+    "item 24",
+    "item 25",
+    "item 26",
+    "item 27",
+    "item 28",
+    "item 29",
+    "item 30",
+    "item 31",
+    "item 32",
+    "item 33",
+    "item 34",
+    "item 35",
+    "item 36",
+    "item 37",
+    "item 38",
+    "item 39",
+    "item 40",
+    "item 41",
+    "item 42",
+    "item 43",
+    "item 44",
+    "item 45",
+    "item 46",
+    "item 47",
+    "item 48",
+    "item 49",
+    "item 50"
+  ]
+}
+
+### Architect list at item limit: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-195>",
+  "changeRequestId": "<id-194>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "item 1",
+    "item 2",
+    "item 3",
+    "item 4",
+    "item 5",
+    "item 6",
+    "item 7",
+    "item 8",
+    "item 9",
+    "item 10",
+    "item 11",
+    "item 12",
+    "item 13",
+    "item 14",
+    "item 15",
+    "item 16",
+    "item 17",
+    "item 18",
+    "item 19",
+    "item 20",
+    "item 21",
+    "item 22",
+    "item 23",
+    "item 24",
+    "item 25",
+    "item 26",
+    "item 27",
+    "item 28",
+    "item 29",
+    "item 30",
+    "item 31",
+    "item 32",
+    "item 33",
+    "item 34",
+    "item 35",
+    "item 36",
+    "item 37",
+    "item 38",
+    "item 39",
+    "item 40",
+    "item 41",
+    "item 42",
+    "item 43",
+    "item 44",
+    "item 45",
+    "item 46",
+    "item 47",
+    "item 48",
+    "item 49",
+    "item 50"
+  ]
+}
+
+### Architect list at item limit: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-196>",
+    "changeRequestId": "<id-194>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-197>",
+    "changeRequestId": "<id-194>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-198>",
+    "changeRequestId": "<id-194>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect item over length: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect item over length: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect item over length: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-199>",
+    "changeRequestId": "<id-200>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-201>",
+    "changeRequestId": "<id-200>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect item at length: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-202>/designs/latest
+body: 
+{
+  "designId": "<id-203>",
+  "changeRequestId": "<id-202>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  ]
+}
+
+### Architect item at length: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-203>",
+  "changeRequestId": "<id-202>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  ]
+}
+
+### Architect item at length: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-204>",
+    "changeRequestId": "<id-202>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-205>",
+    "changeRequestId": "<id-202>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-206>",
+    "changeRequestId": "<id-202>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect text over length: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect text over length: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect text over length: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-207>",
+    "changeRequestId": "<id-208>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-209>",
+    "changeRequestId": "<id-208>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect text at length: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-210>/designs/latest
+body: 
+{
+  "designId": "<id-211>",
+  "changeRequestId": "<id-210>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect text at length: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-211>",
+  "changeRequestId": "<id-210>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect text at length: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-212>",
+    "changeRequestId": "<id-210>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-213>",
+    "changeRequestId": "<id-210>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-214>",
+    "changeRequestId": "<id-210>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect answer cut off: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "ResponseTooLarge"
+}
+
+### Architect answer cut off: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect answer cut off: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-215>",
+    "changeRequestId": "<id-216>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-217>",
+    "changeRequestId": "<id-216>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect answer empty: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect answer empty: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect answer empty: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-218>",
+    "changeRequestId": "<id-219>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-220>",
+    "changeRequestId": "<id-219>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect answer whitespace: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect answer whitespace: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect answer whitespace: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-221>",
+    "changeRequestId": "<id-222>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-223>",
+    "changeRequestId": "<id-222>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client category Unreachable: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "Unreachable"
+}
+
+### Architect client category Unreachable: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client category Unreachable: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-224>",
+    "changeRequestId": "<id-225>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-226>",
+    "changeRequestId": "<id-225>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client category TimedOut: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "TimedOut"
+}
+
+### Architect client category TimedOut: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client category TimedOut: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-227>",
+    "changeRequestId": "<id-228>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-229>",
+    "changeRequestId": "<id-228>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client category ResponseTooLarge: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "ResponseTooLarge"
+}
+
+### Architect client category ResponseTooLarge: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client category ResponseTooLarge: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-230>",
+    "changeRequestId": "<id-231>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-232>",
+    "changeRequestId": "<id-231>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client category MalformedOutput: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### Architect client category MalformedOutput: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client category MalformedOutput: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-233>",
+    "changeRequestId": "<id-234>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-235>",
+    "changeRequestId": "<id-234>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client arbitrary exception: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "Unreachable"
+}
+
+### Architect client arbitrary exception: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client arbitrary exception: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-236>",
+    "changeRequestId": "<id-237>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-238>",
+    "changeRequestId": "<id-237>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client timeout exception: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "TimedOut"
+}
+
+### Architect client timeout exception: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client timeout exception: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-239>",
+    "changeRequestId": "<id-240>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-241>",
+    "changeRequestId": "<id-240>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client http-like exception: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "Unreachable"
+}
+
+### Architect client http-like exception: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client http-like exception: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-242>",
+    "changeRequestId": "<id-243>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-244>",
+    "changeRequestId": "<id-243>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect time limit expires: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "TimedOut"
+}
+
+### Architect time limit expires: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect time limit expires: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-245>",
+    "changeRequestId": "<id-246>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-247>",
+    "changeRequestId": "<id-246>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect answer at size limit: post
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-248>/designs/latest
+body: 
+{
+  "designId": "<id-249>",
+  "changeRequestId": "<id-248>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect answer at size limit: latest
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-249>",
+  "changeRequestId": "<id-248>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Change the schedule entry of the sample job only.",
+  "affectedComponents": [
+    "Sample scheduler configuration"
+  ],
+  "impactAndRisks": [
+    "Reports arrive later."
+  ],
+  "dependencies": [
+    "Import finishes first."
+  ],
+  "rollbackConsiderations": [
+    "Restore the old entry."
+  ],
+  "openQuestions": [
+    "Who confirms the window?"
+  ]
+}
+
+### Architect answer at size limit: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-250>",
+    "changeRequestId": "<id-248>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-251>",
+    "changeRequestId": "<id-248>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-252>",
+    "changeRequestId": "<id-248>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  }
+]
+
+### Architect answer over size limit: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "ResponseTooLarge"
+}
+
+### Architect answer over size limit: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect answer over size limit: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-253>",
+    "changeRequestId": "<id-254>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-255>",
+    "changeRequestId": "<id-254>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
