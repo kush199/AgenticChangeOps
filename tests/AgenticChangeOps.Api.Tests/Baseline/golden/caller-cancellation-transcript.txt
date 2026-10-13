@@ -1,0 +1,75 @@
+Requirement caller cancels mid-call: client cancelled, no response
+
+Architect caller cancels mid-call: client cancelled, no response
+
+### Requirement latest after cancellation
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement audit after cancellation
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-1>",
+    "changeRequestId": "<id-2>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect latest after cancellation
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect audit after cancellation
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-3>",
+    "changeRequestId": "<id-4>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-5>",
+    "changeRequestId": "<id-4>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+

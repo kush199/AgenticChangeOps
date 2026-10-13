@@ -1,0 +1,412 @@
+### design unknown id
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### latest design unknown id
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### design history unknown id
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### design invalid id
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### latest design invalid id
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### design history invalid id
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### design submitted request
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "Status",
+      "message": "Change request <id-1> is in status Submitted and cannot be designed; only Approved requests can be designed."
+    }
+  ]
+}
+
+### design deferred request
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "Status",
+      "message": "Change request <id-2> is in status Deferred and cannot be designed; only Approved requests can be designed."
+    }
+  ]
+}
+
+### design rejected request
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "Status",
+      "message": "Change request <id-3> is in status Rejected and cannot be designed; only Approved requests can be designed."
+    }
+  ]
+}
+
+### design approved no requirements draft
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "RequirementsDraft",
+      "message": "Change request <id-4> has no requirements draft; a requirements draft is required before a design can be drafted."
+    }
+  ]
+}
+
+### latest design after refusal
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### audit after refusal
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-5>",
+    "changeRequestId": "<id-4>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-6>",
+    "changeRequestId": "<id-4>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### latest design before any
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### design history before any
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### design first
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-7>/designs/latest
+body: 
+{
+  "designId": "<id-8>",
+  "changeRequestId": "<id-7>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Shorten the sample catalogue cache lifetime through configuration only.",
+  "affectedComponents": [
+    "Sample catalogue cache settings"
+  ],
+  "impactAndRisks": [
+    "Briefly higher load on the catalogue store after the change."
+  ],
+  "dependencies": [
+    "Catalogue store capacity"
+  ],
+  "rollbackConsiderations": [
+    "Restore the previous lifetime value."
+  ],
+  "openQuestions": [
+    "Should the lifetime differ per environment?"
+  ]
+}
+
+### design second
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-7>/designs/latest
+body: 
+{
+  "designId": "<id-9>",
+  "changeRequestId": "<id-7>",
+  "version": 2,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Shorten the sample catalogue cache lifetime through configuration only.",
+  "affectedComponents": [
+    "Sample catalogue cache settings"
+  ],
+  "impactAndRisks": [
+    "Briefly higher load on the catalogue store after the change."
+  ],
+  "dependencies": [
+    "Catalogue store capacity"
+  ],
+  "rollbackConsiderations": [
+    "Restore the previous lifetime value."
+  ],
+  "openQuestions": [
+    "Should the lifetime differ per environment?"
+  ]
+}
+
+### latest design
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "designId": "<id-9>",
+  "changeRequestId": "<id-7>",
+  "version": 2,
+  "requirementsVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "ArchitectAgent",
+  "approachSummary": "Shorten the sample catalogue cache lifetime through configuration only.",
+  "affectedComponents": [
+    "Sample catalogue cache settings"
+  ],
+  "impactAndRisks": [
+    "Briefly higher load on the catalogue store after the change."
+  ],
+  "dependencies": [
+    "Catalogue store capacity"
+  ],
+  "rollbackConsiderations": [
+    "Restore the previous lifetime value."
+  ],
+  "openQuestions": [
+    "Should the lifetime differ per environment?"
+  ]
+}
+
+### design history
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "designId": "<id-8>",
+    "changeRequestId": "<id-7>",
+    "version": 1,
+    "requirementsVersion": 1,
+    "generatedAt": "<timestamp>",
+    "status": "Draft",
+    "agentName": "ArchitectAgent",
+    "approachSummary": "Shorten the sample catalogue cache lifetime through configuration only.",
+    "affectedComponents": [
+      "Sample catalogue cache settings"
+    ],
+    "impactAndRisks": [
+      "Briefly higher load on the catalogue store after the change."
+    ],
+    "dependencies": [
+      "Catalogue store capacity"
+    ],
+    "rollbackConsiderations": [
+      "Restore the previous lifetime value."
+    ],
+    "openQuestions": [
+      "Should the lifetime differ per environment?"
+    ]
+  },
+  {
+    "designId": "<id-9>",
+    "changeRequestId": "<id-7>",
+    "version": 2,
+    "requirementsVersion": 1,
+    "generatedAt": "<timestamp>",
+    "status": "Draft",
+    "agentName": "ArchitectAgent",
+    "approachSummary": "Shorten the sample catalogue cache lifetime through configuration only.",
+    "affectedComponents": [
+      "Sample catalogue cache settings"
+    ],
+    "impactAndRisks": [
+      "Briefly higher load on the catalogue store after the change."
+    ],
+    "dependencies": [
+      "Catalogue store capacity"
+    ],
+    "rollbackConsiderations": [
+      "Restore the previous lifetime value."
+    ],
+    "openQuestions": [
+      "Should the lifetime differ per environment?"
+    ]
+  }
+]
+
+### audit after designing
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-10>",
+    "changeRequestId": "<id-7>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-11>",
+    "changeRequestId": "<id-7>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-12>",
+    "changeRequestId": "<id-7>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  },
+  {
+    "auditEntryId": "<id-13>",
+    "changeRequestId": "<id-7>",
+    "eventType": "DesignGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 2
+  }
+]
+
+### not configured design
+status: 503 ServiceUnavailable
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "design-not-configured",
+  "message": "Design drafting is not configured on this server."
+}
+
+### not configured design invalid id
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### not configured latest design
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### not configured design history
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
