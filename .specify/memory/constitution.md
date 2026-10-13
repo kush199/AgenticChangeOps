@@ -109,6 +109,11 @@ separately in acceptance/smoke tests.
   MUST be approved before any new agent is implemented.
 - Framework abstractions, shared utilities, and helper classes MUST only be introduced when
   used by at least two existing callers. No speculative generalization.
+- Code that already exists and is relocated, or separated by a slice's own structural rules, is
+  not "introduced" for the purposes of this rule, provided the slice adds no behaviour. A generic
+  extension point that replaces an existing agent-specific member one-for-one, so that a
+  capability no longer depends on an agent, is likewise not speculative; it MUST be recorded in
+  the slice's Complexity Tracking.
 
 **Rationale**: Complex multi-agent topologies are hard to reason about, test, and maintain.
 Four well-scoped agents cover the full change-management lifecycle; additional agents
@@ -165,4 +170,4 @@ Commit messages MUST reference the change request ID or slice name.
 - This constitution does not expire, but SHOULD be reviewed whenever a major new capability
   or agent is proposed.
 
-**Version**: 1.0.1 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-11
+**Version**: 1.0.2 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-13
