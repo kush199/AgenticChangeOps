@@ -143,7 +143,7 @@
 
 - [X] T036 Update `README.md` only if it describes the model call, parser or validator as agent-owned (check with a search for `ResponseParser` and `ModelAccess`); keep any change to a sentence or two.
 - [X] T037 Update the slice status in `spec.md` from Draft to Implemented, tick the compliance box in the PR description draft, and re-run `dotnet build AgenticChangeOps.sln` and `dotnet test AgenticChangeOps.sln` one last time with the totals in `baseline-tests.txt`.
-- [ ] T038 [USER] Push `feature/shared-agent-plumbing` and open a PR with the standard PR attribution line. Claude drafts the description (summary, before and after figures, the verification list, a note that the live check was not run); the user confirms before anything is pushed.
+- [X] T038 [USER] Push `feature/shared-agent-plumbing` and open a PR with the standard PR attribution line. Claude drafts the description (summary, before and after figures, the verification list, a note that the live check was not run); the user confirms before anything is pushed.
 
 ---
 
