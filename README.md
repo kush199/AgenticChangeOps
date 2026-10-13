@@ -40,25 +40,51 @@ HTTP client
    ▼
 Api  (AgenticChangeOps.Api)        endpoints, JSON errors, Swagger
    ▼
-Intake  (AgenticChangeOps.Intake)  validation, approval rules, drafting rules, audit, store
+Intake  (AgenticChangeOps.Intake)  validation, approval rules, audit, store
+   │                               knows no agent; stores agent output through one generic point
    ▼
-IRequirementsDraftGenerator ──► AzureOpenAI  (AgenticChangeOps.Intake.AzureOpenAI)
-                                 prompt → one model call → parse → typed draft
+Requirement agent  (AgenticChangeOps.Agents.Requirement)
+   │  drafting rules, prompt → one model call → parse → typed draft
+   ▼
+Model access  (AgenticChangeOps.ModelAccess)
+                                   model seam, Azure OpenAI client, settings, failure mapping
 ```
+
+Dependencies point one way: an agent depends on Intake and ModelAccess; Intake and ModelAccess
+depend on no agent, and ModelAccess does not depend on Intake.
 
 ## Repository layout
 
 ```
 src/
-  AgenticChangeOps.Api/                 HTTP API (minimal API + Swagger)
-  AgenticChangeOps.Intake/              domain models, services, in-memory store
-  AgenticChangeOps.Intake.AzureOpenAI/  model-backed draft generator
+  AgenticChangeOps.Api/                 HTTP API (minimal API + Swagger); the composition root
+  AgenticChangeOps.Intake/              change requests, approval gate, audit, in-memory store
+  AgenticChangeOps.ModelAccess/         agent-neutral model access: seam, Azure client, settings
+  AgenticChangeOps.Agents.Requirement/  everything specific to the Requirement agent
 tests/
-  AgenticChangeOps.Api.Tests/
-  AgenticChangeOps.Intake.Tests/
+  AgenticChangeOps.Api.Tests/                  HTTP behaviour, recorded baseline of responses
+  AgenticChangeOps.Intake.Tests/               intake and approval, no agent or model references
+  AgenticChangeOps.ModelAccess.Tests/          settings, failure mapping, hygiene and neutrality checks
+  AgenticChangeOps.Agents.Requirement.Tests/   drafting, validation, prompt, parser, generator
 specs/                                  one folder per slice: spec, plan, tasks, contracts
 .specify/                               Spec Kit templates, scripts and the constitution
 ```
+
+### Adding an agent
+
+Each agent is one project beside the Requirement agent. Adding one needs no edit to the
+Requirement agent or to ModelAccess:
+
+1. Create `src/AgenticChangeOps.Agents.<Name>`, referencing `AgenticChangeOps.Intake` and
+   `AgenticChangeOps.ModelAccess` (never another agent). Put the agent's records, validation,
+   service, interface, prompt, parser, generator and its output type (implementing
+   `IAgentOutput`) there.
+2. Create `tests/AgenticChangeOps.Agents.<Name>.Tests` and add both projects to the solution.
+3. Reference the new project from `AgenticChangeOps.Api` and register its services in
+   `Composition/ApiServiceRegistration.cs`, the one place allowed to know every agent.
+
+Rules checked by tests: Intake and ModelAccess name no agent, ModelAccess depends on nothing
+in the solution, and an agent project references only Intake and ModelAccess.
 
 | Slice | Folder |
 |---|---|
@@ -67,6 +93,7 @@ specs/                                  one folder per slice: spec, plan, tasks,
 | Requirements drafting | `specs/003-requirement-drafting` |
 | Model-backed draft generator | `specs/004-model-draft-generator` |
 | HTTP API | `specs/005-web-api` |
+| Organise agent code by agent | `specs/007-organise-by-agent` |
 
 ## Getting started
 
