@@ -57,6 +57,13 @@ ensure the system augments human judgment rather than replacing it.
   enabling full reconstruction of the processing chain for any change request.
 - Records MUST include at minimum: `ChangeRequestId`, `AgentName`, `Timestamp`,
   `InputPayload`, `OutputPayload`, and `ApprovalStatus` where applicable.
+- `InputPayload` and `OutputPayload` are satisfied by reference as well as by value. A record
+  satisfies `InputPayload` when the input it was produced from can be reconstructed exactly from
+  the record and the typed references it carries: its `ChangeRequestId` and the version of every
+  upstream record it was based on. It satisfies `OutputPayload` when its own typed content members
+  are the output. This holds only while every referenced record version is immutable once stored
+  and is never deleted or overwritten; a record that cannot meet that condition MUST carry the
+  payload by value.
 - Schema changes to persisted record types are breaking changes and MUST follow the amendment
   procedure in the Governance section. Purely additive changes (new optional/nullable members
   defaulting to null, or new enum values appended at the end) that leave every existing
@@ -170,4 +177,4 @@ Commit messages MUST reference the change request ID or slice name.
 - This constitution does not expire, but SHOULD be reviewed whenever a major new capability
   or agent is proposed.
 
-**Version**: 1.0.2 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-13
+**Version**: 1.0.3 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-13
