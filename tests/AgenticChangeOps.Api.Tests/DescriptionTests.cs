@@ -26,7 +26,7 @@ public class DescriptionTests : IDisposable
     }
 
     [Fact]
-    public async Task Description_IsServedAsJson_AndListsExactlyTheEightRoutes()
+    public async Task Description_IsServedAsJson_AndListsExactlyTheElevenRoutes()
     {
         var response = await _client.GetAsync(DescriptionPath);
 
@@ -46,8 +46,11 @@ public class DescriptionTests : IDisposable
             "GET /change-requests/{id}/clearance",
             "GET /change-requests/{id}/drafts",
             "GET /change-requests/{id}/drafts/latest",
+            "GET /change-requests/{id}/designs",
+            "GET /change-requests/{id}/designs/latest",
             "POST /change-requests",
             "POST /change-requests/{id}/decisions",
+            "POST /change-requests/{id}/designs",
             "POST /change-requests/{id}/drafts"
         }.OrderBy(x => x, StringComparer.Ordinal).ToArray();
 

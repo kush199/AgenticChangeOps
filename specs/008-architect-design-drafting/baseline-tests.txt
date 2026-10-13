@@ -1,0 +1,8 @@
+Baseline before slice 008 (branch feature/architect-agent, 2026-10-13), dotnet test AgenticChangeOps.sln
+
+AgenticChangeOps.ModelAccess.Tests        Passed 62   Skipped 0   Total 62
+AgenticChangeOps.Intake.Tests             Passed 112  Skipped 0   Total 112
+AgenticChangeOps.Agents.Requirement.Tests Passed 153  Skipped 1   Total 154  (live model check, opt-in)
+AgenticChangeOps.Api.Tests                Passed 99   Skipped 0   Total 99
+
+Total: 426 passed, 1 skipped, 0 failed.
