@@ -8,6 +8,7 @@ using AgenticChangeOps.Intake.Stores;
 using Microsoft.AspNetCore.Http.Json;
 using AgenticChangeOps.ModelAccess;
 using AgenticChangeOps.Agents.Requirement;
+using AgenticChangeOps.Agents.Architect;
 
 namespace AgenticChangeOps.Api.Composition;
 
@@ -43,7 +44,56 @@ public static class ApiServiceRegistration
         services.AddSingleton<DraftContentValidator>();
         services.AddSingleton<IRequirementsDraftingService, RequirementsDraftingService>();
 
+        // Design drafting (Architect): same configuration keys, read independently so the
+        // requirements registration above is untouched. The Architect never references the
+        // Requirement agent; the adapter below supplies the latest requirements draft.
+        services.AddSingleton<DesignSetup>(CreateDesignSetup);
+        services.AddSingleton<IDesignDraftGenerator>(sp => sp.GetRequiredService<DesignSetup>().Generator);
+        services.AddSingleton(sp => new DesignAvailability(sp.GetRequiredService<DesignSetup>().IsConfigured));
+        services.AddSingleton<DesignContentValidator>();
+        services.AddSingleton<IRequirementsBasisSource, RequirementsBasisAdapter>();
+        services.AddSingleton<IDesignDraftingService, DesignDraftingService>();
+
         return services;
+    }
+
+    private static DesignSetup CreateDesignSetup(IServiceProvider services)
+    {
+        var configuration = services.GetRequiredService<IConfiguration>();
+        var logger = services.GetRequiredService<ILoggerFactory>().CreateLogger("AgenticChangeOps.Api.Designing");
+
+        try
+        {
+            var options = AzureOpenAIGeneratorOptions.FromEnvironment(name => configuration[name]);
+            var generator = new AzureOpenAIDesignGenerator(options, new AzureOpenAIChatModelClient(options));
+            return new DesignSetup(generator, isConfigured: true);
+        }
+        catch (GeneratorConfigurationException)
+        {
+            // Only the fact is recorded: not the setting name, and never a value.
+            logger.LogWarning("Design drafting is not configured; design requests will be refused.");
+            return new DesignSetup(new NotConfiguredDesignGenerator(), isConfigured: false);
+        }
+    }
+
+    private sealed class DesignSetup
+    {
+        public DesignSetup(IDesignDraftGenerator generator, bool isConfigured)
+        {
+            Generator = generator;
+            IsConfigured = isConfigured;
+        }
+
+        public IDesignDraftGenerator Generator { get; }
+        public bool IsConfigured { get; }
+    }
+
+    /// <summary>Never reached through the API (the route checks availability first).</summary>
+    private sealed class NotConfiguredDesignGenerator : IDesignDraftGenerator
+    {
+        public Task<DesignContent?> GenerateAsync(
+            ChangeRequest changeRequest, RequirementsBasis basis, CancellationToken cancellationToken) =>
+            throw new DraftGenerationException(GenerationFailureCategory.Unreachable);
     }
 
     private static DraftingSetup CreateDraftingSetup(IServiceProvider services)

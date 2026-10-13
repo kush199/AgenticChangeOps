@@ -1,5 +1,6 @@
 using AgenticChangeOps.Api.Contracts;
 using AgenticChangeOps.Intake.Models;
+using AgenticChangeOps.Agents.Architect;
 using AgenticChangeOps.Agents.Requirement;
 
 namespace AgenticChangeOps.Api.Errors;
@@ -13,6 +14,13 @@ public static class ErrorMapper
     private const string ChangeRequestIdField = "ChangeRequestId";
     private const string StatusField = "Status";
     private const string MalformedOutputCategory = "MalformedOutput";
+    private const string RequirementsDraftField = "RequirementsDraft";
+
+    private static readonly HashSet<string> DesignSectionFields = new(StringComparer.Ordinal)
+    {
+        "ApproachSummary", "AffectedComponents", "ImpactAndRisks", "Dependencies",
+        "RollbackConsiderations", "OpenQuestions"
+    };
 
     private static readonly HashSet<string> DraftSectionFields = new(StringComparer.Ordinal)
     {
@@ -57,6 +65,35 @@ public static class ErrorMapper
         return Unexpected();
     }
 
+    public static (int StatusCode, ErrorResponse Body) ForDesigning(DesignDraftingResult result)
+    {
+        var errors = result.Errors;
+
+        if (IsNotFound(errors))
+            return NotFound();
+
+        if (result.FailureCategory is { } category)
+            return DesignGenerationFailed(category.ToString());
+
+        // Content that failed the design validation rules is unusable model output, not a
+        // client mistake; its messages are never forwarded.
+        if (errors.Any(e => DesignSectionFields.Contains(e.FieldName)))
+            return DesignGenerationFailed(MalformedOutputCategory);
+
+        // Not Approved, or no requirements draft (or it changed): the request conflicts with the
+        // current state of the change request.
+        if (errors.All(e => e.FieldName is StatusField or RequirementsDraftField))
+            return Conflict(errors);
+
+        return Unexpected();
+    }
+
+    public static (int StatusCode, ErrorResponse Body) NoDesignDraft() =>
+        (404, new ErrorResponse("no-design-draft", "No design draft exists yet for this change request."));
+
+    public static (int StatusCode, ErrorResponse Body) DesignNotConfigured() =>
+        (503, new ErrorResponse("design-not-configured", "Design drafting is not configured on this server."));
+
     public static (int StatusCode, ErrorResponse Body) NoDraft() =>
         (404, new ErrorResponse("no-draft", "No draft exists yet for this change request."));
 
@@ -97,6 +134,12 @@ public static class ErrorMapper
         (502, new ErrorResponse(
             "generation-failed",
             "The requirements draft could not be generated.",
+            Category: category));
+
+    private static (int StatusCode, ErrorResponse Body) DesignGenerationFailed(string category) =>
+        (502, new ErrorResponse(
+            "generation-failed",
+            "The design draft could not be generated.",
             Category: category));
 
     private static (int StatusCode, ErrorResponse Body) Conflict(IReadOnlyList<ValidationError> errors) =>

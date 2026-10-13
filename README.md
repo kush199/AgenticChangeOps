@@ -15,9 +15,10 @@ This is a learning and portfolio project, built slice by slice with
 | **Intake** | Accepts a change request, validates it (one error per failing field), assigns an ID, stores a typed record and writes an audit entry |
 | **Approval gate** | A human approver records Approve, Reject or Defer with a reason. Approved and Rejected are final. `clearance` is true only for Approved |
 | **Requirements drafting** | A Requirement agent asks a language model to draft structured requirements (summary, functional requirements, acceptance criteria, assumptions, open questions). Drafts are versioned and audited, and **never change the request's status** |
+| **Design drafting** | An Architect agent asks a language model to draft a design analysis (approach, affected components, impact and risks, dependencies, rollback, open questions) for an **Approved** request that has a requirements draft. Designs are versioned, linked to the requirements version they used, audited as `DesignGenerated`, and **never change the request's status** |
 | **HTTP API** | All of the above over a local JSON API with a Swagger page |
 
-Not built yet: the Architect, Developer and Reviewer agents, orchestration between agents,
+Not built yet: the Developer and Reviewer agents, orchestration between agents,
 authentication and persistent storage (data is held in memory and lost when the API stops).
 
 ## Design principles
@@ -43,8 +44,8 @@ Api  (AgenticChangeOps.Api)        endpoints, JSON errors, Swagger
 Intake  (AgenticChangeOps.Intake)  validation, approval rules, audit, store
    │                               knows no agent; stores agent output through one generic point
    ▼
-Requirement agent  (AgenticChangeOps.Agents.Requirement)
-   │  drafting rules, prompt → one model call → parse → typed draft
+Requirement agent  (AgenticChangeOps.Agents.Requirement)   Architect agent  (AgenticChangeOps.Agents.Architect)
+   │  drafting rules, prompt → one model call → parse → typed draft (each agent the same way)
    ▼
 Model access  (AgenticChangeOps.ModelAccess)
                                    model seam, Azure OpenAI client, settings, failure mapping
@@ -61,11 +62,13 @@ src/
   AgenticChangeOps.Intake/              change requests, approval gate, audit, in-memory store
   AgenticChangeOps.ModelAccess/         agent-neutral model access: seam, Azure client, settings
   AgenticChangeOps.Agents.Requirement/  everything specific to the Requirement agent
+  AgenticChangeOps.Agents.Architect/    everything specific to the Architect agent
 tests/
   AgenticChangeOps.Api.Tests/                  HTTP behaviour, recorded baseline of responses
   AgenticChangeOps.Intake.Tests/               intake and approval, no agent or model references
   AgenticChangeOps.ModelAccess.Tests/          settings, failure mapping, hygiene and neutrality checks
   AgenticChangeOps.Agents.Requirement.Tests/   drafting, validation, prompt, parser, generator
+  AgenticChangeOps.Agents.Architect.Tests/     design drafting, validation, prompt, parser, generator
 specs/                                  one folder per slice: spec, plan, tasks, contracts
 .specify/                               Spec Kit templates, scripts and the constitution
 ```
@@ -94,6 +97,7 @@ in the solution, and an agent project references only Intake and ModelAccess.
 | Model-backed draft generator | `specs/004-model-draft-generator` |
 | HTTP API | `specs/005-web-api` |
 | Organise agent code by agent | `specs/007-organise-by-agent` |
+| Architect design drafting | `specs/008-architect-design-drafting` |
 
 ## Getting started
 
@@ -147,13 +151,17 @@ Invoke-RestMethod "$base/change-requests/$id/audit"
 | POST | `/change-requests/{id}/drafts` | Request a requirements draft (calls the model) |
 | GET | `/change-requests/{id}/drafts/latest` | Latest draft |
 | GET | `/change-requests/{id}/drafts` | Draft version history |
+| POST | `/change-requests/{id}/designs` | Request a design draft for an Approved request that has a requirements draft (calls the model) |
+| GET | `/change-requests/{id}/designs/latest` | Latest design draft |
+| GET | `/change-requests/{id}/designs` | Design draft version history |
 
 Errors are JSON with a stable `code` and never include stack traces, endpoints or secrets.
 
 ## Enabling requirements drafting (optional)
 
 Every operation except drafting works with no cloud account. Without model settings, a draft
-request returns `503 drafting-not-configured`.
+request returns `503 drafting-not-configured` and a design request returns `503 design-not-configured`.
+Both use the same settings.
 
 To enable it you need an Azure OpenAI resource with a chat model deployment, and a signed-in
 Azure CLI. Authentication is **keyless** (your `az login` identity, via the role
@@ -174,7 +182,7 @@ never call a real model; an opt-in live check runs only when
 
 ## Roadmap
 
-- Architect, Developer and Reviewer agents
+- Developer and Reviewer agents
 - Orchestration between agents (Microsoft Agent Framework)
 - MCP integration for external tools
 - Persistent storage

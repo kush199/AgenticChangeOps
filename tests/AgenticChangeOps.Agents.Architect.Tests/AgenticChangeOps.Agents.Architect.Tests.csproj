@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Small fakes shared with the intake tests; linked, not copied (namespace stays Intake.Tests.Fakes). -->
+    <Compile Include="..\AgenticChangeOps.Intake.Tests\Fakes\ApprovalTestFixture.cs" Link="Fakes\ApprovalTestFixture.cs" />
+    <Compile Include="..\AgenticChangeOps.Intake.Tests\Fakes\FakeEnvironment.cs" Link="Fakes\FakeEnvironment.cs" />
+    <Compile Include="..\AgenticChangeOps.Intake.Tests\Fakes\FakeIdGenerator.cs" Link="Fakes\FakeIdGenerator.cs" />
+    <Compile Include="..\AgenticChangeOps.Intake.Tests\Fakes\FakeSystemClock.cs" Link="Fakes\FakeSystemClock.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AgenticChangeOps.Agents.Architect\AgenticChangeOps.Agents.Architect.csproj" />
+    <ProjectReference Include="..\..\src\AgenticChangeOps.Intake\AgenticChangeOps.Intake.csproj" />
+    <ProjectReference Include="..\..\src\AgenticChangeOps.ModelAccess\AgenticChangeOps.ModelAccess.csproj" />
+  </ItemGroup>
+
+</Project>

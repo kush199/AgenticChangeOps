@@ -10,6 +10,7 @@
     <ProjectReference Include="..\AgenticChangeOps.Intake\AgenticChangeOps.Intake.csproj" />
     <ProjectReference Include="..\AgenticChangeOps.ModelAccess\AgenticChangeOps.ModelAccess.csproj" />
     <ProjectReference Include="..\AgenticChangeOps.Agents.Requirement\AgenticChangeOps.Agents.Requirement.csproj" />
+    <ProjectReference Include="..\AgenticChangeOps.Agents.Architect\AgenticChangeOps.Agents.Architect.csproj" />
   </ItemGroup>
 
   <ItemGroup>

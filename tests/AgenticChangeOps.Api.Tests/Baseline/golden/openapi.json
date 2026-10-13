@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "AgenticChangeOps change request API",
-    "description": "Local-only JSON API over the intake, approval and requirements drafting capabilities. No authentication. Error bodies carry a code: invalid-body (400), validation-failed (400), invalid-identifier (400), invalid-host (400), not-found (404), no-draft (404), route-not-found (404), method-not-allowed (405), conflict (409), body-too-large (413), unsupported-media-type (415), generation-failed (502, with only a category), drafting-not-configured (503), unexpected-error (500).",
+    "description": "Local-only JSON API over the intake, approval, requirements drafting and design drafting capabilities. No authentication. Error bodies carry a code: invalid-body (400), validation-failed (400), invalid-identifier (400), invalid-host (400), not-found (404), no-draft (404), no-design-draft (404), route-not-found (404), method-not-allowed (405), conflict (409), body-too-large (413), unsupported-media-type (415), generation-failed (502, with only a category), drafting-not-configured (503), design-not-configured (503), unexpected-error (500).",
     "version": "v1"
   },
   "paths": {
@@ -284,6 +284,200 @@
         }
       }
     },
+    "/change-requests/{id}/designs": {
+      "post": {
+        "tags": [
+          "DesignEndpoints"
+        ],
+        "summary": "Request a design draft for an approved change request",
+        "operationId": "RequestDesign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DesignDraft"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DesignEndpoints"
+        ],
+        "summary": "List every design draft version in ascending order",
+        "operationId": "GetDesignHistory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DesignDraft"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/change-requests/{id}/designs/latest": {
+      "get": {
+        "tags": [
+          "DesignEndpoints"
+        ],
+        "summary": "Retrieve the latest design draft",
+        "operationId": "GetLatestDesign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DesignDraft"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/change-requests/{id}/drafts": {
       "post": {
         "tags": [
@@ -487,7 +681,8 @@
           1,
           2,
           3,
-          4
+          4,
+          5
         ],
         "type": "integer",
         "format": "int32"
@@ -629,6 +824,85 @@
           }
         },
         "additionalProperties": false
+      },
+      "DesignDraft": {
+        "type": "object",
+        "properties": {
+          "designId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "changeRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requirementsVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "generatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DesignDraftStatus"
+          },
+          "agentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "approachSummary": {
+            "type": "string",
+            "nullable": true
+          },
+          "affectedComponents": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "impactAndRisks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "rollbackConsiderations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "openQuestions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DesignDraftStatus": {
+        "enum": [
+          0
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "DraftStatus": {
         "enum": [
