@@ -150,7 +150,8 @@
 - [X] T044 Run `git diff --stat main...HEAD -- src/AgenticChangeOps.Agents.Requirement src/AgenticChangeOps.ModelAccess src/AgenticChangeOps.Intake` and confirm the only change is the one appended enum value (rule A4, SC-006).
 - [X] T045 Regenerate the API baseline golden for `GET /openapi/v1.json` only; review the diff and confirm it contains only: the three new paths, their new schemas, new codes in the description text, and one appended value (`5`) in the existing `AuditEventType` enum schema. Show the diff to the user. No existing path, schema member, status code or existing enum value may change.
 - [X] T046 Run `dotnet build AgenticChangeOps.sln -c Release` and `dotnet test AgenticChangeOps.sln -c Release`; confirm totals are the T001 baseline plus the new tests and the live check is skipped (SC-006). Walk through [quickstart.md](quickstart.md) steps 1 to 3.
-- [ ] T047 [USER] Constitution compliance checklist in the PR description (v1.0.2), then commit, push and open the PR for the user to confirm.
+- [X] T047 [USER] Constitution compliance checklist in the PR description (v1.0.2), then commit, push and open the PR for the user to confirm.
+  - Done 2026-10-13: constitution v1.0.3 in PR #14 (docs/constitution-principle-iv), slice in PR #15. #14 merges first.
 
 ---
 
