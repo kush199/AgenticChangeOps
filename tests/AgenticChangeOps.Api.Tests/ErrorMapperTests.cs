@@ -3,6 +3,8 @@ using AgenticChangeOps.Api.Contracts;
 using AgenticChangeOps.Api.Errors;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
+using AgenticChangeOps.ModelAccess;
+using AgenticChangeOps.Agents.Requirement;
 
 namespace AgenticChangeOps.Api.Tests;
 

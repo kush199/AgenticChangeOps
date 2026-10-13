@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using AgenticChangeOps.Agents.Requirement;
 
 namespace AgenticChangeOps.Api.Tests.Fakes;
 

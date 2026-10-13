@@ -1,12 +1,13 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using AgenticChangeOps.Intake.AzureOpenAI;
 using AgenticChangeOps.Intake.Infrastructure;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
 using AgenticChangeOps.Intake.Services;
 using AgenticChangeOps.Intake.Stores;
 using Microsoft.AspNetCore.Http.Json;
+using AgenticChangeOps.ModelAccess;
+using AgenticChangeOps.Agents.Requirement;
 
 namespace AgenticChangeOps.Api.Composition;
 

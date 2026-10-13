@@ -11,7 +11,7 @@ public sealed class InMemoryChangeRequestStore : IChangeRequestStore
     private readonly object _syncRoot = new();
     private readonly Dictionary<Guid, ChangeRequest> _changeRequests = new();
     private readonly Dictionary<Guid, List<ChangeRequestAuditEntry>> _auditEntries = new();
-    private readonly Dictionary<Guid, List<RequirementsDraft>> _drafts = new();
+    private readonly Dictionary<(Guid ChangeRequestId, Type OutputType), List<IAgentOutput>> _outputs = new();
 
     public object SyncRoot => _syncRoot;
 
@@ -56,38 +56,42 @@ public sealed class InMemoryChangeRequestStore : IChangeRequestStore
         }
     }
 
-    public void SaveDraft(RequirementsDraft draft, ChangeRequestAuditEntry auditEntry)
+    public void SaveAgentOutput<T>(T output, ChangeRequestAuditEntry auditEntry) where T : IAgentOutput
     {
+        ArgumentNullException.ThrowIfNull(output);
+        ArgumentNullException.ThrowIfNull(auditEntry);
+
         // All checks happen before any mutation so the call stores both items or neither.
-        if (draft.ChangeRequestId != auditEntry.ChangeRequestId)
+        if (output.ChangeRequestId != auditEntry.ChangeRequestId)
             throw new ArgumentException(
-                "The draft and its audit entry must belong to the same change request.",
+                "The output and its audit entry must belong to the same change request.",
                 nameof(auditEntry));
 
+        var key = (output.ChangeRequestId, typeof(T));
         lock (_syncRoot)
         {
-            if (_drafts.TryGetValue(draft.ChangeRequestId, out var existing) &&
-                existing.Any(d => d.Version == draft.Version))
+            if (_outputs.TryGetValue(key, out var existing) &&
+                existing.Any(o => o.Version == output.Version))
                 throw new InvalidOperationException(
-                    $"Draft version {draft.Version} already exists for change request {draft.ChangeRequestId}.");
+                    $"Output version {output.Version} already exists for change request {output.ChangeRequestId}.");
 
             if (existing is null)
             {
-                existing = new List<RequirementsDraft>();
-                _drafts[draft.ChangeRequestId] = existing;
+                existing = new List<IAgentOutput>();
+                _outputs[key] = existing;
             }
-            existing.Add(draft);
+            existing.Add(output);
             SaveAuditEntry(auditEntry);
         }
     }
 
-    public IReadOnlyList<RequirementsDraft> GetDrafts(Guid changeRequestId)
+    public IReadOnlyList<T> GetAgentOutputs<T>(Guid changeRequestId) where T : IAgentOutput
     {
         lock (_syncRoot)
         {
-            if (!_drafts.TryGetValue(changeRequestId, out var list))
-                return Array.Empty<RequirementsDraft>();
-            return list.OrderBy(d => d.Version).ToList().AsReadOnly();
+            if (!_outputs.TryGetValue((changeRequestId, typeof(T)), out var list))
+                return Array.Empty<T>();
+            return list.Cast<T>().OrderBy(o => o.Version).ToList().AsReadOnly();
         }
     }
 

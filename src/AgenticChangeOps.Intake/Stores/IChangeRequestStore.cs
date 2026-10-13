@@ -16,9 +16,13 @@ public interface IChangeRequestStore
     void SaveAuditEntry(ChangeRequestAuditEntry entry);
     IReadOnlyList<ChangeRequestAuditEntry> GetAuditEntries(Guid changeRequestId);
 
-    /// <summary>Stores a draft and its audit entry together, or neither.</summary>
-    void SaveDraft(RequirementsDraft draft, ChangeRequestAuditEntry auditEntry);
+    /// <summary>
+    /// Stores an agent output and its audit entry together, or neither. Rejects an output whose
+    /// change request differs from the entry's, and a version already stored for the same change
+    /// request and output type.
+    /// </summary>
+    void SaveAgentOutput<T>(T output, ChangeRequestAuditEntry auditEntry) where T : IAgentOutput;
 
-    /// <summary>Returns the drafts of a change request in ascending version order.</summary>
-    IReadOnlyList<RequirementsDraft> GetDrafts(Guid changeRequestId);
+    /// <summary>Returns the outputs of one type for a change request in ascending version order.</summary>
+    IReadOnlyList<T> GetAgentOutputs<T>(Guid changeRequestId) where T : IAgentOutput;
 }

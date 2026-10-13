@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\AgenticChangeOps.Intake\AgenticChangeOps.Intake.csproj" />
-    <ProjectReference Include="..\..\src\AgenticChangeOps.Intake.AzureOpenAI\AgenticChangeOps.Intake.AzureOpenAI.csproj" />
   </ItemGroup>
 
 </Project>

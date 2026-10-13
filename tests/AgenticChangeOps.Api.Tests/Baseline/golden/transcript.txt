@@ -1,0 +1,788 @@
+### submit valid
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-1>
+body: 
+{
+  "changeRequestId": "<id-1>",
+  "title": "Rotate demo cache settings",
+  "description": "Adjust the demo cache time-to-live for the sample catalogue.",
+  "requester": "Alex Example",
+  "affectedSystem": "Sample Catalogue",
+  "priority": "Medium",
+  "changeType": "ConfigChange",
+  "status": "Submitted",
+  "submittedAt": "<timestamp>"
+}
+
+### submit not json
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-body",
+  "message": "The request body is missing, malformed or not a JSON object."
+}
+
+### submit empty object
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "validation-failed",
+  "message": "One or more fields are invalid.",
+  "errors": [
+    {
+      "field": "Title",
+      "message": "Title is required."
+    },
+    {
+      "field": "Description",
+      "message": "Description is required."
+    },
+    {
+      "field": "Requester",
+      "message": "Requester is required."
+    },
+    {
+      "field": "AffectedSystem",
+      "message": "AffectedSystem is required."
+    },
+    {
+      "field": "Priority",
+      "message": "Priority \u0027-1\u0027 is not valid. Accepted: Low, Medium, High, Critical."
+    },
+    {
+      "field": "ChangeType",
+      "message": "ChangeType \u0027-1\u0027 is not valid. Accepted: Feature, Bugfix, ConfigChange."
+    }
+  ]
+}
+
+### submit bad enum
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "validation-failed",
+  "message": "One or more fields are invalid.",
+  "errors": [
+    {
+      "field": "Priority",
+      "message": "Priority \u0027-1\u0027 is not valid. Accepted: Low, Medium, High, Critical."
+    }
+  ]
+}
+
+### submit non-json media type
+status: 415 UnsupportedMediaType
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "unsupported-media-type",
+  "message": "The request body must be application/json."
+}
+
+### submit oversized body
+status: 413 RequestEntityTooLarge
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "body-too-large",
+  "message": "The request body is larger than the allowed size."
+}
+
+### get change request
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "changeRequestId": "<id-1>",
+  "title": "Rotate demo cache settings",
+  "description": "Adjust the demo cache time-to-live for the sample catalogue.",
+  "requester": "Alex Example",
+  "affectedSystem": "Sample Catalogue",
+  "priority": "Medium",
+  "changeType": "ConfigChange",
+  "status": "Submitted",
+  "submittedAt": "<timestamp>"
+}
+
+### get unknown change request
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### get invalid identifier
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### get audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-2>",
+    "changeRequestId": "<id-1>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### get clearance before decision
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "changeRequestId": "<id-1>",
+  "isCleared": false
+}
+
+### latest draft before any
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### draft history before any
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### draft first
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-1>/drafts/latest
+body: 
+{
+  "draftId": "<id-3>",
+  "changeRequestId": "<id-1>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Adjust the sample catalogue cache lifetime.",
+  "functionalRequirements": [
+    "The catalogue cache lifetime is configurable."
+  ],
+  "acceptanceCriteria": [
+    "Changing the lifetime takes effect without a restart."
+  ],
+  "assumptions": [
+    "The sample catalogue is the only affected system."
+  ],
+  "openQuestions": [
+    "Should the lifetime differ per environment?"
+  ]
+}
+
+### draft second
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-1>/drafts/latest
+body: 
+{
+  "draftId": "<id-4>",
+  "changeRequestId": "<id-1>",
+  "version": 2,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Adjust the sample catalogue cache lifetime.",
+  "functionalRequirements": [
+    "The catalogue cache lifetime is configurable."
+  ],
+  "acceptanceCriteria": [
+    "Changing the lifetime takes effect without a restart."
+  ],
+  "assumptions": [
+    "The sample catalogue is the only affected system."
+  ],
+  "openQuestions": [
+    "Should the lifetime differ per environment?"
+  ]
+}
+
+### latest draft
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "draftId": "<id-4>",
+  "changeRequestId": "<id-1>",
+  "version": 2,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Adjust the sample catalogue cache lifetime.",
+  "functionalRequirements": [
+    "The catalogue cache lifetime is configurable."
+  ],
+  "acceptanceCriteria": [
+    "Changing the lifetime takes effect without a restart."
+  ],
+  "assumptions": [
+    "The sample catalogue is the only affected system."
+  ],
+  "openQuestions": [
+    "Should the lifetime differ per environment?"
+  ]
+}
+
+### draft history
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "draftId": "<id-3>",
+    "changeRequestId": "<id-1>",
+    "version": 1,
+    "generatedAt": "<timestamp>",
+    "status": "Draft",
+    "agentName": "RequirementAgent",
+    "summary": "Adjust the sample catalogue cache lifetime.",
+    "functionalRequirements": [
+      "The catalogue cache lifetime is configurable."
+    ],
+    "acceptanceCriteria": [
+      "Changing the lifetime takes effect without a restart."
+    ],
+    "assumptions": [
+      "The sample catalogue is the only affected system."
+    ],
+    "openQuestions": [
+      "Should the lifetime differ per environment?"
+    ]
+  },
+  {
+    "draftId": "<id-4>",
+    "changeRequestId": "<id-1>",
+    "version": 2,
+    "generatedAt": "<timestamp>",
+    "status": "Draft",
+    "agentName": "RequirementAgent",
+    "summary": "Adjust the sample catalogue cache lifetime.",
+    "functionalRequirements": [
+      "The catalogue cache lifetime is configurable."
+    ],
+    "acceptanceCriteria": [
+      "Changing the lifetime takes effect without a restart."
+    ],
+    "assumptions": [
+      "The sample catalogue is the only affected system."
+    ],
+    "openQuestions": [
+      "Should the lifetime differ per environment?"
+    ]
+  }
+]
+
+### audit after drafting
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-2>",
+    "changeRequestId": "<id-1>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-5>",
+    "changeRequestId": "<id-1>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  },
+  {
+    "auditEntryId": "<id-6>",
+    "changeRequestId": "<id-1>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 2
+  }
+]
+
+### draft unknown change request
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### draft invalid identifier
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### latest draft unknown change request
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### draft history unknown change request
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### decision invalid body
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "validation-failed",
+  "message": "One or more fields are invalid.",
+  "errors": [
+    {
+      "field": "ApproverName",
+      "message": "ApproverName is required."
+    },
+    {
+      "field": "Decision",
+      "message": "Decision \u0027-1\u0027 is not valid. Accepted values: Approve, Reject, Defer."
+    }
+  ]
+}
+
+### decision unknown change request
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### decision approve
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "changeRequestId": "<id-1>",
+  "title": "Rotate demo cache settings",
+  "description": "Adjust the demo cache time-to-live for the sample catalogue.",
+  "requester": "Alex Example",
+  "affectedSystem": "Sample Catalogue",
+  "priority": "Medium",
+  "changeType": "ConfigChange",
+  "status": "Approved",
+  "submittedAt": "<timestamp>"
+}
+
+### decision again after approval
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "Status",
+      "message": "Change request is already Approved and in a final state; no further decisions are allowed."
+    }
+  ]
+}
+
+### draft after approval
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "Status",
+      "message": "Change request <id-1> is in status Approved and cannot be drafted; only Submitted or Deferred requests can be drafted."
+    }
+  ]
+}
+
+### get clearance after approval
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "changeRequestId": "<id-1>",
+  "isCleared": true
+}
+
+### audit after approval
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-2>",
+    "changeRequestId": "<id-1>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-5>",
+    "changeRequestId": "<id-1>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 1
+  },
+  {
+    "auditEntryId": "<id-6>",
+    "changeRequestId": "<id-1>",
+    "eventType": "DraftGenerated",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": "Submitted",
+    "statusAfter": "Submitted",
+    "agentName": "RequirementAgent",
+    "draftVersion": 2
+  },
+  {
+    "auditEntryId": "<id-7>",
+    "changeRequestId": "<id-1>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### decision defer
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "changeRequestId": "<id-8>",
+  "title": "Rotate demo cache settings",
+  "description": "Adjust the demo cache time-to-live for the sample catalogue.",
+  "requester": "Alex Example",
+  "affectedSystem": "Sample Catalogue",
+  "priority": "Medium",
+  "changeType": "ConfigChange",
+  "status": "Deferred",
+  "submittedAt": "<timestamp>"
+}
+
+### draft after defer
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-8>/drafts/latest
+body: 
+{
+  "draftId": "<id-9>",
+  "changeRequestId": "<id-8>",
+  "version": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "RequirementAgent",
+  "summary": "Adjust the sample catalogue cache lifetime.",
+  "functionalRequirements": [
+    "The catalogue cache lifetime is configurable."
+  ],
+  "acceptanceCriteria": [
+    "Changing the lifetime takes effect without a restart."
+  ],
+  "assumptions": [
+    "The sample catalogue is the only affected system."
+  ],
+  "openQuestions": [
+    "Should the lifetime differ per environment?"
+  ]
+}
+
+### unknown route
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "route-not-found",
+  "message": "No such route."
+}
+
+### unsupported method
+status: 405 MethodNotAllowed
+header: Allow: POST
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "method-not-allowed",
+  "message": "That method is not supported for this route."
+}
+
+### foreign host header
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-host",
+  "message": "The request host is not allowed."
+}
+
+### generator failure Unreachable
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "Unreachable"
+}
+
+### audit after failure Unreachable
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-10>",
+    "changeRequestId": "<id-11>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### generator failure TimedOut
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "TimedOut"
+}
+
+### audit after failure TimedOut
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-12>",
+    "changeRequestId": "<id-13>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### generator failure ResponseTooLarge
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "ResponseTooLarge"
+}
+
+### audit after failure ResponseTooLarge
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-14>",
+    "changeRequestId": "<id-15>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### generator failure MalformedOutput
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### audit after failure MalformedOutput
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-16>",
+    "changeRequestId": "<id-17>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### generator returns null
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### generator returns blank summary
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### generator returns missing section
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### generator throws arbitrary exception
+status: 500 InternalServerError
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "unexpected-error",
+  "message": "An unexpected error occurred."
+}
+
+### not configured draft
+status: 503 ServiceUnavailable
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "drafting-not-configured",
+  "message": "Requirements drafting is not configured on this server."
+}
+
+### not configured invalid identifier
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### not configured latest draft
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### not configured draft history
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
