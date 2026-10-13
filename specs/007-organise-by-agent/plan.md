@@ -32,7 +32,7 @@ Behaviour-preserving restructure. The Requirement agent's code moves out of `Age
 
 *GATE: Must pass before Phase 0 research. Re-checked after Phase 1 design.*
 
-Reviewed against constitution v1.0.1.
+Reviewed against constitution v1.0.1 at planning; re-checked against v1.0.2 on 2026-10-13 (see gate status below).
 
 | Principle | Assessment |
 |---|---|
@@ -42,11 +42,11 @@ Reviewed against constitution v1.0.1.
 | IV. Typed auditable records | Pass. The generic extension point is typed (`IAgentOutput`, generic over the concrete record); no `object` crosses a boundary. Persisted shape of every record and enum value is unchanged; additive interface implementation only. Recorded in Complexity Tracking. |
 | V. Spec-driven | Pass. Spec exists and is clarified; plan precedes tasks. |
 | VI. Test-first | Pass. Goldens and structure tests are written and approved red or green-on-baseline before any move; LLM interactions stay behind `IChatModelClient` and `IRequirementsDraftGenerator`. |
-| VII. Simplicity | Justified exception, see Complexity Tracking. The neutral project and the generic store point are used today by one agent only. They are required by the explicit slice rules and by clarification Q1, and no new behaviour or speculative helper is added. Only four agents in V1 is unaffected (no agent added). |
+| VII. Simplicity | Pass under v1.0.2 (relocated code and a one-for-one generic replacement are not "introduced"; both recorded in Complexity Tracking). The neutral project and the generic store point are used today by one agent only. They are required by the explicit slice rules and by clarification Q1, and no new behaviour or speculative helper is added. Only four agents in V1 is unaffected (no agent added). |
 
 Technology stack: unchanged (C# .NET 8, Azure OpenAI, xUnit). Spec FR-011 forbids stack changes.
 
-**Gate status: PENDING.** The constitution has no exception path for Principle VII, so the justification above does not by itself clear the gate (`/speckit-analyze` finding C1). The gate clears when a PATCH amendment to Principle VII (relocated or slice-separated code, and a one-for-one generic replacement that removes an agent dependency, are not "introduced" abstractions) is merged, or the user chooses another resolution. Re-run this check against the amended version before implementation (tasks T000).
+**Gate status: PASS (re-checked 2026-10-13 against constitution v1.0.2, merged in PR #12).** The v1.0.2 PATCH amendment to Principle VII states that relocated or slice-separated code, and a one-for-one generic replacement that removes an agent dependency, are not "introduced" abstractions, provided no behaviour is added and the slice records them in Complexity Tracking. Both rows are recorded below and the slice adds no behaviour (baseline goldens unchanged).
 
 ## Project Structure
 

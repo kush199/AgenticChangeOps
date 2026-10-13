@@ -31,7 +31,7 @@
 
 ## Governance
 
-- [ ] Reviewed against the current constitution (v1.0.1; re-check once the Principle VII amendment is merged)
+- [x] Reviewed against the current constitution (v1.0.2, Principle VII amendment merged in PR #12)
 
 ## Notes
 

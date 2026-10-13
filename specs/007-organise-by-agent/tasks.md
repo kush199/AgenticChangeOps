@@ -6,7 +6,7 @@
 
 **Tests**: Included. This is a behaviour-preserving move, so the "tests" are (a) a characterization baseline captured on pre-move code, (b) tests for the one new generic store point, and (c) structure tests for the dependency rules. Constitution Principle VI and the project's test-approval checkpoint apply: they are written first, shown, and approved before any code moves (T010).
 
-**Constitution**: [ ] Reviewed against the current constitution (v1.0.1; re-check against the version carrying the Principle VII amendment once merged). See plan.md Constitution Check.
+**Constitution**: [x] Reviewed against the current constitution (v1.0.2, which carries the Principle VII amendment merged in PR #12). See plan.md Constitution Check.
 
 **Organization**: Grouped by user story. Phases run in dependency order, not priority order: US2 (neutral project) first because the agent project depends on it, then US1, then US3, US4, US5. Priorities are P1 for US1, US2, US5 and P2 for US3, US4.
 
@@ -133,7 +133,7 @@
 - [X] T038 [P] Update references to the old project name in docs under `specs/` only where they are living documentation for the current structure (e.g. the contract index in slice 005 if it names `Intake.AzureOpenAI`); leave historical slice specs untouched and say so in the PR description.
 - [X] T039 [P] Confirm `.github/workflows/ci.yml` needs no change (it builds and tests `AgenticChangeOps.sln`; the executed-test-count guard still applies). If the solution file lists all four new projects, no edit is required.
 - [X] T040 Run the full `quickstart.md` validation, steps 1 to 7, and tick each.
-- [ ] T041 [USER] Commit in logical steps with messages naming the slice (`refactor(007-organise-by-agent): ...`), push `feature/organise-by-agent`, open a PR to `main` with a constitution compliance checklist item (v1.0.1) and the Complexity Tracking exceptions from plan.md quoted. Claude drafts; the user confirms before anything is pushed.
+- [ ] T041 [USER] Commit in logical steps with messages naming the slice (`refactor(007-organise-by-agent): ...`), push `feature/organise-by-agent`, open a PR to `main` with a constitution compliance checklist item (v1.0.2) and the Complexity Tracking exceptions from plan.md quoted. Claude drafts; the user confirms before anything is pushed.
 
 ---
 
@@ -162,7 +162,7 @@ T007 ModelAccess Structure   T008 Agent StructureTests
 
 ## Phase 9: Convergence
 
-- [ ] T042 CRITICAL: Resolve the Principle VII conflict (the generic `IAgentOutput` point and the neutral `ModelAccess` project each have one consumer): merge the v1.0.2 amendment drafted in `.specify/memory/constitution.md` through its own `docs/` branch and PR, then re-check this slice's plan.md Constitution Check against v1.0.2, change its gate from PENDING to PASS, and tick the constitution review lines in tasks.md (header) and `checklists/requirements.md` (Governance) per Constitution VII (contradicts)
+- [X] T042 CRITICAL: Resolve the Principle VII conflict (the generic `IAgentOutput` point and the neutral `ModelAccess` project each have one consumer): merge the v1.0.2 amendment drafted in `.specify/memory/constitution.md` through its own `docs/` branch and PR, then re-check this slice's plan.md Constitution Check against v1.0.2, change its gate from PENDING to PASS, and tick the constitution review lines in tasks.md (header) and `checklists/requirements.md` (Governance) per Constitution VII (contradicts)
 - [X] T043 Add the deferred second scan to `tests/AgenticChangeOps.ModelAccess.Tests/NoSecretsTests.cs`: apply the `GeneratorProject_DefinesNoSettingNameThatCouldHoldASecret` rule to `src/AgenticChangeOps.Agents.Requirement`, with the same guard that the folder exists and yields at least one `.cs` file, per T026 and plan R6 (partial)
 - [X] T044 Document `AGENTICCHANGEOPS_UPDATE_BASELINE` in `research.md` R8 as a test-only switch that rewrites the goldens and is read nowhere in `src`, or remove it and require a manual golden refresh, per FR-011 (unrequested)
 - [X] T045 Reword the comment at `src/AgenticChangeOps.ModelAccess/AzureOpenAIChatModelClient.cs` line 27 ("One attempt per draft request; the caller may simply ask again (FR-010)") to name no agent and no slice requirement, e.g. "One attempt per model request; the caller may simply ask again", per FR-003 (partial)
