@@ -2,6 +2,7 @@ using AgenticChangeOps.Api.Contracts;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Agents.Architect;
 using AgenticChangeOps.Agents.Requirement;
+using AgenticChangeOps.Workflow;
 
 namespace AgenticChangeOps.Api.Errors;
 
@@ -87,6 +88,12 @@ public static class ErrorMapper
 
         return Unexpected();
     }
+
+    public static (int StatusCode, ErrorResponse Body) NoStepDue(WorkflowReason reason) =>
+        (409, new ErrorResponse(
+            "no-step-due",
+            reason.Message,
+            new[] { new ErrorField("Reason", reason.Code.ToString()) }));
 
     public static (int StatusCode, ErrorResponse Body) NoDesignDraft() =>
         (404, new ErrorResponse("no-design-draft", "No design draft exists yet for this change request."));

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http.Json;
 using AgenticChangeOps.ModelAccess;
 using AgenticChangeOps.Agents.Requirement;
 using AgenticChangeOps.Agents.Architect;
+using AgenticChangeOps.Workflow;
 
 namespace AgenticChangeOps.Api.Composition;
 
@@ -53,6 +54,11 @@ public static class ApiServiceRegistration
         services.AddSingleton<DesignContentValidator>();
         services.AddSingleton<IRequirementsBasisSource, RequirementsBasisAdapter>();
         services.AddSingleton<IDesignDraftingService, DesignDraftingService>();
+
+        // Workflow orchestration: derives status from recorded facts and runs the agents'
+        // own services; the availability adapter reuses the two flags registered above.
+        services.AddSingleton<IStepAvailability, StepAvailabilityAdapter>();
+        services.AddSingleton<IWorkflowService, WorkflowService>();
 
         return services;
     }

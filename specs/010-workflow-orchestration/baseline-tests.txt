@@ -1,0 +1,14 @@
+Baseline before slice 010 (dotnet test AgenticChangeOps.sln, 2026-10-14)
+AgenticChangeOps.Intake.Tests        Passed 112 / Skipped 0 / Total 112
+AgenticChangeOps.Agents.Architect.Tests   Passed 115 / Skipped 1 / Total 116
+AgenticChangeOps.Agents.Requirement.Tests Passed 153 / Skipped 1 / Total 154
+AgenticChangeOps.ModelAccess.Tests   Passed 158 / Skipped 0 / Total 158
+AgenticChangeOps.Api.Tests           Passed 137 / Skipped 0 / Total 137
+
+After slice 010 (dotnet test AgenticChangeOps.sln)
+AgenticChangeOps.Intake.Tests        Passed 112 / Skipped 0 / Total 112
+AgenticChangeOps.Agents.Architect.Tests   Passed 115 / Skipped 1 / Total 116
+AgenticChangeOps.Agents.Requirement.Tests Passed 153 / Skipped 1 / Total 154
+AgenticChangeOps.ModelAccess.Tests   Passed 158 / Skipped 0 / Total 158
+AgenticChangeOps.Api.Tests           Passed 157 / Skipped 0 / Total 157 (137 + 20 new)
+AgenticChangeOps.Workflow.Tests      Passed 86 / Skipped 0 / Total 86 (new)
