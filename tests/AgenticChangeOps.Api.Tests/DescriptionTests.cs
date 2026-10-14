@@ -26,7 +26,7 @@ public class DescriptionTests : IDisposable
     }
 
     [Fact]
-    public async Task Description_IsServedAsJson_AndListsExactlyTheElevenRoutes()
+    public async Task Description_IsServedAsJson_AndListsExactlyTheThirteenRoutes()
     {
         var response = await _client.GetAsync(DescriptionPath);
 
@@ -48,10 +48,12 @@ public class DescriptionTests : IDisposable
             "GET /change-requests/{id}/drafts/latest",
             "GET /change-requests/{id}/designs",
             "GET /change-requests/{id}/designs/latest",
+            "GET /change-requests/{id}/workflow",
             "POST /change-requests",
             "POST /change-requests/{id}/decisions",
             "POST /change-requests/{id}/designs",
-            "POST /change-requests/{id}/drafts"
+            "POST /change-requests/{id}/drafts",
+            "POST /change-requests/{id}/workflow/advance"
         }.OrderBy(x => x, StringComparer.Ordinal).ToArray();
 
         Assert.Equal(expected, operations);
@@ -66,7 +68,7 @@ public class DescriptionTests : IDisposable
         {
             "invalid-body", "validation-failed", "invalid-identifier", "not-found", "no-draft",
             "route-not-found", "method-not-allowed", "conflict", "body-too-large",
-            "generation-failed", "drafting-not-configured", "unexpected-error"
+            "generation-failed", "drafting-not-configured", "unexpected-error", "no-step-due"
         })
         {
             Assert.Contains(code, text);

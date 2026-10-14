@@ -18,16 +18,17 @@ builder.Services.AddChangeOpsApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.OperationFilter<AgenticChangeOps.Api.Contracts.AdvanceResponseOperationFilter>();
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "AgenticChangeOps change request API",
         Version = "v1",
         Description =
-            "Local-only JSON API over the intake, approval, requirements drafting and design drafting capabilities. " +
+            "Local-only JSON API over the intake, approval, requirements drafting, design drafting and workflow capabilities. " +
             "No authentication. Error bodies carry a code: " +
             "invalid-body (400), validation-failed (400), invalid-identifier (400), invalid-host (400), " +
             "not-found (404), no-draft (404), no-design-draft (404), route-not-found (404), method-not-allowed (405), " +
-            "conflict (409), body-too-large (413), unsupported-media-type (415), generation-failed (502, with only a category), " +
+            "conflict (409), no-step-due (409), body-too-large (413), unsupported-media-type (415), generation-failed (502, with only a category), " +
             "drafting-not-configured (503), design-not-configured (503), unexpected-error (500)."
     });
 });
@@ -45,6 +46,7 @@ ChangeRequestEndpoints.Map(app);
 DecisionEndpoints.Map(app);
 DraftEndpoints.Map(app);
 DesignEndpoints.Map(app);
+WorkflowEndpoints.Map(app);
 app.Run();
 
 public partial class Program
