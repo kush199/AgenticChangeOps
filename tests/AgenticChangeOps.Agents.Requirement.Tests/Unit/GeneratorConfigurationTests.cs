@@ -23,6 +23,11 @@ public class GeneratorConfigurationTests
         var liveFolder = Path.Combine(testsRoot, "AgenticChangeOps.Agents.Requirement.Tests", "Live") + Path.DirectorySeparatorChar;
         var thisFile = Path.GetFullPath(Path.Combine(
             testsRoot, "AgenticChangeOps.Agents.Requirement.Tests", "Unit", "GeneratorConfigurationTests.cs"));
+        // Slice 011: one file records the hand-written client's wire shape through a fake transport
+        // and fake credential (no network, no real identity), so it may name the client. Only that
+        // file is exempt; the rest of the suite stays covered.
+        var wireBaselineFile = Path.GetFullPath(Path.Combine(
+            testsRoot, "AgenticChangeOps.ModelAccess.Tests", "HandWrittenClientWireBaselineTests.cs"));
         // Assembled from parts so this guard does not match itself.
         var forbidden = new[] { "AzureOpenAI" + "ChatModelClient", "Create" + "FromEnvironment" };
 
@@ -31,7 +36,8 @@ public class GeneratorConfigurationTests
                         !f.Contains(Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar))
             .Select(Path.GetFullPath)
             .Where(f => !f.StartsWith(liveFolder, StringComparison.OrdinalIgnoreCase) &&
-                        !string.Equals(f, thisFile, StringComparison.OrdinalIgnoreCase))
+                        !string.Equals(f, thisFile, StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(f, wireBaselineFile, StringComparison.OrdinalIgnoreCase))
             .Where(f => forbidden.Any(word => File.ReadAllText(f).Contains(word, StringComparison.Ordinal)))
             .Select(Path.GetFileName)
             .ToList();

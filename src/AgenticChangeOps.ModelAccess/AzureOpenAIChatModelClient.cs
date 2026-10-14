@@ -1,6 +1,7 @@
 using System.ClientModel;
 using System.ClientModel.Primitives;
 using Azure.AI.OpenAI;
+using Azure.Core;
 using Azure.Identity;
 using OpenAI.Chat;
 
@@ -14,21 +15,27 @@ namespace AgenticChangeOps.ModelAccess;
 /// </summary>
 public sealed class AzureOpenAIChatModelClient : IChatModelClient
 {
-    private const string ContentFilterMarker = "content_filter";
-
     private readonly ChatClient _chat;
 
     public AzureOpenAIChatModelClient(AzureOpenAIGeneratorOptions options)
+        : this(
+            options,
+            new AzureOpenAIClientOptions
+            {
+                // One attempt per model request; the caller may simply ask again.
+                RetryPolicy = new ClientRetryPolicy(0)
+            },
+            new DefaultAzureCredential())
+    {
+    }
+
+    // Lets tests supply a fake transport and credential; production uses the public constructor.
+    internal AzureOpenAIChatModelClient(
+        AzureOpenAIGeneratorOptions options, AzureOpenAIClientOptions clientOptions, TokenCredential credential)
     {
         ArgumentNullException.ThrowIfNull(options);
 
-        var clientOptions = new AzureOpenAIClientOptions
-        {
-            // One attempt per model request; the caller may simply ask again.
-            RetryPolicy = new ClientRetryPolicy(0)
-        };
-
-        var client = new AzureOpenAIClient(options.Endpoint, new DefaultAzureCredential(), clientOptions);
+        var client = new AzureOpenAIClient(options.Endpoint, credential, clientOptions);
         _chat = client.GetChatClient(options.DeploymentName);
     }
 
@@ -68,7 +75,7 @@ public sealed class AzureOpenAIChatModelClient : IChatModelClient
         }
         catch (ClientResultException ex)
         {
-            var errorCode = ResponseMentionsContentFilter(ex) ? ContentFilterMarker : null;
+            var errorCode = ContentFilterProbe.ResponseMentions(ex) ? ContentFilterProbe.Marker : null;
             throw new DraftGenerationException(ModelFailureMapper.FromError(ex.Status, errorCode));
         }
         catch (Exception ex)
@@ -76,21 +83,6 @@ public sealed class AzureOpenAIChatModelClient : IChatModelClient
             // Identity, network and any other failure. The exception itself is dropped: its
             // message can carry the endpoint, deployment name or identity detail.
             throw new DraftGenerationException(ModelFailureMapper.FromException(ex));
-        }
-    }
-
-    // The service reports a content-filter block as a 400 whose body names the filter. The body
-    // is only searched for the marker; none of it is kept.
-    private static bool ResponseMentionsContentFilter(ClientResultException ex)
-    {
-        try
-        {
-            var body = ex.GetRawResponse()?.Content?.ToString();
-            return body is not null && body.Contains(ContentFilterMarker, StringComparison.OrdinalIgnoreCase);
-        }
-        catch
-        {
-            return false;
         }
     }
 }

@@ -49,7 +49,8 @@ Requirement agent  (AgenticChangeOps.Agents.Requirement)   Architect agent  (Age
    ▼
 Model access  (AgenticChangeOps.ModelAccess)
                                    model seam, Azure OpenAI client, settings, failure mapping,
-                                   and the shared model call, answer reading and section normalising
+                                   the shared model call, answer reading and section normalising, and
+                                   the Architect agent's framework-backed client (Microsoft Agent Framework)
 ```
 
 Dependencies point one way: an agent depends on Intake and ModelAccess; Intake and ModelAccess

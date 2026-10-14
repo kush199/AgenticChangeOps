@@ -1,0 +1,2 @@
+framework only: body.max_completion_tokens = 500
+hand-written only: body.max_tokens = 500

@@ -1,0 +1,12 @@
+POST /openai/deployments/sentinel-deployment/chat/completions
+header: accept
+header: authorization
+header: user-agent
+header: x-ms-client-request-id
+body.max_tokens = 500
+body.messages[0].content = "Synthetic system instruction. Reply with a JSON object."
+body.messages[0].role = "system"
+body.messages[1].content = "Synthetic user content with a short change description."
+body.messages[1].role = "user"
+body.model = "sentinel-deployment"
+body.response_format.type = "json_object"
