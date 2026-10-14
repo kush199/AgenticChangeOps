@@ -71,7 +71,7 @@ public static class ApiServiceRegistration
         try
         {
             var options = AzureOpenAIGeneratorOptions.FromEnvironment(name => configuration[name]);
-            var generator = new AzureOpenAIDesignGenerator(options, new AzureOpenAIChatModelClient(options));
+            var generator = new AzureOpenAIDesignGenerator(options, new AgentFrameworkChatModelClient(options));
             return new DesignSetup(generator, isConfigured: true);
         }
         catch (GeneratorConfigurationException)

@@ -1,0 +1,40 @@
+Baseline before slice 011 (branch feature/agent-framework-architect, commit c70a788, 2026-10-14), dotnet test AgenticChangeOps.sln
+
+Packages (src/AgenticChangeOps.ModelAccess, before):
+  Azure.AI.OpenAI 2.1.0, Azure.Identity 1.21.0, Azure.Core 1.53.0 (transitive), OpenAI 2.1.0 (transitive)
+
+AgenticChangeOps.Intake.Tests             Passed 112  Skipped 0   Total 112
+AgenticChangeOps.ModelAccess.Tests        Passed 158  Skipped 0   Total 158
+AgenticChangeOps.Agents.Requirement.Tests Passed 153  Skipped 1   Total 154  (live model check, opt-in)
+AgenticChangeOps.Agents.Architect.Tests   Passed 115  Skipped 1   Total 116  (live model check, opt-in)
+AgenticChangeOps.Workflow.Tests           Passed 86   Skipped 0   Total 86
+AgenticChangeOps.Api.Tests                Passed 157  Skipped 0   Total 157
+
+Total: 781 passed, 2 skipped (the opt-in live checks, not run), 0 failed.
+
+R-003 gate (T008), 2026-10-14: FAILED, stopped for the user.
+  Adding Microsoft.Agents.AI 1.24.0 and Microsoft.Agents.AI.OpenAI 1.24.0 lifts OpenAI 2.1.0 -> 2.14.0.
+  Azure.AI.OpenAI 2.1.0 is binary-incompatible with OpenAI 2.14.0:
+    System.MissingMethodException: OpenAI.Chat.ChatCompletionOptions.get_SerializedAdditionalRawData()
+  Effect: every call through the hand-written client (the Requirement agent's path) maps to Unreachable.
+  Golden hand-written-wire.txt was unchanged (the request is never sent); ModelAccess.Tests 158/159, 1 failed
+  (HandWrittenClientWireBaselineTests). Package references reverted; tree is green again.
+  Newest Azure.AI.OpenAI is 2.9.0-beta.1 (needs OpenAI 2.9.1, prerelease only); no stable 2.x above 2.1.0.
+
+R-003 gate (T008) re-run with user decision "A", 2026-10-14: PASSED.
+  Azure.AI.OpenAI 2.1.0 -> 2.9.0-beta.1 (prerelease), OpenAI 2.1.0 -> 2.14.0 (transitive), Azure.Core 1.53.0,
+  Microsoft.Agents.AI 1.24.0, Microsoft.Agents.AI.OpenAI 1.24.0.
+  Full suite green (Intake 112, ModelAccess 159, Requirement 153+1 skipped, Architect 115+1 skipped, Workflow 86, Api 157),
+  0 warnings, golden hand-written-wire.txt byte-identical. Requirement live check still to be run by the user before merge.
+
+After the swap (T018 to T023), dotnet test AgenticChangeOps.sln, 0 warnings:
+AgenticChangeOps.Intake.Tests             Passed 112  Skipped 0   Total 112
+AgenticChangeOps.ModelAccess.Tests        Passed 204  Skipped 0   Total 204  (+46: wire baseline, parity, failure, one-call, stateless, no-leak, caller, containment)
+AgenticChangeOps.Agents.Requirement.Tests Passed 153  Skipped 1   Total 154
+AgenticChangeOps.Agents.Architect.Tests   Passed 115  Skipped 1   Total 116
+AgenticChangeOps.Workflow.Tests           Passed 86   Skipped 0   Total 86
+AgenticChangeOps.Api.Tests                Passed 157  Skipped 0   Total 157
+
+Total: 827 passed, 2 skipped (the opt-in live checks, not run), 0 failed.
+Existing tests: no assertion edited; one guard test (Requirement GeneratorConfigurationTests) given a narrow
+file exemption, approved by the user (option B). No existing golden changed.
