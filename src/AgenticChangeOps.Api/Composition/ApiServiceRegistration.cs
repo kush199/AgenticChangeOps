@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http.Json;
 using AgenticChangeOps.ModelAccess;
 using AgenticChangeOps.Agents.Requirement;
 using AgenticChangeOps.Agents.Architect;
+using AgenticChangeOps.Persistence;
 using AgenticChangeOps.Workflow;
 
 namespace AgenticChangeOps.Api.Composition;
@@ -16,7 +17,8 @@ namespace AgenticChangeOps.Api.Composition;
 public static class ApiServiceRegistration
 {
     /// <summary>
-    /// Registers the intake, approval and drafting services over one in-memory store. Model
+    /// Registers the intake, approval and drafting services over one store (durable local storage
+    /// by default, in-memory when the provider setting says so). Model
     /// settings are read lazily from <c>IConfiguration</c> (environment variables by default).
     /// </summary>
     public static IServiceCollection AddChangeOpsApi(this IServiceCollection services)
@@ -28,7 +30,7 @@ public static class ApiServiceRegistration
             options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
         });
 
-        services.AddSingleton<IChangeRequestStore, InMemoryChangeRequestStore>();
+        services.AddSingleton<IChangeRequestStore>(CreateStore);
         services.AddSingleton<ISystemClock, SystemClock>();
         services.AddSingleton<IIdGenerator, GuidIdGenerator>();
         services.AddSingleton<ChangeRequestValidator>();
@@ -61,6 +63,24 @@ public static class ApiServiceRegistration
         services.AddSingleton<IWorkflowService, WorkflowService>();
 
         return services;
+    }
+
+    public const string StorageProviderKey = "ChangeOps:Storage:Provider";
+    public const string StoragePathKey = "ChangeOps:Storage:Path";
+
+    /// <summary>
+    /// Durable storage unless the provider is explicitly <c>InMemory</c> (what tests choose).
+    /// The file is opened lazily, so an unusable location never stops the host from starting.
+    /// </summary>
+    private static IChangeRequestStore CreateStore(IServiceProvider services)
+    {
+        var configuration = services.GetRequiredService<IConfiguration>();
+        if (string.Equals(configuration[StorageProviderKey], "InMemory", StringComparison.OrdinalIgnoreCase))
+            return new InMemoryChangeRequestStore();
+
+        var configured = configuration[StoragePathKey];
+        var path = string.IsNullOrWhiteSpace(configured) ? SqliteStorageOptions.DefaultPath() : configured;
+        return new SqliteChangeRequestStore(new SqliteStorageOptions(path));
     }
 
     private static DesignSetup CreateDesignSetup(IServiceProvider services)

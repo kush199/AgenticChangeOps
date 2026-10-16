@@ -16,10 +16,11 @@ This is a learning and portfolio project, built slice by slice with
 | **Approval gate** | A human approver records Approve, Reject or Defer with a reason. Approved and Rejected are final. `clearance` is true only for Approved |
 | **Requirements drafting** | A Requirement agent asks a language model to draft structured requirements (summary, functional requirements, acceptance criteria, assumptions, open questions). Drafts are versioned and audited, and **never change the request's status** |
 | **Design drafting** | An Architect agent asks a language model to draft a design analysis (approach, affected components, impact and risks, dependencies, rollback, open questions) for an **Approved** request that has a requirements draft. Designs are versioned, linked to the requirements version they used, audited as `DesignGenerated`, and **never change the request's status** |
+| **Durable storage** | Change requests, audit entries, requirements drafts and design drafts are kept in a local SQLite file and survive a restart. A stored item and its audit entry are stored together or not at all, and version numbers never repeat |
 | **HTTP API** | All of the above over a local JSON API with a Swagger page |
 
 Not built yet: the Developer and Reviewer agents, orchestration between agents,
-authentication and persistent storage (data is held in memory and lost when the API stops).
+authentication.
 
 ## Design principles
 
@@ -54,7 +55,8 @@ Model access  (AgenticChangeOps.ModelAccess)
 ```
 
 Dependencies point one way: an agent depends on Intake and ModelAccess; Intake and ModelAccess
-depend on no agent, and ModelAccess does not depend on Intake.
+depend on no agent, and ModelAccess does not depend on Intake. Persistence depends on Intake only and
+names no agent; the Api chooses which store to use.
 
 ## Repository layout
 
@@ -62,12 +64,14 @@ depend on no agent, and ModelAccess does not depend on Intake.
 src/
   AgenticChangeOps.Api/                 HTTP API (minimal API + Swagger); the composition root
   AgenticChangeOps.Intake/              change requests, approval gate, audit, in-memory store
+  AgenticChangeOps.Persistence/         durable local storage (SQLite); depends on Intake only
   AgenticChangeOps.ModelAccess/         agent-neutral model access: seam, Azure client, settings, shared call and parsing
   AgenticChangeOps.Agents.Requirement/  everything specific to the Requirement agent
   AgenticChangeOps.Agents.Architect/    everything specific to the Architect agent
 tests/
   AgenticChangeOps.Api.Tests/                  HTTP behaviour, recorded baseline of responses
   AgenticChangeOps.Intake.Tests/               intake and approval, no agent or model references
+  AgenticChangeOps.Persistence.Tests/          one store contract run against both stores, restart, atomicity, layout
   AgenticChangeOps.ModelAccess.Tests/          settings, failure mapping, hygiene and neutrality checks
   AgenticChangeOps.Agents.Requirement.Tests/   drafting, validation, prompt, parser, generator
   AgenticChangeOps.Agents.Architect.Tests/     design drafting, validation, prompt, parser, generator
@@ -161,6 +165,24 @@ Invoke-RestMethod "$base/change-requests/$id/audit"
 
 Errors are JSON with a stable `code` and never include stack traces, endpoints or secrets.
 
+## Storage
+
+By default the API keeps everything in one SQLite file at
+`<local application data>/AgenticChangeOps/changeops.db` (outside the repository), created on first
+use. Two optional settings, as environment variables or configuration:
+
+| Setting | Meaning |
+|---|---|
+| `ChangeOps__Storage__Path` | Where the database file lives |
+| `ChangeOps__Storage__Provider` | `Sqlite` (default) or `InMemory` (lost on restart; what the automated tests use) |
+
+If the file cannot be opened, or was written with a layout this version does not understand, the
+API still starts and each operation that needs storage answers `503` with code
+`storage-unavailable` (category `Unavailable` or `UnsupportedLayout`); nothing is changed. If two
+overlapping requests would take the same version number, one succeeds and the other gets `409`
+with code `version-conflict`. Neither response carries a path or any internal detail. Database
+files are git-ignored.
+
 ## Enabling requirements drafting (optional)
 
 Every operation except drafting works with no cloud account. Without model settings, a draft
@@ -189,7 +211,6 @@ never call a real model; an opt-in live check runs only when
 - Developer and Reviewer agents
 - Orchestration between agents (Microsoft Agent Framework)
 - MCP integration for external tools
-- Persistent storage
 - Authentication
 
 ## License

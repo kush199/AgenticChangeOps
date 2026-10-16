@@ -54,8 +54,7 @@ public sealed class ChangeRequestService : IChangeRequestService
         // The request and its first audit entry become visible together.
         lock (_store.SyncRoot)
         {
-            _store.Save(changeRequest);
-            _store.SaveAuditEntry(auditEntry);
+            _store.SaveWithAudit(changeRequest, auditEntry);
         }
 
         return SubmissionResult.Success(changeRequest);
