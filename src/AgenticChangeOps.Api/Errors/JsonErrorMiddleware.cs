@@ -1,4 +1,5 @@
 using AgenticChangeOps.Api.Contracts;
+using AgenticChangeOps.Intake.Stores;
 using Microsoft.AspNetCore.Http.Features;
 
 namespace AgenticChangeOps.Api.Errors;
@@ -87,6 +88,14 @@ public sealed class JsonErrorMiddleware
                 ex.StatusCode == StatusCodes.Status413PayloadTooLarge
                     ? ErrorMapper.BodyTooLarge()
                     : ErrorMapper.InvalidBody());
+        }
+        catch (StorageUnavailableException ex) when (!context.Response.HasStarted)
+        {
+            await WriteAsync(context, ErrorMapper.StorageUnavailable(ex.Category));
+        }
+        catch (StorageVersionConflictException) when (!context.Response.HasStarted)
+        {
+            await WriteAsync(context, ErrorMapper.VersionConflict());
         }
         catch (Exception ex)
         {

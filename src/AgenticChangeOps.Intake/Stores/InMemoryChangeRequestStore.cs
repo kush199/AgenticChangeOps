@@ -56,6 +56,41 @@ public sealed class InMemoryChangeRequestStore : IChangeRequestStore
         }
     }
 
+    public void SaveWithAudit(ChangeRequest changeRequest, ChangeRequestAuditEntry auditEntry)
+    {
+        ArgumentNullException.ThrowIfNull(changeRequest);
+        ArgumentNullException.ThrowIfNull(auditEntry);
+
+        // All checks happen before any mutation so the call stores both items or neither.
+        RequireSameChangeRequest(changeRequest, auditEntry);
+        lock (_syncRoot)
+        {
+            Save(changeRequest);
+            SaveAuditEntry(auditEntry);
+        }
+    }
+
+    public void UpdateWithAudit(ChangeRequest changeRequest, ChangeRequestAuditEntry auditEntry)
+    {
+        ArgumentNullException.ThrowIfNull(changeRequest);
+        ArgumentNullException.ThrowIfNull(auditEntry);
+
+        RequireSameChangeRequest(changeRequest, auditEntry);
+        lock (_syncRoot)
+        {
+            Update(changeRequest);
+            SaveAuditEntry(auditEntry);
+        }
+    }
+
+    private static void RequireSameChangeRequest(ChangeRequest changeRequest, ChangeRequestAuditEntry auditEntry)
+    {
+        if (changeRequest.ChangeRequestId != auditEntry.ChangeRequestId)
+            throw new ArgumentException(
+                "The change request and its audit entry must belong to the same change request.",
+                nameof(auditEntry));
+    }
+
     public void SaveAgentOutput<T>(T output, ChangeRequestAuditEntry auditEntry) where T : IAgentOutput
     {
         ArgumentNullException.ThrowIfNull(output);

@@ -61,3 +61,11 @@ secrets.json
 
 TestResults*/
 .claude/settings.local.json
+
+# Local durable storage files (never committed)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3

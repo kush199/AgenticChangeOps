@@ -1,5 +1,6 @@
 using AgenticChangeOps.Api.Contracts;
 using AgenticChangeOps.Intake.Models;
+using AgenticChangeOps.Intake.Stores;
 using AgenticChangeOps.Agents.Architect;
 using AgenticChangeOps.Agents.Requirement;
 using AgenticChangeOps.Workflow;
@@ -130,6 +131,17 @@ public static class ErrorMapper
 
     public static (int StatusCode, ErrorResponse Body) InvalidHost() =>
         (400, new ErrorResponse("invalid-host", "The request host is not allowed."));
+
+    public static (int StatusCode, ErrorResponse Body) StorageUnavailable(StorageFailureCategory category) =>
+        (503, new ErrorResponse(
+            "storage-unavailable",
+            "The change request storage is unavailable.",
+            Category: category.ToString()));
+
+    public static (int StatusCode, ErrorResponse Body) VersionConflict() =>
+        (409, new ErrorResponse(
+            "version-conflict",
+            "The request conflicts with a concurrent change; try again."));
 
     public static (int StatusCode, ErrorResponse Body) Unexpected() =>
         (500, new ErrorResponse("unexpected-error", "An unexpected error occurred."));

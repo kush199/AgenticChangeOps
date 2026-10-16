@@ -61,8 +61,7 @@ public sealed class ApprovalService : IApprovalService
             StatusBefore: before,
             StatusAfter: after);
 
-        _store.Update(updated);
-        _store.SaveAuditEntry(entry);
+        _store.UpdateWithAudit(updated, entry);
 
         return DecisionResult.Success(updated);
     }

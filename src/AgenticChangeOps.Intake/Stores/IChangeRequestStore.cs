@@ -17,6 +17,18 @@ public interface IChangeRequestStore
     IReadOnlyList<ChangeRequestAuditEntry> GetAuditEntries(Guid changeRequestId);
 
     /// <summary>
+    /// Stores a new change request and its audit entry together, or neither. Rejects an entry
+    /// whose change request differs, and an id that already exists.
+    /// </summary>
+    void SaveWithAudit(ChangeRequest changeRequest, ChangeRequestAuditEntry auditEntry);
+
+    /// <summary>
+    /// Replaces a stored change request and stores its audit entry together, or neither. Rejects
+    /// an entry whose change request differs, and an id that does not exist.
+    /// </summary>
+    void UpdateWithAudit(ChangeRequest changeRequest, ChangeRequestAuditEntry auditEntry);
+
+    /// <summary>
     /// Stores an agent output and its audit entry together, or neither. Rejects an output whose
     /// change request differs from the entry's, and a version already stored for the same change
     /// request and output type.

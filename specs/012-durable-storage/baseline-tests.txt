@@ -1,0 +1,15 @@
+Baseline before slice 012 (dotnet test AgenticChangeOps.sln, branch feature/persistence, 2026-10-16)
+
+Project                                   Passed  Skipped  Total
+AgenticChangeOps.Intake.Tests               112       0     112
+AgenticChangeOps.Agents.Architect.Tests     115       1     116   (skipped: live design check)
+AgenticChangeOps.Workflow.Tests              86       0      86
+AgenticChangeOps.Agents.Requirement.Tests   153       1     154   (skipped: live model check)
+AgenticChangeOps.ModelAccess.Tests          204       0     204
+AgenticChangeOps.Api.Tests                  157       0     157
+Total                                       827       2     829
+
+SC-003 reference: API test files that already assert status, body and headers
+  tests/AgenticChangeOps.Api.Tests/ErrorShapeTests.cs
+  IntakeEndpointTests.cs, DecisionEndpointTests.cs, DraftEndpointTests.cs,
+  DesignEndpointTests.cs, WorkflowEndpointTests.cs

@@ -16,6 +16,9 @@ namespace AgenticChangeOps.Api.Tests.Fakes;
 /// </summary>
 public sealed class ApiFactory : WebApplicationFactory<Program>
 {
+    public const string StorageProviderKey = "ChangeOps:Storage:Provider";
+    public const string StoragePathKey = "ChangeOps:Storage:Path";
+
     private readonly IRequirementsDraftGenerator? _generator;
     private readonly bool? _draftingConfigured;
     private readonly Dictionary<string, string?> _settings;
@@ -28,7 +31,13 @@ public sealed class ApiFactory : WebApplicationFactory<Program>
     {
         _generator = generator;
         _draftingConfigured = draftingConfigured;
-        _settings = settings ?? new Dictionary<string, string?>();
+        _settings = settings is null
+            ? new Dictionary<string, string?>()
+            : new Dictionary<string, string?>(settings);
+
+        // Tests run on the in-memory store unless they ask for the durable one.
+        if (!_settings.ContainsKey(StorageProviderKey))
+            _settings[StorageProviderKey] = "InMemory";
         _configureServices = configureServices;
     }
 
