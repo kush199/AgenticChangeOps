@@ -132,10 +132,21 @@ This section records binding technology choices for V1. Deviations require a con
 amendment.
 
 - **Language**: C# (.NET 8 or later)
-- **Agent Framework**: Microsoft Agent Framework (Semantic Kernel Agent Framework)
+- **Agent Framework**: Microsoft Agent Framework. Used so far to run the Architect agent's
+  single content-generation request as a stateless, tool-less agent behind the
+  `IChatModelClient` seam, so the framework can be studied and compared on one agent. It
+  generates content only: routing, eligibility and every decision remain deterministic C#
+  (Principle II), and framework types stay inside `AgenticChangeOps.ModelAccess`. Semantic
+  Kernel is not used. Using the framework for another agent, or for tools, memory, sessions or
+  workflows, needs its own slice and spec.
 - **LLM Provider**: Azure OpenAI Service
 - **Tool/Resource Protocol**: Model Context Protocol (MCP) for external tool integrations
-- **Persistence**: Local or Azure-hosted storage; schema defined per typed record type
+- **Persistence**: Durable local storage in a single SQLite file (`Microsoft.Data.Sqlite`),
+  behind the `IChangeRequestStore` seam, with the layout version recorded in the file. The
+  location is a run-time setting with a safe local default, and the file is never committed to
+  the repository. The in-memory store remains for automated tests, and one shared behavioural
+  test suite runs against both. Schema is defined per typed record type. A network or cloud
+  database needs its own slice and spec.
 - **Test Framework**: xUnit with fakes for LLM interfaces; no mocking of database in
   integration tests unless explicitly justified per-slice
 
@@ -177,4 +188,4 @@ Commit messages MUST reference the change request ID or slice name.
 - This constitution does not expire, but SHOULD be reviewed whenever a major new capability
   or agent is proposed.
 
-**Version**: 1.0.3 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-13
+**Version**: 1.0.4 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-16
