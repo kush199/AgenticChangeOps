@@ -95,7 +95,7 @@
 - [X] T040 Run the manual checks in `specs/012-durable-storage/quickstart.md` steps 2 to 5 with a temp path and synthetic data; confirm `git status` shows no database file; record results under a "Verified" note in `quickstart.md`, including that a real process kill mid-write was not exercised (covered by injected failure in T016).
 - [X] T041 Constitution compliance check of spec, plan, tasks and the diff against v1.0.3 (Principles I, IV, VI, VII; no connection string or secret; Complexity Tracking items match what was built); record the result in `specs/012-durable-storage/plan.md`.
 - [X] T042 Run `dotnet build AgenticChangeOps.sln -c Release` with no new warnings, then `dotnet test AgenticChangeOps.sln -c Release` as CI does.
-- [ ] T043 [USER] Draft the commit and pull request (title, description with the constitution checklist line); the user confirms before any push or PR creation.
+- [X] T043 [USER] Draft the commit and pull request (title, description with the constitution checklist line); the user confirms before any push or PR creation.
 
 ---
 
