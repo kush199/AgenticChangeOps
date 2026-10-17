@@ -183,6 +183,8 @@ public class DesignFailureTests
         var submitted = await host.Client.SubmitAsync();
         host.Basis.Set(submitted, FakeBasisSource.Basis());
         var approved = await host.ApprovedWithBasisAsync();
+        // An Approved request may receive a requirements draft only while it has none.
+        (await host.Client.PostAsync($"/change-requests/{approved}/drafts", null)).EnsureSuccessStatusCode();
 
         var design = await host.Client.PostAsync($"/change-requests/{submitted}/designs", null);
         var draft = await host.Client.PostAsync($"/change-requests/{approved}/drafts", null);

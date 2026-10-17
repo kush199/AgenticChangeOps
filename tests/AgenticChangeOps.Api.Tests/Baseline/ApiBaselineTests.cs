@@ -166,6 +166,8 @@ public class ApiBaselineTests
         await log.RecordAsync("not configured draft", await client.PostAsync($"/change-requests/{id}/drafts", null));
         await log.RecordAsync("not configured invalid identifier",
             await client.PostAsync("/change-requests/not-a-guid/drafts", null));
+        await log.RecordAsync("not configured unknown identifier",
+            await client.PostAsync($"/change-requests/{Guid.NewGuid()}/drafts", null));
         await log.RecordAsync("not configured latest draft",
             await client.GetAsync($"/change-requests/{id}/drafts/latest"));
         await log.RecordAsync("not configured draft history", await client.GetAsync($"/change-requests/{id}/drafts"));

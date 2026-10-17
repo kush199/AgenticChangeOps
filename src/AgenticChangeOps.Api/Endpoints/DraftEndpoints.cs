@@ -41,10 +41,15 @@ public static class DraftEndpoints
         string id,
         HttpContext context,
         IRequirementsDraftingService service,
+        IChangeRequestService requests,
         DraftingAvailability availability)
     {
         if (!RequestParsing.TryParseId(id, out var changeRequestId))
             return RequestParsing.Error(ErrorMapper.InvalidIdentifier());
+
+        // An unknown identifier is reported whether or not drafting is configured.
+        if (requests.GetById(changeRequestId) is null)
+            return RequestParsing.Error(ErrorMapper.NotFound());
 
         if (!availability.IsConfigured)
             return RequestParsing.Error(ErrorMapper.DraftingNotConfigured());

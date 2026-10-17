@@ -57,14 +57,6 @@ public class AdvanceRefusalTests
     }
 
     [Fact]
-    public async Task ApprovedWithoutRequirementsDraft_NeedsOne()
-    {
-        var id = _f.SubmitSynthetic();
-        _f.SeedStatus(id, ChangeRequestStatus.Approved);
-        await AssertRefusedUnchanged(id, WorkflowReasonCode.RequirementsDraftRequired);
-    }
-
-    [Fact]
     public async Task ApprovedWithCurrentDesign_NothingDue_AndNoNewVersion()
     {
         var id = await _f.ApprovedWithDraftAsync();

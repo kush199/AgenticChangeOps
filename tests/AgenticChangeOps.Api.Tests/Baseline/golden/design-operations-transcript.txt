@@ -395,6 +395,15 @@ body:
   "message": "The change request identifier is not valid."
 }
 
+### not configured design unknown id
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
 ### not configured latest design
 status: 404 NotFound
 header: Content-Type: application/json; charset=utf-8

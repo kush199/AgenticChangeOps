@@ -52,6 +52,31 @@ public class WorkflowEndpointTests
     }
 
     [Fact]
+    public async Task ApprovedWithoutRequirementsDraft_ShowsTheDraftAsDue_AndAdvanceProducesIt()
+    {
+        using var host = new DesignHost(useFakeBasis: false);
+        var id = await host.ApprovedWithoutBasisAsync();
+
+        var status = await (await host.Client.GetAsync(Status(id))).ReadJsonAsync();
+
+        Assert.Equal("Approved", status.GetProperty("changeRequestStatus").GetString());
+        Assert.Equal("AwaitingRequirementsDraft", status.GetProperty("stage").GetString());
+        Assert.Equal("RequirementsDraft", status.GetProperty("nextStep").GetString());
+        Assert.False(status.TryGetProperty("reason", out var reason) && reason.ValueKind != System.Text.Json.JsonValueKind.Null);
+
+        var advanced = await host.Client.PostAsync(Advance(id), null);
+
+        Assert.Equal(HttpStatusCode.Created, advanced.StatusCode);
+        Assert.Equal($"/change-requests/{id}/drafts/latest", advanced.Headers.Location!.ToString());
+        var body = await advanced.ReadJsonAsync();
+        Assert.Equal("RequirementsDraft", body.GetProperty("step").GetString());
+        Assert.Equal(1, body.GetProperty("draft").GetProperty("version").GetInt32());
+        Assert.Equal("ReadyForDesign", body.GetProperty("status").GetProperty("stage").GetString());
+        Assert.Equal("DesignDraft", body.GetProperty("status").GetProperty("nextStep").GetString());
+        Assert.Equal(new[] { "Submitted", "Approved", "DraftGenerated" }, await host.AuditEventTypesAsync(id));
+    }
+
+    [Fact]
     public async Task Advance_RunsRequirementsThenRefusesUntilApproved_ThenRunsDesign()
     {
         using var host = new DesignHost(useFakeBasis: false);

@@ -1,0 +1,67 @@
+Red run for slice 014 (dotnet test AgenticChangeOps.sln, before any source change), 2026-10-17
+
+Project totals
+  Passed!  - Failed:     0, Passed:    81, Skipped:     0, Total:    81,- AgenticChangeOps.Persistence.Tests.dll (net8.0)
+  Failed!  - Failed:     6, Passed:   112, Skipped:     0, Total:   118,- AgenticChangeOps.Intake.Tests.dll (net8.0)
+  Passed!  - Failed:     0, Passed:   204, Skipped:     0, Total:   204,- AgenticChangeOps.ModelAccess.Tests.dll (net8.0)
+  Passed!  - Failed:     0, Passed:   117, Skipped:     1, Total:   118,- AgenticChangeOps.Agents.Architect.Tests.dll (net8.0)
+  Failed!  - Failed:     3, Passed:   153, Skipped:     1, Total:   157,- AgenticChangeOps.Agents.Requirement.Tests.dll (net8.0)
+  Failed!  - Failed:     3, Passed:   181, Skipped:     0, Total:   184,- AgenticChangeOps.Workflow.Tests.dll (net8.0)
+  Failed!  - Failed:    27, Passed:   184, Skipped:     0, Total:   211,- AgenticChangeOps.Api.Tests.dll (net8.0)
+
+Failing tests (39), each failing on the old behaviour, not on a compile error or missing type:
+  AgenticChangeOps.Agents.Requirement.Tests.Unit.DraftEligibilityTests.Draft_ApprovedAndADraftArrivesDuringGeneration_IsRefusedAndConsumesNoVersion
+  AgenticChangeOps.Agents.Requirement.Tests.Unit.DraftEligibilityTests.Draft_ApprovedWithNoDraft_IsAcceptedAsVersionOne
+  AgenticChangeOps.Agents.Requirement.Tests.Unit.DraftEligibilityTests.Draft_RequestBecomesApprovedDuringGeneration_KeepsTheDraftAsVersionOne
+  AgenticChangeOps.Api.Tests.Baseline.ApiBaselineTests.EveryOperation_ReturnsTheRecordedStatusHeadersBodyAndErrorCode
+  AgenticChangeOps.Api.Tests.Baseline.DesignOperationsBaselineTests.DesignOperationsOutsideTheModel_ReturnTheRecordedResponses
+  AgenticChangeOps.Api.Tests.CheckOrderTests.NotConfigured_UnknownIdentifier_IsNotFound_NotNotConfigured(operation: "designs", notConfiguredCode: "design-not-configured")
+  AgenticChangeOps.Api.Tests.CheckOrderTests.NotConfigured_UnknownIdentifier_IsNotFound_NotNotConfigured(operation: "drafts", notConfiguredCode: "drafting-not-configured")
+  AgenticChangeOps.Api.Tests.CheckOrderTests.UnknownIdentifier_GivesTheSameResponse_WhetherOrNotConfigured(operation: "designs", _: "design-not-configured")
+  AgenticChangeOps.Api.Tests.CheckOrderTests.UnknownIdentifier_GivesTheSameResponse_WhetherOrNotConfigured(operation: "drafts", _: "drafting-not-configured")
+  AgenticChangeOps.Api.Tests.DraftEndpointTests.Draft_OnApprovedRequestWithNoDraft_Returns201
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.ChangeType_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "-1")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.ChangeType_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "7")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.ChangeType_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "HOSTILE-MARKER-0001<script>alert(1)</script>")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.ChangeType_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "LONG-MARKER-0002QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"···)
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.ChangeType_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "other")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.ChangeType_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "urgent")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Decision_Unrecognised_GetsTheFixedMessage_NothingIsEchoed_AndNoDecisionIsRecorded(supplied: "-1")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Decision_Unrecognised_GetsTheFixedMessage_NothingIsEchoed_AndNoDecisionIsRecorded(supplied: "7")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Decision_Unrecognised_GetsTheFixedMessage_NothingIsEchoed_AndNoDecisionIsRecorded(supplied: "HOSTILE-MARKER-0001<script>alert(1)</script>")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Decision_Unrecognised_GetsTheFixedMessage_NothingIsEchoed_AndNoDecisionIsRecorded(supplied: "LONG-MARKER-0002QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"···)
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Decision_Unrecognised_GetsTheFixedMessage_NothingIsEchoed_AndNoDecisionIsRecorded(supplied: "other")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Decision_Unrecognised_GetsTheFixedMessage_NothingIsEchoed_AndNoDecisionIsRecorded(supplied: "urgent")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.NullOrOmittedValues_GetTheSameMessage_WithTheSameStatusCodeAndField
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Priority_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "-1")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Priority_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "7")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Priority_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "HOSTILE-MARKER-0001<script>alert(1)</script>")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Priority_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "LONG-MARKER-0002QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"···)
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Priority_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "other")
+  AgenticChangeOps.Api.Tests.EnumMessageEndpointTests.Priority_Unrecognised_GetsTheFixedMessageAndNothingIsEchoed(supplied: "urgent")
+  AgenticChangeOps.Api.Tests.WorkflowEndpointTests.ApprovedWithoutRequirementsDraft_ShowsTheDraftAsDue_AndAdvanceProducesIt
+  AgenticChangeOps.Intake.Tests.Unit.EnumMessageTests.ChangeType_Unrecognised_NamesTheFieldAndListsTheAcceptedValuesOnly(value: -1)
+  AgenticChangeOps.Intake.Tests.Unit.EnumMessageTests.ChangeType_Unrecognised_NamesTheFieldAndListsTheAcceptedValuesOnly(value: 99)
+  AgenticChangeOps.Intake.Tests.Unit.EnumMessageTests.Decision_Unrecognised_NamesTheFieldAndListsTheAcceptedValuesOnly_AndRecordsNothing(value: -1)
+  AgenticChangeOps.Intake.Tests.Unit.EnumMessageTests.Decision_Unrecognised_NamesTheFieldAndListsTheAcceptedValuesOnly_AndRecordsNothing(value: 99)
+  AgenticChangeOps.Intake.Tests.Unit.EnumMessageTests.Priority_Unrecognised_NamesTheFieldAndListsTheAcceptedValuesOnly(value: -1)
+  AgenticChangeOps.Intake.Tests.Unit.EnumMessageTests.Priority_Unrecognised_NamesTheFieldAndListsTheAcceptedValuesOnly(value: 99)
+  AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.AnApprovedRequestWithNoRequirementsDraft_GetsItsDraftAutomatically_ThenItsDesign
+  AgenticChangeOps.Workflow.Tests.Unit.AdvanceTests.ApprovedWithoutRequirementsDraft_AdvanceProducesTheDraft_ThenOffersDesign
+  AgenticChangeOps.Workflow.Tests.Unit.WorkflowRulesTests.Row7_ApprovedWithoutRequirements_OffersRequirementsDraft
+
+Reasons (by group)
+  US1 (EnumMessageTests x6, EnumMessageEndpointTests x19): message still reads "<Field> '-1' is not valid. Accepted...".
+  US2 (Row7, AdvanceTests, DueSelectionTests, DraftEligibilityTests x3, DraftEndpointTests, WorkflowEndpointTests): nextStep null / draft refused (Conflict) for Approved with no draft.
+  US3 (CheckOrderTests x4): unknown identifier answers 503 not-configured instead of 404.
+  Baselines (ApiBaselineTests, DesignOperationsBaselineTests): the two new unknown-identifier steps are not in the golden yet; goldens are re-recorded at T026 only.
+
+Passing on the old code and kept (guard rails): Approved-with-a-draft still refused (service and endpoint), approval with no draft still 200, case/spacing variants still accepted, malformed id still 400, known id still 503 when not configured.
+
+T014 approval: the user replied "approved" to the new and changed tests (T004 to T012) and this red run. Source changes start at T015.
+
+After T015 to T022 (sources changed, T020/T023 not ticked): all new tests pass, openapi.json test passes, RequirementsEligibilityDriftTests passes. Remaining red:
+  - ApiBaselineTests and DesignOperationsBaselineTests: goldens, re-recorded at T026.
+  - Two existing tests outside the approved edit list, which assert refusal of an Approved request with no requirements draft (the behaviour change 2 removes). Assertions NOT edited; awaiting the user's decision:
+      tests/AgenticChangeOps.Workflow.Tests/Automatic/FailureWaitTests.cs  AFailureWithNoCategory_BecauseTheFactsChangedMidStep_IsNotCounted
+      tests/AgenticChangeOps.Api.Tests/DesignFailureTests.cs                Parity_StateRefusalHasTheSameStatusCodeAndCodeAsRequirementsDrafting

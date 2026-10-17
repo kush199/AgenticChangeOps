@@ -189,7 +189,8 @@ files are git-ignored.
 ## Enabling requirements drafting (optional)
 
 Every operation except drafting works with no cloud account. Without model settings, a draft
-request returns `503 drafting-not-configured` and a design request returns `503 design-not-configured`.
+request for an existing change request returns `503 drafting-not-configured` and a design request
+returns `503 design-not-configured`; an unknown identifier still returns `404 not-found`.
 Both use the same settings.
 
 To enable it you need an Azure OpenAI resource with a chat model deployment, and a signed-in
@@ -213,7 +214,7 @@ never call a real model; an opt-in live check runs only when
 
 When switched on, the system checks the stored change requests every interval and runs the next
 step for any request that has one due, without anyone calling advance. Only the two draft steps
-run unasked: a **requirements draft** for a new request and a **design draft** for an Approved
+run unasked: a **requirements draft** for a new request (or an Approved one that has none) and a **design draft** for an Approved
 request that has a requirements draft. Both only produce draft content: they never change a
 status, record a decision or clear anything, which is the only reason they may run without a human
 asking. **No decision is ever made automatically.** What is due is decided by the same rules as the

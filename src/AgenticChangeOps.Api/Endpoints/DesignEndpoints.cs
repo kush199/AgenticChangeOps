@@ -2,6 +2,7 @@ using AgenticChangeOps.Agents.Architect;
 using AgenticChangeOps.Api.Composition;
 using AgenticChangeOps.Api.Contracts;
 using AgenticChangeOps.Api.Errors;
+using AgenticChangeOps.Intake.Services;
 
 namespace AgenticChangeOps.Api.Endpoints;
 
@@ -39,10 +40,15 @@ public static class DesignEndpoints
         string id,
         HttpContext context,
         IDesignDraftingService service,
+        IChangeRequestService requests,
         DesignAvailability availability)
     {
         if (!RequestParsing.TryParseId(id, out var changeRequestId))
             return RequestParsing.Error(ErrorMapper.InvalidIdentifier());
+
+        // An unknown identifier is reported whether or not design drafting is configured.
+        if (requests.GetById(changeRequestId) is null)
+            return RequestParsing.Error(ErrorMapper.NotFound());
 
         if (!availability.IsConfigured)
             return RequestParsing.Error(ErrorMapper.DesignNotConfigured());

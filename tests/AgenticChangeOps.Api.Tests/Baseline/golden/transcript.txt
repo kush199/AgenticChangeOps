@@ -50,11 +50,11 @@ body:
     },
     {
       "field": "Priority",
-      "message": "Priority \u0027-1\u0027 is not valid. Accepted: Low, Medium, High, Critical."
+      "message": "Priority is not a recognised value. Accepted values: Low, Medium, High, Critical."
     },
     {
       "field": "ChangeType",
-      "message": "ChangeType \u0027-1\u0027 is not valid. Accepted: Feature, Bugfix, ConfigChange."
+      "message": "ChangeType is not a recognised value. Accepted values: Feature, Bugfix, ConfigChange."
     }
   ]
 }
@@ -69,7 +69,7 @@ body:
   "errors": [
     {
       "field": "Priority",
-      "message": "Priority \u0027-1\u0027 is not valid. Accepted: Low, Medium, High, Critical."
+      "message": "Priority is not a recognised value. Accepted values: Low, Medium, High, Critical."
     }
   ]
 }
@@ -395,7 +395,7 @@ body:
     },
     {
       "field": "Decision",
-      "message": "Decision \u0027-1\u0027 is not valid. Accepted values: Approve, Reject, Defer."
+      "message": "Decision is not a recognised value. Accepted values: Approve, Reject, Defer."
     }
   ]
 }
@@ -769,6 +769,15 @@ body:
 {
   "code": "invalid-identifier",
   "message": "The change request identifier is not valid."
+}
+
+### not configured unknown identifier
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
 }
 
 ### not configured latest draft

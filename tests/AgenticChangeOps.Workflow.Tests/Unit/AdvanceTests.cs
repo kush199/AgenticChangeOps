@@ -25,6 +25,51 @@ public class AdvanceTests
     }
 
     [Fact]
+    public async Task ApprovedWithoutRequirementsDraft_AdvanceProducesTheDraft_ThenOffersDesign()
+    {
+        var id = _f.SubmitSynthetic();
+        _f.Decide(id, ApprovalDecision.Approve);
+        Assert.Equal(WorkflowStep.RequirementsDraft, _f.Workflow.GetStatus(id).Value!.NextStep);
+        Assert.Null(_f.Workflow.GetStatus(id).Value!.Reason);
+
+        var result = await _f.Workflow.AdvanceAsync(id);
+
+        Assert.Equal(AdvanceOutcome.Advanced, result.Outcome);
+        Assert.Equal(WorkflowStep.RequirementsDraft, result.Step);
+        Assert.Equal(1, result.Requirements!.Draft!.Version);
+        Assert.Equal(1, _f.DraftCount(id));
+        Assert.Equal(
+            new[] { AuditEventType.Submitted, AuditEventType.Approved, AuditEventType.DraftGenerated },
+            _f.AuditTypes(id));
+        var entry = _f.Store.GetAuditEntries(id).Last();
+        Assert.Equal(ChangeRequestStatus.Approved, entry.StatusBefore);
+        Assert.Equal(ChangeRequestStatus.Approved, entry.StatusAfter);
+        Assert.Null(entry.Automatic);
+        Assert.Equal(ChangeRequestStatus.Approved, _f.Store.FindById(id)!.Status);
+        Assert.Equal(WorkflowStep.DesignDraft, result.Status!.NextStep);
+
+        var second = await _f.Workflow.AdvanceAsync(id);
+
+        Assert.Equal(AdvanceOutcome.Advanced, second.Outcome);
+        Assert.Equal(WorkflowStep.DesignDraft, second.Step);
+        Assert.Equal(1, _f.DraftCount(id));
+        Assert.Equal(1, _f.DesignCount(id));
+    }
+
+    [Fact]
+    public async Task ApprovedWithADraft_AdvanceNeverProducesASecondRequirementsDraft()
+    {
+        var id = await _f.ApprovedWithDraftAsync();
+
+        await _f.Workflow.AdvanceAsync(id);
+        var again = await _f.Workflow.AdvanceAsync(id);
+
+        Assert.Equal(AdvanceOutcome.NothingDue, again.Outcome);
+        Assert.Equal(1, _f.DraftCount(id));
+        Assert.Equal(1, _f.DesignCount(id));
+    }
+
+    [Fact]
     public async Task Advance_OnApprovedRequest_StoresOneDesignWithItsAuditEntry()
     {
         var id = await _f.ApprovedWithDraftAsync();
