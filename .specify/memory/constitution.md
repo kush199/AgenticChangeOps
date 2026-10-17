@@ -133,14 +133,19 @@ amendment.
 
 - **Language**: C# (.NET 8 or later)
 - **Agent Framework**: Microsoft Agent Framework. Used so far to run the Architect agent's
-  single content-generation request as a stateless, tool-less agent behind the
-  `IChatModelClient` seam, so the framework can be studied and compared on one agent. It
+  content-generation request as a stateless agent behind the `IChatModelClient` and
+  `IToolChatModelClient` seams, so the framework can be studied and compared on one agent. The
+  Architect may be given read-only tools over a small synthetic sample codebase
+  (`sample-codebase/`), offered through the Model Context Protocol by an in-process server in
+  `AgenticChangeOps.SampleCode`; the tool set is fixed in code, reading is non-consequential,
+  tool output is untrusted data, and the feature is off unless an operator switches it on. It
   generates content only: routing, eligibility and every decision remain deterministic C#
-  (Principle II), and framework types stay inside `AgenticChangeOps.ModelAccess`. Semantic
-  Kernel is not used. Using the framework for another agent, or for tools, memory, sessions or
-  workflows, needs its own slice and spec.
+  (Principle II), and framework types stay inside `AgenticChangeOps.ModelAccess` (MCP types
+  inside `AgenticChangeOps.SampleCode`). Semantic Kernel is not used. Using the framework or
+  tools for another agent, or for memory, sessions or workflows, needs its own slice and spec.
 - **LLM Provider**: Azure OpenAI Service
-- **Tool/Resource Protocol**: Model Context Protocol (MCP) for external tool integrations
+- **Tool/Resource Protocol**: Model Context Protocol (MCP) for external tool integrations; used
+  so far in-process, for the Architect agent's read-only sample codebase tools
 - **Persistence**: Durable local storage in a single SQLite file (`Microsoft.Data.Sqlite`),
   behind the `IChangeRequestStore` seam, with the layout version recorded in the file. The
   location is a run-time setting with a safe local default, and the file is never committed to
@@ -188,4 +193,4 @@ Commit messages MUST reference the change request ID or slice name.
 - This constitution does not expire, but SHOULD be reviewed whenever a major new capability
   or agent is proposed.
 
-**Version**: 1.0.4 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-16
+**Version**: 1.0.5 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-17
