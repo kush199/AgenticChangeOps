@@ -73,7 +73,7 @@ public class FailureWaitTests
         var id = f.Base.SubmitSynthetic();
         f.Base.RequirementsGenerator.Behavior = (_, _) =>
         {
-            f.Base.Decide(id, ApprovalDecision.Approve);
+            f.Base.Decide(id, ApprovalDecision.Reject);
             return Task.FromResult<DraftContent?>(FakeRequirementsGenerator.ValidContent());
         };
 

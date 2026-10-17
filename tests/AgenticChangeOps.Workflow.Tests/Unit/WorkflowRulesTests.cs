@@ -74,10 +74,19 @@ public class WorkflowRulesTests
     }
 
     [Fact]
-    public void Row7_ApprovedWithoutRequirements_NeedsRequirementsDraft() =>
-        AssertReason(
+    public void Row7_ApprovedWithoutRequirements_OffersRequirementsDraft() =>
+        AssertNext(
             Derive(ChangeRequestStatus.Approved, NoReq),
-            WorkflowStage.AwaitingRequirementsDraft, WorkflowReasonCode.RequirementsDraftRequired);
+            WorkflowStage.AwaitingRequirementsDraft, WorkflowStep.RequirementsDraft);
+
+    [Fact]
+    public void Row7_ApprovedWithRequirements_StillOffersDesign_AndCurrentDesignIsStillComplete()
+    {
+        AssertNext(Derive(ChangeRequestStatus.Approved, Req(1)), WorkflowStage.ReadyForDesign, WorkflowStep.DesignDraft);
+        AssertReason(
+            Derive(ChangeRequestStatus.Approved, Req(1), Design((1, 1))),
+            WorkflowStage.DesignComplete, WorkflowReasonCode.NothingDue);
+    }
 
     [Fact]
     public void Row8_ApprovedWithRequirementsAndNoDesign_OffersDesign() =>

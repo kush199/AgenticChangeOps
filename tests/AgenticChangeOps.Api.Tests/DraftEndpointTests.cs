@@ -127,9 +127,27 @@ public class DraftEndpointTests : IDisposable
     }
 
     [Fact]
-    public async Task Draft_OnApprovedRequest_Returns409WithSpecificReasonAndGeneratorNotCalled()
+    public async Task Draft_OnApprovedRequestWithNoDraft_Returns201()
     {
         var id = await _client.SubmitAsync();
+        await _client.PostJsonAsync($"/change-requests/{id}/decisions", SyntheticData.Approve());
+
+        var response = await _client.PostAsync($"/change-requests/{id}/drafts", null);
+
+        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+        Assert.Equal($"/change-requests/{id}/drafts/latest", response.Headers.Location?.OriginalString);
+        var json = await response.ReadJsonAsync();
+        Assert.Equal(1, json.GetProperty("version").GetInt32());
+        Assert.Equal(id, json.GetProperty("changeRequestId").GetGuid());
+        Assert.Equal(1, _generator.CallCount);
+        Assert.Equal(new[] { "Submitted", "Approved", "DraftGenerated" }, await AuditEventTypesAsync(id));
+    }
+
+    [Fact]
+    public async Task Draft_OnApprovedRequestWithADraft_Returns409WithTheUnchangedBody()
+    {
+        var id = await _client.SubmitAsync();
+        (await _client.PostAsync($"/change-requests/{id}/drafts", null)).EnsureSuccessStatusCode();
         await _client.PostJsonAsync($"/change-requests/{id}/decisions", SyntheticData.Approve());
 
         var response = await _client.PostAsync($"/change-requests/{id}/drafts", null);
@@ -139,7 +157,23 @@ public class DraftEndpointTests : IDisposable
         Assert.Equal("conflict", json.GetProperty("code").GetString());
         var error = json.GetProperty("errors")[0];
         Assert.Equal("Status", error.GetProperty("field").GetString());
-        Assert.Contains("cannot be drafted", error.GetProperty("message").GetString());
+        Assert.Equal(
+            $"Change request {id} is in status Approved and cannot be drafted; " +
+            "only Submitted or Deferred requests can be drafted.",
+            error.GetProperty("message").GetString());
+        Assert.Equal(1, _generator.CallCount);
+        Assert.Equal(new[] { "Submitted", "DraftGenerated", "Approved" }, await AuditEventTypesAsync(id));
+    }
+
+    [Fact]
+    public async Task Approval_OfARequestWithNoDraft_IsStillAccepted()
+    {
+        var id = await _client.SubmitAsync();
+
+        var response = await _client.PostJsonAsync($"/change-requests/{id}/decisions", SyntheticData.Approve());
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal("Approved", (await response.ReadJsonAsync()).GetProperty("status").GetString());
         Assert.Equal(0, _generator.CallCount);
         Assert.Equal(new[] { "Submitted", "Approved" }, await AuditEventTypesAsync(id));
     }

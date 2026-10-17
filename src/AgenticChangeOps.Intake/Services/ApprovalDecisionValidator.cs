@@ -47,7 +47,7 @@ public sealed class ApprovalDecisionValidator
             return true;
 
         errors.Add(new ValidationError("Decision",
-            $"Decision '{decision}' is not valid. Accepted values: Approve, Reject, Defer."));
+            "Decision is not a recognised value. Accepted values: Approve, Reject, Defer."));
         return false;
     }
 

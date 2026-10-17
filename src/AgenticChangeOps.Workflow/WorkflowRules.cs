@@ -55,8 +55,7 @@ public static class WorkflowRules
 
             case ChangeRequestStatus.Approved:
                 if (!hasRequirements)
-                    return Stop(WorkflowStage.AwaitingRequirementsDraft, WorkflowReasonCode.RequirementsDraftRequired,
-                        "The change request is Approved but has no requirements draft, which a design requires.");
+                    return Next(WorkflowStage.AwaitingRequirementsDraft, WorkflowStep.RequirementsDraft);
 
                 var latestRequirements = orderedRequirements[^1].Version;
                 var designIsCurrent = orderedDesigns.Length > 0

@@ -37,6 +37,6 @@ public sealed class ChangeRequestValidator
     {
         if (!Enum.IsDefined(value))
             errors.Add(new ValidationError(fieldName,
-                $"{fieldName} '{value}' is not valid. Accepted: {accepted}."));
+                $"{fieldName} is not a recognised value. Accepted values: {accepted}."));
     }
 }

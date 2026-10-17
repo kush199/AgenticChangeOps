@@ -129,12 +129,12 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
         }
     }
 
-    private static ValidationError? CheckEligibility(Guid changeRequestId, ChangeRequest? request)
+    private ValidationError? CheckEligibility(Guid changeRequestId, ChangeRequest? request)
     {
         if (request is null)
             return NotFound(changeRequestId);
 
-        if (!IsDraftable(request.Status))
+        if (!IsDraftable(request.Status, hasDraft: HasDraft(changeRequestId)))
             return new ValidationError(
                 "Status",
                 $"Change request {changeRequestId} is in status {request.Status} and cannot be drafted; " +
@@ -143,8 +143,17 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
         return null;
     }
 
-    private static bool IsDraftable(ChangeRequestStatus status) =>
-        status is ChangeRequestStatus.Submitted or ChangeRequestStatus.Deferred;
+    // An Approved request may receive a requirements draft only while it has none, so it can still
+    // reach the step that every later one depends on.
+    private static bool IsDraftable(ChangeRequestStatus status, bool hasDraft) =>
+        status is ChangeRequestStatus.Submitted or ChangeRequestStatus.Deferred
+        || (status is ChangeRequestStatus.Approved && !hasDraft);
+
+    private bool HasDraft(Guid changeRequestId)
+    {
+        lock (_store.SyncRoot)
+            return _store.GetDrafts(changeRequestId).Count > 0;
+    }
 
     private static ValidationError NotFound(Guid changeRequestId) =>
         new("ChangeRequestId", $"No change request with id {changeRequestId} exists.");

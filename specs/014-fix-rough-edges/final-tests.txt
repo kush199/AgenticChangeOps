@@ -1,0 +1,18 @@
+Final run for slice 014 (dotnet test AgenticChangeOps.sln, 2026-10-17)
+
+  Passed!  - Failed:     0, Passed:   118, Skipped:     0, Total:   118, - AgenticChangeOps.Intake.Tests.dll (net8.0)
+  Passed!  - Failed:     0, Passed:    81, Skipped:     0, Total:    81, - AgenticChangeOps.Persistence.Tests.dll (net8.0)
+  Passed!  - Failed:     0, Passed:   184, Skipped:     0, Total:   184, - AgenticChangeOps.Workflow.Tests.dll (net8.0)
+  Passed!  - Failed:     0, Passed:   117, Skipped:     1, Total:   118, - AgenticChangeOps.Agents.Architect.Tests.dll (net8.0)
+  Passed!  - Failed:     0, Passed:   204, Skipped:     0, Total:   204, - AgenticChangeOps.ModelAccess.Tests.dll (net8.0)
+  Passed!  - Failed:     0, Passed:   156, Skipped:     1, Total:   157, - AgenticChangeOps.Agents.Requirement.Tests.dll (net8.0)
+  Passed!  - Failed:     0, Passed:   211, Skipped:     0, Total:   211, - AgenticChangeOps.Api.Tests.dll (net8.0)
+
+Total 1073 tests: 1071 passed, 2 skipped (live model checks), 0 failed. Baseline was 1028 (1026 passed, 2 skipped): +45 tests, all new to this slice.
+
+Existing tests whose assertions changed (all on the permitted list in tasks.md):
+  WorkflowRulesTests.Row7 (renamed, flipped); AdvanceRefusalTests.ApprovedWithoutRequirementsDraft_NeedsOne (removed, replaced in AdvanceTests);
+  DraftEligibilityTests (two Approved theory rows removed; the during-generation test replaced); DraftingFailureCategoryTests.EligibilityFailure_CategoryIsNull (seeds Rejected);
+  DraftEndpointTests.Draft_OnApprovedRequest_Returns409... (replaced);
+  FailureWaitTests.AFailureWithNoCategory_... (mid-step change is a rejection); DesignFailureTests.Parity_StateRefusal... (approved request first gets its draft) - both added with the user's approval after T022;
+  goldens: transcript.txt (4 message lines + 1 new step), design-operations-transcript.txt (1 new step). openapi.json and all other goldens unchanged.

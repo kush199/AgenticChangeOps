@@ -77,7 +77,7 @@ public sealed class DraftingFailureCategoryTests
     public async Task EligibilityFailure_CategoryIsNull()
     {
         var id = _f.SubmitSynthetic();
-        _f.SeedStatus(id, ChangeRequestStatus.Approved);
+        _f.SeedStatus(id, ChangeRequestStatus.Rejected);
 
         var result = await _f.Drafting.DraftAsync(id);
 

@@ -1,0 +1,24 @@
+Baseline before slice 014 (dotnet test AgenticChangeOps.sln, branch fix/rough-edges-from-manual-testing, 2026-10-17)
+
+Project                                   Passed  Skipped  Total
+AgenticChangeOps.Intake.Tests               112       0     112
+AgenticChangeOps.Persistence.Tests           81       0      81
+AgenticChangeOps.Agents.Architect.Tests     117       1     118   (skipped: live design check)
+AgenticChangeOps.Agents.Requirement.Tests   155       1     156   (skipped: live model check)
+AgenticChangeOps.Workflow.Tests             181       0     181
+AgenticChangeOps.ModelAccess.Tests          204       0     204
+AgenticChangeOps.Api.Tests                  176       0     176
+Total                                      1026       2    1028
+
+SC-005 reference: later totals may differ only by the new tests of this slice.
+
+These existing test files must stay green and unedited. The only existing tests whose assertions
+may change are the ones listed in tasks.md "Rules that hold for every task" (single tests in
+DraftEndpointTests, DraftEligibilityTests, DraftingFailureCategoryTests, WorkflowRulesTests and
+AdvanceRefusalTests, plus the golden transcript.txt lines named in plan.md):
+  tests/AgenticChangeOps.Api.Tests/ErrorShapeTests.cs, IntakeEndpointTests.cs, DecisionEndpointTests.cs,
+  DesignEndpointTests.cs, NotConfiguredTests.cs, WorkflowEndpointTests.cs
+  tests/AgenticChangeOps.Api.Tests/Baseline/DesignOperationsBaselineTests.cs and golden/design-operations-transcript.txt
+  tests/AgenticChangeOps.Api.Tests/Baseline/golden/openapi.json
+  tests/AgenticChangeOps.Intake.Tests/Unit/ (all)
+  tests/AgenticChangeOps.Workflow.Tests/Unit/RequirementsEligibilityDriftTests.cs

@@ -39,6 +39,33 @@ public class DueSelectionTests
     }
 
     [Fact]
+    public async Task AnApprovedRequestWithNoRequirementsDraft_GetsItsDraftAutomatically_ThenItsDesign()
+    {
+        var f = new AutomaticFixture();
+        var id = f.Base.SubmitSynthetic();
+        f.Base.Decide(id, ApprovalDecision.Approve);
+        Assert.Equal(WorkflowStep.RequirementsDraft, f.Status(id).NextStep);
+
+        var first = await f.Automatic.RunCheckAsync();
+
+        Assert.Equal(1, first.Ran);
+        Assert.Equal(0, first.Failed);
+        Assert.Equal(1, f.Base.DraftCount(id));
+        Assert.Equal(
+            new[] { AuditEventType.Submitted, AuditEventType.Approved, AuditEventType.DraftGenerated },
+            f.Base.AuditTypes(id));
+        Assert.True(f.Store.GetAuditEntries(id).Last().Automatic);
+        Assert.Equal(ChangeRequestStatus.Approved, f.Store.FindById(id)!.Status);
+        Assert.Equal(WorkflowStep.DesignDraft, f.Status(id).NextStep);
+
+        var second = await f.Automatic.RunCheckAsync();
+
+        Assert.Equal(1, second.Ran);
+        Assert.Equal(1, f.Base.DraftCount(id));
+        Assert.Equal(1, f.Base.DesignCount(id));
+    }
+
+    [Fact]
     public async Task TheSystemItselfNeverRecordsTheApproval_TheDesignWaitsForAPerson()
     {
         var f = new AutomaticFixture();

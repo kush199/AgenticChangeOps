@@ -84,6 +84,8 @@ public class DesignOperationsBaselineTests
         await log.RecordAsync("not configured design", await client.PostAsync($"/change-requests/{id}/designs", null));
         await log.RecordAsync("not configured design invalid id",
             await client.PostAsync("/change-requests/not-a-guid/designs", null));
+        await log.RecordAsync("not configured design unknown id",
+            await client.PostAsync($"/change-requests/{Guid.NewGuid()}/designs", null));
         await log.RecordAsync("not configured latest design", await client.GetAsync($"/change-requests/{id}/designs/latest"));
         await log.RecordAsync("not configured design history", await client.GetAsync($"/change-requests/{id}/designs"));
     }
