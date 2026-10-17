@@ -81,7 +81,7 @@ No Foundational phase: no shared code is needed.
 - [X] T028 Verify FR-009 and FR-010: `git diff main -- src` touches only the six permitted files; `git grep -n "RequirementsDraftRequired" src` shows the enum member and nothing that returns it; search the changed tests and transcripts for the hostile marker, `sk-`, `.invalid` endpoints and `-1`, and for `'-1'` in the goldens: none remain.
 - [X] T029 Work through `specs/014-fix-rough-edges/quickstart.md` steps 1 to 3 against a local run (steps 1 and 2 need no model; step 3 uses the test host if no model is configured). Record "live model check not run" in the PR description if step 3 was done only on the test host.
 - [X] T030 [P] Update `README.md` only where it states that an Approved request cannot be drafted or shows one of the three old messages; otherwise leave it. Write a short change summary listing the three response changes (FR-010) in the PR description.
-- [~] T031 [USER] Draft the commit (message referencing slice 014 and ending with the attribution line from the session) and the PR description (the three response changes, the permitted-test-edit list, the unused `RequirementsDraftRequired` member, the concurrency consequence, test totals, live check not run). The user confirms before anything is pushed or opened.
+- [X] T031 [USER] Draft the commit (message referencing slice 014 and ending with the attribution line from the session) and the PR description (the three response changes, the permitted-test-edit list, the unused `RequirementsDraftRequired` member, the concurrency consequence, test totals, live check not run). The user confirms before anything is pushed or opened.
 
 ---
 
