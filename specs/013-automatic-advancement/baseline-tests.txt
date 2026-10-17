@@ -1,0 +1,17 @@
+Baseline before slice 013 (dotnet test AgenticChangeOps.sln, branch feature/automatic-advancement, 2026-10-16)
+
+Project                                   Passed  Skipped  Total
+AgenticChangeOps.Intake.Tests               112       0     112
+AgenticChangeOps.Agents.Architect.Tests     115       1     116   (skipped: live design check)
+AgenticChangeOps.Workflow.Tests              86       0      86
+AgenticChangeOps.Agents.Requirement.Tests   153       1     154   (skipped: live model check)
+AgenticChangeOps.ModelAccess.Tests          204       0     204
+AgenticChangeOps.Persistence.Tests           64       0      64
+AgenticChangeOps.Api.Tests                  165       0     165
+Total                                       899       2     901
+
+SC-009 reference: these existing test files must stay green and unedited, apart from the three
+flagged edits (LayoutVersionTests expectation, ThrowingStore members, new contract cases):
+  tests/AgenticChangeOps.Api.Tests/ErrorShapeTests.cs, IntakeEndpointTests.cs, DecisionEndpointTests.cs,
+  DraftEndpointTests.cs, DesignEndpointTests.cs, WorkflowEndpointTests.cs
+  tests/AgenticChangeOps.Workflow.Tests/Unit/ (all)

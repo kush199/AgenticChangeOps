@@ -13,4 +13,7 @@ public sealed record ChangeRequestAuditEntry(
     ChangeRequestStatus? StatusBefore = null,
     ChangeRequestStatus? StatusAfter = null,
     string? AgentName = null,
-    int? DraftVersion = null);
+    int? DraftVersion = null,
+    [property: System.Text.Json.Serialization.JsonIgnore(
+        Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull)]
+    bool? Automatic = null);

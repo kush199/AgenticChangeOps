@@ -49,12 +49,12 @@ public sealed class LayoutVersionTests : IDisposable
     }
 
     [Fact]
-    public void ANewFile_IsStampedWithLayoutVersionOne()
+    public void ANewFile_IsStampedWithCurrentLayoutVersion()
     {
         using (var store = new SqliteChangeRequestStore(_database.Options))
             Assert.Null(store.FindById(Guid.NewGuid()));
 
-        Assert.Equal(1, UserVersion());
+        Assert.Equal(2, UserVersion());
     }
 
     [Fact]
@@ -91,6 +91,6 @@ public sealed class LayoutVersionTests : IDisposable
         using var reopened = new SqliteChangeRequestStore(_database.Options);
 
         RecordAssert.Same(request, reopened.FindById(request.ChangeRequestId));
-        Assert.Equal(1, UserVersion());
+        Assert.Equal(2, UserVersion());
     }
 }

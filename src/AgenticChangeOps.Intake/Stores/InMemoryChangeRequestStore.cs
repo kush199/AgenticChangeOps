@@ -10,6 +10,8 @@ public sealed class InMemoryChangeRequestStore : IChangeRequestStore
 {
     private readonly object _syncRoot = new();
     private readonly Dictionary<Guid, ChangeRequest> _changeRequests = new();
+    private readonly List<Guid> _saveOrder = new();
+    private readonly Dictionary<Guid, AutomaticAttempt> _attempts = new();
     private readonly Dictionary<Guid, List<ChangeRequestAuditEntry>> _auditEntries = new();
     private readonly Dictionary<(Guid ChangeRequestId, Type OutputType), List<IAgentOutput>> _outputs = new();
 
@@ -23,6 +25,7 @@ public sealed class InMemoryChangeRequestStore : IChangeRequestStore
                 throw new InvalidOperationException(
                     $"A change request with id {changeRequest.ChangeRequestId} already exists.");
             _changeRequests[changeRequest.ChangeRequestId] = changeRequest;
+            _saveOrder.Add(changeRequest.ChangeRequestId);
         }
     }
 
@@ -138,5 +141,30 @@ public sealed class InMemoryChangeRequestStore : IChangeRequestStore
                 return Array.Empty<ChangeRequestAuditEntry>();
             return list.OrderBy(e => e.OccurredAt).ToList().AsReadOnly();
         }
+    }
+
+    public IReadOnlyList<Guid> ListChangeRequestIds()
+    {
+        lock (_syncRoot)
+            return _saveOrder.ToArray();
+    }
+
+    public AutomaticAttempt? GetAutomaticAttempt(Guid changeRequestId)
+    {
+        lock (_syncRoot)
+            return _attempts.TryGetValue(changeRequestId, out var attempt) ? attempt : null;
+    }
+
+    public void SaveAutomaticAttempt(AutomaticAttempt attempt)
+    {
+        ArgumentNullException.ThrowIfNull(attempt);
+        lock (_syncRoot)
+            _attempts[attempt.ChangeRequestId] = attempt;
+    }
+
+    public void ClearAutomaticAttempt(Guid changeRequestId)
+    {
+        lock (_syncRoot)
+            _attempts.Remove(changeRequestId);
     }
 }

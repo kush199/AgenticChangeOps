@@ -60,9 +60,31 @@ public static class ApiServiceRegistration
         // Workflow orchestration: derives status from recorded facts and runs the agents'
         // own services; the availability adapter reuses the two flags registered above.
         services.AddSingleton<IStepAvailability, StepAvailabilityAdapter>();
-        services.AddSingleton<IWorkflowService, WorkflowService>();
+        // One WorkflowService answers both the manual and the automatic path, so they share one
+        // per-request gate and at most one step runs for a request at a time.
+        services.AddSingleton<WorkflowService>();
+        services.AddSingleton<IWorkflowService>(sp => sp.GetRequiredService<WorkflowService>());
+        services.AddSingleton<IAutomaticStepRunner>(sp => sp.GetRequiredService<WorkflowService>());
+
+        // Automatic advancement: off unless an operator switches it on. Settings are read once.
+        services.AddSingleton<AutomaticAdvancementSettings>(CreateAutomaticSettings);
+        services.AddSingleton<CheckSummaryHolder>();
+        services.AddSingleton<IAutomaticStatusSource, AutomaticStatusSource>();
+        services.AddSingleton<AutomaticAdvancementService>();
+        services.AddHostedService<AutomaticAdvancementHostedService>();
 
         return services;
+    }
+
+    private static AutomaticAdvancementSettings CreateAutomaticSettings(IServiceProvider services)
+    {
+        var configuration = services.GetRequiredService<IConfiguration>();
+        var logger = services.GetRequiredService<ILoggerFactory>().CreateLogger("AgenticChangeOps.Api.AutoAdvance");
+
+        // Warnings name the setting only, never its value.
+        return AutomaticAdvancementSettings.FromConfiguration(
+            name => configuration[name],
+            message => logger.LogWarning("{Message}", message));
     }
 
     public const string StorageProviderKey = "ChangeOps:Storage:Provider";

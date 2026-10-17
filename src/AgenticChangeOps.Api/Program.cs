@@ -47,6 +47,7 @@ DecisionEndpoints.Map(app);
 DraftEndpoints.Map(app);
 DesignEndpoints.Map(app);
 WorkflowEndpoints.Map(app);
+OperatorEndpoints.Map(app);
 app.Run();
 
 public partial class Program

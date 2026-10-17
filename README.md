@@ -17,6 +17,7 @@ This is a learning and portfolio project, built slice by slice with
 | **Requirements drafting** | A Requirement agent asks a language model to draft structured requirements (summary, functional requirements, acceptance criteria, assumptions, open questions). Drafts are versioned and audited, and **never change the request's status** |
 | **Design drafting** | An Architect agent asks a language model to draft a design analysis (approach, affected components, impact and risks, dependencies, rollback, open questions) for an **Approved** request that has a requirements draft. Designs are versioned, linked to the requirements version they used, audited as `DesignGenerated`, and **never change the request's status** |
 | **Durable storage** | Change requests, audit entries, requirements drafts and design drafts are kept in a local SQLite file and survive a restart. A stored item and its audit entry are stored together or not at all, and version numbers never repeat |
+| **Automatic advancement** | Optional and off by default: when switched on, runs the requirements and design draft steps for requests that have one due, without anyone asking. Never makes a decision |
 | **HTTP API** | All of the above over a local JSON API with a Swagger page |
 
 Not built yet: the Developer and Reviewer agents, orchestration between agents,
@@ -162,6 +163,7 @@ Invoke-RestMethod "$base/change-requests/$id/audit"
 | POST | `/change-requests/{id}/designs` | Request a design draft for an Approved request that has a requirements draft (calls the model) |
 | GET | `/change-requests/{id}/designs/latest` | Latest design draft |
 | GET | `/change-requests/{id}/designs` | Design draft version history |
+| GET | `/operator/automatic-advancement` | Whether automatic advancement is on, and the latest check summary |
 
 Errors are JSON with a stable `code` and never include stack traces, endpoints or secrets.
 
@@ -180,7 +182,8 @@ If the file cannot be opened, or was written with a layout this version does not
 API still starts and each operation that needs storage answers `503` with code
 `storage-unavailable` (category `Unavailable` or `UnsupportedLayout`); nothing is changed. If two
 overlapping requests would take the same version number, one succeeds and the other gets `409`
-with code `version-conflict`. Neither response carries a path or any internal detail. Database
+with code `version-conflict`. Neither response carries a path or any internal detail. A file written
+by the previous layout (version 1) is upgraded in place on first use. Database
 files are git-ignored.
 
 ## Enabling requirements drafting (optional)
@@ -205,6 +208,48 @@ Optional: `AGENTICCHANGEOPS_MODEL_TIMEOUT_SECONDS` and `AGENTICCHANGEOPS_MODEL_M
 Keep these values in your shell or a secrets manager. Never commit them. The automated tests
 never call a real model; an opt-in live check runs only when
 `AGENTICCHANGEOPS_LIVE_MODEL_CHECK=1` is set.
+
+## Automatic advancement (optional, off by default)
+
+When switched on, the system checks the stored change requests every interval and runs the next
+step for any request that has one due, without anyone calling advance. Only the two draft steps
+run unasked: a **requirements draft** for a new request and a **design draft** for an Approved
+request that has a requirements draft. Both only produce draft content: they never change a
+status, record a decision or clear anything, which is the only reason they may run without a human
+asking. **No decision is ever made automatically.** What is due is decided by the same rules as the
+workflow status, never by a language model, and the step is the same one a manual advance runs. At
+most one workflow step runs for a request at a time, whether started by the system or a person.
+
+| Setting (environment variable) | Default | Meaning |
+|---|---|---|
+| `ChangeOps__AutoAdvance__Enabled` | `false` | Switches the feature on (only an explicit `true` does) |
+| `ChangeOps__AutoAdvance__IntervalSeconds` | `300` | Time between checks (1 to 86400) |
+| `ChangeOps__AutoAdvance__MaxStepsPerCheck` | `5` | Most steps one check may run or attempt (1 to 1000) |
+| `ChangeOps__AutoAdvance__FailureWaitSeconds` | `900` | Wait before a failed request is tried again (0 to 86400) |
+| `ChangeOps__AutoAdvance__MaxConsecutiveFailures` | `3` | Failures after which the request is left for a person (1 to 100) |
+
+Settings are read at start-up (switching off needs a restart). An invalid value uses that
+setting's default and logs a warning that names the setting, never its value. If the model is not
+configured, no step runs and nothing is recorded as a failure.
+
+A failed attempt stores no draft, is not retried until the waiting time has passed, and after the
+configured number of consecutive failures the request is left for a person: its workflow status
+shows `"automatic": { "mode": "LeftForPerson", "failureCategory": "..." }` and the system stops
+trying until a person's advance succeeds or a different step becomes due. Workflow status and
+advance responses gain an `automatic` member (`Off`, `On` or `LeftForPerson`); an audit entry of a
+step run automatically carries `"automatic": true` (manual entries do not have the member).
+
+`GET /operator/automatic-advancement` shows whether the feature is on and the latest check:
+
+```json
+{ "enabled": true, "lastCheck": { "checkedAt": "2026-10-16T09:30:00Z", "examined": 12, "ran": 2, "failed": 1 } }
+```
+
+`lastCheck` is `null` until a check has run since start. Counts and times only: no model text,
+endpoint, deployment name or credential. Each check is also logged as one line, for example
+`Automatic advancement check: examined=12 ran=2 failed=2 categories=TimedOut:1,MalformedOutput:1`.
+A person calling an agent's own drafting operation directly is outside the workflow step and takes
+no part in the one-step-at-a-time rule.
 
 ## Roadmap
 

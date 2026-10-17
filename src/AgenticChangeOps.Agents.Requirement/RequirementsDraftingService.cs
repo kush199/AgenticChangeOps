@@ -28,7 +28,8 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
         _validator = validator;
     }
 
-    public async Task<DraftingResult> DraftAsync(Guid changeRequestId, CancellationToken cancellationToken = default)
+    public async Task<DraftingResult> DraftAsync(
+        Guid changeRequestId, CancellationToken cancellationToken = default, bool automatic = false)
     {
         var request = _store.FindById(changeRequestId);
         var eligibilityError = CheckEligibility(changeRequestId, request);
@@ -61,7 +62,7 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
         if (errors.Count > 0)
             return DraftingResult.Failure(errors, GenerationFailureCategory.MalformedOutput);
 
-        return StoreDraft(changeRequestId, content!);
+        return StoreDraft(changeRequestId, content!, automatic);
     }
 
     public QueryResult<RequirementsDraft?> GetLatestDraft(Guid changeRequestId)
@@ -88,7 +89,7 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
 
     // No await in here: the eligibility re-check, version assignment and save form one
     // uninterrupted step, so overlapping calls cannot take the same version.
-    private DraftingResult StoreDraft(Guid changeRequestId, DraftContent content)
+    private DraftingResult StoreDraft(Guid changeRequestId, DraftContent content, bool automatic)
     {
         lock (_store.SyncRoot)
         {
@@ -120,7 +121,8 @@ public sealed class RequirementsDraftingService : IRequirementsDraftingService
                 StatusBefore: current!.Status,
                 StatusAfter: current.Status,
                 AgentName: RequirementsDraft.RequirementAgentName,
-                DraftVersion: draft.Version);
+                DraftVersion: draft.Version,
+                Automatic: automatic ? true : null);
 
             _store.SaveDraft(draft, entry);
             return DraftingResult.Success(draft);

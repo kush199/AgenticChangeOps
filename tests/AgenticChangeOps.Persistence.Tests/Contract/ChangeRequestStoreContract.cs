@@ -334,4 +334,87 @@ public abstract class ChangeRequestStoreContract : IDisposable
         RecordAssert.Same(approved, store.FindById(request.ChangeRequestId));
         Assert.Equal(2, store.GetAuditEntries(request.ChangeRequestId).Count);
     }
+
+    private static AutomaticAttempt Attempt(Guid id, int failures = 1, int completed = 0) =>
+        new(id, "RequirementsDraft", completed, failures, "Unreachable", SampleRecords.Start.AddMinutes(failures));
+
+    // C14
+    [Fact]
+    public void C14_ListChangeRequestIds_ReturnsTheIdsInSaveOrder_AndIsEmptyForAnEmptyStore()
+    {
+        var store = NewStore();
+        Assert.Empty(store.ListChangeRequestIds());
+
+        var first = SampleRecords.Request();
+        var second = SampleRecords.Request();
+        var third = SampleRecords.Request();
+        store.Save(first);
+        store.Save(second);
+        store.Save(third);
+        store.Update(first with { Status = ChangeRequestStatus.Approved });
+
+        Assert.Equal(
+            new[] { first.ChangeRequestId, second.ChangeRequestId, third.ChangeRequestId },
+            store.ListChangeRequestIds().ToArray());
+    }
+
+    // C15
+    [Fact]
+    public void C15_GetAutomaticAttempt_IsNullWhenNone_AndReturnsExactlyWhatWasStored()
+    {
+        var store = NewStore();
+        var id = Guid.NewGuid();
+        Assert.Null(store.GetAutomaticAttempt(id));
+
+        var attempt = Attempt(id, failures: 2, completed: 3);
+        store.SaveAutomaticAttempt(attempt);
+
+        Assert.Equal(attempt, store.GetAutomaticAttempt(id));
+    }
+
+    // C16
+    [Fact]
+    public void C16_SaveAutomaticAttempt_ReplacesTheRowForThatRequest_AndLeavesOthersAlone()
+    {
+        var store = NewStore();
+        var a = Guid.NewGuid();
+        var b = Guid.NewGuid();
+        store.SaveAutomaticAttempt(Attempt(a, failures: 1));
+        store.SaveAutomaticAttempt(Attempt(b, failures: 1));
+
+        store.SaveAutomaticAttempt(Attempt(a, failures: 2));
+
+        Assert.Equal(2, store.GetAutomaticAttempt(a)!.ConsecutiveFailures);
+        Assert.Equal(1, store.GetAutomaticAttempt(b)!.ConsecutiveFailures);
+    }
+
+    // C17
+    [Fact]
+    public void C17_ClearAutomaticAttempt_RemovesTheRow_AndToleratesAMissingOne()
+    {
+        var store = NewStore();
+        var id = Guid.NewGuid();
+        store.SaveAutomaticAttempt(Attempt(id));
+
+        store.ClearAutomaticAttempt(id);
+        store.ClearAutomaticAttempt(id);
+        store.ClearAutomaticAttempt(Guid.NewGuid());
+
+        Assert.Null(store.GetAutomaticAttempt(id));
+    }
+
+    // C18
+    [Fact]
+    public void C18_AttemptRows_NeverAppearAsAuditEntriesOrAgentOutputs()
+    {
+        var store = NewStore();
+        var request = SampleRecords.Request();
+        store.SaveWithAudit(request, SampleRecords.Entry(request.ChangeRequestId));
+
+        store.SaveAutomaticAttempt(Attempt(request.ChangeRequestId));
+
+        Assert.Single(store.GetAuditEntries(request.ChangeRequestId));
+        Assert.Empty(store.GetAgentOutputs<FakeAgentOutput>(request.ChangeRequestId));
+        RecordAssert.Same(request, store.FindById(request.ChangeRequestId));
+    }
 }

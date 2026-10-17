@@ -6,5 +6,6 @@ public enum AdvanceOutcome
     NotFound,
     NothingDue,
     NotConfigured,
-    StepFailed
+    StepFailed,
+    Busy
 }
