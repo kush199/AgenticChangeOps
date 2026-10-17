@@ -1,0 +1,33 @@
+{
+  "description": "Fixed records serialized by the code as it stood before slice 015 (tools off). Tests in slice 015 rebuild exactly these records and compare their serialization to the sibling files byte for byte. HTTP responses, history and audit listing for tools off are already recorded by tests/AgenticChangeOps.Api.Tests/Baseline/golden/design-operations-transcript.txt, which must pass unchanged.",
+  "designDraft": {
+    "designId": "00000000-0000-0000-0000-0000000000a1",
+    "changeRequestId": "00000000-0000-0000-0000-0000000000b2",
+    "version": 1,
+    "requirementsVersion": 1,
+    "generatedAt": "2026-10-17T09:00:00Z",
+    "status": "Draft",
+    "agentName": "ArchitectAgent",
+    "approachSummary": "Summary text.",
+    "affectedComponents": ["Component A"],
+    "impactAndRisks": ["Risk A"],
+    "dependencies": ["Dependency A"],
+    "rollbackConsiderations": ["Rollback A"],
+    "openQuestions": ["Question A"]
+  },
+  "auditEntry": {
+    "auditEntryId": "00000000-0000-0000-0000-0000000000c3",
+    "changeRequestId": "00000000-0000-0000-0000-0000000000b2",
+    "eventType": "DesignGenerated",
+    "occurredAt": "2026-10-17T09:00:00Z",
+    "statusBefore": "Approved",
+    "statusAfter": "Approved",
+    "agentName": "ArchitectAgent",
+    "draftVersion": 1
+  },
+  "files": {
+    "storedDesign": "stored-design-payload.json (storage options: string enums, PascalCase)",
+    "storedAudit": "stored-audit-entry.json (storage options)",
+    "httpDesign": "http-design-body.json (web options: camelCase, string enums)"
+  }
+}

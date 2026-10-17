@@ -1,0 +1,9 @@
+# Billing Portal settings (invented)
+portal.invoice.currency = EUR
+portal.invoice.page.size = 20
+portal.session.minutes = 20
+portal.reminder.first.days = 7
+portal.reminder.second.days = 14
+portal.reminder.max = 3
+portal.statement.months = 12
+portal.status.queue = orders-status-events

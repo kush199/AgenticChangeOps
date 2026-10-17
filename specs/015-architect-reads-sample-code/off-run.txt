@@ -1,0 +1,12 @@
+Tools-off proof for slice 015 (dotnet test AgenticChangeOps.sln, default settings), 2026-10-17
+
+The existing recorded design operations (tests/AgenticChangeOps.Api.Tests/Baseline/golden/design-operations-transcript.txt,
+which records the design route, latest, history and the audit listing with tools off) pass byte for byte, and the
+file is not modified (git shows it untouched). The caller-cancellation transcript is likewise untouched.
+
+New guards that pass: ToolsOffUnchangedTests (Api), ToolsOffGeneratorTests and SampleToolsRoundTripTests (Architect).
+The stored design payload and audit payload for a draft with no file list equal the bytes recorded before the
+change (baseline/stored-design-payload.json, baseline/stored-audit-entry.json).
+
+Existing tests unchanged except the approved edits: MovedTypeShapeTests member list; goldens transcript.txt,
+shared-plumbing-transcript.txt (additions plus renumbered <id-N> placeholders) and openapi.json (additions).

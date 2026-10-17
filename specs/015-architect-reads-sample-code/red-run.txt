@@ -1,0 +1,111 @@
+Red run for slice 015 (dotnet test AgenticChangeOps.sln, tests written, behaviour not implemented), 2026-10-17
+
+Passed!  Failed:     0, Passed:   118, Skipped:     0, Total:   118, AgenticChangeOps.Intake.Tests.dll (net8.0)
+Passed!  Failed:     0, Passed:    81, Skipped:     0, Total:    81, AgenticChangeOps.Persistence.Tests.dll (net8.0)
+Passed!  Failed:     0, Passed:   184, Skipped:     0, Total:   184, AgenticChangeOps.Workflow.Tests.dll (net8.0)
+Passed!  Failed:     0, Passed:   156, Skipped:     1, Total:   157, AgenticChangeOps.Agents.Requirement.Tests.dll (net8.0)
+Failed!  Failed:    11, Passed:   205, Skipped:     0, Total:   216, AgenticChangeOps.ModelAccess.Tests.dll (net8.0)
+Failed!  Failed:    22, Passed:   133, Skipped:     1, Total:   156, AgenticChangeOps.Agents.Architect.Tests.dll (net8.0)
+Failed!  Failed:   112, Passed:    11, Skipped:     0, Total:   123, AgenticChangeOps.SampleCode.Tests.dll (net8.0)
+Failed!  Failed:    14, Passed:   216, Skipped:     0, Total:   230, AgenticChangeOps.Api.Tests.dll (net8.0)
+
+Reason for every failure: System.NotImplementedException from a compiling stub, or an unmet assertion about behaviour that does not exist yet (no compile errors, no missing types).
+Every pre-existing test is green: Intake 118, Persistence 81, Workflow 184, Requirement 156 (+1 skipped); ModelAccess 204 existing, Architect 117 existing (+1 skipped), Api 211 existing, plus the approved edits listed in tasks.md.
+
+Failing tests by story (distinct names; theory rows collapsed)
+
+## US3 confinement and limits
+ModelAccess.Tests.ToolLoopModelCallLimitTests.AFailedToolCall_IsNeverRetried_AndTheLoopCarriesOn
+ModelAccess.Tests.ToolLoopModelCallLimitTests.AFinalAnswerOnTheLastAllowedCall_IsReturned_NotDiscarded
+ModelAccess.Tests.ToolLoopModelCallLimitTests.AModelThatKeepsAskingForTools_IsStoppedAtExactlyTheLimit_AsLimitsExhausted
+ModelAccess.Tests.ToolLoopModelCallLimitTests.AnImmediateAnswer_IsOneModelCall_AndNoToolCall
+ModelAccess.Tests.ToolLoopModelCallLimitTests.TheCallersOwnCancellation_IsNotReportedAsALimit
+ModelAccess.Tests.ToolLoopModelCallLimitTests.TheFailureMessages_NeverCarryToolOrModelText
+ModelAccess.Tests.ToolLoopModelCallLimitTests.TheTimeLimit_EndsARequestThatHasNoFinalAnswer_AsLimitsExhausted
+SampleCode.Tests.McpToolListTests.AFileReadTwice_IsListedOnce_ButCountsAgainstTheBudgetEachTime
+SampleCode.Tests.McpToolListTests.AfterDisposal_ACallFailsCleanly_AndReadsNothing
+SampleCode.Tests.McpToolListTests.APathThatEscapes_IsNotRecordedAsAFileRead_AndItsTargetIsNeverAnAbsolutePath
+SampleCode.Tests.McpToolListTests.ASessionIsOnlyAccepted_WhenTheServerListsExactlyTheExpectedTools
+SampleCode.Tests.McpToolListTests.ATool_NotInTheFixedSet_CannotBeCalled
+SampleCode.Tests.McpToolListTests.EachTool_ThroughMcp_ReturnsWhatTheReaderReturns
+SampleCode.Tests.McpToolListTests.EveryCall_IsRecorded_WithToolTargetOutcomeSizeAndTime_AndNoContent
+SampleCode.Tests.McpToolListTests.OpeningASession_StartsNoProcess_AndUsesAnInMemoryTransport
+SampleCode.Tests.McpToolListTests.TheDataLimit_RefusesAWholeResult_WithTheFixedMessage
+SampleCode.Tests.McpToolListTests.TheFactory_OpensAWorkingSession_ForAValidSample
+SampleCode.Tests.McpToolListTests.TheFactory_WithAMissingOrEmptySampleFolder_ReportsToolsUnavailable_AndNothingElse
+SampleCode.Tests.McpToolListTests.TheServerOffersExactlyTheThreeTools_AndNoResourcesOrPrompts
+SampleCode.Tests.PathConfinementTests.ADirectoryLinkInsideTheSample_ThatPointsOutside_IsRefusedByAllThreeTools
+SampleCode.Tests.PathConfinementTests.AllThreeTools_RefuseEveryEscapingSpelling_WithAFixedMessage
+SampleCode.Tests.PathConfinementTests.APathThatStaysInsideTheSample_IsAllowed
+SampleCode.Tests.PathConfinementTests.Resolver_RefusesEveryEscapingSpelling
+SampleCode.Tests.PathConfinementTests.TheAbsolutePathOfARealFileOutsideTheSample_IsRefused_InBothSeparatorStyles
+SampleCode.Tests.PathConfinementTests.TheRootItself_IsAllowed_AsTheEmptyListingTarget
+SampleCode.Tests.ReaderToolTests.List_IsCappedAt200Entries
+SampleCode.Tests.ReaderToolTests.List_OfAMissingFolder_IsNotFound_AndOfAFile_IsInvalid
+SampleCode.Tests.ReaderToolTests.List_OfASubfolder_ShowsFilesAndFolders
+SampleCode.Tests.ReaderToolTests.List_OfTheRoot_ShowsFoldersWithATrailingSlash_InOrdinalOrder
+SampleCode.Tests.ReaderToolTests.NothingUnderTheTempFolderChanges_AcrossEveryOperation
+SampleCode.Tests.ReaderToolTests.Read_OfABinaryFile_IsNotText
+SampleCode.Tests.ReaderToolTests.Read_OfAFileOverTheLimit_IsRefused_AndTheFileIsNotReadAtAll
+SampleCode.Tests.ReaderToolTests.Read_OfAMissingFile_IsNotFound_AndOfAFolder_IsInvalid
+SampleCode.Tests.ReaderToolTests.Read_ReturnsADataLabelThenTheText_AndReportsTheFileRead
+SampleCode.Tests.ReaderToolTests.Search_IsCaseInsensitive_SortedByPathThenLine_AndShowsPathLineAndText
+SampleCode.Tests.ReaderToolTests.Search_ReturnsAtMost20Matches_AndTrimsEachLineTo160Characters
+SampleCode.Tests.ReaderToolTests.Search_SkipsFilesOverTheLimit_AndBinaryFiles
+SampleCode.Tests.ReaderToolTests.Search_ThatMatchesNothing_IsServedAndEmpty
+SampleCode.Tests.ReaderToolTests.Search_WithATermOver80Characters_IsInvalid
+SampleCode.Tests.ReaderToolTests.Search_WithNoUsableTerm_IsInvalid
+SampleCode.Tests.SampleToolSettingsTests.Nothing_Set_MeansOff_WithTheDocumentedDefaults
+SampleCode.Tests.SampleToolSettingsTests.TheSwitch_AcceptsTrue_InAnyCase
+SampleCode.Tests.SampleToolSettingsTests.TheSwitch_RejectsAnythingElse_AsInvalid_NotAsOff
+SampleCode.Tests.SampleToolSettingsTests.WhenOff_NoOtherSettingIsParsed
+SampleCode.Tests.SampleToolSettingsTests.WhenOn_EachNumericSetting_RejectsZeroNegativeAndNonNumbers_NamingOnlyTheSetting
+SampleCode.Tests.SampleToolSettingsTests.WhenOn_ValidValues_AreUsed
+SampleCode.Tests.ToolBudgetTests.AfterTheTimeLimit_EveryCallIsRefused_AsTimeLimit
+SampleCode.Tests.ToolBudgetTests.ARefusedCall_StillUsesTheBudget
+SampleCode.Tests.ToolBudgetTests.AResultThatWouldPassTheDataLimit_IsRefusedWhole_AndASmallerOneCanStillBeTaken
+SampleCode.Tests.ToolBudgetTests.CallsUpToTheLimit_AreAdmitted_AndTheNextIsRefusedAndCounted
+SampleCode.Tests.ToolBudgetTests.ManyConcurrentCalls_NeverExceedEitherLimit
+
+## US1 design cites real files
+Agents.Architect.Tests.Unit.SampleToolsDesignTests.AFileTheDesignTextNamesButWasNotRead_IsNotListed
+Agents.Architect.Tests.Unit.SampleToolsDesignTests.ARefusedRead_IsNotListed_AndListingsAndSearchesDoNotCount
+Agents.Architect.Tests.Unit.SampleToolsDesignTests.ASecondDesign_IsVersionTwo_WithItsOwnFileList
+Agents.Architect.Tests.Unit.SampleToolsDesignTests.EverySession_IsClosed_Success_Failure_OrCancellation
+Agents.Architect.Tests.Unit.SampleToolsDesignTests.ReadingNothing_IsValid_AndStoresAnEmptyList_NotNull
+Agents.Architect.Tests.Unit.SampleToolsDesignTests.TheDraft_ListsTheFilesTheSessionSaysWereRead
+Agents.Architect.Tests.Unit.SampleToolsDesignTests.TheToolsOnSystemText_StartsWithTheUnchangedText_AndNamesTheThreeTools
+Agents.Architect.Tests.Unit.SampleToolsDesignTests.TwoConcurrentDesigns_GetTheirOwnSessions_AndTheirOwnFileLists
+Api.Tests.SampleToolsCompositionTests.ABillingDesign_ListsRealFilesUnderTheBillingPortal
+Api.Tests.SampleToolsCompositionTests.AnOrdersDesign_ListsRealFilesUnderTheOrdersService
+Api.Tests.SampleToolsCompositionTests.EachCall_IsAudited_WithoutContent_AndTheStatusStaysApproved
+Api.Tests.SampleToolsCompositionTests.TheApiOutputFolder_ContainsTheSameSampleFilesAsTheRepository
+Api.Tests.SampleToolsCompositionTests.TheLatestAndHistoryRoutes_ReturnTheSameFileList
+Api.Tests.SampleToolsCompositionTests.TwoConcurrentDesigns_GetIndependentBudgetsAndCallLists
+
+## US4 failing safely
+Agents.Architect.Tests.Unit.SampleToolsFailureTests.ALimitReachedButAValidAnswerProduced_IsStoredNormally
+Agents.Architect.Tests.Unit.SampleToolsFailureTests.AnUnexpectedToolClientException_ReportsOnlyItsType_NeverItsMessage
+Agents.Architect.Tests.Unit.SampleToolsFailureTests.ARequestAfterAFailedOne_BehavesNormally_WithNoStateCarriedOver
+Agents.Architect.Tests.Unit.SampleToolsFailureTests.LimitsExhausted_FailsWithItsOwnCategory_AndStoresNothing_NotEvenTheCalls
+Agents.Architect.Tests.Unit.SampleToolsFailureTests.TheFailureText_IsFixed_AndCarriesNothingFromTheToolsOrTheModel
+Agents.Architect.Tests.Unit.SampleToolsFailureTests.ToolsUnavailable_FailsBeforeAnyModelCall_WithItsOwnCategory_AndStoresNothing
+Api.Tests.SampleToolsFailureEndpointTests.AnInvalidToolsSetting_MakesDesignNotConfigured_NamingNoValue
+Api.Tests.SampleToolsFailureEndpointTests.ASampleFolderThatDoesNotExist_Returns502_ToolsUnavailable_AndStoresNothing
+Api.Tests.SampleToolsFailureEndpointTests.AutomaticAdvancement_RecordsTheNewCategories_LikeAnyOther
+Api.Tests.SampleToolsFailureEndpointTests.LimitsExhausted_Returns502_WithItsOwnCategory_AndStoresNothing
+
+## US5 hostile content
+Agents.Architect.Tests.Unit.SampleToolsHostileContentTests.AfterReadingAHostileFile_TheStatusApprovalAndRecordKindsAreAsForAnyDesign
+Agents.Architect.Tests.Unit.SampleToolsHostileContentTests.TheToolSetOfferedToTheModel_IsFixedBeforeAnyToolRuns_AndIsTheSameForEveryRequest
+ModelAccess.Tests.ToolOutputIsDataTests.ARequestForAToolThatIsNotOffered_IsNeverRun
+ModelAccess.Tests.ToolOutputIsDataTests.HostileToolText_NeverReachesTheInstructions_AndTheToolSetIsTheSameOnEveryTurn
+
+## Cross-cutting
+SampleCode.Tests.SampleHygieneTests.TheOnlyProjectThatMentionsTheSample_IsTheApiProject_AsCopiedContent
+SampleCode.Tests.StructureTests.NoOtherProduct_Project_NamesTheMcpNamespaces
+SampleCode.Tests.StructureTests.OnlyTheApiProject_AndTheTestProjects_ReferenceIt
+
+## US2 tools off unchanged
+(no failures by design: ToolsOffUnchangedTests, ToolsOffGeneratorTests and SampleToolsRoundTripTests describe behaviour that already holds and must keep holding; they pass now and are the regression guard)
+Approval: the user replied "approved" after reviewing the red run and the flagged existing-test edits (2026-10-17).

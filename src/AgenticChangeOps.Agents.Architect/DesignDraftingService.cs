@@ -125,7 +125,14 @@ public sealed class DesignDraftingService : IDesignDraftingService
                 ImpactAndRisks: content.ImpactAndRisks!,
                 Dependencies: content.Dependencies!,
                 RollbackConsiderations: content.RollbackConsiderations!,
-                OpenQuestions: content.OpenQuestions!);
+                OpenQuestions: content.OpenQuestions!,
+                SampleFilesRead: content.SampleFilesRead);
+
+            // One audit entry per tool call, in call order, just before the design's own entry.
+            // Nothing here can hold what a tool returned. Without tools there are no calls and this
+            // does nothing.
+            foreach (var call in content.ToolCalls ?? Array.Empty<ToolCallRecord>())
+                _store.SaveAuditEntry(ToolCallEntry(changeRequestId, current!.Status, call, generatedAt));
 
             var entry = new ChangeRequestAuditEntry(
                 AuditEntryId: _idGenerator.NewId(),
@@ -142,6 +149,32 @@ public sealed class DesignDraftingService : IDesignDraftingService
             _store.SaveDesign(draft, entry);
             return DesignDraftingResult.Success(draft);
         }
+    }
+
+    private const int MaxAuditTargetLength = 120;
+
+    private ChangeRequestAuditEntry ToolCallEntry(
+        Guid changeRequestId, ChangeRequestStatus status, ToolCallRecord call, DateTime generatedAt)
+    {
+        var target = new string(call.Target.Where(c => !char.IsControl(c)).ToArray());
+        if (target.Length > MaxAuditTargetLength)
+            target = target[..MaxAuditTargetLength];
+
+        return new ChangeRequestAuditEntry(
+            AuditEntryId: _idGenerator.NewId(),
+            ChangeRequestId: changeRequestId,
+            EventType: AuditEventType.ToolCalled,
+            // A call cannot have happened after the design it belongs to was recorded.
+            OccurredAt: call.StartedAt <= generatedAt ? call.StartedAt : generatedAt,
+            Details: null,
+            StatusBefore: status,
+            StatusAfter: status,
+            AgentName: DesignDraft.ArchitectAgentName,
+            ToolName: call.ToolName,
+            ToolTarget: target,
+            ToolOutcome: call.Outcome.ToString(),
+            ResultBytes: call.ResultBytes,
+            ElapsedMilliseconds: (int)Math.Min(int.MaxValue, Math.Max(0, call.Elapsed.TotalMilliseconds)));
     }
 
     private const string RequirementsDraftField = "RequirementsDraft";

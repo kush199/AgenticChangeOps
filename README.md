@@ -69,6 +69,7 @@ src/
   AgenticChangeOps.ModelAccess/         agent-neutral model access: seam, Azure client, settings, shared call and parsing
   AgenticChangeOps.Agents.Requirement/  everything specific to the Requirement agent
   AgenticChangeOps.Agents.Architect/    everything specific to the Architect agent
+  AgenticChangeOps.SampleCode/          the read-only sample codebase tools (in-process MCP server), used by the Architect
 tests/
   AgenticChangeOps.Api.Tests/                  HTTP behaviour, recorded baseline of responses
   AgenticChangeOps.Intake.Tests/               intake and approval, no agent or model references
@@ -76,6 +77,8 @@ tests/
   AgenticChangeOps.ModelAccess.Tests/          settings, failure mapping, hygiene and neutrality checks
   AgenticChangeOps.Agents.Requirement.Tests/   drafting, validation, prompt, parser, generator
   AgenticChangeOps.Agents.Architect.Tests/     design drafting, validation, prompt, parser, generator
+  AgenticChangeOps.SampleCode.Tests/           path confinement, limits, tools, MCP round trip, sample hygiene
+sample-codebase/                        invented sample the tools read (not part of the solution)
 specs/                                  one folder per slice: spec, plan, tasks, contracts
 .specify/                               Spec Kit templates, scripts and the constitution
 ```
@@ -252,11 +255,50 @@ endpoint, deployment name or credential. Each check is also logged as one line, 
 A person calling an agent's own drafting operation directly is outside the workflow step and takes
 no part in the one-step-at-a-time rule.
 
+## Sample codebase tools (optional, off by default)
+
+When switched on, the Architect agent may look at a small **invented** sample codebase while it
+prepares a design draft, so the design can refer to files that really exist. The tools are offered
+through the Model Context Protocol by an in-process server (no process, no network): `list_files`,
+`read_file` and `search_text`. They are read-only, confined to the `sample-codebase/` folder, and
+reading is classified as non-consequential. The model still only generates content: nothing it reads
+can change a status, record a decision or add a tool, and eligibility, routing and approval stay the
+system's own rules.
+
+The sample (`sample-codebase/`, outside the solution and never compiled) holds two invented systems,
+an orders service and a billing portal, each with settings, a few pseudo-source files and short
+design notes. It is copied next to the binaries when the API is built.
+
+| Setting (environment variable) | Default | Meaning |
+|---|---|---|
+| `AGENTICCHANGEOPS_SAMPLE_TOOLS_ENABLED` | `false` | Switches the feature on (`true` or `false` only; anything else is invalid) |
+| `AGENTICCHANGEOPS_SAMPLE_TOOLS_MAX_CALLS` | `8` | Most tool calls per design request |
+| `AGENTICCHANGEOPS_SAMPLE_TOOLS_MAX_MODEL_CALLS` | `6` | Most model calls per design request |
+| `AGENTICCHANGEOPS_SAMPLE_TOOLS_MAX_RETURNED_BYTES` | `24000` | Most data returned to the model per request |
+| `AGENTICCHANGEOPS_SAMPLE_TOOLS_MAX_FILE_BYTES` | `8000` | Largest file one read may return |
+| `AGENTICCHANGEOPS_SAMPLE_TOOLS_TIME_LIMIT_SECONDS` | `60` | Time limit for the whole request |
+| `AGENTICCHANGEOPS_SAMPLE_CODEBASE_PATH` | `<app folder>/sample-codebase` | Optional: another folder to read |
+
+While the switch is off nothing changes: no other tools setting is read and every response is
+exactly as before. With it on and a setting invalid, design drafting reports
+`503 design-not-configured` (only the setting name is logged).
+
+A design drafted with tools carries `sampleFilesRead`: the sample files the Architect actually read
+(empty if it read none). Each tool call is recorded in the audit trail as a `ToolCalled` entry (tool,
+path or search term, outcome, bytes returned, milliseconds) and never the file text. A path outside
+the sample, an oversized file or a call over a limit is refused with a fixed message and the design
+carries on within the limits. A request that cannot start the tools, or runs out of limits before a
+usable answer, fails with `502 generation-failed` and `category` `ToolsUnavailable` or
+`LimitsExhausted`, and stores nothing (its calls are not audited; only counts are logged).
+
+Limits of the idea: a model can still be persuaded by text in a file, but the only thing that can
+change is the wording of the draft, which passes the usual validation and is reviewed by a person.
+
 ## Roadmap
 
 - Developer and Reviewer agents
 - Orchestration between agents (Microsoft Agent Framework)
-- MCP integration for external tools
+- MCP tools for other agents and for real systems (the Architect has read-only sample tools today)
 - Authentication
 
 ## License

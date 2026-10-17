@@ -1,0 +1,14 @@
+# InvoiceList (invented pseudo-source)
+# Shows a customer their invoices, newest first.
+
+function listInvoices(customerRef, page):
+    size = setting("portal.invoice.page.size")
+    rows = invoiceTable.where(customerRef = customerRef)
+                       .orderByDescending(issuedOn)
+                       .skip(page * size).take(size)
+    return rows.map(r => { number: r.number, issuedOn: r.issuedOn,
+                           amount: r.amount, currency: setting("portal.invoice.currency"),
+                           state: r.state })
+
+# Invoices are created when the status queue reports an order as "Shipped".
+# Known limit: only one currency is supported.

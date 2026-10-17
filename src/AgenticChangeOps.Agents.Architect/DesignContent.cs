@@ -10,4 +10,6 @@ public sealed record DesignContent(
     IReadOnlyList<string>? ImpactAndRisks,
     IReadOnlyList<string>? Dependencies,
     IReadOnlyList<string>? RollbackConsiderations,
-    IReadOnlyList<string>? OpenQuestions);
+    IReadOnlyList<string>? OpenQuestions,
+    IReadOnlyList<string>? SampleFilesRead = null,
+    IReadOnlyList<AgenticChangeOps.ModelAccess.ToolCallRecord>? ToolCalls = null);

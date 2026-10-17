@@ -5,5 +5,7 @@ public enum GenerationFailureCategory
     Unreachable,
     TimedOut,
     ResponseTooLarge,
-    MalformedOutput
+    MalformedOutput,
+    ToolsUnavailable,
+    LimitsExhausted
 }

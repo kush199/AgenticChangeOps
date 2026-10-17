@@ -23,7 +23,7 @@ public sealed class MovedTypeShapeTests
         var actual = Enum.GetValues<GenerationFailureCategory>().Select(v => (v.ToString(), (int)v)).ToArray();
 
         Assert.Equal(
-            new[] { ("Unreachable", 0), ("TimedOut", 1), ("ResponseTooLarge", 2), ("MalformedOutput", 3) },
+            new[] { ("Unreachable", 0), ("TimedOut", 1), ("ResponseTooLarge", 2), ("MalformedOutput", 3), ("ToolsUnavailable", 4), ("LimitsExhausted", 5) },
             actual);
     }
 

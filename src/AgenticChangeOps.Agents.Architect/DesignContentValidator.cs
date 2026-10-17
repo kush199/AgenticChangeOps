@@ -40,7 +40,10 @@ public sealed class DesignContentValidator
         if (errors.Count > 0)
             return (null, errors);
 
-        return (new DesignContent(summary, components, impact, dependencies, rollback, questions), errors);
+        // What the tools did is carried through unchanged; only the model's text is normalised.
+        return (new DesignContent(
+            summary, components, impact, dependencies, rollback, questions,
+            content.SampleFilesRead, content.ToolCalls), errors);
     }
 
     private static T? Check<T>(SectionOutcome<T> outcome, string section, List<ValidationError> errors)

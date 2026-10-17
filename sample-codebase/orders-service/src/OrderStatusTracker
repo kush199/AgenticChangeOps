@@ -1,0 +1,22 @@
+# OrderStatusTracker (invented pseudo-source)
+# Records order status changes and publishes them to the status queue.
+
+allowedNext = {
+    "Received":  ["Reserved", "Cancelled"],
+    "Reserved":  ["Packed", "Cancelled"],
+    "Packed":    ["Shipped"],
+    "Shipped":   [],
+    "Cancelled": []
+}
+
+function record(orderId, newStatus):
+    current = load(orderId).status
+    if newStatus not in allowedNext[current]:
+        raise InvalidTransition(orderId, current, newStatus)
+    save(orderId, newStatus, now())
+    publish("orders-status-events", orderId, newStatus)
+
+function cancel(orderId):
+    if minutesSinceReceived(orderId) > setting("orders.cancel.window.minutes"):
+        raise CancelWindowClosed(orderId)
+    record(orderId, "Cancelled")

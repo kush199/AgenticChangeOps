@@ -21,6 +21,8 @@ public sealed class DraftGenerationException : Exception
         GenerationFailureCategory.TimedOut => "The model did not answer within the time limit.",
         GenerationFailureCategory.ResponseTooLarge => "The model answer exceeded the size limit.",
         GenerationFailureCategory.MalformedOutput => "The model answer could not be used.",
+        GenerationFailureCategory.ToolsUnavailable => "The sample codebase tools are not available.",
+        GenerationFailureCategory.LimitsExhausted => "The tool limits were reached before a usable answer was produced.",
         _ => "The content generator failed."
     };
 }

@@ -13,10 +13,18 @@
     <ProjectReference Include="..\AgenticChangeOps.Agents.Requirement\AgenticChangeOps.Agents.Requirement.csproj" />
     <ProjectReference Include="..\AgenticChangeOps.Agents.Architect\AgenticChangeOps.Agents.Architect.csproj" />
     <ProjectReference Include="..\AgenticChangeOps.Workflow\AgenticChangeOps.Workflow.csproj" />
+    <ProjectReference Include="..\AgenticChangeOps.SampleCode\AgenticChangeOps.SampleCode.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <!-- The synthetic sample codebase is copied next to the binaries as plain content. It is never
+       compiled: it is not a project, not in the solution, and adds no Compile item. -->
+  <ItemGroup>
+    <Content Include="..\..\sample-codebase\**\*" Link="sample-codebase\%(RecursiveDir)%(Filename)%(Extension)"
+             CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

@@ -1960,6 +1960,84 @@ body:
   }
 ]
 
+### Requirement client category ToolsUnavailable: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "ToolsUnavailable"
+}
+
+### Requirement client category ToolsUnavailable: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client category ToolsUnavailable: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-93>",
+    "changeRequestId": "<id-94>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Requirement client category LimitsExhausted: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The requirements draft could not be generated.",
+  "category": "LimitsExhausted"
+}
+
+### Requirement client category LimitsExhausted: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-draft",
+  "message": "No draft exists yet for this change request."
+}
+
+### Requirement client category LimitsExhausted: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-95>",
+    "changeRequestId": "<id-96>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
 ### Requirement client arbitrary exception: post
 status: 502 BadGateway
 header: Content-Type: application/json; charset=utf-8
@@ -1985,8 +2063,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-93>",
-    "changeRequestId": "<id-94>",
+    "auditEntryId": "<id-97>",
+    "changeRequestId": "<id-98>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2024,8 +2102,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-95>",
-    "changeRequestId": "<id-96>",
+    "auditEntryId": "<id-99>",
+    "changeRequestId": "<id-100>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2063,8 +2141,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-97>",
-    "changeRequestId": "<id-98>",
+    "auditEntryId": "<id-101>",
+    "changeRequestId": "<id-102>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2102,8 +2180,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-99>",
-    "changeRequestId": "<id-100>",
+    "auditEntryId": "<id-103>",
+    "changeRequestId": "<id-104>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2119,11 +2197,11 @@ body:
 ### Requirement answer at size limit: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-101>/drafts/latest
+header: Location: /change-requests/<id-105>/drafts/latest
 body: 
 {
-  "draftId": "<id-102>",
-  "changeRequestId": "<id-101>",
+  "draftId": "<id-106>",
+  "changeRequestId": "<id-105>",
   "version": 1,
   "generatedAt": "<timestamp>",
   "status": "Draft",
@@ -2148,8 +2226,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "draftId": "<id-102>",
-  "changeRequestId": "<id-101>",
+  "draftId": "<id-106>",
+  "changeRequestId": "<id-105>",
   "version": 1,
   "generatedAt": "<timestamp>",
   "status": "Draft",
@@ -2175,8 +2253,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-103>",
-    "changeRequestId": "<id-101>",
+    "auditEntryId": "<id-107>",
+    "changeRequestId": "<id-105>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2188,8 +2266,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-104>",
-    "changeRequestId": "<id-101>",
+    "auditEntryId": "<id-108>",
+    "changeRequestId": "<id-105>",
     "eventType": "DraftGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2227,8 +2305,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-105>",
-    "changeRequestId": "<id-106>",
+    "auditEntryId": "<id-109>",
+    "changeRequestId": "<id-110>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2244,11 +2322,11 @@ body:
 ### Architect valid bare object: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-107>/designs/latest
+header: Location: /change-requests/<id-111>/designs/latest
 body: 
 {
-  "designId": "<id-108>",
-  "changeRequestId": "<id-107>",
+  "designId": "<id-112>",
+  "changeRequestId": "<id-111>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2277,8 +2355,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-108>",
-  "changeRequestId": "<id-107>",
+  "designId": "<id-112>",
+  "changeRequestId": "<id-111>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2308,8 +2386,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-109>",
-    "changeRequestId": "<id-107>",
+    "auditEntryId": "<id-113>",
+    "changeRequestId": "<id-111>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2321,8 +2399,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-110>",
-    "changeRequestId": "<id-107>",
+    "auditEntryId": "<id-114>",
+    "changeRequestId": "<id-111>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2334,8 +2412,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-111>",
-    "changeRequestId": "<id-107>",
+    "auditEntryId": "<id-115>",
+    "changeRequestId": "<id-111>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2351,11 +2429,11 @@ body:
 ### Architect valid padded and blank items: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-112>/designs/latest
+header: Location: /change-requests/<id-116>/designs/latest
 body: 
 {
-  "designId": "<id-113>",
-  "changeRequestId": "<id-112>",
+  "designId": "<id-117>",
+  "changeRequestId": "<id-116>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2385,8 +2463,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-113>",
-  "changeRequestId": "<id-112>",
+  "designId": "<id-117>",
+  "changeRequestId": "<id-116>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2417,8 +2495,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-114>",
-    "changeRequestId": "<id-112>",
+    "auditEntryId": "<id-118>",
+    "changeRequestId": "<id-116>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2430,8 +2508,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-115>",
-    "changeRequestId": "<id-112>",
+    "auditEntryId": "<id-119>",
+    "changeRequestId": "<id-116>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2443,8 +2521,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-116>",
-    "changeRequestId": "<id-112>",
+    "auditEntryId": "<id-120>",
+    "changeRequestId": "<id-116>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2460,11 +2538,11 @@ body:
 ### Architect valid fence unlabelled: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-117>/designs/latest
+header: Location: /change-requests/<id-121>/designs/latest
 body: 
 {
-  "designId": "<id-118>",
-  "changeRequestId": "<id-117>",
+  "designId": "<id-122>",
+  "changeRequestId": "<id-121>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2493,8 +2571,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-118>",
-  "changeRequestId": "<id-117>",
+  "designId": "<id-122>",
+  "changeRequestId": "<id-121>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2524,8 +2602,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-119>",
-    "changeRequestId": "<id-117>",
+    "auditEntryId": "<id-123>",
+    "changeRequestId": "<id-121>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2537,8 +2615,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-120>",
-    "changeRequestId": "<id-117>",
+    "auditEntryId": "<id-124>",
+    "changeRequestId": "<id-121>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2550,8 +2628,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-121>",
-    "changeRequestId": "<id-117>",
+    "auditEntryId": "<id-125>",
+    "changeRequestId": "<id-121>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2567,11 +2645,11 @@ body:
 ### Architect valid fence json: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-122>/designs/latest
+header: Location: /change-requests/<id-126>/designs/latest
 body: 
 {
-  "designId": "<id-123>",
-  "changeRequestId": "<id-122>",
+  "designId": "<id-127>",
+  "changeRequestId": "<id-126>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2600,8 +2678,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-123>",
-  "changeRequestId": "<id-122>",
+  "designId": "<id-127>",
+  "changeRequestId": "<id-126>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2631,8 +2709,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-124>",
-    "changeRequestId": "<id-122>",
+    "auditEntryId": "<id-128>",
+    "changeRequestId": "<id-126>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2644,8 +2722,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-125>",
-    "changeRequestId": "<id-122>",
+    "auditEntryId": "<id-129>",
+    "changeRequestId": "<id-126>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2657,8 +2735,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-126>",
-    "changeRequestId": "<id-122>",
+    "auditEntryId": "<id-130>",
+    "changeRequestId": "<id-126>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2674,11 +2752,11 @@ body:
 ### Architect valid fence JSON upper: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-127>/designs/latest
+header: Location: /change-requests/<id-131>/designs/latest
 body: 
 {
-  "designId": "<id-128>",
-  "changeRequestId": "<id-127>",
+  "designId": "<id-132>",
+  "changeRequestId": "<id-131>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2707,8 +2785,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-128>",
-  "changeRequestId": "<id-127>",
+  "designId": "<id-132>",
+  "changeRequestId": "<id-131>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -2738,8 +2816,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-129>",
-    "changeRequestId": "<id-127>",
+    "auditEntryId": "<id-133>",
+    "changeRequestId": "<id-131>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2751,8 +2829,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-130>",
-    "changeRequestId": "<id-127>",
+    "auditEntryId": "<id-134>",
+    "changeRequestId": "<id-131>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2764,8 +2842,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-131>",
-    "changeRequestId": "<id-127>",
+    "auditEntryId": "<id-135>",
+    "changeRequestId": "<id-131>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2803,8 +2881,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-132>",
-    "changeRequestId": "<id-133>",
+    "auditEntryId": "<id-136>",
+    "changeRequestId": "<id-137>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2816,8 +2894,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-134>",
-    "changeRequestId": "<id-133>",
+    "auditEntryId": "<id-138>",
+    "changeRequestId": "<id-137>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2855,8 +2933,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-135>",
-    "changeRequestId": "<id-136>",
+    "auditEntryId": "<id-139>",
+    "changeRequestId": "<id-140>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2868,8 +2946,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-137>",
-    "changeRequestId": "<id-136>",
+    "auditEntryId": "<id-141>",
+    "changeRequestId": "<id-140>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2907,8 +2985,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-138>",
-    "changeRequestId": "<id-139>",
+    "auditEntryId": "<id-142>",
+    "changeRequestId": "<id-143>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2920,8 +2998,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-140>",
-    "changeRequestId": "<id-139>",
+    "auditEntryId": "<id-144>",
+    "changeRequestId": "<id-143>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2959,8 +3037,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-141>",
-    "changeRequestId": "<id-142>",
+    "auditEntryId": "<id-145>",
+    "changeRequestId": "<id-146>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -2972,8 +3050,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-143>",
-    "changeRequestId": "<id-142>",
+    "auditEntryId": "<id-147>",
+    "changeRequestId": "<id-146>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3011,8 +3089,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-144>",
-    "changeRequestId": "<id-145>",
+    "auditEntryId": "<id-148>",
+    "changeRequestId": "<id-149>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3024,8 +3102,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-146>",
-    "changeRequestId": "<id-145>",
+    "auditEntryId": "<id-150>",
+    "changeRequestId": "<id-149>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3063,8 +3141,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-147>",
-    "changeRequestId": "<id-148>",
+    "auditEntryId": "<id-151>",
+    "changeRequestId": "<id-152>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3076,8 +3154,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-149>",
-    "changeRequestId": "<id-148>",
+    "auditEntryId": "<id-153>",
+    "changeRequestId": "<id-152>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3115,8 +3193,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-150>",
-    "changeRequestId": "<id-151>",
+    "auditEntryId": "<id-154>",
+    "changeRequestId": "<id-155>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3128,8 +3206,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-152>",
-    "changeRequestId": "<id-151>",
+    "auditEntryId": "<id-156>",
+    "changeRequestId": "<id-155>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3167,8 +3245,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-153>",
-    "changeRequestId": "<id-154>",
+    "auditEntryId": "<id-157>",
+    "changeRequestId": "<id-158>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3180,8 +3258,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-155>",
-    "changeRequestId": "<id-154>",
+    "auditEntryId": "<id-159>",
+    "changeRequestId": "<id-158>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3219,8 +3297,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-156>",
-    "changeRequestId": "<id-157>",
+    "auditEntryId": "<id-160>",
+    "changeRequestId": "<id-161>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3232,8 +3310,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-158>",
-    "changeRequestId": "<id-157>",
+    "auditEntryId": "<id-162>",
+    "changeRequestId": "<id-161>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3271,8 +3349,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-159>",
-    "changeRequestId": "<id-160>",
+    "auditEntryId": "<id-163>",
+    "changeRequestId": "<id-164>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3284,8 +3362,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-161>",
-    "changeRequestId": "<id-160>",
+    "auditEntryId": "<id-165>",
+    "changeRequestId": "<id-164>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3323,8 +3401,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-162>",
-    "changeRequestId": "<id-163>",
+    "auditEntryId": "<id-166>",
+    "changeRequestId": "<id-167>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3336,8 +3414,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-164>",
-    "changeRequestId": "<id-163>",
+    "auditEntryId": "<id-168>",
+    "changeRequestId": "<id-167>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3375,8 +3453,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-165>",
-    "changeRequestId": "<id-166>",
+    "auditEntryId": "<id-169>",
+    "changeRequestId": "<id-170>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3388,8 +3466,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-167>",
-    "changeRequestId": "<id-166>",
+    "auditEntryId": "<id-171>",
+    "changeRequestId": "<id-170>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3427,8 +3505,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-168>",
-    "changeRequestId": "<id-169>",
+    "auditEntryId": "<id-172>",
+    "changeRequestId": "<id-173>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3440,8 +3518,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-170>",
-    "changeRequestId": "<id-169>",
+    "auditEntryId": "<id-174>",
+    "changeRequestId": "<id-173>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3479,8 +3557,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-171>",
-    "changeRequestId": "<id-172>",
+    "auditEntryId": "<id-175>",
+    "changeRequestId": "<id-176>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3492,8 +3570,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-173>",
-    "changeRequestId": "<id-172>",
+    "auditEntryId": "<id-177>",
+    "changeRequestId": "<id-176>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3531,8 +3609,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-174>",
-    "changeRequestId": "<id-175>",
+    "auditEntryId": "<id-178>",
+    "changeRequestId": "<id-179>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3544,8 +3622,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-176>",
-    "changeRequestId": "<id-175>",
+    "auditEntryId": "<id-180>",
+    "changeRequestId": "<id-179>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3583,8 +3661,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-177>",
-    "changeRequestId": "<id-178>",
+    "auditEntryId": "<id-181>",
+    "changeRequestId": "<id-182>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3596,8 +3674,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-179>",
-    "changeRequestId": "<id-178>",
+    "auditEntryId": "<id-183>",
+    "changeRequestId": "<id-182>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3635,8 +3713,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-180>",
-    "changeRequestId": "<id-181>",
+    "auditEntryId": "<id-184>",
+    "changeRequestId": "<id-185>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3648,8 +3726,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-182>",
-    "changeRequestId": "<id-181>",
+    "auditEntryId": "<id-186>",
+    "changeRequestId": "<id-185>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3687,8 +3765,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-183>",
-    "changeRequestId": "<id-184>",
+    "auditEntryId": "<id-187>",
+    "changeRequestId": "<id-188>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3700,8 +3778,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-185>",
-    "changeRequestId": "<id-184>",
+    "auditEntryId": "<id-189>",
+    "changeRequestId": "<id-188>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3717,11 +3795,11 @@ body:
 ### Architect optional list empty is accepted: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-186>/designs/latest
+header: Location: /change-requests/<id-190>/designs/latest
 body: 
 {
-  "designId": "<id-187>",
-  "changeRequestId": "<id-186>",
+  "designId": "<id-191>",
+  "changeRequestId": "<id-190>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -3748,8 +3826,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-187>",
-  "changeRequestId": "<id-186>",
+  "designId": "<id-191>",
+  "changeRequestId": "<id-190>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -3777,8 +3855,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-188>",
-    "changeRequestId": "<id-186>",
+    "auditEntryId": "<id-192>",
+    "changeRequestId": "<id-190>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3790,8 +3868,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-189>",
-    "changeRequestId": "<id-186>",
+    "auditEntryId": "<id-193>",
+    "changeRequestId": "<id-190>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3803,8 +3881,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-190>",
-    "changeRequestId": "<id-186>",
+    "auditEntryId": "<id-194>",
+    "changeRequestId": "<id-190>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3842,8 +3920,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-191>",
-    "changeRequestId": "<id-192>",
+    "auditEntryId": "<id-195>",
+    "changeRequestId": "<id-196>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3855,8 +3933,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-193>",
-    "changeRequestId": "<id-192>",
+    "auditEntryId": "<id-197>",
+    "changeRequestId": "<id-196>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -3872,11 +3950,11 @@ body:
 ### Architect list at item limit: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-194>/designs/latest
+header: Location: /change-requests/<id-198>/designs/latest
 body: 
 {
-  "designId": "<id-195>",
-  "changeRequestId": "<id-194>",
+  "designId": "<id-199>",
+  "changeRequestId": "<id-198>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -3954,8 +4032,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-195>",
-  "changeRequestId": "<id-194>",
+  "designId": "<id-199>",
+  "changeRequestId": "<id-198>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -4034,8 +4112,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-196>",
-    "changeRequestId": "<id-194>",
+    "auditEntryId": "<id-200>",
+    "changeRequestId": "<id-198>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4047,8 +4125,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-197>",
-    "changeRequestId": "<id-194>",
+    "auditEntryId": "<id-201>",
+    "changeRequestId": "<id-198>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4060,8 +4138,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-198>",
-    "changeRequestId": "<id-194>",
+    "auditEntryId": "<id-202>",
+    "changeRequestId": "<id-198>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4099,8 +4177,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-199>",
-    "changeRequestId": "<id-200>",
+    "auditEntryId": "<id-203>",
+    "changeRequestId": "<id-204>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4112,8 +4190,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-201>",
-    "changeRequestId": "<id-200>",
+    "auditEntryId": "<id-205>",
+    "changeRequestId": "<id-204>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4129,11 +4207,11 @@ body:
 ### Architect item at length: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-202>/designs/latest
+header: Location: /change-requests/<id-206>/designs/latest
 body: 
 {
-  "designId": "<id-203>",
-  "changeRequestId": "<id-202>",
+  "designId": "<id-207>",
+  "changeRequestId": "<id-206>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -4162,8 +4240,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-203>",
-  "changeRequestId": "<id-202>",
+  "designId": "<id-207>",
+  "changeRequestId": "<id-206>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -4193,8 +4271,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-204>",
-    "changeRequestId": "<id-202>",
+    "auditEntryId": "<id-208>",
+    "changeRequestId": "<id-206>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4206,8 +4284,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-205>",
-    "changeRequestId": "<id-202>",
+    "auditEntryId": "<id-209>",
+    "changeRequestId": "<id-206>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4219,8 +4297,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-206>",
-    "changeRequestId": "<id-202>",
+    "auditEntryId": "<id-210>",
+    "changeRequestId": "<id-206>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4258,8 +4336,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-207>",
-    "changeRequestId": "<id-208>",
+    "auditEntryId": "<id-211>",
+    "changeRequestId": "<id-212>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4271,8 +4349,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-209>",
-    "changeRequestId": "<id-208>",
+    "auditEntryId": "<id-213>",
+    "changeRequestId": "<id-212>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4288,11 +4366,11 @@ body:
 ### Architect text at length: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-210>/designs/latest
+header: Location: /change-requests/<id-214>/designs/latest
 body: 
 {
-  "designId": "<id-211>",
-  "changeRequestId": "<id-210>",
+  "designId": "<id-215>",
+  "changeRequestId": "<id-214>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -4321,8 +4399,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-211>",
-  "changeRequestId": "<id-210>",
+  "designId": "<id-215>",
+  "changeRequestId": "<id-214>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -4352,8 +4430,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-212>",
-    "changeRequestId": "<id-210>",
+    "auditEntryId": "<id-216>",
+    "changeRequestId": "<id-214>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4365,8 +4443,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-213>",
-    "changeRequestId": "<id-210>",
+    "auditEntryId": "<id-217>",
+    "changeRequestId": "<id-214>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4378,8 +4456,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-214>",
-    "changeRequestId": "<id-210>",
+    "auditEntryId": "<id-218>",
+    "changeRequestId": "<id-214>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4417,8 +4495,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-215>",
-    "changeRequestId": "<id-216>",
+    "auditEntryId": "<id-219>",
+    "changeRequestId": "<id-220>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4430,8 +4508,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-217>",
-    "changeRequestId": "<id-216>",
+    "auditEntryId": "<id-221>",
+    "changeRequestId": "<id-220>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4469,8 +4547,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-218>",
-    "changeRequestId": "<id-219>",
+    "auditEntryId": "<id-222>",
+    "changeRequestId": "<id-223>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4482,8 +4560,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-220>",
-    "changeRequestId": "<id-219>",
+    "auditEntryId": "<id-224>",
+    "changeRequestId": "<id-223>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4521,8 +4599,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-221>",
-    "changeRequestId": "<id-222>",
+    "auditEntryId": "<id-225>",
+    "changeRequestId": "<id-226>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4534,8 +4612,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-223>",
-    "changeRequestId": "<id-222>",
+    "auditEntryId": "<id-227>",
+    "changeRequestId": "<id-226>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4573,8 +4651,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-224>",
-    "changeRequestId": "<id-225>",
+    "auditEntryId": "<id-228>",
+    "changeRequestId": "<id-229>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4586,8 +4664,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-226>",
-    "changeRequestId": "<id-225>",
+    "auditEntryId": "<id-230>",
+    "changeRequestId": "<id-229>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4625,8 +4703,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-227>",
-    "changeRequestId": "<id-228>",
+    "auditEntryId": "<id-231>",
+    "changeRequestId": "<id-232>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4638,8 +4716,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-229>",
-    "changeRequestId": "<id-228>",
+    "auditEntryId": "<id-233>",
+    "changeRequestId": "<id-232>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4677,8 +4755,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-230>",
-    "changeRequestId": "<id-231>",
+    "auditEntryId": "<id-234>",
+    "changeRequestId": "<id-235>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4690,8 +4768,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-232>",
-    "changeRequestId": "<id-231>",
+    "auditEntryId": "<id-236>",
+    "changeRequestId": "<id-235>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4729,8 +4807,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-233>",
-    "changeRequestId": "<id-234>",
+    "auditEntryId": "<id-237>",
+    "changeRequestId": "<id-238>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4742,8 +4820,112 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-235>",
-    "changeRequestId": "<id-234>",
+    "auditEntryId": "<id-239>",
+    "changeRequestId": "<id-238>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client category ToolsUnavailable: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "ToolsUnavailable"
+}
+
+### Architect client category ToolsUnavailable: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client category ToolsUnavailable: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-240>",
+    "changeRequestId": "<id-241>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-242>",
+    "changeRequestId": "<id-241>",
+    "eventType": "Approved",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": "Sam Sample",
+    "reason": "",
+    "statusBefore": "Submitted",
+    "statusAfter": "Approved",
+    "agentName": null,
+    "draftVersion": null
+  }
+]
+
+### Architect client category LimitsExhausted: post
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The design draft could not be generated.",
+  "category": "LimitsExhausted"
+}
+
+### Architect client category LimitsExhausted: latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-design-draft",
+  "message": "No design draft exists yet for this change request."
+}
+
+### Architect client category LimitsExhausted: audit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "auditEntryId": "<id-243>",
+    "changeRequestId": "<id-244>",
+    "eventType": "Submitted",
+    "occurredAt": "<timestamp>",
+    "details": null,
+    "approverName": null,
+    "reason": null,
+    "statusBefore": null,
+    "statusAfter": null,
+    "agentName": null,
+    "draftVersion": null
+  },
+  {
+    "auditEntryId": "<id-245>",
+    "changeRequestId": "<id-244>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4781,8 +4963,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-236>",
-    "changeRequestId": "<id-237>",
+    "auditEntryId": "<id-246>",
+    "changeRequestId": "<id-247>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4794,8 +4976,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-238>",
-    "changeRequestId": "<id-237>",
+    "auditEntryId": "<id-248>",
+    "changeRequestId": "<id-247>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4833,8 +5015,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-239>",
-    "changeRequestId": "<id-240>",
+    "auditEntryId": "<id-249>",
+    "changeRequestId": "<id-250>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4846,8 +5028,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-241>",
-    "changeRequestId": "<id-240>",
+    "auditEntryId": "<id-251>",
+    "changeRequestId": "<id-250>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4885,8 +5067,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-242>",
-    "changeRequestId": "<id-243>",
+    "auditEntryId": "<id-252>",
+    "changeRequestId": "<id-253>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4898,8 +5080,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-244>",
-    "changeRequestId": "<id-243>",
+    "auditEntryId": "<id-254>",
+    "changeRequestId": "<id-253>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4937,8 +5119,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-245>",
-    "changeRequestId": "<id-246>",
+    "auditEntryId": "<id-255>",
+    "changeRequestId": "<id-256>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4950,8 +5132,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-247>",
-    "changeRequestId": "<id-246>",
+    "auditEntryId": "<id-257>",
+    "changeRequestId": "<id-256>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -4967,11 +5149,11 @@ body:
 ### Architect answer at size limit: post
 status: 201 Created
 header: Content-Type: application/json; charset=utf-8
-header: Location: /change-requests/<id-248>/designs/latest
+header: Location: /change-requests/<id-258>/designs/latest
 body: 
 {
-  "designId": "<id-249>",
-  "changeRequestId": "<id-248>",
+  "designId": "<id-259>",
+  "changeRequestId": "<id-258>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -5000,8 +5182,8 @@ status: 200 OK
 header: Content-Type: application/json; charset=utf-8
 body: 
 {
-  "designId": "<id-249>",
-  "changeRequestId": "<id-248>",
+  "designId": "<id-259>",
+  "changeRequestId": "<id-258>",
   "version": 1,
   "requirementsVersion": 1,
   "generatedAt": "<timestamp>",
@@ -5031,8 +5213,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-250>",
-    "changeRequestId": "<id-248>",
+    "auditEntryId": "<id-260>",
+    "changeRequestId": "<id-258>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -5044,8 +5226,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-251>",
-    "changeRequestId": "<id-248>",
+    "auditEntryId": "<id-261>",
+    "changeRequestId": "<id-258>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -5057,8 +5239,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-252>",
-    "changeRequestId": "<id-248>",
+    "auditEntryId": "<id-262>",
+    "changeRequestId": "<id-258>",
     "eventType": "DesignGenerated",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -5096,8 +5278,8 @@ header: Content-Type: application/json; charset=utf-8
 body: 
 [
   {
-    "auditEntryId": "<id-253>",
-    "changeRequestId": "<id-254>",
+    "auditEntryId": "<id-263>",
+    "changeRequestId": "<id-264>",
     "eventType": "Submitted",
     "occurredAt": "<timestamp>",
     "details": null,
@@ -5109,8 +5291,8 @@ body:
     "draftVersion": null
   },
   {
-    "auditEntryId": "<id-255>",
-    "changeRequestId": "<id-254>",
+    "auditEntryId": "<id-265>",
+    "changeRequestId": "<id-264>",
     "eventType": "Approved",
     "occurredAt": "<timestamp>",
     "details": null,
