@@ -10,6 +10,7 @@ using AgenticChangeOps.ModelAccess;
 using AgenticChangeOps.Agents.Requirement;
 using AgenticChangeOps.Agents.Architect;
 using AgenticChangeOps.Persistence;
+using AgenticChangeOps.SampleCode;
 using AgenticChangeOps.Workflow;
 
 namespace AgenticChangeOps.Api.Composition;
@@ -50,6 +51,11 @@ public static class ApiServiceRegistration
         // Design drafting (Architect): same configuration keys, read independently so the
         // requirements registration above is untouched. The Architect never references the
         // Requirement agent; the adapter below supplies the latest requirements draft.
+        // The tool-capable model call is only built when the sample tools are switched on and design
+        // drafting asks for it; tests replace it.
+        services.AddSingleton<IToolChatModelClient>(sp =>
+            new AgentFrameworkToolChatModelClient(AzureOpenAIGeneratorOptions.FromEnvironment(
+                name => sp.GetRequiredService<IConfiguration>()[name])));
         services.AddSingleton<DesignSetup>(CreateDesignSetup);
         services.AddSingleton<IDesignDraftGenerator>(sp => sp.GetRequiredService<DesignSetup>().Generator);
         services.AddSingleton(sp => new DesignAvailability(sp.GetRequiredService<DesignSetup>().IsConfigured));
@@ -113,7 +119,21 @@ public static class ApiServiceRegistration
         try
         {
             var options = AzureOpenAIGeneratorOptions.FromEnvironment(name => configuration[name]);
-            var generator = new AzureOpenAIDesignGenerator(options, new AgentFrameworkChatModelClient(options));
+
+            // The switch is read first. While it is off nothing else about the tools is read, so
+            // the generator and everything it does are exactly what they were without the feature.
+            var tools = SampleToolSettings.FromConfiguration(name => configuration[name]);
+            if (!tools.Enabled)
+                return new DesignSetup(
+                    new AzureOpenAIDesignGenerator(options, new AgentFrameworkChatModelClient(options)),
+                    isConfigured: true);
+
+            var sampleFolder = tools.SampleFolder ?? Path.Combine(AppContext.BaseDirectory, "sample-codebase");
+            var generator = new AzureOpenAIDesignGenerator(
+                options,
+                new AgentFrameworkChatModelClient(options),
+                new CountingToolSessionFactory(new SampleToolSessionFactory(tools, sampleFolder), logger),
+                services.GetRequiredService<IToolChatModelClient>());
             return new DesignSetup(generator, isConfigured: true);
         }
         catch (GeneratorConfigurationException)

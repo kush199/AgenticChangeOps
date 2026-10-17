@@ -1,0 +1,8 @@
+# Orders Service settings (invented)
+orders.queue.intake = orders-intake
+orders.queue.status = orders-status-events
+orders.page.size = 25
+orders.stock.check.retries = 2
+orders.status.allowed = Received, Reserved, Packed, Shipped, Cancelled
+orders.cancel.window.minutes = 30
+orders.audit.enabled = true

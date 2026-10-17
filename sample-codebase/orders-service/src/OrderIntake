@@ -1,0 +1,17 @@
+# OrderIntake (invented pseudo-source)
+# Accepts a new order from the intake queue and validates it.
+
+function acceptOrder(order):
+    require order.customerRef is not empty
+    require order.lines has at least 1 line
+    for each line in order.lines:
+        require line.quantity between 1 and 99
+        require line.itemCode is not empty
+    stock = StockCheck.reserve(order.lines)
+    if stock.failed:
+        return reject(order, "stock-unavailable")
+    order.status = "Received"
+    OrderStatusTracker.record(order.id, "Received")
+    return accept(order)
+
+# Known limit: an order with more than 50 lines is rejected without a reason code.

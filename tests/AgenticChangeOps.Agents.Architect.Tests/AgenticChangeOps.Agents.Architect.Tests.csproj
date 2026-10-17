@@ -32,6 +32,8 @@
     <ProjectReference Include="..\..\src\AgenticChangeOps.Agents.Architect\AgenticChangeOps.Agents.Architect.csproj" />
     <ProjectReference Include="..\..\src\AgenticChangeOps.Intake\AgenticChangeOps.Intake.csproj" />
     <ProjectReference Include="..\..\src\AgenticChangeOps.ModelAccess\AgenticChangeOps.ModelAccess.csproj" />
+    <ProjectReference Include="..\..\src\AgenticChangeOps.Persistence\AgenticChangeOps.Persistence.csproj" />
+    <ProjectReference Include="..\..\src\AgenticChangeOps.SampleCode\AgenticChangeOps.SampleCode.csproj" />
   </ItemGroup>
 
 </Project>

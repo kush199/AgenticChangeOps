@@ -1,0 +1,18 @@
+# StatementExport (invented pseudo-source)
+# Produces a plain statement summary for one customer.
+
+function exportStatement(customerRef, today):
+    from = addMonths(today, -setting("portal.statement.months"))
+    rows = invoiceTable.where(customerRef = customerRef and issuedOn >= from)
+    total = sum(rows.amount)
+    paid = sum(rows.where(state = "Paid").amount)
+    return {
+        customerRef: customerRef,
+        period: [from, today],
+        invoiceCount: rows.count,
+        totalBilled: total,
+        totalPaid: paid,
+        outstanding: total - paid
+    }
+
+# Known limit: the summary has no per-invoice detail and no rounding rule for amounts.

@@ -1,0 +1,18 @@
+Baseline before slice 015 (dotnet test AgenticChangeOps.sln, branch feature/architect-reads-sample-code, 2026-10-17)
+
+Project                                   Passed  Skipped  Total
+AgenticChangeOps.Intake.Tests               118       0     118
+AgenticChangeOps.Persistence.Tests           81       0      81
+AgenticChangeOps.Agents.Architect.Tests     117       1     118   (skipped: live design check)
+AgenticChangeOps.Agents.Requirement.Tests   156       1     157   (skipped: live model check)
+AgenticChangeOps.Workflow.Tests             184       0     184
+AgenticChangeOps.ModelAccess.Tests          204       0     204
+AgenticChangeOps.Api.Tests                  211       0     211
+Total                                      1071       2    1073
+
+SC-002 reference: later totals may differ only by the new tests of this slice. No existing test
+file, assertion, recording or golden file is edited in this slice.
+
+After the stubs (T014): build succeeds; every project passes with the counts above. Approved existing-test
+edits so far: MovedTypeShapeTests member list; goldens transcript.txt, shared-plumbing-transcript.txt and
+openapi.json regenerated (additions and <id-N> renumbering only). SampleCode.Tests has no tests yet.

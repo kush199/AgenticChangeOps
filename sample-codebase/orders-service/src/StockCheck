@@ -1,0 +1,20 @@
+# StockCheck (invented pseudo-source)
+# Reserves stock for each order line against an in-memory stock table.
+
+function reserve(lines):
+    reserved = []
+    for each line in lines:
+        available = stockTable[line.itemCode]
+        if available < line.quantity:
+            release(reserved)
+            return failed("insufficient-stock", line.itemCode)
+        stockTable[line.itemCode] = available - line.quantity
+        reserved.add(line)
+    return ok(reserved)
+
+function release(reserved):
+    for each line in reserved:
+        stockTable[line.itemCode] = stockTable[line.itemCode] + line.quantity
+
+# Known limit: the stock table is refreshed every 10 minutes, so two orders placed close
+# together can both succeed for the last unit.

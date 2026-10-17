@@ -1,0 +1,17 @@
+# PaymentReminder (invented pseudo-source)
+# Decides which unpaid invoices are due a reminder today.
+
+function remindersDue(today):
+    due = []
+    for each invoice in invoiceTable.where(state = "Unpaid"):
+        age = daysBetween(invoice.issuedOn, today)
+        sent = invoice.remindersSent
+        if sent >= setting("portal.reminder.max"):
+            continue
+        if sent == 0 and age >= setting("portal.reminder.first.days"):
+            due.add(invoice)
+        else if sent == 1 and age >= setting("portal.reminder.second.days"):
+            due.add(invoice)
+    return due
+
+# Known limit: the third reminder is never sent because only two thresholds exist.

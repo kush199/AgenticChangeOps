@@ -7,5 +7,6 @@ public enum AuditEventType
     Rejected,
     Deferred,
     DraftGenerated,
-    DesignGenerated
+    DesignGenerated,
+    ToolCalled
 }
