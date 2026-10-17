@@ -55,6 +55,9 @@ public sealed class AdvanceResult
     public static AdvanceResult NotConfigured(WorkflowStep step, WorkflowStatus status) =>
         new(AdvanceOutcome.NotConfigured, step, null, null, status, null);
 
+    public static AdvanceResult Busy(WorkflowStatus status) =>
+        new(AdvanceOutcome.Busy, null, null, null, status, null);
+
     public static AdvanceResult NotFound(IReadOnlyList<ValidationError> errors) =>
         new(AdvanceOutcome.NotFound, null, null, null, null, errors);
 }

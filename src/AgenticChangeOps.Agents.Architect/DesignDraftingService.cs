@@ -32,7 +32,7 @@ public sealed class DesignDraftingService : IDesignDraftingService
     }
 
     public async Task<DesignDraftingResult> DesignAsync(
-        Guid changeRequestId, CancellationToken cancellationToken = default)
+        Guid changeRequestId, CancellationToken cancellationToken = default, bool automatic = false)
     {
         var request = _store.FindById(changeRequestId);
         var (basis, eligibilityError) = CheckEligibility(changeRequestId, request);
@@ -65,7 +65,7 @@ public sealed class DesignDraftingService : IDesignDraftingService
         if (errors.Count > 0)
             return DesignDraftingResult.Failure(errors, GenerationFailureCategory.MalformedOutput);
 
-        return StoreDesign(changeRequestId, basis!.Version, content!);
+        return StoreDesign(changeRequestId, basis!.Version, content!, automatic);
     }
 
     public QueryResult<DesignDraft?> GetLatestDesign(Guid changeRequestId)
@@ -92,7 +92,7 @@ public sealed class DesignDraftingService : IDesignDraftingService
 
     // No await in here: the eligibility re-check, version assignment and save form one
     // uninterrupted step, so overlapping calls cannot take the same version.
-    private DesignDraftingResult StoreDesign(Guid changeRequestId, int basisVersion, DesignContent content)
+    private DesignDraftingResult StoreDesign(Guid changeRequestId, int basisVersion, DesignContent content, bool automatic)
     {
         lock (_store.SyncRoot)
         {
@@ -136,7 +136,8 @@ public sealed class DesignDraftingService : IDesignDraftingService
                 StatusBefore: current!.Status,
                 StatusAfter: current.Status,
                 AgentName: DesignDraft.ArchitectAgentName,
-                DraftVersion: draft.Version);
+                DraftVersion: draft.Version,
+                Automatic: automatic ? true : null);
 
             _store.SaveDesign(draft, entry);
             return DesignDraftingResult.Success(draft);

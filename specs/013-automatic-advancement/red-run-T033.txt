@@ -1,0 +1,123 @@
+T033 red run (dotnet test AgenticChangeOps.sln --no-build), branch feature/automatic-advancement
+Passed!  Failed:     0, Passed:   112, Skipped:     0, Total:   112, Duration: 193 ms - AgenticChangeOps.Intake.Tests.dll (net8.0)
+Failed!  Failed:    14, Passed:    67, Skipped:     0, Total:    81, Duration: 963 ms - AgenticChangeOps.Persistence.Tests.dll (net8.0)
+Failed!  Failed:     1, Passed:   116, Skipped:     1, Total:   118, Duration: 644 ms - AgenticChangeOps.Agents.Architect.Tests.dll (net8.0)
+Passed!  Failed:     0, Passed:   204, Skipped:     0, Total:   204, Duration: 1 s - AgenticChangeOps.ModelAccess.Tests.dll (net8.0)
+Failed!  Failed:    75, Passed:   106, Skipped:     0, Total:   181, Duration: 345 ms
+Failed!  Failed:     1, Passed:   154, Skipped:     1, Total:   156, Duration: 854 ms - AgenticChangeOps.Agents.Requirement.Tests.dll (net8.0)
+Failed!  Failed:    11, Passed:   165, Skipped:     0, Total:   176, Duration: 29 s - AgenticChangeOps.Api.Tests.dll (net8.0)
+
+Red tests (102):
+AgenticChangeOps.Agents.Architect.Tests.Unit.AutomaticMarkerTests.Design_RunAutomatically_WritesTheSameEntryPlusTheMarker
+AgenticChangeOps.Agents.Requirement.Tests.Unit.AutomaticMarkerTests.Draft_RunAutomatically_WritesTheSameEntryPlusTheMarker
+AgenticChangeOps.Api.Tests.Automatic.OffByDefaultTests.AnInvalidEnabledValue_StillStartsTheHost_AndLeavesTheFeatureOff
+AgenticChangeOps.Api.Tests.Automatic.OffByDefaultTests.TheOperatorEndpoint_ReportsDisabled_AndNoCheckYet
+AgenticChangeOps.Api.Tests.Automatic.OffByDefaultTests.WithNoAutomaticSettings_NothingRuns_AndTheStatusSaysOff
+AgenticChangeOps.Api.Tests.Automatic.OperatorAndStatusTests.ChecksRepeatEveryInterval_AndNeverRunAtTheSameTime
+AgenticChangeOps.Api.Tests.Automatic.OperatorAndStatusTests.TheOperatorEndpoint_ShowsTheLatestCheck_WithExactlyTheDocumentedMembers
+AgenticChangeOps.Api.Tests.Automatic.OperatorAndStatusTests.TheWorkflowStatus_KeepsEveryExistingMember_AndGainsOnlyAutomatic
+AgenticChangeOps.Api.Tests.Automatic.OperatorAndStatusTests.WithALeakyGenerator_NoResponseOrLogLineCarriesTheMarkers_AndTheCheckLineIsCountsOnly
+AgenticChangeOps.Api.Tests.Automatic.OperatorAndStatusTests.WithTheFeatureOn_ARequestGetsADraftUnasked_AndTheAuditAndStatusShowIt
+AgenticChangeOps.Api.Tests.Automatic.RestartTests.ACompletedDraft_IsNotRepeated_AfterARestart
+AgenticChangeOps.Api.Tests.Automatic.RestartTests.LeftForAPerson_SurvivesARestart_AndNoFurtherAttemptIsMade
+AgenticChangeOps.Api.Tests.Baseline.ApiBaselineTests.ApiDescription_IsTheRecordedOne
+AgenticChangeOps.Persistence.Tests.Contract.InMemoryStoreContractTests.C14_ListChangeRequestIds_ReturnsTheIdsInSaveOrder_AndIsEmptyForAnEmptyStore [< 1 ms]
+AgenticChangeOps.Persistence.Tests.Contract.InMemoryStoreContractTests.C15_GetAutomaticAttempt_IsNullWhenNone_AndReturnsExactlyWhatWasStored [< 1 ms]
+AgenticChangeOps.Persistence.Tests.Contract.InMemoryStoreContractTests.C16_SaveAutomaticAttempt_ReplacesTheRowForThatRequest_AndLeavesOthersAlone [< 1 ms]
+AgenticChangeOps.Persistence.Tests.Contract.InMemoryStoreContractTests.C17_ClearAutomaticAttempt_RemovesTheRow_AndToleratesAMissingOne
+AgenticChangeOps.Persistence.Tests.Contract.InMemoryStoreContractTests.C18_AttemptRows_NeverAppearAsAuditEntriesOrAgentOutputs [< 1 ms]
+AgenticChangeOps.Persistence.Tests.Contract.SqliteStoreContractTests.C14_ListChangeRequestIds_ReturnsTheIdsInSaveOrder_AndIsEmptyForAnEmptyStore
+AgenticChangeOps.Persistence.Tests.Contract.SqliteStoreContractTests.C15_GetAutomaticAttempt_IsNullWhenNone_AndReturnsExactlyWhatWasStored
+AgenticChangeOps.Persistence.Tests.Contract.SqliteStoreContractTests.C16_SaveAutomaticAttempt_ReplacesTheRowForThatRequest_AndLeavesOthersAlone
+AgenticChangeOps.Persistence.Tests.Contract.SqliteStoreContractTests.C17_ClearAutomaticAttempt_RemovesTheRow_AndToleratesAMissingOne
+AgenticChangeOps.Persistence.Tests.Contract.SqliteStoreContractTests.C18_AttemptRows_NeverAppearAsAuditEntriesOrAgentOutputs
+AgenticChangeOps.Persistence.Tests.Durable.AttemptRestartTests.ARequestSavedBeforeARestart_IsStillListedInTheSameOrder
+AgenticChangeOps.Persistence.Tests.Durable.AttemptRestartTests.AttemptRows_AreReadBackEqual_AfterReopening
+AgenticChangeOps.Persistence.Tests.Durable.AttemptRestartTests.SavingOrClearingARow_NeverTouchesTheOtherTables
+AgenticChangeOps.Persistence.Tests.Durable.LayoutUpgradeTests.AVersionOneFile_IsUpgradedInPlace_KeepsItsData_AndAcceptsAttemptRows
+AgenticChangeOps.Workflow.Tests.Automatic.BudgetTests.ASkippedRequest_DoesNotUseBudget
+AgenticChangeOps.Workflow.Tests.Automatic.BudgetTests.ExaminedCountsTheRequestsLookedAt
+AgenticChangeOps.Workflow.Tests.Automatic.BudgetTests.FailedAttemptsUseBudgetToo
+AgenticChangeOps.Workflow.Tests.Automatic.BudgetTests.NoCheckRunsMoreThanTheMaximum_AndLaterChecksPickUpTheRest
+AgenticChangeOps.Workflow.Tests.Automatic.BudgetTests.RequestsAreHandledInTheOrderTheyWereStored
+AgenticChangeOps.Workflow.Tests.Automatic.CheckLoopSafetyTests.ACancelledCheck_StartsNoStep
+AgenticChangeOps.Workflow.Tests.Automatic.CheckLoopSafetyTests.AnUnexpectedErrorForOneRequest_CountsAsOneFailure_WritesNoRow_AndOthersAreStillServed
+AgenticChangeOps.Workflow.Tests.Automatic.CheckLoopSafetyTests.CancellationBetweenRequests_StopsBeforeTheNextOne
+AgenticChangeOps.Workflow.Tests.Automatic.CheckSummaryTests.AMixedCheck_CountsRunAndFailedSeparately_WithCategories
+AgenticChangeOps.Workflow.Tests.Automatic.CheckSummaryTests.AnUnexpectedError_CountsInFailed_ButInNoCategory
+AgenticChangeOps.Workflow.Tests.Automatic.CheckSummaryTests.EachCheck_ReturnsTheClockTime_AndTheExpectedCounts
+AgenticChangeOps.Workflow.Tests.Automatic.CheckSummaryTests.TheHolder_IsEmptyUntilTheFirstRecord_ThenKeepsTheLatest [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.CheckSummaryTests.TheHolder_IsSafeUnderConcurrentRecordAndRead
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.ADeferredRequestWithNoDraft_GetsItsRequirementsDraft_AsTheManualAdvanceWould [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.AnApprovedRequestWithRequirements_GetsExactlyOneDesignDraft
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.ANewRequest_GetsExactlyOneRequirementsDraft_AndItsStatusIsUnchanged
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.ANewRequirementsDraftAfterADesign_MakesTheDesignStale_AndANewDesignIsRun
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.ARequestAwaitingADecision_RejectedOrDeferredWithADraft_ReceivesNothing(situation: "awaiting") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.ARequestAwaitingADecision_RejectedOrDeferredWithADraft_ReceivesNothing(situation: "deferred")
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.ARequestAwaitingADecision_RejectedOrDeferredWithADraft_ReceivesNothing(situation: "rejected") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.AStepAlreadyCompleteForTheCurrentInputs_IsNeverRunAgain [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.NoAutomaticStep_EverChangesAStatusOrRecordsADecision
+AgenticChangeOps.Workflow.Tests.Automatic.DueSelectionTests.TheSystemItselfNeverRecordsTheApproval_TheDesignWaitsForAPerson
+AgenticChangeOps.Workflow.Tests.Automatic.FailureWaitTests.AFailedStep_StoresNothing_AndWritesOneAttemptRow
+AgenticChangeOps.Workflow.Tests.Automatic.FailureWaitTests.AFailureWithNoCategory_BecauseTheFactsChangedMidStep_IsNotCounted
+AgenticChangeOps.Workflow.Tests.Automatic.FailureWaitTests.ASecondFailure_RaisesTheCount [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.FailureWaitTests.ASuccess_DeletesTheRow [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.FailureWaitTests.OneRequestsFailure_DoesNotStopOthersInTheSameCheck
+AgenticChangeOps.Workflow.Tests.Automatic.FailureWaitTests.ThereIsNoRetryBeforeTheWaitHasPassed_AndOneAtExactlyTheWait
+AgenticChangeOps.Workflow.Tests.Automatic.FailureWaitTests.TheSummaryCountsFailuresPerCategory_AndTheTotalMatches
+AgenticChangeOps.Workflow.Tests.Automatic.HandOverTests.AfterTheLimit_TheRequestIsNeverAttemptedAgain_WhateverTimePasses
+AgenticChangeOps.Workflow.Tests.Automatic.HandOverTests.AManualAdvance_StillWorks_AndTheRequestIsNoLongerLeftForAPerson
+AgenticChangeOps.Workflow.Tests.Automatic.HandOverTests.ANewRequirementsDraft_MakesTheOldFailuresStopApplying_ToTheDesignStep
+AgenticChangeOps.Workflow.Tests.Automatic.HandOverTests.OneRequestLeftForAPerson_DoesNotBlockOthers
+AgenticChangeOps.Workflow.Tests.Automatic.HandOverTests.TheStatusShowsLeftForAPerson_WithTheCategory_AndKeepsItsNextStep
+AgenticChangeOps.Workflow.Tests.Automatic.ManualParityTests.ADesignDraft_StoredAutomatically_MatchesTheOneStoredByAManualAdvance
+AgenticChangeOps.Workflow.Tests.Automatic.ManualParityTests.ARequirementsDraft_StoredAutomatically_MatchesTheOneStoredByAManualAdvance
+AgenticChangeOps.Workflow.Tests.Automatic.NoLeakTests.ACategorisedFailure_LeaksNothingEither
+AgenticChangeOps.Workflow.Tests.Automatic.NoLeakTests.NothingObservable_CarriesTheLeakyMarkers
+AgenticChangeOps.Workflow.Tests.Automatic.NotConfiguredTests.OnlyTheUnconfiguredStepIsSkipped
+AgenticChangeOps.Workflow.Tests.Automatic.NotConfiguredTests.TheStatusOfADueRequestStillNamesItsNextStep_WhenNotConfigured
+AgenticChangeOps.Workflow.Tests.Automatic.NotConfiguredTests.WhenTheModelIsNotConfigured_NoStepRuns_AndNothingIsRecordedAsAFailure
+AgenticChangeOps.Workflow.Tests.Automatic.OverlapTests.AfterAStepFails_TheRequestIsNotLeftBusy
+AgenticChangeOps.Workflow.Tests.Automatic.OverlapTests.AManualAdvanceStartedWhileAnAutomaticStepIsInFlight_WaitsThenFindsNothingDue
+AgenticChangeOps.Workflow.Tests.Automatic.OverlapTests.AStepCancelledMidCall_StoresNothing_AndIsSimplyDueAgain
+AgenticChangeOps.Workflow.Tests.Automatic.OverlapTests.TwoOverlappingChecks_ProduceExactlyOneNewDraft
+AgenticChangeOps.Workflow.Tests.Automatic.OverlapTests.WhileAManualAdvanceHoldsTheRequest_TheAutomaticRunnerReportsBusy_AndStoresNothing
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidEnabledValue_LeavesTheFeatureOff [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:FailureWaitSeconds", value: "-1") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:FailureWaitSeconds", value: "86401") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:IntervalSeconds", value: "0") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:IntervalSeconds", value: "-5") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:IntervalSeconds", value: "86401") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:IntervalSeconds", value: "abc") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:MaxConsecutiveFailures", value: "0") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:MaxConsecutiveFailures", value: "101") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:MaxStepsPerCheck", value: "0") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:MaxStepsPerCheck", value: "1001") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.AnInvalidNumber_FallsBackForThatSettingAlone_AndWarnsWithTheKeyOnly(key: "ChangeOps:AutoAdvance:MaxStepsPerCheck", value: "x") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.TheFeatureIsOnOnlyForAnExplicitBooleanTrue(value: "", expected: False) [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.TheFeatureIsOnOnlyForAnExplicitBooleanTrue(value: "1", expected: False)
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.TheFeatureIsOnOnlyForAnExplicitBooleanTrue(value: "false", expected: False) [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.TheFeatureIsOnOnlyForAnExplicitBooleanTrue(value: "garbage", expected: False) [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.TheFeatureIsOnOnlyForAnExplicitBooleanTrue(value: "true", expected: True) [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.TheFeatureIsOnOnlyForAnExplicitBooleanTrue(value: "True", expected: True) [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.TheFeatureIsOnOnlyForAnExplicitBooleanTrue(value: "yes", expected: False) [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.ValidValues_AreUsed [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.SettingsTests.WithNothingSet_TheDefaultsApply_AndTheFeatureIsOff [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.StatusAutomaticTests.ARowAtTheLimit_IsLeftForAPerson_WithItsCategoryAndNothingElse
+AgenticChangeOps.Workflow.Tests.Automatic.StatusAutomaticTests.ARowBelowTheLimit_IsStillOn [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.StatusAutomaticTests.ARowForADifferentSituation_DoesNotApply(completed: 0, step: "DesignDraft") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.StatusAutomaticTests.ARowForADifferentSituation_DoesNotApply(completed: 1, step: "RequirementsDraft") [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.StatusAutomaticTests.TheAdvanceResultCarriesTheSameAutomaticBlock
+AgenticChangeOps.Workflow.Tests.Automatic.StatusAutomaticTests.WithTheFeatureOff_TheModeIsOff_WhateverRowsExist [< 1 ms]
+AgenticChangeOps.Workflow.Tests.Automatic.StatusAutomaticTests.WithTheFeatureOnAndNoRow_TheModeIsOn
+
+Failure reasons:
+     85 System.NotImplementedException : The method or operation is not implemented.
+      4 System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.
+      4 Assert.Equal() Failure: Values differ
+      3 Assert.True() Failure
+      2 Assert.ThrowsAny() Failure: Exception type was not compatible
+      1 System.NullReferenceException : Object reference not set to an instance of an object.
+      1 System.InvalidOperationException : No service for type 'AgenticChangeOps.Workflow.CheckSummaryHolder' has been
+      1 Assert.Equal() Failure: Strings differ
+      1 Assert.Equal() Failure: Collections differ

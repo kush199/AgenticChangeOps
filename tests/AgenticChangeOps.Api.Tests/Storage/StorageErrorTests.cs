@@ -182,5 +182,9 @@ public sealed class StorageErrorTests : IDisposable
         public void UpdateWithAudit(ChangeRequest changeRequest, ChangeRequestAuditEntry auditEntry) => throw _exception;
         public void SaveAgentOutput<T>(T output, ChangeRequestAuditEntry auditEntry) where T : IAgentOutput => throw _exception;
         public IReadOnlyList<T> GetAgentOutputs<T>(Guid changeRequestId) where T : IAgentOutput => throw _exception;
+        public IReadOnlyList<Guid> ListChangeRequestIds() => throw _exception;
+        public AutomaticAttempt? GetAutomaticAttempt(Guid changeRequestId) => throw _exception;
+        public void SaveAutomaticAttempt(AutomaticAttempt attempt) => throw _exception;
+        public void ClearAutomaticAttempt(Guid changeRequestId) => throw _exception;
     }
 }

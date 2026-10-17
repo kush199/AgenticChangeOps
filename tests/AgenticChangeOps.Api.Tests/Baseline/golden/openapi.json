@@ -672,6 +672,27 @@
         }
       }
     },
+    "/operator/automatic-advancement": {
+      "get": {
+        "tags": [
+          "OperatorEndpoints"
+        ],
+        "summary": "Show whether automatic advancement is on and the latest check summary",
+        "operationId": "GetAutomaticAdvancementSummary",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperatorSummaryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/change-requests/{id}/workflow": {
       "get": {
         "tags": [
@@ -836,6 +857,27 @@
         "type": "integer",
         "format": "int32"
       },
+      "AutomaticAdvancementStatus": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/AutomaticMode"
+          },
+          "failureCategory": {
+            "$ref": "#/components/schemas/GenerationFailureCategory"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AutomaticMode": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "ChangeRequest": {
         "type": "object",
         "properties": {
@@ -918,6 +960,10 @@
           "draftVersion": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "automatic": {
+            "type": "boolean",
             "nullable": true
           }
         },
@@ -1136,6 +1182,50 @@
         },
         "additionalProperties": false
       },
+      "GenerationFailureCategory": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "LastCheckResponse": {
+        "type": "object",
+        "properties": {
+          "checkedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "examined": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ran": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "failed": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OperatorSummaryResponse": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "lastCheck": {
+            "$ref": "#/components/schemas/LastCheckResponse"
+          }
+        },
+        "additionalProperties": false
+      },
       "Priority": {
         "enum": [
           0,
@@ -1313,6 +1403,9 @@
           },
           "reason": {
             "$ref": "#/components/schemas/WorkflowReason"
+          },
+          "automatic": {
+            "$ref": "#/components/schemas/AutomaticAdvancementStatus"
           }
         },
         "additionalProperties": false

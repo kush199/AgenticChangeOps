@@ -12,7 +12,10 @@ public sealed record WorkflowStatus(
     WorkflowStage Stage,
     IReadOnlyList<CompletedStep> CompletedSteps,
     WorkflowStep? NextStep,
-    WorkflowReason? Reason)
+    WorkflowReason? Reason,
+    [property: System.Text.Json.Serialization.JsonIgnore(
+        Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull)]
+    AutomaticAdvancementStatus? Automatic = null)
 {
     // Value equality, with the completed steps compared element by element: a status read
     // twice from unchanged facts is equal even though each read builds its own list.
@@ -23,8 +26,9 @@ public sealed record WorkflowStatus(
         && Stage == other.Stage
         && NextStep == other.NextStep
         && Equals(Reason, other.Reason)
+        && Equals(Automatic, other.Automatic)
         && CompletedSteps.SequenceEqual(other.CompletedSteps);
 
     public override int GetHashCode() =>
-        HashCode.Combine(ChangeRequestId, ChangeRequestStatus, Stage, NextStep, Reason, CompletedSteps.Count);
+        HashCode.Combine(ChangeRequestId, ChangeRequestStatus, Stage, NextStep, Reason, CompletedSteps.Count, Automatic);
 }

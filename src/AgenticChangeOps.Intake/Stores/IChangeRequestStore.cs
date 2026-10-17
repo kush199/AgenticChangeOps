@@ -37,4 +37,16 @@ public interface IChangeRequestStore
 
     /// <summary>Returns the outputs of one type for a change request in ascending version order.</summary>
     IReadOnlyList<T> GetAgentOutputs<T>(Guid changeRequestId) where T : IAgentOutput;
+
+    /// <summary>The ids of every stored change request, in the order they were saved.</summary>
+    IReadOnlyList<Guid> ListChangeRequestIds();
+
+    /// <summary>The automatic-advancement attempt record for a change request, or null.</summary>
+    AutomaticAttempt? GetAutomaticAttempt(Guid changeRequestId);
+
+    /// <summary>Stores the attempt record, replacing any existing one for the same change request.</summary>
+    void SaveAutomaticAttempt(AutomaticAttempt attempt);
+
+    /// <summary>Removes the attempt record for a change request. No error when there is none.</summary>
+    void ClearAutomaticAttempt(Guid changeRequestId);
 }

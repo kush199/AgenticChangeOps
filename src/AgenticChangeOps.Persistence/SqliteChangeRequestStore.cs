@@ -338,8 +338,9 @@ public sealed class SqliteChangeRequestStore : IChangeRequestStore, IDisposable
     }
 
     /// <summary>
-    /// A file with no tables gets layout version 1 in one transaction. A file at version 1 with
-    /// exactly our tables is used. Anything else is refused having written nothing.
+    /// A file with no tables gets the current layout in one transaction. A version-1 file with
+    /// exactly its three tables is upgraded in place (one transaction). A current file with exactly
+    /// our four tables is used. Anything else is refused having written nothing.
     /// </summary>
     private static void Prepare(SqliteConnection connection)
     {
@@ -348,19 +349,19 @@ public sealed class SqliteChangeRequestStore : IChangeRequestStore, IDisposable
 
         if (version == 0 && tables == 0)
         {
-            using var transaction = connection.BeginTransaction();
-            using (var create = connection.CreateCommand())
-            {
-                create.Transaction = transaction;
-                create.CommandText = StorageSchema.CreateStatements + $"\nPRAGMA user_version = {StorageSchema.LayoutVersion};";
-                create.ExecuteNonQuery();
-            }
-
-            transaction.Commit();
+            Execute(connection, StorageSchema.CreateStatements + $"\nPRAGMA user_version = {StorageSchema.LayoutVersion};");
         }
-        else if (version == StorageSchema.LayoutVersion && tables == StorageSchema.TableNames.Length && HasOurTables(connection))
+        else if (version == StorageSchema.LayoutVersion
+                 && tables == StorageSchema.TableNames.Length
+                 && HasTables(connection, StorageSchema.TableNames))
         {
             // Understood as is.
+        }
+        else if (version == 1
+                 && tables == StorageSchema.V1TableNames.Length
+                 && HasTables(connection, StorageSchema.V1TableNames))
+        {
+            Execute(connection, StorageSchema.UpgradeFromVersion1 + $"\nPRAGMA user_version = {StorageSchema.LayoutVersion};");
         }
         else
         {
@@ -372,15 +373,28 @@ public sealed class SqliteChangeRequestStore : IChangeRequestStore, IDisposable
         settings.ExecuteNonQuery();
     }
 
-    private static bool HasOurTables(SqliteConnection connection)
+    private static void Execute(SqliteConnection connection, string sql)
+    {
+        using var transaction = connection.BeginTransaction();
+        using (var command = connection.CreateCommand())
+        {
+            command.Transaction = transaction;
+            command.CommandText = sql;
+            command.ExecuteNonQuery();
+        }
+
+        transaction.Commit();
+    }
+
+    private static bool HasTables(SqliteConnection connection, string[] names)
     {
         using var command = connection.CreateCommand();
+        var parameters = names.Select((_, i) => $"$t{i}").ToArray();
         command.CommandText =
-            "SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name IN ($a, $b, $c);";
-        command.Parameters.AddWithValue("$a", StorageSchema.TableNames[0]);
-        command.Parameters.AddWithValue("$b", StorageSchema.TableNames[1]);
-        command.Parameters.AddWithValue("$c", StorageSchema.TableNames[2]);
-        return Convert.ToInt64(command.ExecuteScalar()) == StorageSchema.TableNames.Length;
+            $"SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name IN ({string.Join(", ", parameters)});";
+        for (var i = 0; i < names.Length; i++)
+            command.Parameters.AddWithValue(parameters[i], names[i]);
+        return Convert.ToInt64(command.ExecuteScalar()) == names.Length;
     }
 
     private static long Scalar(SqliteConnection connection, string sql)
@@ -395,4 +409,54 @@ public sealed class SqliteChangeRequestStore : IChangeRequestStore, IDisposable
         _connection?.Dispose();
         _connection = null;
     }
+
+    public IReadOnlyList<Guid> ListChangeRequestIds() =>
+        Run(connection =>
+        {
+            using var command = connection.CreateCommand();
+            command.CommandText = $"SELECT id FROM {StorageSchema.ChangeRequests} ORDER BY rowid";
+
+            var ids = new List<Guid>();
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+                ids.Add(Guid.Parse(reader.GetString(0)));
+            return (IReadOnlyList<Guid>)ids.AsReadOnly();
+        });
+
+    public AutomaticAttempt? GetAutomaticAttempt(Guid changeRequestId) =>
+        Run(connection =>
+        {
+            using var command = connection.CreateCommand();
+            command.CommandText =
+                $"SELECT payload FROM {StorageSchema.AutomaticAttempts} WHERE change_request_id = $id";
+            command.Parameters.AddWithValue("$id", Key(changeRequestId));
+            return command.ExecuteScalar() is string payload
+                ? JsonSerializer.Deserialize<AutomaticAttempt>(payload, RecordJson.Options)
+                : null;
+        });
+
+    public void SaveAutomaticAttempt(AutomaticAttempt attempt)
+    {
+        ArgumentNullException.ThrowIfNull(attempt);
+        Run(connection =>
+        {
+            using var command = connection.CreateCommand();
+            command.CommandText =
+                $"INSERT OR REPLACE INTO {StorageSchema.AutomaticAttempts} (change_request_id, payload) " +
+                "VALUES ($id, $payload)";
+            command.Parameters.AddWithValue("$id", Key(attempt.ChangeRequestId));
+            command.Parameters.AddWithValue("$payload", JsonSerializer.Serialize(attempt, RecordJson.Options));
+            command.ExecuteNonQuery();
+        });
+    }
+
+    public void ClearAutomaticAttempt(Guid changeRequestId) =>
+        Run(connection =>
+        {
+            using var command = connection.CreateCommand();
+            command.CommandText =
+                $"DELETE FROM {StorageSchema.AutomaticAttempts} WHERE change_request_id = $id";
+            command.Parameters.AddWithValue("$id", Key(changeRequestId));
+            command.ExecuteNonQuery();
+        });
 }
