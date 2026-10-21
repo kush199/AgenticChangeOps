@@ -17,6 +17,7 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
     private readonly IDesignDraftingService _designs;
     private readonly IStepAvailability _availability;
     private readonly IAutomaticStatusSource? _automatic;
+    private readonly IProposalOffer? _proposalOffer;
 
     // One gate per change request so derive-then-run is a single step for that request, whether a
     // person or the automatic runner started it. Entries are never removed: the set is bounded by
@@ -28,13 +29,15 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
         IRequirementsDraftingService requirements,
         IDesignDraftingService designs,
         IStepAvailability availability,
-        IAutomaticStatusSource? automatic = null)
+        IAutomaticStatusSource? automatic = null,
+        IProposalOffer? proposalOffer = null)
     {
         _store = store;
         _requirements = requirements;
         _designs = designs;
         _availability = availability;
         _automatic = automatic;
+        _proposalOffer = proposalOffer;
     }
 
     public QueryResult<WorkflowStatus> GetStatus(Guid changeRequestId)
@@ -149,9 +152,15 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
 
         // The automatic block is derived from settings and attempt rows only; it never changes the
         // stage, the next step or the reason, which come from the rules alone.
-        return _automatic is null
-            ? status
-            : status with { Automatic = _automatic.Describe(changeRequestId, status.NextStep, status.CompletedSteps.Count) };
+        if (_automatic is not null)
+            status = status with { Automatic = _automatic.Describe(changeRequestId, status.NextStep, status.CompletedSteps.Count) };
+
+        // The proposal is only ever offered, as an extra member: the stage, the next step and the
+        // reason above are untouched, so neither the workflow nor the automatic runner can run it.
+        if (status.Stage == WorkflowStage.DesignComplete && _proposalOffer is { IsOffered: true })
+            status = status with { OfferedStep = WorkflowStep.Proposal };
+
+        return status;
     }
 
     private static ValidationError NotFound(Guid changeRequestId) =>

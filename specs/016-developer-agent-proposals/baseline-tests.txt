@@ -1,0 +1,16 @@
+Baseline before slice 016 (branch feature/developer-agent-proposals, commit 29a733e), 2026-10-21
+dotnet test AgenticChangeOps.sln
+
+Project                                   Passed  Skipped  Total
+AgenticChangeOps.Intake.Tests                118        0    118
+AgenticChangeOps.ModelAccess.Tests           233        0    233
+AgenticChangeOps.Persistence.Tests            81        0     81
+AgenticChangeOps.Agents.Architect.Tests      155        2    157   (2 skipped: live checks)
+AgenticChangeOps.SampleCode.Tests            123        0    123
+AgenticChangeOps.Agents.Requirement.Tests    156        1    157   (1 skipped: live check)
+AgenticChangeOps.Workflow.Tests              184        0    184
+AgenticChangeOps.Api.Tests                   230        0    230
+Total                                      1280        3   1283
+
+Failed: 0.
+T010: after stubs, all 8 existing test projects pass with the baseline counts (Developer.Tests has no tests yet).
