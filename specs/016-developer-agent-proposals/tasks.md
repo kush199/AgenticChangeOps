@@ -149,7 +149,7 @@ Shapes only: every new behaviour method throws `NotImplementedException` until i
 - [X] T047 Run `dotnet build AgenticChangeOps.sln -c Release` and `dotnet test AgenticChangeOps.sln`, then quickstart.md sections 1 and 2 and record results in `specs/016-developer-agent-proposals/verification.md`. Section 3 (live) is recorded as not run unless the maintainer runs it.
 - [X] T048 Final scan: grep the Developer project for the guard tokens and `SampleCode`, run the Architect and Requirement test projects to confirm they are unchanged and green, and confirm `git diff` shows no edited line in any existing test file beyond the approved list (T005, T029).
 - [X] T049 [USER] Open the constitution amendment PR (drafted at T002; the user confirms before it is opened). It must merge before the slice PR.
-- [ ] T050 [USER] Commit on `feature/developer-agent-proposals` and open the slice PR after the user confirms; the PR description carries the constitution checkbox (v1.0.5, amendment PR linked), the baseline and unchanged-behaviour comparison, the T006, T007 and T029 diff summaries, and states plainly that the live check was not run.
+- [X] T050 [USER] Commit on `feature/developer-agent-proposals` and open the slice PR after the user confirms; the PR description carries the constitution checkbox (v1.0.5, amendment PR linked), the baseline and unchanged-behaviour comparison, the T006, T007 and T029 diff summaries, and states plainly that the live check was not run.
 
 ---
 
