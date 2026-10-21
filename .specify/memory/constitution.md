@@ -135,17 +135,21 @@ amendment.
 - **Agent Framework**: Microsoft Agent Framework. Used so far to run the Architect agent's
   content-generation request as a stateless agent behind the `IChatModelClient` and
   `IToolChatModelClient` seams, so the framework can be studied and compared on one agent. The
-  Architect may be given read-only tools over a small synthetic sample codebase
-  (`sample-codebase/`), offered through the Model Context Protocol by an in-process server in
-  `AgenticChangeOps.SampleCode`; the tool set is fixed in code, reading is non-consequential,
-  tool output is untrusted data, and the feature is off unless an operator switches it on. It
-  generates content only: routing, eligibility and every decision remain deterministic C#
-  (Principle II), and framework types stay inside `AgenticChangeOps.ModelAccess` (MCP types
-  inside `AgenticChangeOps.SampleCode`). Semantic Kernel is not used. Using the framework or
-  tools for another agent, or for memory, sessions or workflows, needs its own slice and spec.
+  Architect and Developer agents may be given read-only tools over a small synthetic sample
+  codebase (`sample-codebase/`), offered through the Model Context Protocol by an in-process
+  server in `AgenticChangeOps.SampleCode`; the tool set is fixed in code, reading is
+  non-consequential, tool output is untrusted data, and the feature is off unless an operator
+  switches it on (one switch for both agents). The Developer uses them only to propose a
+  text-only change set that the system verifies against the real sample files before storing;
+  producing a proposal is non-consequential, and applying one would be consequential and needs
+  its own slice, spec and human approval gate. Both agents generate content only: routing,
+  eligibility, verification and every decision remain deterministic C# (Principle II), and
+  framework types stay inside `AgenticChangeOps.ModelAccess` (MCP types inside
+  `AgenticChangeOps.SampleCode`). Semantic Kernel is not used. Using the framework or tools for
+  another agent, or for memory, sessions or workflows, needs its own slice and spec.
 - **LLM Provider**: Azure OpenAI Service
 - **Tool/Resource Protocol**: Model Context Protocol (MCP) for external tool integrations; used
-  so far in-process, for the Architect agent's read-only sample codebase tools
+  so far in-process, for the Architect and Developer agents' read-only sample codebase tools
 - **Persistence**: Durable local storage in a single SQLite file (`Microsoft.Data.Sqlite`),
   behind the `IChangeRequestStore` seam, with the layout version recorded in the file. The
   location is a run-time setting with a safe local default, and the file is never committed to
@@ -193,4 +197,4 @@ Commit messages MUST reference the change request ID or slice name.
 - This constitution does not expire, but SHOULD be reviewed whenever a major new capability
   or agent is proposed.
 
-**Version**: 1.0.5 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-17
+**Version**: 1.0.6 | **Ratified**: 2026-10-10 | **Last Amended**: 2026-10-21
