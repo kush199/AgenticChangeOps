@@ -1,0 +1,35 @@
+# Baseline: dotnet test AgenticChangeOps.sln on 7bf6f44 (before the change), 2026-10-22
+
+AgenticChangeOps.Intake.Tests        Passed 118  Failed 0  Skipped 0  Total 118
+AgenticChangeOps.Persistence.Tests   Passed  81  Failed 0  Skipped 0  Total  81
+AgenticChangeOps.Agents.Requirement.Tests  Passed 156  Failed 0  Skipped 1  Total 157
+AgenticChangeOps.ModelAccess.Tests   Passed 249  Failed 0  Skipped 0  Total 249
+AgenticChangeOps.SampleCode.Tests    Passed 123  Failed 0  Skipped 0  Total 123
+AgenticChangeOps.Agents.Developer.Tests    Passed 171  Failed 0  Skipped 0  Total 171
+AgenticChangeOps.Workflow.Tests      Passed 194  Failed 0  Skipped 0  Total 194
+AgenticChangeOps.Agents.Architect.Tests    Passed 155  Failed 0  Skipped 2  Total 157
+AgenticChangeOps.Api.Tests           Passed 344  Failed 0  Skipped 1  Total 345
+
+Skipped are the opt-in live model checks.
+
+# After Phase 2 (T011): characterization tests added, stubs compiled, structure-test lists edited
+
+AgenticChangeOps.Agents.Requirement.Tests  Passed 157  Skipped 1  (+1 characterization)
+AgenticChangeOps.Agents.Architect.Tests    Passed 156  Skipped 2  (+1 characterization)
+AgenticChangeOps.Agents.Developer.Tests    Passed 172  Skipped 0  (+1 characterization)
+AgenticChangeOps.Api.Tests                 Passed 345  Skipped 1  (+1 drafting-skeleton baseline)
+All other projects unchanged. 0 failed anywhere. AgenticChangeOps.Drafting.Tests has no tests yet.
+
+# After the change (T038): dotnet test AgenticChangeOps.sln, Release build clean
+
+AgenticChangeOps.Intake.Tests        Passed 118  Skipped 0
+AgenticChangeOps.Persistence.Tests   Passed  81  Skipped 0
+AgenticChangeOps.Drafting.Tests      Passed  45  Skipped 0  (new project)
+AgenticChangeOps.ModelAccess.Tests   Passed 249  Skipped 0
+AgenticChangeOps.SampleCode.Tests    Passed 123  Skipped 0
+AgenticChangeOps.Workflow.Tests      Passed 194  Skipped 0
+AgenticChangeOps.Agents.Requirement.Tests  Passed 157  Skipped 1
+AgenticChangeOps.Agents.Architect.Tests    Passed 156  Skipped 2
+AgenticChangeOps.Agents.Developer.Tests    Passed 172  Skipped 0
+AgenticChangeOps.Api.Tests           Passed 345  Skipped 1
+0 failed anywhere.

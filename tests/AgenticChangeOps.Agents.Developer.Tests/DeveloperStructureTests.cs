@@ -59,7 +59,7 @@ public sealed class DeveloperStructureTests
     }
 
     [Fact]
-    public void AgentProject_ReferencesOnlyIntakeAndModelAccess()
+    public void AgentProject_ReferencesOnlyIntakeModelAccessAndDrafting()
     {
         var path = Path.Combine(RepositoryRoot(), "src", AgentProject, AgentProject + ".csproj");
         Assert.True(File.Exists(path), $"Expected {path} to exist.");
@@ -69,7 +69,7 @@ public sealed class DeveloperStructureTests
             .OrderBy(n => n, StringComparer.Ordinal)
             .ToArray();
 
-        Assert.Equal(new[] { "AgenticChangeOps.Intake", "AgenticChangeOps.ModelAccess" }, references);
+        Assert.Equal(new[] { "AgenticChangeOps.Drafting", "AgenticChangeOps.Intake", "AgenticChangeOps.ModelAccess" }, references);
     }
 
     [Fact]

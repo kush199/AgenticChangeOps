@@ -68,6 +68,7 @@ src/
   AgenticChangeOps.Intake/              change requests, approval gate, audit, in-memory store
   AgenticChangeOps.Persistence/         durable local storage (SQLite); depends on Intake only
   AgenticChangeOps.ModelAccess/         agent-neutral model access: seam, Azure client, settings, shared call and parsing
+  AgenticChangeOps.Drafting/            agent-neutral drafting skeleton: the order of steps every drafting service follows, plus latest and history reads
   AgenticChangeOps.Agents.Requirement/  everything specific to the Requirement agent
   AgenticChangeOps.Agents.Architect/    everything specific to the Architect agent
   AgenticChangeOps.Agents.Developer/    everything specific to the Developer agent (text-only change proposals)
@@ -77,6 +78,7 @@ tests/
   AgenticChangeOps.Intake.Tests/               intake and approval, no agent or model references
   AgenticChangeOps.Persistence.Tests/          one store contract run against both stores, restart, atomicity, layout
   AgenticChangeOps.ModelAccess.Tests/          settings, failure mapping, hygiene and neutrality checks
+  AgenticChangeOps.Drafting.Tests/             the skeleton's own behaviours, neutrality checks, a stand-in fourth agent
   AgenticChangeOps.Agents.Requirement.Tests/   drafting, validation, prompt, parser, generator
   AgenticChangeOps.Agents.Architect.Tests/     design drafting, validation, prompt, parser, generator
   AgenticChangeOps.Agents.Developer.Tests/     proposal verification, validation, prompt, parser, generator, storage round trip
@@ -91,17 +93,18 @@ specs/                                  one folder per slice: spec, plan, tasks,
 Each agent is one project beside the Requirement agent. Adding one needs no edit to the
 Requirement agent or to ModelAccess:
 
-1. Create `src/AgenticChangeOps.Agents.<Name>`, referencing `AgenticChangeOps.Intake` and
-   `AgenticChangeOps.ModelAccess` (never another agent). Put the agent's records, validation,
+1. Create `src/AgenticChangeOps.Agents.<Name>`, referencing `AgenticChangeOps.Intake`,
+   `AgenticChangeOps.ModelAccess` and `AgenticChangeOps.Drafting` (never another agent). Put the agent's records, validation,
    service, interface, prompt, section names and generator and its output type (implementing
    `IAgentOutput`) there. Use `ModelCaller`, `ModelAnswerReader` and `SectionNormaliser` from
-   ModelAccess for the model call, answer reading and list/text limits instead of copying them.
+   ModelAccess for the model call, answer reading and list/text limits instead of copying them, and a
+   `DraftingEngine` from Drafting for the sequence, with the agent's own `IDraftingAgent` and save step.
 2. Create `tests/AgenticChangeOps.Agents.<Name>.Tests` and add both projects to the solution.
 3. Reference the new project from `AgenticChangeOps.Api` and register its services in
    `Composition/ApiServiceRegistration.cs`, the one place allowed to know every agent.
 
 Rules checked by tests: Intake and ModelAccess name no agent, ModelAccess depends on nothing
-in the solution, and an agent project references only Intake and ModelAccess.
+in the solution, and an agent project references only Intake, ModelAccess and Drafting, and Drafting names no agent.
 
 | Slice | Folder |
 |---|---|
