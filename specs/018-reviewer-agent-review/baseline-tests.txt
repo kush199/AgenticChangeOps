@@ -22,3 +22,9 @@ AgenticChangeOps.Agents.Reviewer.Tests has no tests yet. Build: 0 errors.
 
 AgenticChangeOps.Agents.Reviewer.Tests     Passed 156  Failed 0  Skipped 0  Total 156  (new project)
 All other projects unchanged from the baseline counts. 0 failed anywhere. Build: 0 warnings, 0 errors.
+
+# After step 2 (T031): prompt builder, response parser, generator and the nested-list reader implemented
+
+AgenticChangeOps.Agents.Reviewer.Tests     Passed 252  Failed 0  Skipped 0  Total 252
+AgenticChangeOps.ModelAccess.Tests         Passed 271  Failed 0  Skipped 0  Total 271  (+22, additive reader tests)
+All other projects unchanged from the baseline counts. 0 failed anywhere. Build: 0 warnings, 0 errors.
