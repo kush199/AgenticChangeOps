@@ -9,5 +9,6 @@ public enum AuditEventType
     DraftGenerated,
     DesignGenerated,
     ToolCalled,
-    ProposalGenerated
+    ProposalGenerated,
+    ReviewGenerated
 }
