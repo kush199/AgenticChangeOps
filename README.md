@@ -18,9 +18,10 @@ This is a learning and portfolio project, built slice by slice with
 | **Design drafting** | An Architect agent asks a language model to draft a design analysis (approach, affected components, impact and risks, dependencies, rollback, open questions) for an **Approved** request that has a requirements draft. Designs are versioned, linked to the requirements version they used, audited as `DesignGenerated`, and **never change the request's status** |
 | **Durable storage** | Change requests, audit entries, requirements drafts and design drafts are kept in a local SQLite file and survive a restart. A stored item and its audit entry are stored together or not at all, and version numbers never repeat |
 | **Automatic advancement** | Optional and off by default: when switched on, runs the requirements and design draft steps for requests that have one due, without anyone asking. Never makes a decision |
+| **Change proposals** | Optional, needs the sample tools: a Developer agent proposes a text-only change set (quoted edits, risks, test ideas) for an approved request with a current design. Every quote is checked against the real sample file; nothing is ever applied. Versioned and audited as `ProposalGenerated` |
 | **HTTP API** | All of the above over a local JSON API with a Swagger page |
 
-Not built yet: the Developer and Reviewer agents, orchestration between agents,
+Not built yet: the Reviewer agent, applying a proposal, orchestration between agents,
 authentication.
 
 ## Design principles
@@ -69,7 +70,8 @@ src/
   AgenticChangeOps.ModelAccess/         agent-neutral model access: seam, Azure client, settings, shared call and parsing
   AgenticChangeOps.Agents.Requirement/  everything specific to the Requirement agent
   AgenticChangeOps.Agents.Architect/    everything specific to the Architect agent
-  AgenticChangeOps.SampleCode/          the read-only sample codebase tools (in-process MCP server), used by the Architect
+  AgenticChangeOps.Agents.Developer/    everything specific to the Developer agent (text-only change proposals)
+  AgenticChangeOps.SampleCode/          the read-only sample codebase tools (in-process MCP server), used by the Architect and Developer
 tests/
   AgenticChangeOps.Api.Tests/                  HTTP behaviour, recorded baseline of responses
   AgenticChangeOps.Intake.Tests/               intake and approval, no agent or model references
@@ -77,6 +79,7 @@ tests/
   AgenticChangeOps.ModelAccess.Tests/          settings, failure mapping, hygiene and neutrality checks
   AgenticChangeOps.Agents.Requirement.Tests/   drafting, validation, prompt, parser, generator
   AgenticChangeOps.Agents.Architect.Tests/     design drafting, validation, prompt, parser, generator
+  AgenticChangeOps.Agents.Developer.Tests/     proposal verification, validation, prompt, parser, generator, storage round trip
   AgenticChangeOps.SampleCode.Tests/           path confinement, limits, tools, MCP round trip, sample hygiene
 sample-codebase/                        invented sample the tools read (not part of the solution)
 specs/                                  one folder per slice: spec, plan, tasks, contracts
@@ -294,11 +297,57 @@ usable answer, fails with `502 generation-failed` and `category` `ToolsUnavailab
 Limits of the idea: a model can still be persuaded by text in a file, but the only thing that can
 change is the wording of the draft, which passes the usual validation and is reviewed by a person.
 
+## Developer agent: change proposals (optional, needs the sample tools)
+
+When the sample codebase tools above are switched on, the Developer agent can propose a **change
+set as text** for an approved change request that has a requirements draft and a design draft based
+on the latest requirements draft. It reads the sample through the same read-only tools and returns a
+summary, a list of proposed edits, risks, ideas for testing, open questions and the sample files it
+read. Each edit names a file inside the sample, says whether it changes an existing file or adds a
+new one, quotes the exact existing text it replaces (for a change) and gives the replacement text.
+
+**It never applies anything.** Nothing is created, changed, deleted, compiled or run, and every
+proposal states that it has not been compiled, run or tested. Producing a proposal is classified as
+non-consequential for that reason; applying one would be consequential and is not built. A proposal
+never changes a change request's status, approves nothing and clears nothing.
+
+The system checks every edit against the real sample file before storing anything: the quote must
+appear exactly once (line endings do not matter, every other character does), a file proposed as new
+must not exist, every path must stay inside the sample, and the proposal must stay within a maximum
+number of changes and a maximum total size. One bad edit rejects the whole proposal and nothing is
+stored.
+
+| Operation | Route |
+|---|---|
+| Request a proposal | `POST /change-requests/{id}/proposals` |
+| Latest proposal | `GET /change-requests/{id}/proposals/latest` |
+| Proposal history (version order) | `GET /change-requests/{id}/proposals` |
+
+Requesting again creates a new version and keeps earlier ones. Errors follow the design operations:
+`400 invalid-identifier`, `404 not-found` / `no-proposal`, `409 conflict` (not Approved, no
+requirements draft, no design draft, or the design is not based on the latest requirements draft,
+also re-checked just before storing), `503 proposal-tools-unavailable` (the tools switch is off) or
+`proposal-not-configured`, `502 generation-failed` with a `category`, and `502 proposal-rejected`
+with a `category` naming only the reason (for example `QuoteNotFound`). No file text, model text,
+endpoint, deployment name or credential appears in any error, log or response.
+
+| Setting (environment variable) | Default | Meaning |
+|---|---|---|
+| `AGENTICCHANGEOPS_PROPOSAL_MAX_CHANGES` | `5` | Most edits in one proposal |
+| `AGENTICCHANGEOPS_PROPOSAL_MAX_BYTES` | `6000` | Most bytes of quoted plus replacement text |
+
+These are read only when `AGENTICCHANGEOPS_SAMPLE_TOOLS_ENABLED=true`; the tool and model limits above
+apply to each proposal request. Each stored proposal is audited with one `ProposalGenerated` entry,
+after one `ToolCalled` entry per tool call (never with file text). Once a current design exists and
+proposals are available, the workflow status shows `offeredStep: "Proposal"` next to its unchanged
+stage and next step; automatic advancement never runs a proposal, it runs only when a person asks.
+With the Developer unused, every existing response is exactly as before.
+
 ## Roadmap
 
-- Developer and Reviewer agents
+- Reviewer agent, and a human-approved way to apply a proposal
 - Orchestration between agents (Microsoft Agent Framework)
-- MCP tools for other agents and for real systems (the Architect has read-only sample tools today)
+- MCP tools for real systems (the Architect and Developer have read-only sample tools today)
 - Authentication
 
 ## License

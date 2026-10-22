@@ -4,5 +4,6 @@ namespace AgenticChangeOps.Workflow;
 public enum WorkflowStep
 {
     RequirementsDraft,
-    DesignDraft
+    DesignDraft,
+    Proposal
 }

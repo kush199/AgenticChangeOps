@@ -8,5 +8,6 @@ public enum AuditEventType
     Deferred,
     DraftGenerated,
     DesignGenerated,
-    ToolCalled
+    ToolCalled,
+    ProposalGenerated
 }

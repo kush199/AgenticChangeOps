@@ -1,0 +1,25 @@
+Red run before any behaviour is implemented (T027), branch feature/developer-agent-proposals, 2026-10-21
+dotnet test AgenticChangeOps.sln
+
+Existing test projects (counts equal the baseline in baseline-tests.txt; no existing assertion edited):
+  Intake 118 passed, Persistence 81, Requirement 156 (+1 skipped), Architect 155 (+2 skipped),
+  SampleCode 123, Workflow 192 passed of which 2 new ones fail, ModelAccess 244 passed of which 5 new ones fail,
+  Api 233 passed.
+
+New tests, red for the right reason (NotImplementedException from the stubs, or an unmet assertion
+such as 404 where a route does not exist yet; no compile error, no missing type):
+  Developer.Tests          125 failed / 44 passed  (the 44 already pass: structure, no-secrets, storage
+                           round trip, parser/prompt guard cases that hold for stubs)
+  ModelAccess.Tests          5 failed   (ModelAnswerObjectListTests)
+  Workflow.Tests             2 failed   (ProposalOfferTests: offer on, advance at DesignComplete)
+  Api.Tests                106 failed   (SampleFilesAdapterTests, ProposalSettingsTests, Proposal*EndpointTests,
+                                         ProposalCompositionTests, ProposalOffMatchesBaselineTests)
+
+Failure kinds seen: System.NotImplementedException (143), Assert.Equal() mismatches such as 404 or 503
+expected-vs-actual (48), Assert.Throws exact-type (13), KeyNotFoundException from a missing response member (5).
+
+Passing already, by design (they pin behaviour that does not need the new code):
+  DeveloperStructureTests, NoSecretsTests (Developer), ProposalStorageRoundTripTests, most Workflow
+  ProposalOfferTests, TheWorkflowStatus_AtDesignComplete_HasExactlyTheMembersItAlwaysHad.
+
+Approval: given by the user ("approved"), 2026-10-21 (T028).

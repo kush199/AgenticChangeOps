@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http.Json;
 using AgenticChangeOps.ModelAccess;
 using AgenticChangeOps.Agents.Requirement;
 using AgenticChangeOps.Agents.Architect;
+using AgenticChangeOps.Agents.Developer;
 using AgenticChangeOps.Persistence;
 using AgenticChangeOps.SampleCode;
 using AgenticChangeOps.Workflow;
@@ -62,6 +63,25 @@ public static class ApiServiceRegistration
         services.AddSingleton<DesignContentValidator>();
         services.AddSingleton<IRequirementsBasisSource, RequirementsBasisAdapter>();
         services.AddSingleton<IDesignDraftingService, DesignDraftingService>();
+
+        // Change proposals (Developer): needs the sample tools, so everything about it is decided from
+        // one setup object that reads the tools switch first. The workflow only ever shows the offer.
+        services.AddSingleton<ProposalSetup>(CreateProposalSetup);
+        services.AddSingleton(sp => new ProposalAvailability(sp.GetRequiredService<ProposalSetup>().State));
+        services.AddSingleton<IProposalOffer, ProposalOffer>();
+        services.AddSingleton<IProposalBasisSource, ProposalBasisAdapter>();
+        services.AddSingleton<IProposalService>(sp =>
+        {
+            var setup = sp.GetRequiredService<ProposalSetup>();
+            return new ProposalService(
+                sp.GetRequiredService<IChangeRequestStore>(),
+                sp.GetRequiredService<ISystemClock>(),
+                sp.GetRequiredService<IIdGenerator>(),
+                sp.GetRequiredService<IProposalBasisSource>(),
+                setup.Generator,
+                new ProposalContentValidator(),
+                setup.Verifier);
+        });
 
         // Workflow orchestration: derives status from recorded facts and runs the agents'
         // own services; the availability adapter reuses the two flags registered above.
@@ -142,6 +162,77 @@ public static class ApiServiceRegistration
             logger.LogWarning("Design drafting is not configured; design requests will be refused.");
             return new DesignSetup(new NotConfiguredDesignGenerator(), isConfigured: false);
         }
+    }
+
+    /// <summary>
+    /// Proposals need the sample tools. The tools switch is read first: while it is off nothing else
+    /// about proposals is read. With it on, an invalid model, tool or proposal setting makes
+    /// proposals "not configured" (only the fact is logged, never a name or a value).
+    /// </summary>
+    private static ProposalSetup CreateProposalSetup(IServiceProvider services)
+    {
+        var configuration = services.GetRequiredService<IConfiguration>();
+        var logger = services.GetRequiredService<ILoggerFactory>().CreateLogger("AgenticChangeOps.Api.Proposing");
+
+        try
+        {
+            var tools = SampleToolSettings.FromConfiguration(name => configuration[name]);
+            if (!tools.Enabled)
+                return ProposalSetup.Unavailable(ProposalAvailabilityState.ToolsUnavailable);
+
+            var options = AzureOpenAIGeneratorOptions.FromEnvironment(name => configuration[name]);
+            var proposal = ProposalSettings.FromConfiguration(name => configuration[name]);
+
+            var sampleFolder = tools.SampleFolder ?? Path.Combine(AppContext.BaseDirectory, "sample-codebase");
+            var generator = new AzureOpenAIProposalGenerator(
+                options,
+                new AgentFrameworkChatModelClient(options),
+                new CountingToolSessionFactory(new SampleToolSessionFactory(tools, sampleFolder), logger),
+                services.GetRequiredService<IToolChatModelClient>());
+            var verifier = new ProposalVerifier(new SampleFilesAdapter(sampleFolder, tools.MaxFileBytes), proposal.Limits);
+            return new ProposalSetup(ProposalAvailabilityState.Available, generator, verifier);
+        }
+        catch (GeneratorConfigurationException)
+        {
+            logger.LogWarning("Change proposals are not configured; proposal requests will be refused.");
+            return ProposalSetup.Unavailable(ProposalAvailabilityState.NotConfigured);
+        }
+    }
+
+    private sealed class ProposalSetup
+    {
+        public ProposalSetup(ProposalAvailabilityState state, IProposalGenerator generator, ProposalVerifier verifier)
+        {
+            State = state;
+            Generator = generator;
+            Verifier = verifier;
+        }
+
+        public ProposalAvailabilityState State { get; }
+        public IProposalGenerator Generator { get; }
+        public ProposalVerifier Verifier { get; }
+
+        public static ProposalSetup Unavailable(ProposalAvailabilityState state) =>
+            new(state, new UnavailableProposalGenerator(), new ProposalVerifier(new NoSampleFiles(), ProposalLimits.Defaults));
+    }
+
+    /// <summary>Never reached through the API (the route checks availability first).</summary>
+    private sealed class UnavailableProposalGenerator : IProposalGenerator
+    {
+        public Task<ProposalContent?> GenerateAsync(
+            ChangeRequest changeRequest,
+            ProposalRequirementsBasis requirements,
+            ProposalDesignBasis design,
+            CancellationToken cancellationToken) =>
+            throw new DraftGenerationException(GenerationFailureCategory.Unreachable);
+    }
+
+    /// <summary>The sample as seen when proposals are unavailable: nothing is reachable.</summary>
+    private sealed class NoSampleFiles : ISampleFiles
+    {
+        public SamplePathState Probe(string path) => SamplePathState.OutsideSample;
+
+        public SampleTextResult ReadText(string path) => new(null, ProposalRejection.PathOutsideSample);
     }
 
     private sealed class DesignSetup

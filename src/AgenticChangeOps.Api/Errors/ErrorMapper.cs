@@ -2,6 +2,7 @@ using AgenticChangeOps.Api.Contracts;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Stores;
 using AgenticChangeOps.Agents.Architect;
+using AgenticChangeOps.Agents.Developer;
 using AgenticChangeOps.Agents.Requirement;
 using AgenticChangeOps.Workflow;
 
@@ -17,6 +18,8 @@ public static class ErrorMapper
     private const string StatusField = "Status";
     private const string MalformedOutputCategory = "MalformedOutput";
     private const string RequirementsDraftField = "RequirementsDraft";
+    private const string DesignDraftField = "DesignDraft";
+    private const string DesignDraftVersionField = "DesignDraftVersion";
 
     private static readonly HashSet<string> DesignSectionFields = new(StringComparer.Ordinal)
     {
@@ -89,6 +92,45 @@ public static class ErrorMapper
 
         return Unexpected();
     }
+
+    public static (int StatusCode, ErrorResponse Body) ForProposing(ProposalResult result)
+    {
+        var errors = result.Errors;
+
+        if (IsNotFound(errors))
+            return NotFound();
+
+        // The system's own checks refused what the model produced: only the reason is reported.
+        if (result.Rejection is { } rejection)
+            return (502, new ErrorResponse(
+                "proposal-rejected",
+                "The change proposal was refused by the system's checks.",
+                Category: rejection.ToString()));
+
+        if (result.FailureCategory is { } category)
+            return (502, new ErrorResponse(
+                "generation-failed",
+                "The change proposal could not be generated.",
+                Category: category.ToString()));
+
+        // Not Approved, no requirements draft, no design draft, or the design is not current: the
+        // request conflicts with the current state of the change request.
+        if (errors.All(e => e.FieldName is StatusField or RequirementsDraftField or DesignDraftField or DesignDraftVersionField))
+            return Conflict(errors);
+
+        return Unexpected();
+    }
+
+    public static (int StatusCode, ErrorResponse Body) NoProposal() =>
+        (404, new ErrorResponse("no-proposal", "No change proposal exists yet for this change request."));
+
+    public static (int StatusCode, ErrorResponse Body) ProposalNotConfigured() =>
+        (503, new ErrorResponse("proposal-not-configured", "Change proposals are not configured on this server."));
+
+    public static (int StatusCode, ErrorResponse Body) ProposalToolsUnavailable() =>
+        (503, new ErrorResponse(
+            "proposal-tools-unavailable",
+            "Change proposals need the sample codebase tools, which are not switched on."));
 
     public static (int StatusCode, ErrorResponse Body) NoStepDue(WorkflowReason reason) =>
         (409, new ErrorResponse(
