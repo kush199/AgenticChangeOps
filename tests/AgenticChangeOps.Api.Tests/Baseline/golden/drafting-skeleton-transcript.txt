@@ -1,0 +1,625 @@
+### propose unknown id
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### latest proposal unknown id
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### proposal history unknown id
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "not-found",
+  "message": "No change request with that identifier exists."
+}
+
+### propose invalid id
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### latest proposal invalid id
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### proposal history invalid id
+status: 400 BadRequest
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "invalid-identifier",
+  "message": "The change request identifier is not valid."
+}
+
+### propose submitted request
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "Status",
+      "message": "Change request <id-1> is in status Submitted and cannot be given a proposal; only Approved requests can."
+    }
+  ]
+}
+
+### propose approved no requirements draft
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "RequirementsDraft",
+      "message": "Change request <id-2> has no requirements draft; a requirements draft is required before a proposal can be drafted."
+    }
+  ]
+}
+
+### propose approved no design draft
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "DesignDraft",
+      "message": "Change request <id-3> has no design draft; a design draft is required before a proposal can be drafted."
+    }
+  ]
+}
+
+### propose outdated design
+status: 409 Conflict
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "conflict",
+  "message": "The request conflicts with the current state of the change request.",
+  "errors": [
+    {
+      "field": "DesignDraftVersion",
+      "message": "The design draft for change request <id-4> is not based on the latest requirements draft, or a draft changed while the proposal was being generated; request a new design or try again."
+    }
+  ]
+}
+
+### latest proposal after refusal
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-proposal",
+  "message": "No change proposal exists yet for this change request."
+}
+
+### latest proposal before any
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-proposal",
+  "message": "No change proposal exists yet for this change request."
+}
+
+### proposal history before any
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### propose first
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-5>/proposals/latest
+body: 
+{
+  "proposalId": "<id-6>",
+  "changeRequestId": "<id-5>",
+  "version": 1,
+  "requirementsVersion": 1,
+  "designVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "DeveloperAgent",
+  "summary": "Raise the orders page size from 25 to 50.",
+  "changes": [
+    {
+      "path": "orders-service/config/orders.settings",
+      "kind": "Change",
+      "existingText": "orders.page.size = 25",
+      "replacementText": "orders.page.size = 50"
+    }
+  ],
+  "risks": [
+    "Longer pages load more rows."
+  ],
+  "testIdeas": [
+    "Check a page shows fifty rows."
+  ],
+  "openQuestions": [
+    "Should there be a maximum?"
+  ],
+  "sampleFilesRead": [
+    "orders-service/config/orders.settings"
+  ],
+  "verificationNote": "Not compiled, run or tested."
+}
+
+### propose second
+status: 201 Created
+header: Content-Type: application/json; charset=utf-8
+header: Location: /change-requests/<id-5>/proposals/latest
+body: 
+{
+  "proposalId": "<id-7>",
+  "changeRequestId": "<id-5>",
+  "version": 2,
+  "requirementsVersion": 1,
+  "designVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "DeveloperAgent",
+  "summary": "Raise the orders page size from 25 to 50.",
+  "changes": [
+    {
+      "path": "orders-service/config/orders.settings",
+      "kind": "Change",
+      "existingText": "orders.page.size = 25",
+      "replacementText": "orders.page.size = 50"
+    }
+  ],
+  "risks": [
+    "Longer pages load more rows."
+  ],
+  "testIdeas": [
+    "Check a page shows fifty rows."
+  ],
+  "openQuestions": [
+    "Should there be a maximum?"
+  ],
+  "sampleFilesRead": [
+    "orders-service/config/orders.settings"
+  ],
+  "verificationNote": "Not compiled, run or tested."
+}
+
+### latest proposal
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "proposalId": "<id-7>",
+  "changeRequestId": "<id-5>",
+  "version": 2,
+  "requirementsVersion": 1,
+  "designVersion": 1,
+  "generatedAt": "<timestamp>",
+  "status": "Draft",
+  "agentName": "DeveloperAgent",
+  "summary": "Raise the orders page size from 25 to 50.",
+  "changes": [
+    {
+      "path": "orders-service/config/orders.settings",
+      "kind": "Change",
+      "existingText": "orders.page.size = 25",
+      "replacementText": "orders.page.size = 50"
+    }
+  ],
+  "risks": [
+    "Longer pages load more rows."
+  ],
+  "testIdeas": [
+    "Check a page shows fifty rows."
+  ],
+  "openQuestions": [
+    "Should there be a maximum?"
+  ],
+  "sampleFilesRead": [
+    "orders-service/config/orders.settings"
+  ],
+  "verificationNote": "Not compiled, run or tested."
+}
+
+### proposal history
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[
+  {
+    "proposalId": "<id-6>",
+    "changeRequestId": "<id-5>",
+    "version": 1,
+    "requirementsVersion": 1,
+    "designVersion": 1,
+    "generatedAt": "<timestamp>",
+    "status": "Draft",
+    "agentName": "DeveloperAgent",
+    "summary": "Raise the orders page size from 25 to 50.",
+    "changes": [
+      {
+        "path": "orders-service/config/orders.settings",
+        "kind": "Change",
+        "existingText": "orders.page.size = 25",
+        "replacementText": "orders.page.size = 50"
+      }
+    ],
+    "risks": [
+      "Longer pages load more rows."
+    ],
+    "testIdeas": [
+      "Check a page shows fifty rows."
+    ],
+    "openQuestions": [
+      "Should there be a maximum?"
+    ],
+    "sampleFilesRead": [
+      "orders-service/config/orders.settings"
+    ],
+    "verificationNote": "Not compiled, run or tested."
+  },
+  {
+    "proposalId": "<id-7>",
+    "changeRequestId": "<id-5>",
+    "version": 2,
+    "requirementsVersion": 1,
+    "designVersion": 1,
+    "generatedAt": "<timestamp>",
+    "status": "Draft",
+    "agentName": "DeveloperAgent",
+    "summary": "Raise the orders page size from 25 to 50.",
+    "changes": [
+      {
+        "path": "orders-service/config/orders.settings",
+        "kind": "Change",
+        "existingText": "orders.page.size = 25",
+        "replacementText": "orders.page.size = 50"
+      }
+    ],
+    "risks": [
+      "Longer pages load more rows."
+    ],
+    "testIdeas": [
+      "Check a page shows fifty rows."
+    ],
+    "openQuestions": [
+      "Should there be a maximum?"
+    ],
+    "sampleFilesRead": [
+      "orders-service/config/orders.settings"
+    ],
+    "verificationNote": "Not compiled, run or tested."
+  }
+]
+
+### reject quote not found
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "QuoteNotFound"
+}
+
+### history after reject quote not found
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject quote ambiguous
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "QuoteAmbiguous"
+}
+
+### history after reject quote ambiguous
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject path outside sample
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "PathOutsideSample"
+}
+
+### history after reject path outside sample
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject file not found
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "FileNotFound"
+}
+
+### history after reject file not found
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject new file exists
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "NewFileExists"
+}
+
+### history after reject new file exists
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject overlapping edits
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "OverlappingEdits"
+}
+
+### history after reject overlapping edits
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject no changes
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "NoChanges"
+}
+
+### history after reject no changes
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject too many changes
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "TooManyChanges"
+}
+
+### history after reject too many changes
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject too large
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "TooLarge"
+}
+
+### history after reject too large
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### reject malformed edit
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-rejected",
+  "message": "The change proposal was refused by the system\u0027s checks.",
+  "category": "MalformedEdit"
+}
+
+### history after reject malformed edit
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+### failure Unreachable
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "Unreachable"
+}
+
+### failure TimedOut
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "TimedOut"
+}
+
+### failure ResponseTooLarge
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "ResponseTooLarge"
+}
+
+### failure MalformedOutput
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### failure ToolsUnavailable
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "ToolsUnavailable"
+}
+
+### failure LimitsExhausted
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "LimitsExhausted"
+}
+
+### failure other exception
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "Unreachable"
+}
+
+### unusable answer not json
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### unusable answer missing sections
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### unusable answer array
+status: 502 BadGateway
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "generation-failed",
+  "message": "The change proposal could not be generated.",
+  "category": "MalformedOutput"
+}
+
+### tools off propose
+status: 503 ServiceUnavailable
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "proposal-tools-unavailable",
+  "message": "Change proposals need the sample codebase tools, which are not switched on."
+}
+
+### tools off latest
+status: 404 NotFound
+header: Content-Type: application/json; charset=utf-8
+body: 
+{
+  "code": "no-proposal",
+  "message": "No change proposal exists yet for this change request."
+}
+
+### tools off history
+status: 200 OK
+header: Content-Type: application/json; charset=utf-8
+body: 
+[]
+
+
+### audit after refusal: Submitted, Approved
+### audit after proposing: Submitted, Approved, ToolCalled, ProposalGenerated, ToolCalled, ProposalGenerated
+### audit after reject quote not found: Submitted, Approved
+### audit after reject quote ambiguous: Submitted, Approved
+### audit after reject path outside sample: Submitted, Approved
+### audit after reject file not found: Submitted, Approved
+### audit after reject new file exists: Submitted, Approved
+### audit after reject overlapping edits: Submitted, Approved
+### audit after reject no changes: Submitted, Approved
+### audit after reject too many changes: Submitted, Approved
+### audit after reject too large: Submitted, Approved
+### audit after reject malformed edit: Submitted, Approved
+### audit after failure Unreachable: Submitted, Approved
+### audit after failure TimedOut: Submitted, Approved
+### audit after failure ResponseTooLarge: Submitted, Approved
+### audit after failure MalformedOutput: Submitted, Approved
+### audit after failure ToolsUnavailable: Submitted, Approved
+### audit after failure LimitsExhausted: Submitted, Approved

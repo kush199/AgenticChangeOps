@@ -1,3 +1,4 @@
+using AgenticChangeOps.Drafting;
 using AgenticChangeOps.Intake.Infrastructure;
 using AgenticChangeOps.Intake.Models;
 using AgenticChangeOps.Intake.Models.Enums;
@@ -6,14 +7,20 @@ using AgenticChangeOps.ModelAccess;
 
 namespace AgenticChangeOps.Agents.Architect;
 
+/// <summary>
+/// Designs, stores and reads design drafts. The order of the steps and their guarantees are the
+/// shared <see cref="DraftingEngine{TRecord, TBasis, TGenerated, TContent, TRejection}"/>'s; what
+/// is specific to this agent is below: who may be designed, the requirements draft it is based on
+/// and the check that it is still the latest, the content rules, and the record and audit entries
+/// it stores.
+/// </summary>
 public sealed class DesignDraftingService : IDesignDraftingService
 {
+    private const string RequirementsDraftField = "RequirementsDraft";
+
     private readonly IChangeRequestStore _store;
-    private readonly ISystemClock _clock;
     private readonly IIdGenerator _idGenerator;
-    private readonly IRequirementsBasisSource _basisSource;
-    private readonly IDesignDraftGenerator _generator;
-    private readonly DesignContentValidator _validator;
+    private readonly DraftingEngine<DesignDraft, RequirementsBasis, DesignContent, DesignContent, NoRejection> _engine;
 
     public DesignDraftingService(
         IChangeRequestStore store,
@@ -24,187 +31,154 @@ public sealed class DesignDraftingService : IDesignDraftingService
         DesignContentValidator validator)
     {
         _store = store;
-        _clock = clock;
         _idGenerator = idGenerator;
-        _basisSource = basisSource;
-        _generator = generator;
-        _validator = validator;
+        _engine = new(store, clock, new Agent(store, basisSource, generator, validator));
     }
 
     public async Task<DesignDraftingResult> DesignAsync(
         Guid changeRequestId, CancellationToken cancellationToken = default, bool automatic = false)
     {
-        var request = _store.FindById(changeRequestId);
-        var (basis, eligibilityError) = CheckEligibility(changeRequestId, request);
-        if (eligibilityError is not null)
-            return DesignDraftingResult.Failure(new[] { eligibilityError });
+        var outcome = await _engine
+            .RunAsync(changeRequestId, cancellationToken, (current, basis, content, version, generatedAt) =>
+                Save(current, basis, content, version, generatedAt, automatic))
+            .ConfigureAwait(false);
 
-        DesignContent? generated;
-        try
-        {
-            generated = await _generator.GenerateAsync(request!, basis!, cancellationToken).ConfigureAwait(false);
-        }
-        catch (DraftGenerationException ex)
-        {
-            // The category is the only detail a generator may report.
-            return DesignDraftingResult.Failure(
-                new[] { new ValidationError("Generator", $"The content generator failed ({ex.Category}).") },
-                ex.Category);
-        }
-        catch (Exception ex)
-        {
-            // Only the exception type is reported: messages from real clients can embed
-            // endpoints or request details that must not travel in results.
-            return DesignDraftingResult.Failure(new[]
-            {
-                new ValidationError("Generator", $"The content generator failed ({ex.GetType().Name}).")
-            });
-        }
-
-        var (content, errors) = _validator.Validate(generated);
-        if (errors.Count > 0)
-            return DesignDraftingResult.Failure(errors, GenerationFailureCategory.MalformedOutput);
-
-        return StoreDesign(changeRequestId, basis!.Version, content!, automatic);
+        if (outcome.IsSuccess)
+            return DesignDraftingResult.Success(outcome.Record!);
+        return outcome.FailureCategory is { } category
+            ? DesignDraftingResult.Failure(outcome.Errors, category)
+            : DesignDraftingResult.Failure(outcome.Errors);
     }
 
-    public QueryResult<DesignDraft?> GetLatestDesign(Guid changeRequestId)
+    public QueryResult<DesignDraft?> GetLatestDesign(Guid changeRequestId) => _engine.GetLatest(changeRequestId);
+
+    public QueryResult<IReadOnlyList<DesignDraft>> GetDesignHistory(Guid changeRequestId) =>
+        _engine.GetHistory(changeRequestId);
+
+    private DesignDraft Save(
+        ChangeRequest current,
+        RequirementsBasis basis,
+        DesignContent content,
+        int version,
+        DateTime generatedAt,
+        bool automatic)
     {
-        if (_store.FindById(changeRequestId) is null)
-            return QueryResult<DesignDraft?>.Failure(new[] { NotFound(changeRequestId) });
-
-        IReadOnlyList<DesignDraft> designs;
-        lock (_store.SyncRoot)
-            designs = _store.GetDesigns(changeRequestId);
-
-        return QueryResult<DesignDraft?>.Success(designs.Count == 0 ? null : designs[^1]);
-    }
-
-    public QueryResult<IReadOnlyList<DesignDraft>> GetDesignHistory(Guid changeRequestId)
-    {
-        if (_store.FindById(changeRequestId) is null)
-            return QueryResult<IReadOnlyList<DesignDraft>>.Failure(new[] { NotFound(changeRequestId) });
-
-        // Read under the same lock as the save step so a reader never sees a design mid-store.
-        lock (_store.SyncRoot)
-            return QueryResult<IReadOnlyList<DesignDraft>>.Success(_store.GetDesigns(changeRequestId));
-    }
-
-    // No await in here: the eligibility re-check, version assignment and save form one
-    // uninterrupted step, so overlapping calls cannot take the same version.
-    private DesignDraftingResult StoreDesign(Guid changeRequestId, int basisVersion, DesignContent content, bool automatic)
-    {
-        lock (_store.SyncRoot)
-        {
-            var current = _store.FindById(changeRequestId);
-            var (latest, eligibilityError) = CheckEligibility(changeRequestId, current);
-            if (eligibilityError is not null)
-                return DesignDraftingResult.Failure(new[] { eligibilityError });
-
-            // The design must be linked to the requirements version the model was given.
-            if (latest!.Version != basisVersion)
-                return DesignDraftingResult.Failure(new[]
-                {
-                    new ValidationError(
-                        RequirementsDraftField,
-                        $"The requirements draft for change request {changeRequestId} changed while the " +
-                        "design draft was being generated; request the design again.")
-                });
-
-            var generatedAt = _clock.UtcNow;
-            var draft = new DesignDraft(
-                DesignId: _idGenerator.NewId(),
-                ChangeRequestId: changeRequestId,
-                Version: _store.GetDesigns(changeRequestId).Count + 1,
-                RequirementsVersion: basisVersion,
-                GeneratedAt: generatedAt,
-                Status: DesignDraftStatus.Draft,
-                AgentName: DesignDraft.ArchitectAgentName,
-                ApproachSummary: content.ApproachSummary!,
-                AffectedComponents: content.AffectedComponents!,
-                ImpactAndRisks: content.ImpactAndRisks!,
-                Dependencies: content.Dependencies!,
-                RollbackConsiderations: content.RollbackConsiderations!,
-                OpenQuestions: content.OpenQuestions!,
-                SampleFilesRead: content.SampleFilesRead);
-
-            // One audit entry per tool call, in call order, just before the design's own entry.
-            // Nothing here can hold what a tool returned. Without tools there are no calls and this
-            // does nothing.
-            foreach (var call in content.ToolCalls ?? Array.Empty<ToolCallRecord>())
-                _store.SaveAuditEntry(ToolCallEntry(changeRequestId, current!.Status, call, generatedAt));
-
-            var entry = new ChangeRequestAuditEntry(
-                AuditEntryId: _idGenerator.NewId(),
-                ChangeRequestId: changeRequestId,
-                EventType: AuditEventType.DesignGenerated,
-                OccurredAt: generatedAt,
-                Details: null,
-                StatusBefore: current!.Status,
-                StatusAfter: current.Status,
-                AgentName: DesignDraft.ArchitectAgentName,
-                DraftVersion: draft.Version,
-                Automatic: automatic ? true : null);
-
-            _store.SaveDesign(draft, entry);
-            return DesignDraftingResult.Success(draft);
-        }
-    }
-
-    private const int MaxAuditTargetLength = 120;
-
-    private ChangeRequestAuditEntry ToolCallEntry(
-        Guid changeRequestId, ChangeRequestStatus status, ToolCallRecord call, DateTime generatedAt)
-    {
-        var target = new string(call.Target.Where(c => !char.IsControl(c)).ToArray());
-        if (target.Length > MaxAuditTargetLength)
-            target = target[..MaxAuditTargetLength];
-
-        return new ChangeRequestAuditEntry(
-            AuditEntryId: _idGenerator.NewId(),
-            ChangeRequestId: changeRequestId,
-            EventType: AuditEventType.ToolCalled,
-            // A call cannot have happened after the design it belongs to was recorded.
-            OccurredAt: call.StartedAt <= generatedAt ? call.StartedAt : generatedAt,
-            Details: null,
-            StatusBefore: status,
-            StatusAfter: status,
+        var draft = new DesignDraft(
+            DesignId: _idGenerator.NewId(),
+            ChangeRequestId: current.ChangeRequestId,
+            Version: version,
+            RequirementsVersion: basis.Version,
+            GeneratedAt: generatedAt,
+            Status: DesignDraftStatus.Draft,
             AgentName: DesignDraft.ArchitectAgentName,
-            ToolName: call.ToolName,
-            ToolTarget: target,
-            ToolOutcome: call.Outcome.ToString(),
-            ResultBytes: call.ResultBytes,
-            ElapsedMilliseconds: (int)Math.Min(int.MaxValue, Math.Max(0, call.Elapsed.TotalMilliseconds)));
-    }
+            ApproachSummary: content.ApproachSummary!,
+            AffectedComponents: content.AffectedComponents!,
+            ImpactAndRisks: content.ImpactAndRisks!,
+            Dependencies: content.Dependencies!,
+            RollbackConsiderations: content.RollbackConsiderations!,
+            OpenQuestions: content.OpenQuestions!,
+            SampleFilesRead: content.SampleFilesRead);
 
-    private const string RequirementsDraftField = "RequirementsDraft";
+        // One audit entry per tool call, in call order, just before the design's own entry.
+        // Nothing here can hold what a tool returned. Without tools there are no calls and this
+        // does nothing.
+        foreach (var call in content.ToolCalls ?? Array.Empty<ToolCallRecord>())
+            _store.SaveAuditEntry(ToolCallAuditEntries.Create(
+                DesignDraft.ArchitectAgentName, _idGenerator, current.ChangeRequestId, current.Status, call, generatedAt));
+
+        var entry = new ChangeRequestAuditEntry(
+            AuditEntryId: _idGenerator.NewId(),
+            ChangeRequestId: current.ChangeRequestId,
+            EventType: AuditEventType.DesignGenerated,
+            OccurredAt: generatedAt,
+            Details: null,
+            StatusBefore: current.Status,
+            StatusAfter: current.Status,
+            AgentName: DesignDraft.ArchitectAgentName,
+            DraftVersion: draft.Version,
+            Automatic: automatic ? true : null);
+
+        _store.SaveDesign(draft, entry);
+        return draft;
+    }
 
     /// <summary>
-    /// Order matters: existence, then status (the basis source is not consulted for a request
-    /// that is not Approved), then the presence of a requirements draft.
+    /// This agent's own parts. Intentional differences from the other agents: only Approved
+    /// requests are designed, a requirements draft must exist (and is the basis), the design is
+    /// refused if that draft changes while it is generated, and it never rethrows cancellation
+    /// from the generator.
     /// </summary>
-    private (RequirementsBasis? Basis, ValidationError? Error) CheckEligibility(
-        Guid changeRequestId, ChangeRequest? request)
+    private sealed class Agent : IDraftingAgent<DesignDraft, RequirementsBasis, DesignContent, DesignContent, NoRejection>
     {
-        if (request is null)
-            return (null, NotFound(changeRequestId));
+        private readonly IChangeRequestStore _store;
+        private readonly IRequirementsBasisSource _basisSource;
+        private readonly IDesignDraftGenerator _generator;
+        private readonly DesignContentValidator _validator;
 
-        if (request.Status != ChangeRequestStatus.Approved)
-            return (null, new ValidationError(
-                "Status",
-                $"Change request {changeRequestId} is in status {request.Status} and cannot be designed; " +
-                "only Approved requests can be designed."));
+        public Agent(
+            IChangeRequestStore store,
+            IRequirementsBasisSource basisSource,
+            IDesignDraftGenerator generator,
+            DesignContentValidator validator)
+        {
+            _store = store;
+            _basisSource = basisSource;
+            _generator = generator;
+            _validator = validator;
+        }
 
-        var basis = _basisSource.GetLatest(changeRequestId);
-        if (basis is null)
-            return (null, new ValidationError(
-                RequirementsDraftField,
-                $"Change request {changeRequestId} has no requirements draft; " +
-                "a requirements draft is required before a design can be drafted."));
+        public bool PropagatesCancellation => false;
 
-        return (basis, null);
+        /// <summary>
+        /// Order matters: existence, then status (the basis source is not consulted for a request
+        /// that is not Approved), then the presence of a requirements draft.
+        /// </summary>
+        public (RequirementsBasis? Basis, ValidationError? Error) CheckEligibility(
+            Guid changeRequestId, ChangeRequest? request)
+        {
+            if (request is null)
+                return (null, DraftingErrors.NotFound(changeRequestId));
+
+            if (request.Status != ChangeRequestStatus.Approved)
+                return (null, new ValidationError(
+                    "Status",
+                    $"Change request {changeRequestId} is in status {request.Status} and cannot be designed; " +
+                    "only Approved requests can be designed."));
+
+            var basis = _basisSource.GetLatest(changeRequestId);
+            if (basis is null)
+                return (null, new ValidationError(
+                    RequirementsDraftField,
+                    $"Change request {changeRequestId} has no requirements draft; " +
+                    "a requirements draft is required before a design can be drafted."));
+
+            return (basis, null);
+        }
+
+        public Task<DesignContent?> GenerateAsync(
+            ChangeRequest request, RequirementsBasis basis, CancellationToken cancellationToken) =>
+            _generator.GenerateAsync(request, basis, cancellationToken);
+
+        public ReviewOutcome<DesignContent, NoRejection> Review(DesignContent? generated)
+        {
+            var (content, errors) = _validator.Validate(generated);
+            return errors.Count > 0
+                ? ReviewOutcome<DesignContent, NoRejection>.Invalid(errors)
+                : ReviewOutcome<DesignContent, NoRejection>.Valid(content!);
+        }
+
+        // The design must be linked to the requirements version the model was given.
+        public ValidationError? CheckStillCurrent(
+            Guid changeRequestId, RequirementsBasis usedForGeneration, RequirementsBasis current) =>
+            current.Version != usedForGeneration.Version
+                ? new ValidationError(
+                    RequirementsDraftField,
+                    $"The requirements draft for change request {changeRequestId} changed while the " +
+                    "design draft was being generated; request the design again.")
+                : null;
+
+        public int CountExisting(Guid changeRequestId) => _store.GetDesigns(changeRequestId).Count;
+
+        public IReadOnlyList<DesignDraft> ReadAll(Guid changeRequestId) => _store.GetDesigns(changeRequestId);
     }
-
-    private static ValidationError NotFound(Guid changeRequestId) =>
-        new("ChangeRequestId", $"No change request with id {changeRequestId} exists.");
 }
