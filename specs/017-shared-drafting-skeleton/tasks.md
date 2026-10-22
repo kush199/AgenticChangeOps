@@ -133,7 +133,7 @@ Stubs only: engine behaviour methods throw `NotImplementedException` until US1 i
 
 - [X] T038 Run `dotnet build AgenticChangeOps.sln -c Release` and `dotnet test AgenticChangeOps.sln`; record final totals in `baseline-tests.txt` ("After") and `verification.md`.
 - [X] T039 Update `README.md` only if it lists projects or the agent structure: add `AgenticChangeOps.Drafting` and one sentence. Add the 017 slice to the project memory index after merge, not before.
-- [ ] T040 **GATE ([USER])**: show `readability.md`, `duplication.md` and `kept-separate-register.md`; the user decides on any recorded readability cost. Then commit with the slice name and a Co-Authored-By trailer, push `feature/shared-drafting-skeleton`, and open the PR (draft the description from `verification.md`; no live model check is needed because no model code changes).
+- [X] T040 **GATE ([USER])**: show `readability.md`, `duplication.md` and `kept-separate-register.md`; the user decides on any recorded readability cost. Then commit with the slice name and a Co-Authored-By trailer, push `feature/shared-drafting-skeleton`, and open the PR (draft the description from `verification.md`; no live model check is needed because no model code changes).
 
 ---
 
