@@ -34,3 +34,9 @@ All other projects unchanged from the baseline counts. 0 failed anywhere. Build:
 AgenticChangeOps.Agents.Reviewer.Tests     Passed 349  Failed 0  Skipped 0  Total 349
 Requirement 157+1 skipped, Architect 156+2 skipped, Developer 172, Drafting 45 re-run and equal to the baseline.
 All other projects unchanged. 0 failed anywhere. Build: 0 warnings, 0 errors.
+
+# After step 4 (T060): settings, sample adapter, basis adapter and the lazy IReviewService registration implemented
+
+AgenticChangeOps.Agents.Reviewer.Tests     Passed 403  Failed 0  Skipped 0  Total 403  (+54 structure and hygiene guards)
+AgenticChangeOps.Api.Tests                 Passed 423  Failed 0  Skipped 1  Total 424  (+78 review tests)
+All other projects unchanged from the baseline counts. 0 failed anywhere. Build: 0 warnings, 0 errors.

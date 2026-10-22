@@ -10,6 +10,7 @@ using AgenticChangeOps.ModelAccess;
 using AgenticChangeOps.Agents.Requirement;
 using AgenticChangeOps.Agents.Architect;
 using AgenticChangeOps.Agents.Developer;
+using AgenticChangeOps.Agents.Reviewer;
 using AgenticChangeOps.Persistence;
 using AgenticChangeOps.SampleCode;
 using AgenticChangeOps.Workflow;
@@ -81,6 +82,26 @@ public static class ApiServiceRegistration
                 setup.Generator,
                 new ProposalContentValidator(),
                 setup.Verifier);
+        });
+
+        // Reviews (Reviewer): an internal service only, no route. Nothing here is read at start-up: the
+        // setup is built the first time the service is asked for, so a server that never uses the
+        // Reviewer is unaffected by any review or model setting. A test can replace the generator or
+        // register a plain chat client.
+        services.AddSingleton<ReviewSetup>(CreateReviewSetup);
+        services.AddSingleton<IReviewGenerator>(sp => sp.GetRequiredService<ReviewSetup>().Generator);
+        services.AddSingleton<IReviewBasisSource, ReviewBasisAdapter>();
+        services.AddSingleton<IReviewService>(sp =>
+        {
+            var setup = sp.GetRequiredService<ReviewSetup>();
+            return new ReviewService(
+                sp.GetRequiredService<IChangeRequestStore>(),
+                sp.GetRequiredService<ISystemClock>(),
+                sp.GetRequiredService<IIdGenerator>(),
+                sp.GetRequiredService<IReviewBasisSource>(),
+                sp.GetRequiredService<IReviewGenerator>(),
+                new ReviewContentValidator(setup.Limits),
+                new SampleChecker(setup.Sample));
         });
 
         // Workflow orchestration: derives status from recorded facts and runs the agents'
@@ -197,6 +218,65 @@ public static class ApiServiceRegistration
             logger.LogWarning("Change proposals are not configured; proposal requests will be refused.");
             return ProposalSetup.Unavailable(ProposalAvailabilityState.NotConfigured);
         }
+    }
+
+    /// <summary>
+    /// Reviews need the model settings and the review limits, not the sample tools: the tools switch is
+    /// never read, and the sample is looked at only by the system's own re-check. An invalid setting
+    /// makes reviews "not configured" (only the fact is logged, never a name or a value).
+    /// </summary>
+    private static ReviewSetup CreateReviewSetup(IServiceProvider services)
+    {
+        var configuration = services.GetRequiredService<IConfiguration>();
+        var logger = services.GetRequiredService<ILoggerFactory>().CreateLogger("AgenticChangeOps.Api.Reviewing");
+
+        var configuredFolder = configuration[SampleToolSettings.SampleFolderVariable];
+        var sampleFolder = string.IsNullOrWhiteSpace(configuredFolder)
+            ? Path.Combine(AppContext.BaseDirectory, "sample-codebase")
+            : configuredFolder;
+        var sample = new ReviewSampleFilesAdapter(sampleFolder, SampleToolSettings.DefaultMaxFileBytes);
+
+        try
+        {
+            var options = AzureOpenAIGeneratorOptions.FromEnvironment(name => configuration[name]);
+            var settings = ReviewSettings.FromConfiguration(name => configuration[name]);
+
+            // The plain chat client, with no tool of any kind; a test may register its own.
+            var client = services.GetService<IChatModelClient>() ?? new AzureOpenAIChatModelClient(options);
+            return new ReviewSetup(new AzureOpenAIReviewGenerator(options, client), settings.Limits, sample);
+        }
+        catch (GeneratorConfigurationException)
+        {
+            logger.LogWarning("Reviews are not configured; review requests will fail.");
+            return new ReviewSetup(new NotConfiguredReviewGenerator(), ReviewLimits.Defaults, sample);
+        }
+    }
+
+    private sealed class ReviewSetup
+    {
+        public ReviewSetup(IReviewGenerator generator, ReviewLimits limits, IReviewSampleFiles sample)
+        {
+            Generator = generator;
+            Limits = limits;
+            Sample = sample;
+        }
+
+        public IReviewGenerator Generator { get; }
+        public ReviewLimits Limits { get; }
+        public IReviewSampleFiles Sample { get; }
+    }
+
+    /// <summary>Fails before any model call when reviews are not configured.</summary>
+    private sealed class NotConfiguredReviewGenerator : IReviewGenerator
+    {
+        public Task<ReviewContent?> GenerateAsync(
+            ChangeRequest changeRequest,
+            ReviewRequirementsBasis requirements,
+            ReviewDesignBasis design,
+            ReviewProposalBasis proposal,
+            SystemCheck systemCheck,
+            CancellationToken cancellationToken) =>
+            throw new DraftGenerationException(GenerationFailureCategory.Unreachable);
     }
 
     private sealed class ProposalSetup

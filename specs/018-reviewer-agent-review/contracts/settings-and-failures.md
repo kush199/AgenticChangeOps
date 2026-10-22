@@ -11,7 +11,8 @@
 
 The tools switch is not read and not needed. A present value that is not a positive whole number, or
 invalid model settings, makes the review "not configured": the review service fails with the
-`NotConfigured` category before any model call. Only the setting name is ever logged, never a value.
+existing `Unreachable` category before any model call (the category the other agents use for a not-configured
+generator; none is added). Only the fact is logged, once: neither the setting name nor its value.
 The settings are read lazily, the first time the review service is used, so a server that never uses
 the Reviewer is unaffected by them.
 

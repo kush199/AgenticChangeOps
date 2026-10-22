@@ -19,7 +19,10 @@ public sealed class ReviewStructureAtStep1Tests
     private static readonly string[] MayMentionTheReviewer =
     {
         "AgenticChangeOps.Agents.Reviewer",
-        "AgenticChangeOps.Agents.Reviewer.Tests"
+        "AgenticChangeOps.Agents.Reviewer.Tests",
+        // Step 4: the composition root registers the service (no route), and its tests prove it.
+        "AgenticChangeOps.Api",
+        "AgenticChangeOps.Api.Tests"
     };
 
     private static string RepositoryRoot()
