@@ -28,3 +28,9 @@ All other projects unchanged from the baseline counts. 0 failed anywhere. Build:
 AgenticChangeOps.Agents.Reviewer.Tests     Passed 252  Failed 0  Skipped 0  Total 252
 AgenticChangeOps.ModelAccess.Tests         Passed 271  Failed 0  Skipped 0  Total 271  (+22, additive reader tests)
 All other projects unchanged from the baseline counts. 0 failed anywhere. Build: 0 warnings, 0 errors.
+
+# After step 3 (T045): ReviewService, store extensions and the ReviewGenerated audit entry implemented
+
+AgenticChangeOps.Agents.Reviewer.Tests     Passed 349  Failed 0  Skipped 0  Total 349
+Requirement 157+1 skipped, Architect 156+2 skipped, Developer 172, Drafting 45 re-run and equal to the baseline.
+All other projects unchanged. 0 failed anywhere. Build: 0 warnings, 0 errors.
