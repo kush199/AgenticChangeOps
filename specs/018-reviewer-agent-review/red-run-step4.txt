@@ -1,0 +1,802 @@
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Persistence.Tests\bin\Debug\net8.0\AgenticChangeOps.Persistence.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Architect.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Architect.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Requirement.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Requirement.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Intake.Tests\bin\Debug\net8.0\AgenticChangeOps.Intake.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\bin\Debug\net8.0\AgenticChangeOps.Api.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Workflow.Tests\bin\Debug\net8.0\AgenticChangeOps.Workflow.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\bin\Debug\net8.0\AgenticChangeOps.ModelAccess.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.SampleCode.Tests\bin\Debug\net8.0\AgenticChangeOps.SampleCode.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Developer.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Developer.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Drafting.Tests\bin\Debug\net8.0\AgenticChangeOps.Drafting.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Reviewer.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.A total of 1 test files matched the specified pattern.
+
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:   118, Skipped:     0, Total:   118, Duration: 104 ms - AgenticChangeOps.Intake.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:    81, Skipped:     0, Total:    81, Duration: 1 s - AgenticChangeOps.Persistence.Tests.dll (net8.0)
+[xUnit.net 00:00:03.02]     AgenticChangeOps.Agents.Requirement.Tests.Live.LiveModelCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheFiveSections [SKIP]
+  Skipped AgenticChangeOps.Agents.Requirement.Tests.Live.LiveModelCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheFiveSections [1 ms]
+[xUnit.net 00:00:03.18]     AgenticChangeOps.Agents.Architect.Tests.Live.LiveSampleToolsCheckTests.RealModel_WithTools_ListsOnlyFilesThatExist [SKIP]
+  Skipped AgenticChangeOps.Agents.Architect.Tests.Live.LiveSampleToolsCheckTests.RealModel_WithTools_ListsOnlyFilesThatExist [1 ms]
+[xUnit.net 00:00:03.30]     AgenticChangeOps.Agents.Architect.Tests.Live.LiveDesignCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheSixSections [SKIP]
+  Skipped AgenticChangeOps.Agents.Architect.Tests.Live.LiveDesignCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheSixSections [1 ms]
+
+Passed!  - Failed:     0, Passed:    45, Skipped:     0, Total:    45, Duration: 364 ms - AgenticChangeOps.Drafting.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   157, Skipped:     1, Total:   158, Duration: 2 s - AgenticChangeOps.Agents.Requirement.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   271, Skipped:     0, Total:   271, Duration: 2 s - AgenticChangeOps.ModelAccess.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   194, Skipped:     0, Total:   194, Duration: 408 ms - AgenticChangeOps.Workflow.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   156, Skipped:     2, Total:   158, Duration: 2 s - AgenticChangeOps.Agents.Architect.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   123, Skipped:     0, Total:   123, Duration: 3 s - AgenticChangeOps.SampleCode.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   172, Skipped:     0, Total:   172, Duration: 3 s - AgenticChangeOps.Agents.Developer.Tests.dll (net8.0)
+[xUnit.net 00:00:06.47]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.WithNothingSet_TheDefaultsApply [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.WithNothingSet_TheDefaultsApply [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.WithNothingSet_TheDefaultsApply() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 27
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:06.52]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_BYTES", value: "8,000") [FAIL]
+[xUnit.net 00:00:06.53]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AFile_AFolder_AndAMissingPath_AreTold_Apart [FAIL]
+[xUnit.net 00:00:06.53]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "many") [FAIL]
+[xUnit.net 00:00:06.53]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "-4") [FAIL]
+[xUnit.net 00:00:06.53]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_BYTES", value: "lots") [FAIL]
+[xUnit.net 00:00:06.54]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_BYTES", value: "0") [FAIL]
+[xUnit.net 00:00:06.54]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "") [FAIL]
+[xUnit.net 00:00:06.54]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "99999999999999999999") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_BYTES", value: "8,000") [3 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AFile_AFolder_AndAMissingPath_AreTold_Apart [64 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AFile_AFolder_AndAMissingPath_AreTold_Apart() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 72
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "many") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "-4") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_BYTES", value: "lots") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_BYTES", value: "0") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "99999999999999999999") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+[xUnit.net 00:00:06.57]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "+4") [FAIL]
+[xUnit.net 00:00:06.58]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "0") [FAIL]
+[xUnit.net 00:00:06.62]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_BYTES", value: "-1") [FAIL]
+[xUnit.net 00:00:06.62]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "2.5") [FAIL]
+[xUnit.net 00:00:06.62]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "1e3") [FAIL]
+[xUnit.net 00:00:06.62]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.ValidValues_AreUsed [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "+4") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "0") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_BYTES", value: "-1") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "2.5") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(name: "AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS", value: "1e3") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(String name, String value) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+   at InvokeStub_ReviewSettingsTests.AnInvalidValue_IsReported_ByNameOnly(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c__DisplayClass4_0.<AnInvalidValue_IsReported_ByNameOnly>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 61
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.ValidValues_AreUsed [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.ValidValues_AreUsed() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 37
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:06.63]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/../../secret.txt") [FAIL]
+[xUnit.net 00:00:06.63]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "../secret.txt") [FAIL]
+[xUnit.net 00:00:06.63]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "c:") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/../../secret.txt") [61 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "../secret.txt") [32 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "c:") [11 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:06.66]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "/etc/passwd") [FAIL]
+[xUnit.net 00:00:06.68]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "   ") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "/etc/passwd") [35 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "   ") [14 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:06.77]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/a\0b") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/a\0b") [98 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:06.79]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/../../x") [FAIL]
+[xUnit.net 00:00:06.83]     AgenticChangeOps.Api.Tests.Live.LiveProposalCheckTests.RealModel_WithTools_ProposesChangesThatVerifyAgainstTheRealSample [SKIP]
+[xUnit.net 00:00:06.88]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "\\windows\\win.ini") [FAIL]
+[xUnit.net 00:00:06.91]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "\\\\server\\share\\x") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/../../x") [15 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Skipped AgenticChangeOps.Api.Tests.Live.LiveProposalCheckTests.RealModel_WithTools_ProposesChangesThatVerifyAgainstTheRealSample [1 ms]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "\\windows\\win.ini") [85 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "\\\\server\\share\\x") [32 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:06.95]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"···) [FAIL]
+[xUnit.net 00:00:06.99]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc//..//..//x") [FAIL]
+[xUnit.net 00:00:07.01]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "C:/x") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"···) [44 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc//..//..//x") [38 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "C:/x") [13 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.02]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/ ") [FAIL]
+[xUnit.net 00:00:07.04]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/.. ") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/ ") [14 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/.. ") [13 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.13]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "%2e%2e/x") [FAIL]
+[xUnit.net 00:00:07.16]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/..\\..\\secret.txt") [FAIL]
+[xUnit.net 00:00:07.18]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/config/../../../x") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "%2e%2e/x") [88 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/..\\..\\secret.txt") [37 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/config/../../../x") [13 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.23]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "./../x") [FAIL]
+[xUnit.net 00:00:07.24]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "../x") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "./../x") [34 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "../x") [13 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.26]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "//server/x") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "//server/x") [12 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.30]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "....//x") [FAIL]
+[xUnit.net 00:00:07.39]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "C:\\x") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "....//x") [45 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "C:\\x") [84 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.43]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "..") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "..") [36 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.47]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "file:///x") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "file:///x") [21 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.51]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "") [FAIL]
+[xUnit.net 00:00:07.55]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/%00") [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "") [37 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(path: "svc/%00") [39 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(String path) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 116
+   at InvokeStub_ReviewSampleFilesAdapterTests.AnEscapingPath_IsOutsideTheSample_ForProbeAndRead_WithoutDisclosingAnything(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:07.62]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AMissingSampleFolder_IsNotAvailable_AndIsNeverCreated [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AMissingSampleFolder_IsNotAvailable_AndIsNeverCreated [76 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.get_IsAvailable() in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 23
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AMissingSampleFolder_IsNotAvailable_AndIsNeverCreated() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 50
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:07.69]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AMissingFile_AFolder_ABinaryFile_AndAFileOverTheLimit_ReadAsNull [FAIL]
+[xUnit.net 00:00:07.72]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AFile_IsReadAsTextExactly [FAIL]
+[xUnit.net 00:00:07.74]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnExistingSampleFolder_IsAvailable [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AMissingFile_AFolder_ABinaryFile_AndAFileOverTheLimit_ReadAsNull [12 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.ReadText(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 27
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AMissingFile_AFolder_ABinaryFile_AndAFileOverTheLimit_ReadAsNull() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 90
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AFile_IsReadAsTextExactly [32 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.ReadText(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 27
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AFile_IsReadAsTextExactly() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 82
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnExistingSampleFolder_IsAvailable [11 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.get_IsAvailable() in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 23
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.AnExistingSampleFolder_IsAvailable() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 41
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:07.80]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.ARealSampleFolder_IsAvailableToo [FAIL]
+[xUnit.net 00:00:07.82]     AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.Reading_ChangesNothingUnderTheSample [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.ARealSampleFolder_IsAvailableToo [46 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.get_IsAvailable() in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 23
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.ARealSampleFolder_IsAvailableToo() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 61
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.Reading_ChangesNothingUnderTheSample [23 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Composition.ReviewSampleFilesAdapter.Probe(String path) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSampleFilesAdapter.cs:line 25
+   at AgenticChangeOps.Api.Tests.ReviewSampleFilesAdapterTests.Reading_ChangesNothingUnderTheSample() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSampleFilesAdapterTests.cs:line 152
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:08.99]     AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.WithTheFullChain_EveryPartIsCopiedFieldForField [FAIL]
+[xUnit.net 00:00:09.00]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheNotConfiguredWarning_IsLoggedOnce_AndNamesNoSettingAndNoValue [FAIL]
+[xUnit.net 00:00:09.00]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.ADanglingReference_StoresNothing_AndNoLogOrAuditCarriesTheFindingText [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.WithTheFullChain_EveryPartIsCopiedFieldForField [2 s]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewBasisSource' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.WithTheFullChain_EveryPartIsCopiedFieldForField() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewBasisAdapterTests.cs:line 26
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheNotConfiguredWarning_IsLoggedOnce_AndNamesNoSettingAndNoValue [1 s]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheNotConfiguredWarning_IsLoggedOnce_AndNamesNoSettingAndNoValue() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 135
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.ADanglingReference_StoresNothing_AndNoLogOrAuditCarriesTheFindingText [3 s]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.ADanglingReference_StoresNothing_AndNoLogOrAuditCarriesTheFindingText() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 207
+--- End of stack trace from previous location ---
+
+Passed!  - Failed:     0, Passed:   403, Skipped:     0, Total:   403, Duration: 3 s - AgenticChangeOps.Agents.Reviewer.Tests.dll (net8.0)
+[xUnit.net 00:00:09.76]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheSettingsAreRead_WhenTheServiceIsFirstResolved_AndAnInvalidOneMakesReviewsNotConfigured [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheSettingsAreRead_WhenTheServiceIsFirstResolved_AndAnInvalidOneMakesReviewsNotConfigured [759 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheSettingsAreRead_WhenTheServiceIsFirstResolved_AndAnInvalidOneMakesReviewsNotConfigured() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 120
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:09.77]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheLogs_NeverCarryAnythingFromASuccessfulReviewEither [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheLogs_NeverCarryAnythingFromASuccessfulReviewEither [762 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheLogs_NeverCarryAnythingFromASuccessfulReviewEither() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 222
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:10.02]     AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.TheLatestOfEachIsUsed_WhenMoreThanOneVersionExists [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.TheLatestOfEachIsUsed_WhenMoreThanOneVersionExists [1 s]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewBasisSource' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.TheLatestOfEachIsUsed_WhenMoreThanOneVersionExists() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewBasisAdapterTests.cs:line 117
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:10.30]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.InvalidModelSettings_AlsoMakeReviewsNotConfigured_WithoutNamingThem [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.InvalidModelSettings_AlsoMakeReviewsNotConfigured_WithoutNamingThem [540 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.InvalidModelSettings_AlsoMakeReviewsNotConfigured_WithoutNamingThem() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 154
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:10.60]     AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.EachEdit_KeepsItsPathKindAndText_AndAnAddHasNoQuote [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.EachEdit_KeepsItsPathKindAndText_AndAnAddHasNoQuote [577 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewBasisSource' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.EachEdit_KeepsItsPathKindAndText_AndAnAddHasNoQuote() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewBasisAdapterTests.cs:line 64
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:10.77]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheAdvisoryReview_ChangesNoStatus [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheAdvisoryReview_ChangesNoStatus [995 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheAdvisoryReview_ChangesNoStatus() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 89
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:10.91]     AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.AnUnknownChangeRequest_GivesThreeNullParts [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.AnUnknownChangeRequest_GivesThreeNullParts [310 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewBasisSource' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.AnUnknownChangeRequest_GivesThreeNullParts() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewBasisAdapterTests.cs:line 103
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:11.18]     AgenticChangeOps.Api.Tests.ReviewOffMatchesBaselineTests.ARegisteredReviewer_AddsNothingToTheAuditListing_UntilSomeoneAsksForAReview [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewOffMatchesBaselineTests.ARegisteredReviewer_AddsNothingToTheAuditListing_UntilSomeoneAsksForAReview [715 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.ReviewOffMatchesBaselineTests.ARegisteredReviewer_AddsNothingToTheAuditListing_UntilSomeoneAsksForAReview() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewOffMatchesBaselineTests.cs:line 103
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:11.18]     AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheFirstWrongSetting_IsTheOneNamed [FAIL]
+[xUnit.net 00:00:11.31]     AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.ThePartsThatDoNotExist_AreNull [FAIL]
+[xUnit.net 00:00:11.31]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.AnOrdersProposal_IsReviewed_AndEveryEditChecksOutAgainstTheRealSample [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheFirstWrongSetting_IsTheOneNamed [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.GeneratorConfigurationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Api.Tests.ReviewSettingsTests.TheFirstWrongSetting_IsTheOneNamed() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 71
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Api.Composition.ReviewSettings.FromConfiguration(Func`2 getVariable) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Api\Composition\ReviewSettings.cs:line 21
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.Read(Dictionary`2 values) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 15
+   at AgenticChangeOps.Api.Tests.ReviewSettingsTests.<>c.<TheFirstWrongSetting_IsTheOneNamed>b__5_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewSettingsTests.cs:line 71
+  Failed AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.ThePartsThatDoNotExist_AreNull [396 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewBasisSource' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.ReviewBasisAdapterTests.ThePartsThatDoNotExist_AreNull() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewBasisAdapterTests.cs:line 86
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.AnOrdersProposal_IsReviewed_AndEveryEditChecksOutAgainstTheRealSample [545 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.AnOrdersProposal_IsReviewed_AndEveryEditChecksOutAgainstTheRealSample() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 35
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:11.67]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.TwoSequentialRequests_GiveVersionsOneAndTwo_AndLatestAndHistoryAgree [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.TwoSequentialRequests_GiveVersionsOneAndTwo_AndLatestAndHistoryAgree [354 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.TwoSequentialRequests_GiveVersionsOneAndTwo_AndLatestAndHistoryAgree() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 101
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:11.93]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.ReviewsWork_WithTheSampleToolsSwitchedOff [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.ReviewsWork_WithTheSampleToolsSwitchedOff [265 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.ReviewsWork_WithTheSampleToolsSwitchedOff() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 119
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:12.21]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheReviewerNeverOffersATool_ItsModelCallIsAPlainChatCall [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheReviewerNeverOffersATool_ItsModelCallIsAPlainChatCall [277 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheReviewerNeverOffersATool_ItsModelCallIsAPlainChatCall() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 134
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:12.35]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.WithTheSampleFolderMissing_TheReviewIsStored_WithTheCheckNotPerformed [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.WithTheSampleFolderMissing_TheReviewIsStored_WithTheCheckNotPerformed [141 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.WithTheSampleFolderMissing_TheReviewIsStored_WithTheCheckNotPerformed() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 150
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:12.58]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.ABillingProposal_IsReviewedToo_AgainstTheBillingPortalSettings [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.ABillingProposal_IsReviewedToo_AgainstTheBillingPortalSettings [223 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.ABillingProposal_IsReviewedToo_AgainstTheBillingPortalSettings() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 57
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:12.87]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheStoredReview_IsLinkedToTheVersionsOfTheRealRecords_AndAudited [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheStoredReview_IsLinkedToTheVersionsOfTheRealRecords_AndAudited [292 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.TheStoredReview_IsLinkedToTheVersionsOfTheRealRecords_AndAudited() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 70
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:13.16]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.AModelFailure_StoresNothing_AndLeaksNothing [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.AModelFailure_StoresNothing_AndLeaksNothing [284 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.AModelFailure_StoresNothing_AndLeaksNothing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 185
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:13.33]     AgenticChangeOps.Api.Tests.ReviewCompositionTests.WithInvalidModelSettings_TheServiceFailsBeforeAnyModelCall_AndStoresNothing [FAIL]
+  Failed AgenticChangeOps.Api.Tests.ReviewCompositionTests.WithInvalidModelSettings_TheServiceFailsBeforeAnyModelCall_AndStoresNothing [169 ms]
+  Error Message:
+   System.InvalidOperationException : No service for type 'AgenticChangeOps.Agents.Reviewer.IReviewService' has been registered.
+  Stack Trace:
+     at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at AgenticChangeOps.Api.Tests.Fakes.ReviewHost.get_Reviewing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\Fakes\ReviewHost.cs:line 89
+   at AgenticChangeOps.Api.Tests.ReviewCompositionTests.WithInvalidModelSettings_TheServiceFailsBeforeAnyModelCall_AndStoresNothing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\ReviewCompositionTests.cs:line 167
+--- End of stack trace from previous location ---
+
+Failed!  - Failed:    69, Passed:   354, Skipped:     1, Total:   424, Duration: 21 s - AgenticChangeOps.Api.Tests.dll (net8.0)
+
+==== Summary (T053) ====
+New tests: Api.Tests +78 (424 total): 69 fail, 9 pass. Reviewer.Tests +54 (403 total): all pass (guards that hold already).
+Every one of the 69 failures is expected and comes from step 4 not being built yet; none is a compile error and no
+existing test fails:
+  - 48 fail with System.NotImplementedException from the three stubs (ReviewSettings, ReviewSampleFilesAdapter,
+    ReviewBasisAdapter).
+  - 21 fail because the service is not registered yet (16 resolving IReviewService, 5 resolving IReviewBasisSource).
+The 9 Api tests that pass already are facts that hold before the registration: the documented variable names, no route
+or OpenAPI mention of reviews, a host with garbage review settings still serves the recorded API description, the
+Reviewer is never touched by the existing routes, and the adapter type has no write member.
+All 54 new Reviewer.Tests pass on the current code: they are the structure and hygiene guards (every Reviewer type
+declared once and only in the Reviewer project, references limited to Drafting/Intake/ModelAccess, no other agent or
+tool or framework type named, no file/process/network API, the shared and decision projects do not reference the
+Reviewer, no URL literal, no secret-shaped or setting-name literal in the project).
+Every pre-existing test is green at the baseline counts (Intake 118, Persistence 81, Drafting 45, ModelAccess 271,
+SampleCode 123, Workflow 194, Requirement 157+1 skipped, Architect 156+2 skipped, Developer 172, Reviewer 349 before
+this step, Api 345+1 skipped).
+
+Test files: Api.Tests/ReviewOffMatchesBaselineTests.cs (T048), ReviewSettingsTests.cs (T049),
+ReviewSampleFilesAdapterTests.cs (T050), ReviewBasisAdapterTests.cs and ReviewCompositionTests.cs (T051);
+Reviewer.Tests/StructureTests.cs and NoSecretsTests.cs (T052); fake: Api.Tests/Fakes/ReviewHost.cs.
+One existing-looking edit: Reviewer.Tests/Unit/ReviewStructureAtStep1Tests.cs (my own step 1 file) had its
+reachability allowlist extended with AgenticChangeOps.Api and AgenticChangeOps.Api.Tests, as that test file says a
+later step would. No existing assertion in any earlier project was touched.
+Seams the tests rely on (to be built at T058): an optional IChatModelClient taken from the provider when one is
+registered (otherwise the plain Azure client), and an IReviewGenerator registration that a test can replace.
+
+==== Approval (T054) ====
+User approved the step 4 tests on 2026-10-22. Implementation (T055 to T060) starts after this line.
+
+==== Result (T055 to T060) ====
+After implementation: Api.Tests 423 passed + 1 skipped, Reviewer.Tests 403 passed, every other project at the baseline counts, 0 failed (all 69 red tests green on the first run, no test edited). The 15 Baseline golden tests pass unchanged.

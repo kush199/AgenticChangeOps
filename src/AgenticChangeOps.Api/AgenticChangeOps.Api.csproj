@@ -13,6 +13,7 @@
     <ProjectReference Include="..\AgenticChangeOps.Agents.Requirement\AgenticChangeOps.Agents.Requirement.csproj" />
     <ProjectReference Include="..\AgenticChangeOps.Agents.Architect\AgenticChangeOps.Agents.Architect.csproj" />
     <ProjectReference Include="..\AgenticChangeOps.Agents.Developer\AgenticChangeOps.Agents.Developer.csproj" />
+    <ProjectReference Include="..\AgenticChangeOps.Agents.Reviewer\AgenticChangeOps.Agents.Reviewer.csproj" />
     <ProjectReference Include="..\AgenticChangeOps.Workflow\AgenticChangeOps.Workflow.csproj" />
     <ProjectReference Include="..\AgenticChangeOps.SampleCode\AgenticChangeOps.SampleCode.csproj" />
   </ItemGroup>

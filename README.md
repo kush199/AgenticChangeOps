@@ -19,10 +19,11 @@ This is a learning and portfolio project, built slice by slice with
 | **Durable storage** | Change requests, audit entries, requirements drafts and design drafts are kept in a local SQLite file and survive a restart. A stored item and its audit entry are stored together or not at all, and version numbers never repeat |
 | **Automatic advancement** | Optional and off by default: when switched on, runs the requirements and design draft steps for requests that have one due, without anyone asking. Never makes a decision |
 | **Change proposals** | Optional, needs the sample tools: a Developer agent proposes a text-only change set (quoted edits, risks, test ideas) for an approved request with a current design. Every quote is checked against the real sample file; nothing is ever applied. Versioned and audited as `ProposalGenerated` |
-| **HTTP API** | All of the above over a local JSON API with a Swagger page |
+| **Reviews** | Internal service only (no route yet): a Reviewer agent writes an advisory review of the latest change proposal of an approved request. The system first re-checks every proposed edit against the sample on its own; the model only writes findings, each citing a real entry of the requirements, design or proposal. Versioned and audited as `ReviewGenerated`; it **never changes any status and decides nothing** |
+| **HTTP API** | All of the above except reviews, over a local JSON API with a Swagger page |
 
-Not built yet: the Reviewer agent, applying a proposal, orchestration between agents,
-authentication.
+Not built yet: HTTP operations and a human acceptance step for reviews, applying a proposal,
+orchestration between agents, authentication.
 
 ## Design principles
 
@@ -72,6 +73,7 @@ src/
   AgenticChangeOps.Agents.Requirement/  everything specific to the Requirement agent
   AgenticChangeOps.Agents.Architect/    everything specific to the Architect agent
   AgenticChangeOps.Agents.Developer/    everything specific to the Developer agent (text-only change proposals)
+  AgenticChangeOps.Agents.Reviewer/     everything specific to the Reviewer agent (advisory reviews of a proposal; no tools)
   AgenticChangeOps.SampleCode/          the read-only sample codebase tools (in-process MCP server), used by the Architect and Developer
 tests/
   AgenticChangeOps.Api.Tests/                  HTTP behaviour, recorded baseline of responses
@@ -82,6 +84,7 @@ tests/
   AgenticChangeOps.Agents.Requirement.Tests/   drafting, validation, prompt, parser, generator
   AgenticChangeOps.Agents.Architect.Tests/     design drafting, validation, prompt, parser, generator
   AgenticChangeOps.Agents.Developer.Tests/     proposal verification, validation, prompt, parser, generator, storage round trip
+  AgenticChangeOps.Agents.Reviewer.Tests/      system check, references, validation, prompt, parser, generator, service, storage round trip, structure
   AgenticChangeOps.SampleCode.Tests/           path confinement, limits, tools, MCP round trip, sample hygiene
 sample-codebase/                        invented sample the tools read (not part of the solution)
 specs/                                  one folder per slice: spec, plan, tasks, contracts
@@ -346,9 +349,53 @@ proposals are available, the workflow status shows `offeredStep: "Proposal"` nex
 stage and next step; automatic advancement never runs a proposal, it runs only when a person asks.
 With the Developer unused, every existing response is exactly as before.
 
+## Reviewer agent: advisory reviews (internal service, no route yet)
+
+For an **Approved** change request that has a requirements draft, a design draft based on the latest
+requirements draft, and a change proposal based on the latest design draft, the Reviewer agent can write
+an **advisory review** of the proposal. There is no HTTP operation for it yet: the service
+(`IReviewService`: request a review, latest review, review history in version order) is obtained from
+the host's service provider, and a person reads what it stores.
+
+A review has two parts. The first is checked by the **system**, without any model: every proposed
+edit's quoted text is re-checked against the current sample, and only the edit's position and a fixed
+outcome (found, quote not found, ambiguous, file not found, outside the sample, new file free or already
+existing, malformed) is recorded. If the sample is not available the check is recorded as **not
+performed** and the review carries on. The model never writes that part and cannot alter it. The second
+part is written by the model: findings about whether the proposal meets the acceptance criteria, is
+consistent with the design, and leaves risks unmentioned, plus open questions. Each finding has a
+category, an **advisory** severity, a plain-language statement and at least one reference of the form
+`document.list[position]` (for example `proposal.changes[2]`) to an entry that really exists in the
+records the review is based on. One finding whose reference points to nothing, a review over the maximum
+number of findings or the maximum size, or an unusable model answer rejects the **whole** review and
+nothing is stored.
+
+**It decides nothing.** A review never changes a status, approves, rejects or clears anything, and
+nothing in the system reads its severity; it is classified as non-consequential content. The Reviewer
+agent uses **no tools** and reads nothing itself: the system's own re-check is the only place the sample
+is read, and it only reads. If the requirements, design or proposal stop being the latest while a review
+is being prepared, the review is refused as outdated and nothing is stored.
+
+Requesting again creates a new version and keeps earlier ones. Each stored review is linked to the
+versions of the requirements draft, design draft and proposal it was based on, is a `Draft`, and is
+audited with one `ReviewGenerated` entry (no model text, file content or path). Errors carry a specific
+reason or only a failure category; no model text, file content, endpoint, deployment name or credential
+appears in any error, log or response.
+
+| Setting (environment variable) | Default | Meaning |
+|---|---|---|
+| `AGENTICCHANGEOPS_REVIEW_MAX_FINDINGS` | `8` | Most findings in one review |
+| `AGENTICCHANGEOPS_REVIEW_MAX_BYTES` | `8000` | Most bytes of finding statements plus open questions |
+| `AGENTICCHANGEOPS_SAMPLE_CODEBASE_PATH` | `sample-codebase/` beside the host | Where the system's own re-check looks |
+
+Reviews use the same model settings as the other agents and **do not need the sample tools switched
+on**. The settings are read only the first time the review service is used; a bad value (or missing
+model settings) makes reviews "not configured", which fails before any model call. With the Reviewer
+unused, every existing response is exactly as before.
+
 ## Roadmap
 
-- Reviewer agent, and a human-approved way to apply a proposal
+- HTTP operations and a human acceptance step for reviews, using the constitution's principles as review input, and a human-approved way to apply a proposal
 - Orchestration between agents (Microsoft Agent Framework)
 - MCP tools for real systems (the Architect and Developer have read-only sample tools today)
 - Authentication

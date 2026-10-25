@@ -1,0 +1,1235 @@
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Persistence.Tests\bin\Debug\net8.0\AgenticChangeOps.Persistence.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Intake.Tests\bin\Debug\net8.0\AgenticChangeOps.Intake.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Architect.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Architect.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\bin\Debug\net8.0\AgenticChangeOps.Api.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\bin\Debug\net8.0\AgenticChangeOps.ModelAccess.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Requirement.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Requirement.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Workflow.Tests\bin\Debug\net8.0\AgenticChangeOps.Workflow.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.SampleCode.Tests\bin\Debug\net8.0\AgenticChangeOps.SampleCode.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Developer.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Developer.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Drafting.Tests\bin\Debug\net8.0\AgenticChangeOps.Drafting.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Reviewer.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:02.10]     AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnEmptyString_IsPassedThroughUnchanged_InTheListToo [FAIL]
+[xUnit.net 00:00:02.11]     AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AMissingKey_OrANullValue_IsReadAsNull [FAIL]
+  Failed AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnEmptyString_IsPassedThroughUnchanged_InTheListToo [1 ms]
+  Error Message:
+   AgenticChangeOps.ModelAccess.DraftGenerationException : The model answer could not be used.
+  Stack Trace:
+     at AgenticChangeOps.ModelAccess.ModelAnswerReader.Read[T](String text, Func`2 map) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.ModelAccess\ModelAnswerReader.cs:line 34
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.Read(String text, String listKey, String[] keys) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 13
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnEmptyString_IsPassedThroughUnchanged_InTheListToo() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 68
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AMissingKey_OrANullValue_IsReadAsNull [< 1 ms]
+  Error Message:
+   AgenticChangeOps.ModelAccess.DraftGenerationException : The model answer could not be used.
+  Stack Trace:
+     at AgenticChangeOps.ModelAccess.ModelAnswerReader.Read[T](String text, Func`2 map) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.ModelAccess\ModelAnswerReader.cs:line 34
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.Read(String text, String listKey, String[] keys) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 13
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AMissingKey_OrANullValue_IsReadAsNull() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 42
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:02.12]     AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnAbsentList_IsNull_AnEmptyList_IsEmpty [FAIL]
+[xUnit.net 00:00:02.12]     AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnEmptyOuterList_IsAnEmptyList [FAIL]
+[xUnit.net 00:00:02.13]     AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.EachObject_IsReadAsTheRequestedKeys_AndItsList [FAIL]
+  Failed AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnAbsentList_IsNull_AnEmptyList_IsEmpty [< 1 ms]
+  Error Message:
+   AgenticChangeOps.ModelAccess.DraftGenerationException : The model answer could not be used.
+  Stack Trace:
+     at AgenticChangeOps.ModelAccess.ModelAnswerReader.Read[T](String text, Func`2 map) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.ModelAccess\ModelAnswerReader.cs:line 34
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.Read(String text, String listKey, String[] keys) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 13
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnAbsentList_IsNull_AnEmptyList_IsEmpty() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 51
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnEmptyOuterList_IsAnEmptyList [< 1 ms]
+  Error Message:
+   AgenticChangeOps.ModelAccess.DraftGenerationException : The model answer could not be used.
+  Stack Trace:
+     at AgenticChangeOps.ModelAccess.ModelAnswerReader.Read[T](String text, Func`2 map) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.ModelAccess\ModelAnswerReader.cs:line 34
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.Read(String text, String listKey, String[] keys) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 13
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.AnEmptyOuterList_IsAnEmptyList() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 62
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.EachObject_IsReadAsTheRequestedKeys_AndItsList [< 1 ms]
+  Error Message:
+   AgenticChangeOps.ModelAccess.DraftGenerationException : The model answer could not be used.
+  Stack Trace:
+     at AgenticChangeOps.ModelAccess.ModelAnswerReader.Read[T](String text, Func`2 map) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.ModelAccess\ModelAnswerReader.cs:line 34
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.Read(String text, String listKey, String[] keys) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 13
+   at AgenticChangeOps.ModelAccess.Tests.ModelAnswerNestedListTests.EachObject_IsReadAsTheRequestedKeys_AndItsList() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\ModelAnswerNestedListTests.cs:line 27
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:   118, Skipped:     0, Total:   118, Duration: 107 ms - AgenticChangeOps.Intake.Tests.dll (net8.0)
+
+Failed!  - Failed:     5, Passed:   266, Skipped:     0, Total:   271, Duration: 1 s - AgenticChangeOps.ModelAccess.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:    45, Skipped:     0, Total:    45, Duration: 358 ms - AgenticChangeOps.Drafting.Tests.dll (net8.0)
+[xUnit.net 00:00:03.23]     AgenticChangeOps.Agents.Architect.Tests.Live.LiveDesignCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheSixSections [SKIP]
+[xUnit.net 00:00:03.23]     AgenticChangeOps.Agents.Architect.Tests.Live.LiveSampleToolsCheckTests.RealModel_WithTools_ListsOnlyFilesThatExist [SKIP]
+  Skipped AgenticChangeOps.Agents.Architect.Tests.Live.LiveDesignCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheSixSections [1 ms]
+  Skipped AgenticChangeOps.Agents.Architect.Tests.Live.LiveSampleToolsCheckTests.RealModel_WithTools_ListsOnlyFilesThatExist [1 ms]
+
+Passed!  - Failed:     0, Passed:    81, Skipped:     0, Total:    81, Duration: 1 s - AgenticChangeOps.Persistence.Tests.dll (net8.0)
+[xUnit.net 00:00:03.54]     AgenticChangeOps.Agents.Requirement.Tests.Live.LiveModelCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheFiveSections [SKIP]
+  Skipped AgenticChangeOps.Agents.Requirement.Tests.Live.LiveModelCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheFiveSections [1 ms]
+
+Passed!  - Failed:     0, Passed:   156, Skipped:     2, Total:   158, Duration: 1 s - AgenticChangeOps.Agents.Architect.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   157, Skipped:     1, Total:   158, Duration: 1 s - AgenticChangeOps.Agents.Requirement.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   194, Skipped:     0, Total:   194, Duration: 427 ms - AgenticChangeOps.Workflow.Tests.dll (net8.0)
+[xUnit.net 00:00:06.40]     AgenticChangeOps.Api.Tests.Live.LiveProposalCheckTests.RealModel_WithTools_ProposesChangesThatVerifyAgainstTheRealSample [SKIP]
+  Skipped AgenticChangeOps.Api.Tests.Live.LiveProposalCheckTests.RealModel_WithTools_ProposesChangesThatVerifyAgainstTheRealSample [1 ms]
+[xUnit.net 00:00:03.08]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.HostileText_AppearsOnlyAfterTheDelimiterLine [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.HostileText_AppearsOnlyAfterTheDelimiterLine [14 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.WithHostileText() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewHostileContentTests.cs:line 43
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.HostileText_AppearsOnlyAfterTheDelimiterLine() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewHostileContentTests.cs:line 59
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.10]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.ZeroFindings_AndNoOpenQuestions_AreReadAsEmptyLists [FAIL]
+[xUnit.net 00:00:03.10]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_SaysTheSystemCheckIsTheSystemsAndIsNotToBeRestated [FAIL]
+[xUnit.net 00:00:03.10]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AMissingCategoryOrSeverityOrStatement_IsReadAsNull_AndLeftToTheValidator [FAIL]
+[xUnit.net 00:00:03.10]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.AnInjectedStatement_IsJustTextWhenItsReferencesAreReal [FAIL]
+[xUnit.net 00:00:03.10]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.Malformed_NeverCarriesTheAnswerText [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.ZeroFindings_AndNoOpenQuestions_AreReadAsEmptyLists [3 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.ZeroFindings_AndNoOpenQuestions_AreReadAsEmptyLists() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 62
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_SaysTheSystemCheckIsTheSystemsAndIsNotToBeRestated [20 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_SaysTheSystemCheckIsTheSystemsAndIsNotToBeRestated() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 225
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AMissingCategoryOrSeverityOrStatement_IsReadAsNull_AndLeftToTheValidator [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AMissingCategoryOrSeverityOrStatement_IsReadAsNull_AndLeftToTheValidator() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 91
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.AnInjectedStatement_IsJustTextWhenItsReferencesAreReal [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.AnInjectedStatement_IsJustTextWhenItsReferencesAreReal() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewHostileContentTests.cs:line 136
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.Malformed_NeverCarriesTheAnswerText [1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.Malformed_NeverCarriesTheAnswerText() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 165
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.11]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(before: "```json\n", after: "\n```") [FAIL]
+[xUnit.net 00:00:03.11]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.HostileText_StaysInsideTheDataObject_ItsDelimiterCannotEndTheData [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(before: "```json\n", after: "\n```") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(String before, String after) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 54
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.HostileText_StaysInsideTheDataObject_ItsDelimiterCannotEndTheData [2 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.HostileText_StaysInsideTheDataObject_ItsDelimiterCannotEndTheData() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewHostileContentTests.cs:line 72
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.12]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.TheInstructions_AreIdentical_WithOrWithoutHostileText [FAIL]
+[xUnit.net 00:00:03.12]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(before: "```\n", after: "\n```") [FAIL]
+[xUnit.net 00:00:03.13]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.TheSystemCheck_IsNotAffectedByWhatTheTextSays [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.TheInstructions_AreIdentical_WithOrWithoutHostileText [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.Clean() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewHostileContentTests.cs:line 36
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.TheInstructions_AreIdentical_WithOrWithoutHostileText() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewHostileContentTests.cs:line 53
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(before: "```\n", after: "\n```") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(String before, String after) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 54
+   at InvokeStub_ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.TheSystemCheck_IsNotAffectedByWhatTheTextSays [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.TheSystemCheck_IsNotAffectedByWhatTheTextSays() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewHostileContentTests.cs:line 88
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.13]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(before: "  ```JSON\n", after: "\n```  ") [FAIL]
+[xUnit.net 00:00:03.13]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemCheck_IsShownAsPositionAndOutcome [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(before: "  ```JSON\n", after: "\n```  ") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(String before, String after) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 54
+   at InvokeStub_ReviewResponseParserTests.TheObjectInsideOneCodeFence_IsRead(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemCheck_IsShownAsPositionAndOutcome [4 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemCheck_IsShownAsPositionAndOutcome() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 121
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.14]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"statement\": 7 } ], \"openQu"···) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"statement\": 7 } ], \"openQu"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.14]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.AModelThatObeysTheInjection_StillMeetsEveryRule [FAIL]
+[xUnit.net 00:00:03.14]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "\"a string\"") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.AModelThatObeysTheInjection_StillMeetsEveryRule [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewHostileContentTests.AModelThatObeysTheInjection_StillMeetsEveryRule() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewHostileContentTests.cs:line 111
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "\"a string\"") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.15]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "Here is the review: { \"findings\": [], \"openQues"···) [FAIL]
+[xUnit.net 00:00:03.15]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "proposal", list: "changes", length: 3) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "Here is the review: { \"findings\": [], \"openQues"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "proposal", list: "changes", length: 3) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.15]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"references\": [ 7 ] } ], \"o"···) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"references\": [ 7 ] } ], \"o"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.15]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"severity\": { \"a\": \"b\" }"···) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"severity\": { \"a\": \"b\" }"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.16]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ 7 ], \"openQuestions\": [] }") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ 7 ], \"openQuestions\": [] }") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.16]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"references\": { \"a\": \"b\""···) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"references\": { \"a\": \"b\""···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.16]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "requirements", list: "functionalRequirements", length: 2) [FAIL]
+[xUnit.net 00:00:03.16]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "{ \"findings\": 3, \"openQuestions\": [] }") [FAIL]
+[xUnit.net 00:00:03.16]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "dependencies", length: 1) [FAIL]
+[xUnit.net 00:00:03.16]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"category\": [ \"x\" ] } ], \"···) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "requirements", list: "functionalRequirements", length: 2) [11 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "{ \"findings\": 3, \"openQuestions\": [] }") [18 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(String answer) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AnUnusableAnswer_IsMalformedOutput_AfterOneCall>b__12_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "dependencies", length: 1) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"category\": [ \"x\" ] } ], \"···) [9 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.18]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "requirements", list: "assumptions", length: 1) [FAIL]
+[xUnit.net 00:00:03.18]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "requirements", list: "acceptanceCriteria", length: 2) [FAIL]
+[xUnit.net 00:00:03.18]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "```yaml\n{ \"findings\": [], \"openQuestions\": []"···) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "requirements", list: "assumptions", length: 1) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "requirements", list: "acceptanceCriteria", length: 2) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "```yaml\n{ \"findings\": [], \"openQuestions\": []"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.18]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "affectedComponents", length: 2) [FAIL]
+[xUnit.net 00:00:03.18]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "rollbackConsiderations", length: 1) [FAIL]
+[xUnit.net 00:00:03.18]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "impactAndRisks", length: 1) [FAIL]
+[xUnit.net 00:00:03.18]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [], \"openQuestions\": [ 7 ] }") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "affectedComponents", length: 2) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "rollbackConsiderations", length: 1) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "impactAndRisks", length: 1) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [], \"openQuestions\": [ 7 ] }") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.19]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "proposal", list: "openQuestions", length: 1) [FAIL]
+[xUnit.net 00:00:03.19]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "openQuestions", length: 1) [FAIL]
+[xUnit.net 00:00:03.19]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": \"none\", \"openQuestions\": [] }") [FAIL]
+[xUnit.net 00:00:03.19]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "{ \"findings\": [], \"openQuestions\": ") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "proposal", list: "openQuestions", length: 1) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "design", list: "openQuestions", length: 1) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": \"none\", \"openQuestions\": [] }") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "{ \"findings\": [], \"openQuestions\": ") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(String answer) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AnUnusableAnswer_IsMalformedOutput_AfterOneCall>b__12_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+[xUnit.net 00:00:03.20]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "proposal", list: "risks", length: 2) [FAIL]
+[xUnit.net 00:00:03.20]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "proposal", list: "testIdeas", length: 1) [FAIL]
+[xUnit.net 00:00:03.20]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [] }") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "proposal", list: "risks", length: 2) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "proposal", list: "testIdeas", length: 1) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [] }") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.20]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "not json at all") [FAIL]
+[xUnit.net 00:00:03.21]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "I could not review this.") [FAIL]
+[xUnit.net 00:00:03.21]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ [ \"nested\" ] ], \"openQuestion"···) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "not json at all") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "I could not review this.") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(String answer) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AnUnusableAnswer_IsMalformedOutput_AfterOneCall>b__12_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ [ \"nested\" ] ], \"openQuestion"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.21]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ \"just text\" ], \"openQuestions"···) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ \"just text\" ], \"openQuestions"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.22]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "   ") [FAIL]
+[xUnit.net 00:00:03.22]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "   ") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "   ") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "   ") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(String answer) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AnUnusableAnswer_IsMalformedOutput_AfterOneCall>b__12_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+[xUnit.net 00:00:03.22]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "[]") [FAIL]
+[xUnit.net 00:00:03.23]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"references\": [ [ \"a\" ] ] "···) [FAIL]
+[xUnit.net 00:00:03.23]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "```json\n{ \"findings\": [], \"openQuestions\": []"···) [FAIL]
+[xUnit.net 00:00:03.23]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "[]") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"references\": [ [ \"a\" ] ] "···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "```json\n{ \"findings\": [], \"openQuestions\": []"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(answer: "") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall(String answer) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AnUnusableAnswer_IsMalformedOutput_AfterOneCall>b__12_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 124
+[xUnit.net 00:00:03.23]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": {}, \"openQuestions\": [] }") [FAIL]
+[xUnit.net 00:00:03.23]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [], \"openQuestions\": [ { \"a\": "···) [FAIL]
+[xUnit.net 00:00:03.24]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "```json\n{ \"findings\": [], \"openQuestions\": []"···) [FAIL]
+[xUnit.net 00:00:03.24]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheModelIsAskedWithThePromptTheBuilderMakes [FAIL]
+[xUnit.net 00:00:03.24]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"openQuestions\": [] }") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": {}, \"openQuestions\": [] }") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [], \"openQuestions\": [ { \"a\": "···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "```json\n{ \"findings\": [], \"openQuestions\": []"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheModelIsAskedWithThePromptTheBuilderMakes [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheModelIsAskedWithThePromptTheBuilderMakes() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 46
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"openQuestions\": [] }") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+[xUnit.net 00:00:03.24]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "requirements", list: "openQuestions", length: 1) [FAIL]
+[xUnit.net 00:00:03.26]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [], \"openQuestions\": \"none\" }") [FAIL]
+[xUnit.net 00:00:03.26]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.ThePrompt_ContainsNoSettingValue [FAIL]
+[xUnit.net 00:00:03.26]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "") [FAIL]
+[xUnit.net 00:00:03.27]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"references\": \"proposal.cha"···) [FAIL]
+[xUnit.net 00:00:03.27]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheListEntries_CarryTheirText [FAIL]
+[xUnit.net 00:00:03.27]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingWithoutAReferencesKey_IsReadWithNullReferences_SoTheValidatorCanRefuseIt [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(document: "requirements", list: "openQuestions", length: 1) [6 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(String document, String list, Int32 length) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 85
+   at InvokeStub_ReviewPromptTests.EveryList_IsNumberedFromOne_SoTheModelCanCiteIt(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [], \"openQuestions\": \"none\" }") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.ThePrompt_ContainsNoSettingValue [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.ThePrompt_ContainsNoSettingValue() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 243
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "") [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(text: "{ \"findings\": [ { \"references\": \"proposal.cha"···) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AssertMalformed(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AnythingElse_IsMalformedOutput(String text) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 160
+   at InvokeStub_ReviewResponseParserTests.AnythingElse_IsMalformedOutput(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.<>c__DisplayClass2_0.<AssertMalformed>b__0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 25
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheListEntries_CarryTheirText [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheListEntries_CarryTheirText() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 96
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingWithoutAReferencesKey_IsReadWithNullReferences_SoTheValidatorCanRefuseIt [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingWithoutAReferencesKey_IsReadWithNullReferences_SoTheValidatorCanRefuseIt() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 71
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.27]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_SaysEverythingAfterTheDelimiterIsDataNeverInstructions [FAIL]
+[xUnit.net 00:00:03.27]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: Unreachable) [FAIL]
+[xUnit.net 00:00:03.28]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.ThePrompt_OffersNoTool_AndMentionsNone [FAIL]
+[xUnit.net 00:00:03.28]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.NoFileContentOrSampleTextIsEverInThePrompt [FAIL]
+[xUnit.net 00:00:03.28]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheProposalEdits_AreShownWithTheirPathKindAndText [FAIL]
+[xUnit.net 00:00:03.28]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: ToolsUnavailable) [FAIL]
+[xUnit.net 00:00:03.28]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheUserContent_IsTheDelimiterLine_ThenOneJsonObject [FAIL]
+[xUnit.net 00:00:03.28]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheData_CarriesTheRequest [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_SaysEverythingAfterTheDelimiterIsDataNeverInstructions [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_SaysEverythingAfterTheDelimiterIsDataNeverInstructions() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 157
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: Unreachable) [1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall>b__10_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.ThePrompt_OffersNoTool_AndMentionsNone [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.ThePrompt_OffersNoTool_AndMentionsNone() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 234
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.NoFileContentOrSampleTextIsEverInThePrompt [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.NoFileContentOrSampleTextIsEverInThePrompt() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 146
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheProposalEdits_AreShownWithTheirPathKindAndText [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheProposalEdits_AreShownWithTheirPathKindAndText() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 109
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: ToolsUnavailable) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall>b__10_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheUserContent_IsTheDelimiterLine_ThenOneJsonObject [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheUserContent_IsTheDelimiterLine_ThenOneJsonObject() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 37
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheData_CarriesTheRequest [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheData_CarriesTheRequest() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 46
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.29]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_AsksForOneJsonObject_WithFindingsAndOpenQuestions [FAIL]
+[xUnit.net 00:00:03.29]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: LimitsExhausted) [FAIL]
+[xUnit.net 00:00:03.29]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheDelimiterLine_CanNeverAppearInsideTheData_WhateverTheRequestSays [FAIL]
+[xUnit.net 00:00:03.29]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: ResponseTooLarge) [FAIL]
+[xUnit.net 00:00:03.29]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_NamesTheThreeThingsToAssess [FAIL]
+[xUnit.net 00:00:03.29]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheData_CarriesTheThreeRecords_WithTheirVersions [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_AsksForOneJsonObject_WithFindingsAndOpenQuestions [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_AsksForOneJsonObject_WithFindingsAndOpenQuestions() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 203
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: LimitsExhausted) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall>b__10_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheDelimiterLine_CanNeverAppearInsideTheData_WhateverTheRequestSays [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheDelimiterLine_CanNeverAppearInsideTheData_WhateverTheRequestSays() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 257
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: ResponseTooLarge) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall>b__10_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_NamesTheThreeThingsToAssess [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_NamesTheThreeThingsToAssess() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 167
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheData_CarriesTheThreeRecords_WithTheirVersions [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheData_CarriesTheThreeRecords_WithTheirVersions() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 59
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.30]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: MalformedOutput) [FAIL]
+[xUnit.net 00:00:03.30]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_ExplainsTheReferenceFormat_AndEveryList [FAIL]
+[xUnit.net 00:00:03.30]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_GivesTheFixedWordsForCategoryAndSeverity [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: MalformedOutput) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall>b__10_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_ExplainsTheReferenceFormat_AndEveryList [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_ExplainsTheReferenceFormat_AndEveryList() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 177
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_GivesTheFixedWordsForCategoryAndSeverity [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_GivesTheFixedWordsForCategoryAndSeverity() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.30]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.WhenTheCheckWasNotPerformed_TheModelIsToldSo [FAIL]
+[xUnit.net 00:00:03.30]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: TimedOut) [FAIL]
+[xUnit.net 00:00:03.31]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_LeavesEveryDecisionToThePeople [FAIL]
+[xUnit.net 00:00:03.31]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnAnswerOverTheCharacterLimit_IsResponseTooLarge [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.WhenTheCheckWasNotPerformed_TheModelIsToldSo [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.WhenTheCheckWasNotPerformed_TheModelIsToldSo() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 135
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(category: TimedOut) [< 1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AClientFailureWithACategory_SurfacesAsThatCategory_AfterExactlyOneCall>b__10_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 95
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_LeavesEveryDecisionToThePeople [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewPromptBuilder.Build(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewPromptBuilder.cs:line 21
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.Build(SystemCheck check, ChangeRequest request, ReviewProposalBasis proposal) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 17
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewPromptTests.TheSystemText_LeavesEveryDecisionToThePeople() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewPromptTests.cs:line 214
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnAnswerOverTheCharacterLimit_IsResponseTooLarge [1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnAnswerOverTheCharacterLimit_IsResponseTooLarge() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 146
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AnAnswerOverTheCharacterLimit_IsResponseTooLarge>b__14_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 146
+[xUnit.net 00:00:03.31]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectAlone_IsRead [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectAlone_IsRead [14 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.TheObjectAlone_IsRead() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 37
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.31]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.KeysOtherThanFindingsAndOpenQuestions_AreIgnored_IncludingASystemCheckTheModelInvents [FAIL]
+[xUnit.net 00:00:03.31]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingsOwnExtraKeys_AreIgnored [FAIL]
+[xUnit.net 00:00:03.32]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingWithAnEmptyReferencesList_IsReadWithAnEmptyList [FAIL]
+[xUnit.net 00:00:03.32]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnAnswerThatWasCutOff_IsResponseTooLarge [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.KeysOtherThanFindingsAndOpenQuestions_AreIgnored_IncludingASystemCheckTheModelInvents [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.KeysOtherThanFindingsAndOpenQuestions_AreIgnored_IncludingASystemCheckTheModelInvents() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 111
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingsOwnExtraKeys_AreIgnored [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingsOwnExtraKeys_AreIgnored() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 122
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingWithAnEmptyReferencesList_IsReadWithAnEmptyList [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewResponseParser.Parse(String text) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewResponseParser.cs:line 10
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewResponseParserTests.AFindingWithAnEmptyReferencesList_IsReadWithAnEmptyList() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewResponseParserTests.cs:line 81
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnAnswerThatWasCutOff_IsResponseTooLarge [1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnAnswerThatWasCutOff_IsResponseTooLarge() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 136
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AnAnswerThatWasCutOff_IsResponseTooLarge>b__13_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 136
+[xUnit.net 00:00:03.32]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheSystemCheckReachesTheModelAsData_ButNothingTheModelWritesChangesIt [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheSystemCheckReachesTheModelAsData_ButNothingTheModelWritesChangesIt [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheSystemCheckReachesTheModelAsData_ButNothingTheModelWritesChangesIt() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 68
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:03.33]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnexpectedClientException_BecomesACategory_NeverCarryingItsMessageOrItself [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnexpectedClientException_BecomesACategory_NeverCarryingItsMessageOrItself [1 ms]
+  Error Message:
+   Assert.Throws() Failure: Exception type was not an exact match
+Expected: typeof(AgenticChangeOps.ModelAccess.DraftGenerationException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.AnUnexpectedClientException_BecomesACategory_NeverCarryingItsMessageOrItself() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 106
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<AnUnexpectedClientException_BecomesACategory_NeverCarryingItsMessageOrItself>b__11_0() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 106
+[xUnit.net 00:00:03.33]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheOutputBudget_IsDerivedFromTheOptions [FAIL]
+[xUnit.net 00:00:03.33]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.OneModelCallIsMade_AndTheAnswerIsReadIntoContent [FAIL]
+[xUnit.net 00:00:03.33]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.ACallerCancellation_IsNotTurnedIntoACategory [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheOutputBudget_IsDerivedFromTheOptions [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.TheOutputBudget_IsDerivedFromTheOptions() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 79
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.OneModelCallIsMade_AndTheAnswerIsReadIntoContent [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.Generate(SystemCheck check) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 19
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.OneModelCallIsMade_AndTheAnswerIsReadIntoContent() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 32
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.ACallerCancellation_IsNotTurnedIntoACategory [3 ms]
+  Error Message:
+   Assert.ThrowsAny() Failure: Exception type was not compatible
+Expected: typeof(System.OperationCanceledException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.ACallerCancellation_IsNotTurnedIntoACategory() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 161
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.AzureOpenAIReviewGenerator.GenerateAsync(ChangeRequest changeRequest, ReviewRequirementsBasis requirements, ReviewDesignBasis design, ReviewProposalBasis proposal, SystemCheck systemCheck, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\AzureOpenAIReviewGenerator.cs:line 29
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewGeneratorIntegrationTests.<>c__DisplayClass15_0.<ACallerCancellation_IsNotTurnedIntoACategory>b__1() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewGeneratorIntegrationTests.cs:line 161
+
+Passed!  - Failed:     0, Passed:   123, Skipped:     0, Total:   123, Duration: 3 s - AgenticChangeOps.SampleCode.Tests.dll (net8.0)
+
+Failed!  - Failed:    93, Passed:   159, Skipped:     0, Total:   252, Duration: 486 ms - AgenticChangeOps.Agents.Reviewer.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   172, Skipped:     0, Total:   172, Duration: 3 s - AgenticChangeOps.Agents.Developer.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   345, Skipped:     1, Total:   346, Duration: 22 s - AgenticChangeOps.Api.Tests.dll (net8.0)
+
+==== Summary (T026) ====
+New tests: Reviewer.Tests +96 (252 total, 93 failing), ModelAccess.Tests +22 (271 total, 5 failing).
+All 98 failures come from the stubs and nothing else; there is no compile error and no unrelated failure:
+  - 51 fail with System.NotImplementedException directly (prompt builder, parser, generator).
+  - 42 are Assert.Throws checks that expected DraftGenerationException but got the stub
+    NotImplementedException ("Exception type was not an exact match").
+  - 5 (ModelAnswerNestedListTests, happy paths) fail with DraftGenerationException "The model answer
+    could not be used" because ModelAnswerReader.Read turns any exception thrown by the stubbed
+    reader method into MalformedOutput. Misleading message, same cause.
+Quirk, stated plainly: 16 of the 22 ModelAnswerNestedListTests (the 15 "anything else is malformed" cases
+and the no-answer-text check) already pass on the stub for the same reason (the reader wraps the stub exception as MalformedOutput).
+They are real behaviour checks that the finished reader must keep passing, but they do not show red.
+The 22nd, TheExistingReaders_AreUnchanged, passes legitimately: it checks the old readers, which are untouched.
+Every other project is green at the baseline counts.
+
+Test files: Unit/ReviewPromptTests.cs (T022), Unit/ReviewResponseParserTests.cs (T023),
+ModelAccess.Tests/ModelAnswerNestedListTests.cs (T023a), Unit/ReviewGeneratorIntegrationTests.cs (T024),
+Unit/ReviewHostileContentTests.cs (T025); fake: Fakes/FakeReviewChatClient.cs.
+
+==== Approval (T027) ====
+User approved the step 2 tests on 2026-10-22. Implementation (T028 to T030) starts after this line.
+
+==== Result (T028 to T031) ====
+After implementation: Reviewer.Tests 252 passed, ModelAccess.Tests 271 passed, everything else at the baseline counts, 0 failed.
+One test defect found and fixed during the green run (not an implementation problem): in
+ReviewGeneratorIntegrationTests.AnUnusableAnswer_IsMalformedOutput_AfterOneCall, the "\u0001" placeholder used for
+blank answers matched everything under xunit's default culture-sensitive comparison. The check now skips blank
+answers (nothing to leak) and compares the others ordinally. What the test asserts is unchanged.

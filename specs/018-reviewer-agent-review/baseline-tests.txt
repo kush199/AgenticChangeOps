@@ -1,0 +1,42 @@
+# Baseline: dotnet test AgenticChangeOps.sln on 69d8de8 (before the change), 2026-10-22
+
+AgenticChangeOps.Intake.Tests              Passed 118  Failed 0  Skipped 0  Total 118
+AgenticChangeOps.Persistence.Tests         Passed  81  Failed 0  Skipped 0  Total  81
+AgenticChangeOps.Drafting.Tests            Passed  45  Failed 0  Skipped 0  Total  45
+AgenticChangeOps.ModelAccess.Tests         Passed 249  Failed 0  Skipped 0  Total 249
+AgenticChangeOps.SampleCode.Tests          Passed 123  Failed 0  Skipped 0  Total 123
+AgenticChangeOps.Workflow.Tests            Passed 194  Failed 0  Skipped 0  Total 194
+AgenticChangeOps.Agents.Requirement.Tests  Passed 157  Failed 0  Skipped 1  Total 158
+AgenticChangeOps.Agents.Architect.Tests    Passed 156  Failed 0  Skipped 2  Total 158
+AgenticChangeOps.Agents.Developer.Tests    Passed 172  Failed 0  Skipped 0  Total 172
+AgenticChangeOps.Api.Tests                 Passed 345  Failed 0  Skipped 1  Total 346
+
+Skipped are the opt-in live model checks. 0 failed anywhere.
+
+# After Phase 2 (T008): ReviewGenerated appended, empty Reviewer project and test project added
+
+All existing projects unchanged: same passed and skipped counts as above, 0 failed anywhere.
+AgenticChangeOps.Agents.Reviewer.Tests has no tests yet. Build: 0 errors.
+
+# After step 1 (T019): pure logic implemented, nothing calls it
+
+AgenticChangeOps.Agents.Reviewer.Tests     Passed 156  Failed 0  Skipped 0  Total 156  (new project)
+All other projects unchanged from the baseline counts. 0 failed anywhere. Build: 0 warnings, 0 errors.
+
+# After step 2 (T031): prompt builder, response parser, generator and the nested-list reader implemented
+
+AgenticChangeOps.Agents.Reviewer.Tests     Passed 252  Failed 0  Skipped 0  Total 252
+AgenticChangeOps.ModelAccess.Tests         Passed 271  Failed 0  Skipped 0  Total 271  (+22, additive reader tests)
+All other projects unchanged from the baseline counts. 0 failed anywhere. Build: 0 warnings, 0 errors.
+
+# After step 3 (T045): ReviewService, store extensions and the ReviewGenerated audit entry implemented
+
+AgenticChangeOps.Agents.Reviewer.Tests     Passed 349  Failed 0  Skipped 0  Total 349
+Requirement 157+1 skipped, Architect 156+2 skipped, Developer 172, Drafting 45 re-run and equal to the baseline.
+All other projects unchanged. 0 failed anywhere. Build: 0 warnings, 0 errors.
+
+# After step 4 (T060): settings, sample adapter, basis adapter and the lazy IReviewService registration implemented
+
+AgenticChangeOps.Agents.Reviewer.Tests     Passed 403  Failed 0  Skipped 0  Total 403  (+54 structure and hygiene guards)
+AgenticChangeOps.Api.Tests                 Passed 423  Failed 0  Skipped 1  Total 424  (+78 review tests)
+All other projects unchanged from the baseline counts. 0 failed anywhere. Build: 0 warnings, 0 errors.

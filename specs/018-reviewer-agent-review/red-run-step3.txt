@@ -1,0 +1,829 @@
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Persistence.Tests\bin\Debug\net8.0\AgenticChangeOps.Persistence.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Api.Tests\bin\Debug\net8.0\AgenticChangeOps.Api.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.ModelAccess.Tests\bin\Debug\net8.0\AgenticChangeOps.ModelAccess.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Requirement.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Requirement.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Architect.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Architect.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Intake.Tests\bin\Debug\net8.0\AgenticChangeOps.Intake.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Workflow.Tests\bin\Debug\net8.0\AgenticChangeOps.Workflow.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Developer.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Developer.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.SampleCode.Tests\bin\Debug\net8.0\AgenticChangeOps.SampleCode.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Drafting.Tests\bin\Debug\net8.0\AgenticChangeOps.Drafting.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+Test run for C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\bin\Debug\net8.0\AgenticChangeOps.Agents.Reviewer.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:01.71]     AgenticChangeOps.Agents.Requirement.Tests.Live.LiveModelCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheFiveSections [SKIP]
+  Skipped AgenticChangeOps.Agents.Requirement.Tests.Live.LiveModelCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheFiveSections [1 ms]
+[xUnit.net 00:00:02.11]     AgenticChangeOps.Agents.Architect.Tests.Live.LiveDesignCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheSixSections [SKIP]
+[xUnit.net 00:00:02.39]     AgenticChangeOps.Api.Tests.Live.LiveProposalCheckTests.RealModel_WithTools_ProposesChangesThatVerifyAgainstTheRealSample [SKIP]
+  Skipped AgenticChangeOps.Agents.Architect.Tests.Live.LiveDesignCheckTests.RealModel_ReturnsAnAnswerThatParsesIntoTheSixSections [1 ms]
+[xUnit.net 00:00:02.24]     AgenticChangeOps.Agents.Architect.Tests.Live.LiveSampleToolsCheckTests.RealModel_WithTools_ListsOnlyFilesThatExist [SKIP]
+  Skipped AgenticChangeOps.Agents.Architect.Tests.Live.LiveSampleToolsCheckTests.RealModel_WithTools_ListsOnlyFilesThatExist [1 ms]
+  Skipped AgenticChangeOps.Api.Tests.Live.LiveProposalCheckTests.RealModel_WithTools_ProposesChangesThatVerifyAgainstTheRealSample [1 ms]
+
+Passed!  - Failed:     0, Passed:   118, Skipped:     0, Total:   118, Duration: 310 ms - AgenticChangeOps.Intake.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:    81, Skipped:     0, Total:    81, Duration: 1 s - AgenticChangeOps.Persistence.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   157, Skipped:     1, Total:   158, Duration: 1 s - AgenticChangeOps.Agents.Requirement.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   194, Skipped:     0, Total:   194, Duration: 778 ms - AgenticChangeOps.Workflow.Tests.dll (net8.0)
+
+[xUnit.net 00:00:02.63]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.OneFileThatCannotBeRead_IsFileNotFoundForThatEdit_AndTheCheckIsStillPerformed [FAIL]
+Passed!  - Failed:     0, Passed:    45, Skipped:     0, Total:    45, Duration: 425 ms - AgenticChangeOps.Drafting.Tests.dll (net8.0)
+[xUnit.net 00:00:02.71]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "unknown severity") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.OneFileThatCannotBeRead_IsFileNotFoundForThatEdit_AndTheCheckIsStillPerformed [22 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.OneFileThatCannotBeRead_IsFileNotFoundForThatEdit_AndTheCheckIsStillPerformed() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewSampleUnavailableTests.cs:line 47
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "unknown severity") [21 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(String problem) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 145
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.78]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.AReview_IsNeverAnApprovalDecision_AndRecordsNoApprover [FAIL]
+[xUnit.net 00:00:02.78]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(status: Submitted) [FAIL]
+[xUnit.net 00:00:02.79]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(status: Deferred) [FAIL]
+[xUnit.net 00:00:02.80]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "missing open questions section") [FAIL]
+[xUnit.net 00:00:02.80]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(status: UnderReview) [FAIL]
+[xUnit.net 00:00:02.80]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(status: Rejected) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.AReview_IsNeverAnApprovalDecision_AndRecordsNoApprover [16 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.AReview_IsNeverAnApprovalDecision_AndRecordsNoApprover() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewConsequenceTests.cs:line 140
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(status: Submitted) [19 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(ChangeRequestStatus status) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 69
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(status: Deferred) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(ChangeRequestStatus status) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 69
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "missing open questions section") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(String problem) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 145
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(status: UnderReview) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(ChangeRequestStatus status) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 69
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(status: Rejected) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnyStatusButApproved_IsRefused_AndTheBasisIsNotConsulted(ChangeRequestStatus status) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 69
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.81]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "unknown category") [FAIL]
+[xUnit.net 00:00:02.81]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.WhenTheSampleIsUnavailable_TheReviewIsStored_WithTheCheckNotPerformed [FAIL]
+[xUnit.net 00:00:02.81]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnEmptyIdentifier_IsTheMalformedCase_AtTheInternalService [FAIL]
+[xUnit.net 00:00:02.81]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "blank statement") [FAIL]
+[xUnit.net 00:00:02.81]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "missing findings section") [FAIL]
+[xUnit.net 00:00:02.81]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheProposalIsMissing_AndTheDesignIsCurrent_TheProposalIsReported [FAIL]
+[xUnit.net 00:00:02.81]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.AnUnavailableSample_NeverMakesAnyOtherRuleLooser [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "unknown category") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(String problem) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 145
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.WhenTheSampleIsUnavailable_TheReviewIsStored_WithTheCheckNotPerformed [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.WhenTheSampleIsUnavailable_TheReviewIsStored_WithTheCheckNotPerformed() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewSampleUnavailableTests.cs:line 17
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnEmptyIdentifier_IsTheMalformedCase_AtTheInternalService [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnEmptyIdentifier_IsTheMalformedCase_AtTheInternalService() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 49
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "blank statement") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(String problem) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 145
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(problem: "missing findings section") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ShapeProblems_AreErrors_WithTheMalformedOutputCategory(String problem) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 145
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheProposalIsMissing_AndTheDesignIsCurrent_TheProposalIsReported [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheProposalIsMissing_AndTheDesignIsCurrent_TheProposalIsReported() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 188
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.AnUnavailableSample_NeverMakesAnyOtherRuleLooser [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.AnUnavailableSample_NeverMakesAnyOtherRuleLooser() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewSampleUnavailableTests.cs:line 63
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.82]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheDesignIsOutdatedAndTheProposalIsMissing_TheDesignVersionIsReportedFirst [FAIL]
+[xUnit.net 00:00:02.82]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.AReviewWithHighSeverityOnEveryFinding_ChangesNoStatusAndNoOtherRecord [FAIL]
+[xUnit.net 00:00:02.82]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.TheModelIsToldTheCheckWasNotPerformed_AndNothingWasRead [FAIL]
+[xUnit.net 00:00:02.82]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AnyOtherException_IsReportedByTypeNameOnly_WithNoCategoryAndNoMessage [FAIL]
+[xUnit.net 00:00:02.82]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "RequirementsDraft") [FAIL]
+[xUnit.net 00:00:02.82]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "DesignDraftVersion") [FAIL]
+[xUnit.net 00:00:02.86]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "Proposal") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheDesignIsOutdatedAndTheProposalIsMissing_TheDesignVersionIsReportedFirst [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheDesignIsOutdatedAndTheProposalIsMissing_TheDesignVersionIsReportedFirst() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 179
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.AReviewWithHighSeverityOnEveryFinding_ChangesNoStatusAndNoOtherRecord [4 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.AReviewWithHighSeverityOnEveryFinding_ChangesNoStatusAndNoOtherRecord() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewConsequenceTests.cs:line 101
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.TheModelIsToldTheCheckWasNotPerformed_AndNothingWasRead [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewSampleUnavailableTests.TheModelIsToldTheCheckWasNotPerformed_AndNothingWasRead() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewSampleUnavailableTests.cs:line 32
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AnyOtherException_IsReportedByTypeNameOnly_WithNoCategoryAndNoMessage [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AnyOtherException_IsReportedByTypeNameOnly_WithNoCategoryAndNoMessage() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 196
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "RequirementsDraft") [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(String field) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 227
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "DesignDraftVersion") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(String field) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 227
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "Proposal") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(String field) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 227
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.86]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: LimitsExhausted) [FAIL]
+[xUnit.net 00:00:02.86]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "Status") [FAIL]
+[xUnit.net 00:00:02.87]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "ProposalVersion") [FAIL]
+[xUnit.net 00:00:02.87]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "DesignDraft") [FAIL]
+[xUnit.net 00:00:02.87]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: ResponseTooLarge) [FAIL]
+[xUnit.net 00:00:02.87]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: TimedOut) [FAIL]
+[xUnit.net 00:00:02.87]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AProposalBasedOnOlderRequirements_IsRefused_OnTheProposalVersionField [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: LimitsExhausted) [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 178
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "Status") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(String field) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 227
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "ProposalVersion") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(String field) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 227
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(field: "DesignDraft") [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.TheMessages_AreFixedText_WithNoRecordContent(String field) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 227
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: ResponseTooLarge) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 178
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: TimedOut) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 178
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AProposalBasedOnOlderRequirements_IsRefused_OnTheProposalVersionField [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AProposalBasedOnOlderRequirements_IsRefused_OnTheProposalVersionField() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 146
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.88]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheDesignAndTheProposalAreMissing_TheDesignIsReportedFirst [FAIL]
+[xUnit.net 00:00:02.88]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoDesignDraft_IsRefused_OnTheDesignField [FAIL]
+[xUnit.net 00:00:02.88]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AProposalBasedOnAnOlderDesign_IsRefused_OnTheProposalVersionField [FAIL]
+[xUnit.net 00:00:02.88]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenEverythingIsMissing_TheRequirementsDraftIsReportedFirst [FAIL]
+[xUnit.net 00:00:02.88]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoRequirementsDraft_IsRefused_OnTheRequirementsField [FAIL]
+[xUnit.net 00:00:02.88]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnUnknownChangeRequest_IsReportedOnTheIdField [FAIL]
+[xUnit.net 00:00:02.88]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoProposal_IsRefused_OnTheProposalField [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheDesignAndTheProposalAreMissing_TheDesignIsReportedFirst [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenTheDesignAndTheProposalAreMissing_TheDesignIsReportedFirst() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 167
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoDesignDraft_IsRefused_OnTheDesignField [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoDesignDraft_IsRefused_OnTheDesignField() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 94
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AProposalBasedOnAnOlderDesign_IsRefused_OnTheProposalVersionField [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AProposalBasedOnAnOlderDesign_IsRefused_OnTheProposalVersionField() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 132
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenEverythingIsMissing_TheRequirementsDraftIsReportedFirst [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.WhenEverythingIsMissing_TheRequirementsDraftIsReportedFirst() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 158
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoRequirementsDraft_IsRefused_OnTheRequirementsField [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoRequirementsDraft_IsRefused_OnTheRequirementsField() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 84
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnUnknownChangeRequest_IsReportedOnTheIdField [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.AnUnknownChangeRequest_IsReportedOnTheIdField() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 37
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoProposal_IsRefused_OnTheProposalField [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.NoProposal_IsRefused_OnTheProposalField() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 104
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.89]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.ADesignBasedOnOlderRequirements_IsRefused_OnTheDesignVersionField [FAIL]
+[xUnit.net 00:00:02.89]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ARecordThatDisappearsWhilePreparing_RefusesAndStoresNothing [FAIL]
+[xUnit.net 00:00:02.89]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ARefusedAsOutdatedRequest_DoesNotUseUpAVersion [FAIL]
+[xUnit.net 00:00:02.89]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: MalformedOutput) [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.ADesignBasedOnOlderRequirements_IsRefused_OnTheDesignVersionField [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewEligibilityTests.ADesignBasedOnOlderRequirements_IsRefused_OnTheDesignVersionField() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewEligibilityTests.cs:line 119
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ARecordThatDisappearsWhilePreparing_RefusesAndStoresNothing [88 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ARecordThatDisappearsWhilePreparing_RefusesAndStoresNothing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewOutdatedDuringPreparationTests.cs:line 95
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ARefusedAsOutdatedRequest_DoesNotUseUpAVersion [2 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ARefusedAsOutdatedRequest_DoesNotUseUpAVersion() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewOutdatedDuringPreparationTests.cs:line 119
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: MalformedOutput) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 178
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.89]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.TheSystemCheckComputedEarlier_IsDiscardedWithTheRefusedReview [FAIL]
+[xUnit.net 00:00:02.91]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: ToolsUnavailable) [FAIL]
+[xUnit.net 00:00:02.91]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: Unreachable) [FAIL]
+[xUnit.net 00:00:02.91]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerSetOfAllThree_SavedWhilePreparing_RefusesAndStoresNothing [FAIL]
+[xUnit.net 00:00:02.91]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ARejection_CarriesTheReasonOnly_AFixedMessageAndNoCategory [FAIL]
+[xUnit.net 00:00:02.92]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.WhenNothingChanged_TheReviewIsStored_WithTheVersionsTheModelWasGiven [FAIL]
+[xUnit.net 00:00:02.92]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.OneDanglingReferenceAmongValidFindings_RejectsTheWholeReview [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.TheSystemCheckComputedEarlier_IsDiscardedWithTheRefusedReview [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.TheSystemCheckComputedEarlier_IsDiscardedWithTheRefusedReview() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewOutdatedDuringPreparationTests.cs:line 108
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: ToolsUnavailable) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 178
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(category: Unreachable) [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AGeneratorFailure_ReportsItsCategory_AndAFixedMessage(GenerationFailureCategory category) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 178
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerSetOfAllThree_SavedWhilePreparing_RefusesAndStoresNothing [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerSetOfAllThree_SavedWhilePreparing_RefusesAndStoresNothing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewOutdatedDuringPreparationTests.cs:line 82
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ARejection_CarriesTheReasonOnly_AFixedMessageAndNoCategory [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ARejection_CarriesTheReasonOnly_AFixedMessageAndNoCategory() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 95
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.WhenNothingChanged_TheReviewIsStored_WithTheVersionsTheModelWasGiven [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.WhenNothingChanged_TheReviewIsStored_WithTheVersionsTheModelWasGiven() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewOutdatedDuringPreparationTests.cs:line 139
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.OneDanglingReferenceAmongValidFindings_RejectsTheWholeReview [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.OneDanglingReferenceAmongValidFindings_RejectsTheWholeReview() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 52
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.92]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerDesignDraft_SavedWhilePreparing_RefusesAndStoresNothing [FAIL]
+[xUnit.net 00:00:02.92]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerRequirementsDraft_SavedWhilePreparing_RefusesAndStoresNothing [FAIL]
+[xUnit.net 00:00:02.93]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AReviewOverTheMaximumSize_IsRejected_AsTooLarge [FAIL]
+[xUnit.net 00:00:02.94]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerProposal_SavedWhilePreparing_RefusesAndStoresNothing [FAIL]
+[xUnit.net 00:00:02.94]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.NullContent_IsMalformedOutput [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerDesignDraft_SavedWhilePreparing_RefusesAndStoresNothing [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerDesignDraft_SavedWhilePreparing_RefusesAndStoresNothing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewOutdatedDuringPreparationTests.cs:line 56
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerRequirementsDraft_SavedWhilePreparing_RefusesAndStoresNothing [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerRequirementsDraft_SavedWhilePreparing_RefusesAndStoresNothing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewOutdatedDuringPreparationTests.cs:line 40
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AReviewOverTheMaximumSize_IsRejected_AsTooLarge [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AReviewOverTheMaximumSize_IsRejected_AsTooLarge() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 81
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerProposal_SavedWhilePreparing_RefusesAndStoresNothing [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewOutdatedDuringPreparationTests.ANewerProposal_SavedWhilePreparing_RefusesAndStoresNothing() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewOutdatedDuringPreparationTests.cs:line 69
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.NullContent_IsMalformedOutput [3 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.NullContent_IsMalformedOutput() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 160
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.94]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheStoredReview_HoldsNoPathQuoteOrFileText_ThatTheProposalOrSampleDidNotAlreadyOwn [FAIL]
+[xUnit.net 00:00:02.94]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.NoErrorMessage_AnywhereInTheseResults_CarriesFindingTextOrAReference [FAIL]
+[xUnit.net 00:00:02.95]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.AReviewWithNoFindings_IsStoredLikeAnyOther [FAIL]
+[xUnit.net 00:00:02.95]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AFindingWithNoReference_IsRejected_AsMissingReference [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheStoredReview_HoldsNoPathQuoteOrFileText_ThatTheProposalOrSampleDidNotAlreadyOwn [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheStoredReview_HoldsNoPathQuoteOrFileText_ThatTheProposalOrSampleDidNotAlreadyOwn() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 199
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.NoErrorMessage_AnywhereInTheseResults_CarriesFindingTextOrAReference [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.NoErrorMessage_AnywhereInTheseResults_CarriesFindingTextOrAReference() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 266
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.AReviewWithNoFindings_IsStoredLikeAnyOther [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.AReviewWithNoFindings_IsStoredLikeAnyOther() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 108
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AFindingWithNoReference_IsRejected_AsMissingReference [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AFindingWithNoReference_IsRejected_AsMissingReference() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 36
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.95]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheGenerator_IsCalledOnce_AndGivenTheLatestRecordsAndTheRequest [FAIL]
+[xUnit.net 00:00:02.95]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.EveryRejection_ComesBackAs_ARejectedResult_NeverAsAnException [FAIL]
+[xUnit.net 00:00:02.95]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.Success_StoresATypedReview_WithEveryRequiredPart [FAIL]
+[xUnit.net 00:00:02.95]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.ReviewsOfDifferentSeverity_LeaveTheRequestAndItsAuditTrailIdentical_ExceptForTheirOwnRecord [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheGenerator_IsCalledOnce_AndGivenTheLatestRecordsAndTheRequest [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheGenerator_IsCalledOnce_AndGivenTheLatestRecordsAndTheRequest() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 158
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.EveryRejection_ComesBackAs_ARejectedResult_NeverAsAnException [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.EveryRejection_ComesBackAs_ARejectedResult_NeverAsAnException() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 117
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.Success_StoresATypedReview_WithEveryRequiredPart [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.Success_StoresATypedReview_WithEveryRequiredPart() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 25
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.ReviewsOfDifferentSeverity_LeaveTheRequestAndItsAuditTrailIdentical_ExceptForTheirOwnRecord [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewConsequenceTests.ReviewsOfDifferentSeverity_LeaveTheRequestAndItsAuditTrailIdentical_ExceptForTheirOwnRecord() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewConsequenceTests.cs:line 125
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.95]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheSystemCheck_IsComputedBeforeTheModelIsAsked_AndIsTheOneStored [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheSystemCheck_IsComputedBeforeTheModelIsAsked_AndIsTheOneStored [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheSystemCheck_IsComputedBeforeTheModelIsAsked_AndIsTheOneStored() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 77
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.96]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheAgentNameAndTheAdvisoryNote_AreSetBySystem [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheAgentNameAndTheAdvisoryNote_AreSetBySystem [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheAgentNameAndTheAdvisoryNote_AreSetBySystem() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 60
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.97]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.OneReviewGeneratedEntry_IsAudited_WithNoToolCalledEntries [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.OneReviewGeneratedEntry_IsAudited_WithNoToolCalledEntries [54 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.OneReviewGeneratedEntry_IsAudited_WithNoToolCalledEntries() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 121
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ACancelledRequest_StoresNothing_AndTheCancellationIsNotTurnedIntoAFailure [FAIL]
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.NothingInTheAuditTrail_CarriesAStatementAPathAQuoteOrFileText [FAIL]
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.OverlappingRequests_GetDistinctConsecutiveVersions_AndOneAuditEntryEach [FAIL]
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.AQuoteThatNoLongerMatchesTheSample_IsStoredAsQuoteNotFound_AndTheReviewStillSucceeds [FAIL]
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.Reviewing_ChangesNoStatus_AndAddsNoOtherRecord [FAIL]
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheStoredReviewIsLinkedToTheVersionsTheModelWasGiven_NotToAnyOther [FAIL]
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.Reads_AreNotAffectedByAnotherChangeRequestsReviews [FAIL]
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.WithNoReview_LatestIsASuccessfulNull_AndHistoryIsEmpty [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ACancelledRequest_StoresNothing_AndTheCancellationIsNotTurnedIntoAFailure [6 ms]
+  Error Message:
+   Assert.ThrowsAny() Failure: Exception type was not compatible
+Expected: typeof(System.OperationCanceledException)
+Actual:   typeof(System.NotImplementedException)
+---- System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ACancelledRequest_StoresNothing_AndTheCancellationIsNotTurnedIntoAFailure() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 218
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.<>c__DisplayClass15_0.<ACancelledRequest_StoresNothing_AndTheCancellationIsNotTurnedIntoAFailure>b__1() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 218
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.NothingInTheAuditTrail_CarriesAStatementAPathAQuoteOrFileText [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.NothingInTheAuditTrail_CarriesAStatementAPathAQuoteOrFileText() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 184
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.OverlappingRequests_GetDistinctConsecutiveVersions_AndOneAuditEntryEach [144 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.<>c__DisplayClass6_0.<OverlappingRequests_GetDistinctConsecutiveVersions_AndOneAuditEntryEach>b__3() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRetrievalTests.cs:line 86
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.OverlappingRequests_GetDistinctConsecutiveVersions_AndOneAuditEntryEach() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRetrievalTests.cs:line 86
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.AQuoteThatNoLongerMatchesTheSample_IsStoredAsQuoteNotFound_AndTheReviewStillSucceeds [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.AQuoteThatNoLongerMatchesTheSample_IsStoredAsQuoteNotFound_AndTheReviewStillSucceeds() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 95
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.Reviewing_ChangesNoStatus_AndAddsNoOtherRecord [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.Reviewing_ChangesNoStatus_AndAddsNoOtherRecord() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 143
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheStoredReviewIsLinkedToTheVersionsTheModelWasGiven_NotToAnyOther [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewServiceStoreTests.TheStoredReviewIsLinkedToTheVersionsTheModelWasGiven_NotToAnyOther() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewServiceStoreTests.cs:line 172
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.Reads_AreNotAffectedByAnotherChangeRequestsReviews [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.Reads_AreNotAffectedByAnotherChangeRequestsReviews() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRetrievalTests.cs:line 74
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.WithNoReview_LatestIsASuccessfulNull_AndHistoryIsEmpty [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.GetLatestReview(Guid changeRequestId) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 44
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.WithNoReview_LatestIsASuccessfulNull_AndHistoryIsEmpty() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRetrievalTests.cs:line 47
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.Latest_IsTheNewestVersion_AndHistoryIsInAscendingOrder [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.Latest_IsTheNewestVersion_AndHistoryIsInAscendingOrder [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.Latest_IsTheNewestVersion_AndHistoryIsInAscendingOrder() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRetrievalTests.cs:line 15
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.AReader_NeverSeesAReviewWithoutItsAuditEntry [FAIL]
+[xUnit.net 00:00:02.98]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.AnUnknownChangeRequest_IsReportedOnTheIdField_ForBothReads [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.AReader_NeverSeesAReviewWithoutItsAuditEntry [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.AReader_NeverSeesAReviewWithoutItsAuditEntry() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRetrievalTests.cs:line 112
+--- End of stack trace from previous location ---
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.AnUnknownChangeRequest_IsReportedOnTheIdField_ForBothReads [< 1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.GetLatestReview(Guid changeRequestId) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 44
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.AnUnknownChangeRequest_IsReportedOnTheIdField_ForBothReads() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRetrievalTests.cs:line 60
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:02.99]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.RequestingAgain_PreservesEarlierVersionsUnchanged [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.RequestingAgain_PreservesEarlierVersionsUnchanged [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRetrievalTests.RequestingAgain_PreservesEarlierVersionsUnchanged() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRetrievalTests.cs:line 29
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.99]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AFailedRequest_ChangesNothing_AndASuccessfulOneStillWorksAfterwards [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AFailedRequest_ChangesNothing_AndASuccessfulOneStillWorksAfterwards [34 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.AFailedRequest_ChangesNothing_AndASuccessfulOneStillWorksAfterwards() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 247
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.99]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ACancellationFromTheGenerator_WhileTheCallersTokenIsLive_IsReportedByTypeNameOnly [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ACancellationFromTheGenerator_WhileTheCallersTokenIsLive_IsReportedByTypeNameOnly [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.ACancellationFromTheGenerator_WhileTheCallersTokenIsLive_IsReportedByTypeNameOnly() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 230
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:02.99]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.MoreFindingsThanTheMaximum_IsRejected_AsTooManyFindings [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.MoreFindingsThanTheMaximum_IsRejected_AsTooManyFindings [1 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewService.ReviewAsync(Guid changeRequestId, CancellationToken cancellationToken) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewService.cs:line 42
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewRejectionAndFailureTests.MoreFindingsThanTheMaximum_IsRejected_AsTooManyFindings() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewRejectionAndFailureTests.cs:line 66
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:03.00]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.Reviews_AreReturnedInAscendingVersionOrder_PerChangeRequest(kind: "sqlite") [FAIL]
+[xUnit.net 00:00:03.00]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.Reviews_AreReturnedInAscendingVersionOrder_PerChangeRequest(kind: "memory") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.Reviews_AreReturnedInAscendingVersionOrder_PerChangeRequest(kind: "sqlite") [443 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.Reviews_AreReturnedInAscendingVersionOrder_PerChangeRequest(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 143
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.Reviews_AreReturnedInAscendingVersionOrder_PerChangeRequest(kind: "memory") [3 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.Reviews_AreReturnedInAscendingVersionOrder_PerChangeRequest(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 143
+   at InvokeStub_ReviewStorageRoundTripTests.Reviews_AreReturnedInAscendingVersionOrder_PerChangeRequest(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:03.03]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AReview_IsStoredWithItsAuditEntry_AndReadBackEqual(kind: "sqlite") [FAIL]
+[xUnit.net 00:00:03.04]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AReview_IsStoredWithItsAuditEntry_AndReadBackEqual(kind: "memory") [FAIL]
+[xUnit.net 00:00:03.16]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.StoringAReview_LeavesTheStorageLayoutVersionAtTwo [FAIL]
+[xUnit.net 00:00:03.17]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheStoredJson_HoldsNoKeyTheRecordDoesNotDefine(kind: "memory") [FAIL]
+[xUnit.net 00:00:03.23]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheStoredJson_HoldsNoKeyTheRecordDoesNotDefine(kind: "sqlite") [FAIL]
+[xUnit.net 00:00:03.24]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ADuplicateVersion_IsRefused_AndNothingIsAdded(kind: "memory") [FAIL]
+[xUnit.net 00:00:03.31]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ADuplicateVersion_IsRefused_AndNothingIsAdded(kind: "sqlite") [FAIL]
+[xUnit.net 00:00:03.31]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AStoreWithNoReviews_ReadsAnEmptyList_ForKnownAndUnknownIds [FAIL]
+[xUnit.net 00:00:03.32]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ANotPerformedCheck_RoundTripsWithAnEmptyEditList(kind: "memory") [FAIL]
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AReview_IsStoredWithItsAuditEntry_AndReadBackEqual(kind: "sqlite") [43 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AReview_IsStoredWithItsAuditEntry_AndReadBackEqual(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 104
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AReview_IsStoredWithItsAuditEntry_AndReadBackEqual(kind: "memory") [3 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AReview_IsStoredWithItsAuditEntry_AndReadBackEqual(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 104
+   at InvokeStub_ReviewStorageRoundTripTests.AReview_IsStoredWithItsAuditEntry_AndReadBackEqual(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.StoringAReview_LeavesTheStorageLayoutVersionAtTwo [125 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.StoringAReview_LeavesTheStorageLayoutVersionAtTwo() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 208
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheStoredJson_HoldsNoKeyTheRecordDoesNotDefine(kind: "memory") [4 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheStoredJson_HoldsNoKeyTheRecordDoesNotDefine(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 228
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheStoredJson_HoldsNoKeyTheRecordDoesNotDefine(kind: "sqlite") [62 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheStoredJson_HoldsNoKeyTheRecordDoesNotDefine(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 228
+   at InvokeStub_ReviewStorageRoundTripTests.TheStoredJson_HoldsNoKeyTheRecordDoesNotDefine(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ADuplicateVersion_IsRefused_AndNothingIsAdded(kind: "memory") [3 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ADuplicateVersion_IsRefused_AndNothingIsAdded(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 161
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ADuplicateVersion_IsRefused_AndNothingIsAdded(kind: "sqlite") [71 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ADuplicateVersion_IsRefused_AndNothingIsAdded(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 161
+   at InvokeStub_ReviewStorageRoundTripTests.ADuplicateVersion_IsRefused_AndNothingIsAdded(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AStoreWithNoReviews_ReadsAnEmptyList_ForKnownAndUnknownIds [3 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.GetReviews(IChangeRequestStore store, Guid changeRequestId) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 16
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.AStoreWithNoReviews_ReadsAnEmptyList_ForKnownAndUnknownIds() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 196
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ANotPerformedCheck_RoundTripsWithAnEmptyEditList(kind: "memory") [3 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ANotPerformedCheck_RoundTripsWithAnEmptyEditList(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 124
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.34]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ANotPerformedCheck_RoundTripsWithAnEmptyEditList(kind: "sqlite") [FAIL]
+
+Passed!  - Failed:     0, Passed:   271, Skipped:     0, Total:   271, Duration: 3 s - AgenticChangeOps.ModelAccess.Tests.dll (net8.0)
+[xUnit.net 00:00:03.36]     AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheDurableStore_ReturnsTheSameReviews_AfterARestart [FAIL]
+
+Passed!  - Failed:     0, Passed:   156, Skipped:     2, Total:   158, Duration: 2 s - AgenticChangeOps.Agents.Architect.Tests.dll (net8.0)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ANotPerformedCheck_RoundTripsWithAnEmptyEditList(kind: "sqlite") [20 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.ANotPerformedCheck_RoundTripsWithAnEmptyEditList(String kind) in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 124
+   at InvokeStub_ReviewStorageRoundTripTests.ANotPerformedCheck_RoundTripsWithAnEmptyEditList(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheDurableStore_ReturnsTheSameReviews_AfterARestart [23 ms]
+  Error Message:
+   System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace:
+     at AgenticChangeOps.Agents.Reviewer.ReviewStoreExtensions.SaveReview(IChangeRequestStore store, Review review, ChangeRequestAuditEntry auditEntry) in C:\Projects\AgenticChangeOps\src\AgenticChangeOps.Agents.Reviewer\ReviewStoreExtensions.cs:line 12
+   at AgenticChangeOps.Agents.Reviewer.Tests.Unit.ReviewStorageRoundTripTests.TheDurableStore_ReturnsTheSameReviews_AfterARestart() in C:\Projects\AgenticChangeOps\tests\AgenticChangeOps.Agents.Reviewer.Tests\Unit\ReviewStorageRoundTripTests.cs:line 179
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+Failed!  - Failed:    91, Passed:   258, Skipped:     0, Total:   349, Duration: 968 ms - AgenticChangeOps.Agents.Reviewer.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   123, Skipped:     0, Total:   123, Duration: 4 s - AgenticChangeOps.SampleCode.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   172, Skipped:     0, Total:   172, Duration: 4 s - AgenticChangeOps.Agents.Developer.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:   345, Skipped:     1, Total:   346, Duration: 23 s - AgenticChangeOps.Api.Tests.dll (net8.0)
+
+==== Summary (T042) ====
+New tests: Reviewer.Tests +97 (349 total): 91 fail, 6 pass. Every one of the 91 failures is System.NotImplementedException
+from a stub (ReviewService methods, ReviewStoreExtensions); none is a compile error or an unrelated failure.
+The 6 that pass already are structural facts that hold without the service: the four decision projects (Workflow, Intake,
+Persistence, Drafting) do not reference the Reviewer project, no source outside the Reviewer and the composition root
+names a review type, and nothing in the decision projects reads a severity.
+Every other project is green at the baseline counts (Intake 118, Persistence 81, Drafting 45, ModelAccess 271,
+SampleCode 123, Workflow 194, Requirement 157+1 skipped, Architect 156+2 skipped, Developer 172, Api 345+1 skipped).
+
+Test files: Unit/ReviewServiceStoreTests.cs (T034), Unit/ReviewSampleUnavailableTests.cs (T035),
+Unit/ReviewRetrievalTests.cs (T036), Unit/ReviewEligibilityTests.cs (T037), Unit/ReviewOutdatedDuringPreparationTests.cs (T038),
+Unit/ReviewRejectionAndFailureTests.cs (T039), Unit/ReviewStorageRoundTripTests.cs (T040), Unit/ReviewConsequenceTests.cs (T041);
+fakes: Fakes/FakeReviewGenerator.cs, Fakes/ReviewTestFixture.cs.
+Two test details worth knowing: the layout version is checked through SQLite PRAGMA user_version (StorageSchema is internal),
+and the bare word "Review" is not in the consequence regex because the drafting engine has its own Review(...) method.
+
+==== Approval (T043) ====
+User approved the step 3 tests on 2026-10-22. Implementation (T044 to T045) starts after this line.
+
+==== Result (T044 to T045) ====
+After implementation: Reviewer.Tests 349 passed, 0 failed (all 91 red tests green on the first run, no test edited). Every other project at the baseline counts.
