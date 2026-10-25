@@ -181,7 +181,7 @@
 - [x] T065 Run `dotnet build AgenticChangeOps.sln -c Release` and `dotnet test AgenticChangeOps.sln`, then quickstart.md sections 1 and 2 and record results in `specs/018-reviewer-agent-review/verification.md`. Section 4 (live) is recorded as not run unless the maintainer runs it.
 - [x] T066 Final scan: grep the Reviewer project for the guard tokens and `SampleCode`, run the Requirement, Architect, Developer and Drafting test projects to confirm they are unchanged and green, and confirm `git diff main` shows no edited line in any existing test file beyond the approved list (T004) and no edit to any other agent project.
 - [x] T067 Tick the **Constitution** line and every completed task in this file, and re-run the spec quality checklist against the final behaviour.
-- [ ] T068 **[USER]** Push `feature/reviewer-agent-review` and open the slice PR after the user confirms; the PR description carries the constitution checkbox (v1.0.6, no amendment needed), the baseline and unchanged-behaviour comparison, the five step summaries, and states plainly that the live check was not run.
+- [x] T068 **[USER]** Push `feature/reviewer-agent-review` and open the slice PR after the user confirms; the PR description carries the constitution checkbox (v1.0.6, no amendment needed), the baseline and unchanged-behaviour comparison, the five step summaries, and states plainly that the live check was not run.
 
 ---
 
