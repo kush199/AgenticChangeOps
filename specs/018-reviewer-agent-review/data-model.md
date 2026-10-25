@@ -50,6 +50,8 @@ the proposal's `Changes`. No path, quote or file text is stored.
 ## Enums
 
 - `ReviewStatus`: `Draft`.
+- `ReviewChangeKind`: `Change`, `Add` (the Reviewer own copy of the proposal edit kind, set by the Api adapter).
+- `ReviewSamplePathState`: `OutsideSample`, `Missing`, `File`, `Folder` (what `IReviewSampleFiles.Probe` reports; never stored).
 - `SystemCheckStatus`: `Performed`, `NotPerformed`.
 - `EditCheckOutcome`: `Found`, `QuoteNotFound`, `QuoteAmbiguous`, `FileNotFound`, `PathOutsideSample`,
   `NewFileFree`, `NewFileExists`, `MalformedEdit`.
@@ -67,6 +69,11 @@ the proposal's `Changes`. No path, quote or file text is stored.
 
 Findings as the model wrote them: category, severity and reference words as raw text, statement
 nullable; open questions nullable (absent and empty stay distinguishable). Carries no check result.
+
+## ReviewValidation (validator result, never stored)
+
+`ReviewValidation(Value, Errors, Rejection)`: exactly one of a `ValidatedReview` (typed findings with resolved
+references, and open questions), shape errors, or a typed `ReviewRejection`.
 
 ## GeneratedReview (engine's "generated" value, internal)
 

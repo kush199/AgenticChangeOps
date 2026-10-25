@@ -92,15 +92,14 @@ specs/018-reviewer-agent-review/
 ```text
 src/
 ├── AgenticChangeOps.Agents.Reviewer/             # NEW: everything specific to the Reviewer
-│   ├── Review.cs  ReviewFinding.cs  ReviewReference.cs  SystemCheck.cs  ReviewEnums.cs
-│   ├── ReviewContent.cs  ReviewLimits.cs
-│   ├── ReviewBasis.cs  (ReviewRequirementsBasis, ReviewDesignBasis, ReviewProposalBasis, IReviewBasisSource)
-│   ├── IReviewSampleFiles.cs  SampleChecker.cs
-│   ├── ReferenceResolver.cs  ReviewContentValidator.cs
+│   ├── Review.cs  (Review, ReviewFinding, ReviewReference, SystemCheck, EditCheck)  ReviewEnums.cs  ReviewLimits.cs
+│   ├── ReviewContent.cs  (ReviewContent, ReviewFindingContent, ValidatedReview, ReviewValidation)
+│   ├── ReviewBasis.cs  (ReviewRequirementsBasis, ReviewDesignBasis, ReviewProposalBasis, ReviewProposedChange, ReviewBases, IReviewBasisSource)
+│   ├── IReviewSampleFiles.cs  SampleChecker.cs  ReferenceResolver.cs  ReviewContentValidator.cs
 │   ├── IReviewGenerator.cs  AzureOpenAIReviewGenerator.cs  ReviewPromptBuilder.cs  ReviewResponseParser.cs
 │   ├── IReviewService.cs  ReviewService.cs  ReviewResult.cs  ReviewStoreExtensions.cs
 ├── AgenticChangeOps.Intake/Models/Enums/AuditEventType.cs     # + ReviewGenerated (appended)
-├── AgenticChangeOps.ModelAccess/ModelAnswer.cs                # + one additive nested-list reader
+├── AgenticChangeOps.ModelAccess/ModelAnswer.cs, ObjectWithList.cs   # + one additive nested-list reader and its result record
 └── AgenticChangeOps.Api/Composition/                          # registration only, no endpoint
     ├── ReviewBasisAdapter.cs  ReviewSampleFilesAdapter.cs  ReviewSettings.cs
     └── ApiServiceRegistration.cs  (+ ReviewSetup and IReviewService registration)
@@ -150,6 +149,23 @@ of the order of steps; it uses `ModelCaller`, `ModelAnswerReader`, `SectionNorma
 | New persisted record type `Review` | Spec requires a stored typed record | Reusing another record would mix agents; the generic agent-output table needs no layout change |
 | One additive method on `ModelAnswer` in ModelAccess (reads a list of objects with string members and one nested list of strings) | A finding carries a list of references; the existing `ReadObjectList` reads string members only. ModelAccess is shared plumbing, not an agent | Encoding references as one delimited string would move parsing into agent code and weaken strictness; an edit to the existing reader would risk the other agents |
 | Own copies of read-model shapes (`ReviewRequirementsBasis`, `ReviewDesignBasis`, `ReviewProposalBasis`) | The Reviewer may not reference the other agents; the same pattern the Developer uses | Referencing the other agents' records breaks the structure tests |
+
+## Complexity Tracking: what was actually added (recorded at T064)
+
+| Item | Where | Notes |
+|---|---|---|
+| New project and test project | `src/AgenticChangeOps.Agents.Reviewer`, `tests/AgenticChangeOps.Agents.Reviewer.Tests` | References Drafting, Intake and ModelAccess only; nothing else references it except the Api composition root |
+| Quote-matching copy | `SampleChecker` | About 15 lines (line-ending normalisation, first and second occurrence), the Developer rule recorded as an outcome instead of a rejection; the Developer is untouched |
+| Appended audit value | `AuditEventType.ReviewGenerated` | Inert until `ReviewService` stores a review; the openapi golden gained the value `8` |
+| Persisted record | `Review` through `SaveAgentOutput` / `GetAgentOutputs`, layout version stays 2 | Immutable once stored; links to the three upstream versions |
+| ModelAccess additive reader | `ModelAnswer.ReadObjectListWithStringList`, `ObjectWithList` | New method and new file; no existing reader or test edited |
+| Read-model copies | `ReviewRequirementsBasis`, `ReviewDesignBasis`, `ReviewProposalBasis`, `ReviewBases` | The Reviewer may not reference the other agents; the Api adapter fills them |
+| Composition root | `ReviewSettings`, `ReviewSampleFilesAdapter`, `ReviewBasisAdapter`, lazy `ReviewSetup`, three registrations | No route, no `Program.cs` change, no workflow change |
+| Drafting engine | unchanged | The generated value carries the content, the system check and the bases, so the engine needed no new argument |
+
+Non-consequential (FR-011): producing a review is classified non-consequential. Nothing leaves the system,
+nothing is applied, no status moves, and nothing reads a severity. The Workflow, Intake, Persistence and
+Drafting projects do not reference the Reviewer and never name a review type (structure tests).
 
 ## Constitution compliance check (pre-code)
 

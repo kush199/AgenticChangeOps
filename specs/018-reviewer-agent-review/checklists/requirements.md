@@ -32,3 +32,6 @@
 ## Notes
 
 - All items pass on the first iteration; no clarifications were needed (defaults recorded in Assumptions).
+- Re-checked at T067 against the finished behaviour (2026-10-25): 16/16 items still pass. The two clarifications
+  (reference form, the model seeing the system check) and the FR-003 wording for "malformed" at the internal service
+  are in the spec; no [NEEDS CLARIFICATION] marker was ever needed.
