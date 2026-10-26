@@ -19,10 +19,10 @@ This is a learning and portfolio project, built slice by slice with
 | **Durable storage** | Change requests, audit entries, requirements drafts and design drafts are kept in a local SQLite file and survive a restart. A stored item and its audit entry are stored together or not at all, and version numbers never repeat |
 | **Automatic advancement** | Optional and off by default: when switched on, runs the requirements and design draft steps for requests that have one due, without anyone asking. Never makes a decision |
 | **Change proposals** | Optional, needs the sample tools: a Developer agent proposes a text-only change set (quoted edits, risks, test ideas) for an approved request with a current design. Every quote is checked against the real sample file; nothing is ever applied. Versioned and audited as `ProposalGenerated` |
-| **Reviews** | Internal service only (no route yet): a Reviewer agent writes an advisory review of the latest change proposal of an approved request. The system first re-checks every proposed edit against the sample on its own; the model only writes findings, each citing a real entry of the requirements, design or proposal. Versioned and audited as `ReviewGenerated`; it **never changes any status and decides nothing** |
-| **HTTP API** | All of the above except reviews, over a local JSON API with a Swagger page |
+| **Reviews** | A Reviewer agent writes an advisory review of the latest change proposal of an approved request. The system first re-checks every proposed edit against the sample on its own; the model only writes findings, each citing a real entry of the requirements, design or proposal. Versioned and audited as `ReviewGenerated`; it **never changes any status and decides nothing** |
+| **HTTP API** | All of the above, over a local JSON API with a Swagger page. Reviews can be requested over HTTP; reading them back is internal only for now |
 
-Not built yet: HTTP operations and a human acceptance step for reviews, applying a proposal,
+Not built yet: HTTP operations to read reviews back, a human acceptance step for reviews, applying a proposal,
 orchestration between agents, authentication.
 
 ## Design principles
@@ -349,13 +349,22 @@ proposals are available, the workflow status shows `offeredStep: "Proposal"` nex
 stage and next step; automatic advancement never runs a proposal, it runs only when a person asks.
 With the Developer unused, every existing response is exactly as before.
 
-## Reviewer agent: advisory reviews (internal service, no route yet)
+## Reviewer agent: advisory reviews (one HTTP operation to request)
 
 For an **Approved** change request that has a requirements draft, a design draft based on the latest
 requirements draft, and a change proposal based on the latest design draft, the Reviewer agent can write
-an **advisory review** of the proposal. There is no HTTP operation for it yet: the service
-(`IReviewService`: request a review, latest review, review history in version order) is obtained from
-the host's service provider, and a person reads what it stores.
+an **advisory review** of the proposal. It is requested over HTTP and read back through the service
+(`IReviewService`: latest review, review history in version order), which is obtained from the host's
+service provider; there is no HTTP operation to read reviews yet.
+
+| Operation | Route |
+|---|---|
+| Request a review (no body) | `POST /change-requests/{id}/reviews` |
+
+Success is `201` with the stored review and no link. Checks run in this order: malformed id `400`
+`invalid-identifier`, unknown id `404` `not-found`, reviews not configured `503` `review-not-configured`,
+then the review itself: not eligible or outdated is `409` `conflict` naming the rule, a model failure is
+`502` `generation-failed` and refused findings are `502` `review-rejected`, each carrying only a category.
 
 A review has two parts. The first is checked by the **system**, without any model: every proposed
 edit's quoted text is re-checked against the current sample, and only the edit's position and a fixed
@@ -395,7 +404,7 @@ unused, every existing response is exactly as before.
 
 ## Roadmap
 
-- HTTP operations and a human acceptance step for reviews, using the constitution's principles as review input, and a human-approved way to apply a proposal
+- HTTP operations to read reviews back, a human acceptance step for reviews, using the constitution's principles as review input, and a human-approved way to apply a proposal
 - Orchestration between agents (Microsoft Agent Framework)
 - MCP tools for real systems (the Architect and Developer have read-only sample tools today)
 - Authentication

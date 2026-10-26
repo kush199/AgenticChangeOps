@@ -84,11 +84,12 @@ public static class ApiServiceRegistration
                 setup.Verifier);
         });
 
-        // Reviews (Reviewer): an internal service only, no route. Nothing here is read at start-up: the
+        // Reviews (Reviewer): one route, POST /change-requests/{id}/reviews. Nothing here is read at start-up: the
         // setup is built the first time the service is asked for, so a server that never uses the
         // Reviewer is unaffected by any review or model setting. A test can replace the generator or
         // register a plain chat client.
         services.AddSingleton<ReviewSetup>(CreateReviewSetup);
+        services.AddSingleton(sp => new ReviewAvailability(sp.GetRequiredService<ReviewSetup>().IsConfigured));
         services.AddSingleton<IReviewGenerator>(sp => sp.GetRequiredService<ReviewSetup>().Generator);
         services.AddSingleton<IReviewBasisSource, ReviewBasisAdapter>();
         services.AddSingleton<IReviewService>(sp =>
@@ -243,24 +244,26 @@ public static class ApiServiceRegistration
 
             // The plain chat client, with no tool of any kind; a test may register its own.
             var client = services.GetService<IChatModelClient>() ?? new AzureOpenAIChatModelClient(options);
-            return new ReviewSetup(new AzureOpenAIReviewGenerator(options, client), settings.Limits, sample);
+            return new ReviewSetup(new AzureOpenAIReviewGenerator(options, client), settings.Limits, sample, isConfigured: true);
         }
         catch (GeneratorConfigurationException)
         {
             logger.LogWarning("Reviews are not configured; review requests will fail.");
-            return new ReviewSetup(new NotConfiguredReviewGenerator(), ReviewLimits.Defaults, sample);
+            return new ReviewSetup(new NotConfiguredReviewGenerator(), ReviewLimits.Defaults, sample, isConfigured: false);
         }
     }
 
     private sealed class ReviewSetup
     {
-        public ReviewSetup(IReviewGenerator generator, ReviewLimits limits, IReviewSampleFiles sample)
+        public ReviewSetup(IReviewGenerator generator, ReviewLimits limits, IReviewSampleFiles sample, bool isConfigured)
         {
             Generator = generator;
             Limits = limits;
             Sample = sample;
+            IsConfigured = isConfigured;
         }
 
+        public bool IsConfigured { get; }
         public IReviewGenerator Generator { get; }
         public ReviewLimits Limits { get; }
         public IReviewSampleFiles Sample { get; }

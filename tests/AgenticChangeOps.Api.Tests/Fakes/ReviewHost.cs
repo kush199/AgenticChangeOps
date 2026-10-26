@@ -15,7 +15,7 @@ namespace AgenticChangeOps.Api.Tests.Fakes;
 /// The real composition (settings, adapters, services, store) with only the model calls scripted: the
 /// requirements and design generators are fakes, proposals go through the real Developer service over
 /// a throwaway copy of the real sample folder, and the Reviewer's own model call is a scripted plain
-/// chat client. No route exists for reviews, so tests obtain the service from the provider.
+/// chat client. Tests either call the review route or obtain the service from the provider.
 /// </summary>
 public sealed class ReviewHost : IDisposable
 {
@@ -73,8 +73,34 @@ public sealed class ReviewHost : IDisposable
                 services.AddSingleton(new DesignAvailability(true));
                 if (generator is not null)
                     services.AddSingleton(generator);
+                services.AddSingleton<IReviewBasisSource>(sp =>
+                    new ShapedBasisSource(this, ActivatorUtilities.CreateInstance<ReviewBasisAdapter>(sp)));
             });
         Client = _factory.CreateClient();
+    }
+
+    /// <summary>
+    /// Lets a test make the records a review is based on look stale (for example a design on older
+    /// requirements). Null means the real records are passed through untouched.
+    /// </summary>
+    public Func<ReviewBases, ReviewBases>? BasisShaper { get; set; }
+
+    private sealed class ShapedBasisSource : IReviewBasisSource
+    {
+        private readonly ReviewHost _host;
+        private readonly IReviewBasisSource _inner;
+
+        public ShapedBasisSource(ReviewHost host, IReviewBasisSource inner)
+        {
+            _host = host;
+            _inner = inner;
+        }
+
+        public ReviewBases GetLatest(Guid changeRequestId)
+        {
+            var real = _inner.GetLatest(changeRequestId);
+            return _host.BasisShaper is { } shape ? shape(real) : real;
+        }
     }
 
     public ScriptedChatModelClient ReviewClient { get; }
@@ -135,6 +161,12 @@ public sealed class ReviewHost : IDisposable
             StatusAfter: ChangeRequestStatus.Approved, AgentName: proposal.AgentName, DraftVersion: proposal.Version));
         return proposal;
     }
+
+    /// <summary>Posts a review request (no body) to the review route for the given address segment.</summary>
+    public Task<HttpResponseMessage> RequestReviewAsync(string idSegment) =>
+        Client.PostAsync($"/change-requests/{idSegment}/reviews", null);
+
+    public Task<HttpResponseMessage> RequestReviewAsync(Guid id) => RequestReviewAsync(id.ToString());
 
     public async Task<string> AuditJsonAsync(Guid id) =>
         await (await Client.GetAsync($"/change-requests/{id}/audit")).Content.ReadAsStringAsync();
