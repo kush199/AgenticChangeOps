@@ -4,6 +4,7 @@ using AgenticChangeOps.Intake.Stores;
 using AgenticChangeOps.Agents.Architect;
 using AgenticChangeOps.Agents.Developer;
 using AgenticChangeOps.Agents.Requirement;
+using AgenticChangeOps.Agents.Reviewer;
 using AgenticChangeOps.Workflow;
 
 namespace AgenticChangeOps.Api.Errors;
@@ -20,6 +21,8 @@ public static class ErrorMapper
     private const string RequirementsDraftField = "RequirementsDraft";
     private const string DesignDraftField = "DesignDraft";
     private const string DesignDraftVersionField = "DesignDraftVersion";
+    private const string ProposalField = "Proposal";
+    private const string ProposalVersionField = "ProposalVersion";
 
     private static readonly HashSet<string> DesignSectionFields = new(StringComparer.Ordinal)
     {
@@ -120,6 +123,38 @@ public static class ErrorMapper
 
         return Unexpected();
     }
+
+    public static (int StatusCode, ErrorResponse Body) ForReviewing(ReviewResult result)
+    {
+        var errors = result.Errors;
+
+        if (IsNotFound(errors))
+            return NotFound();
+
+        // The system's own checks refused what the model produced: only the reason is reported.
+        if (result.Rejection is { } rejection)
+            return (502, new ErrorResponse(
+                "review-rejected",
+                "The review was refused by the system's checks.",
+                Category: rejection.ToString()));
+
+        if (result.FailureCategory is { } category)
+            return (502, new ErrorResponse(
+                "generation-failed",
+                "The review could not be generated.",
+                Category: category.ToString()));
+
+        // Not Approved, a missing requirements draft, design or proposal, or one that is not current: the
+        // request conflicts with the current state of the change request.
+        if (errors.All(e => e.FieldName is StatusField or RequirementsDraftField or DesignDraftField
+                or DesignDraftVersionField or ProposalField or ProposalVersionField))
+            return Conflict(errors);
+
+        return Unexpected();
+    }
+
+    public static (int StatusCode, ErrorResponse Body) ReviewNotConfigured() =>
+        (503, new ErrorResponse("review-not-configured", "Reviews are not configured on this server."));
 
     public static (int StatusCode, ErrorResponse Body) NoProposal() =>
         (404, new ErrorResponse("no-proposal", "No change proposal exists yet for this change request."));

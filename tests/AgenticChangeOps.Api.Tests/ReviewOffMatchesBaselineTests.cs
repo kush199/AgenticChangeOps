@@ -36,7 +36,7 @@ public sealed class ReviewOffMatchesBaselineTests
     }
 
     [Fact]
-    public void NoRoute_MentionsReviews()
+    public void OnlyOneRoute_MentionsReviews()
     {
         using var factory = new ApiFactory();
         using var client = factory.CreateClient();
@@ -47,11 +47,13 @@ public sealed class ReviewOffMatchesBaselineTests
             .ToList();
 
         Assert.NotEmpty(routes);
-        Assert.DoesNotContain(routes, r => r.Contains("review", StringComparison.OrdinalIgnoreCase));
+        Assert.Equal(
+            new[] { "/change-requests/{id}/reviews" },
+            routes.Where(r => r.Contains("review", StringComparison.OrdinalIgnoreCase)).ToArray());
     }
 
     [Fact]
-    public async Task TheApiDescription_MentionsNoReviewRouteTagOrSchema()
+    public async Task TheApiDescription_MentionsReviewsOnlyThroughTheOneOperation()
     {
         using var factory = new ApiFactory();
         using var client = factory.CreateClient();
@@ -59,8 +61,12 @@ public sealed class ReviewOffMatchesBaselineTests
         var response = await client.GetAsync("/openapi/v1.json");
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        var text = await response.Content.ReadAsStringAsync();
-        Assert.DoesNotContain("review", text, StringComparison.OrdinalIgnoreCase);
+        var doc = await response.ReadJsonAsync();
+        var paths = doc.GetProperty("paths").EnumerateObject().Select(p => p.Name)
+            .Where(n => n.Contains("review", StringComparison.OrdinalIgnoreCase)).ToArray();
+        Assert.Equal(new[] { "/change-requests/{id}/reviews" }, paths);
+        Assert.False(doc.TryGetProperty("tags", out var tags)
+            && tags.EnumerateArray().Any(t => t.GetRawText().Contains("review", StringComparison.OrdinalIgnoreCase)));
     }
 
     [Fact]

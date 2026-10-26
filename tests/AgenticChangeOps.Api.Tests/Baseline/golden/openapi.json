@@ -887,6 +887,97 @@
         }
       }
     },
+    "/change-requests/{id}/reviews": {
+      "post": {
+        "tags": [
+          "ReviewEndpoints"
+        ],
+        "summary": "Request an advisory review of the latest change proposal for an approved change request",
+        "operationId": "RequestReview",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/change-requests/{id}/workflow": {
       "get": {
         "tags": [
@@ -1449,6 +1540,33 @@
         "type": "integer",
         "format": "int32"
       },
+      "EditCheck": {
+        "type": "object",
+        "properties": {
+          "changeNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "outcome": {
+            "$ref": "#/components/schemas/EditCheckOutcome"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EditCheckOutcome": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "ErrorField": {
         "type": "object",
         "properties": {
@@ -1487,6 +1605,24 @@
           }
         },
         "additionalProperties": false
+      },
+      "FindingCategory": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "FindingSeverity": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "GenerationFailureCategory": {
         "enum": [
@@ -1580,6 +1716,23 @@
         },
         "additionalProperties": false
       },
+      "ReferenceList": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "RequirementsAdvanceResponse": {
         "type": "object",
         "properties": {
@@ -1656,6 +1809,123 @@
         },
         "additionalProperties": false
       },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "reviewId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "changeRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requirementsVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "designVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "proposalVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "generatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ReviewStatus"
+          },
+          "agentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemCheck": {
+            "$ref": "#/components/schemas/SystemCheck"
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewFinding"
+            },
+            "nullable": true
+          },
+          "openQuestions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "advisoryNote": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewDocument": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ReviewFinding": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/FindingCategory"
+          },
+          "severity": {
+            "$ref": "#/components/schemas/FindingSeverity"
+          },
+          "statement": {
+            "type": "string",
+            "nullable": true
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewReference"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewReference": {
+        "type": "object",
+        "properties": {
+          "document": {
+            "$ref": "#/components/schemas/ReviewDocument"
+          },
+          "list": {
+            "$ref": "#/components/schemas/ReferenceList"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewStatus": {
+        "enum": [
+          0
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "SubmitChangeRequestBody": {
         "type": "object",
         "properties": {
@@ -1685,6 +1955,30 @@
           }
         },
         "additionalProperties": false
+      },
+      "SystemCheck": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/SystemCheckStatus"
+          },
+          "edits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EditCheck"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SystemCheckStatus": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "WorkflowReason": {
         "type": "object",
