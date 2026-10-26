@@ -40,7 +40,8 @@ public sealed class ReviewHost : IDisposable
         bool toolsOn = true,
         bool modelConfigured = true,
         string? sampleFolder = null,
-        IReviewGenerator? generator = null)
+        IReviewGenerator? generator = null,
+        Exception? failStoringReviewWith = null)
     {
         ReviewClient = new ScriptedChatModelClient { Behavior = ScriptedChatModelClient.ReturnsText(ValidReviewJson) };
         ToolClient = new ScriptedToolClient(ProposalHost.ReadsAndProposes(ProposalHost.ChangeEdit(), ProposalHost.AddEdit()));
@@ -73,6 +74,8 @@ public sealed class ReviewHost : IDisposable
                 services.AddSingleton(new DesignAvailability(true));
                 if (generator is not null)
                     services.AddSingleton(generator);
+                if (failStoringReviewWith is not null)
+                    services.AddSingleton<IChangeRequestStore>(new ReviewSaveFailingStore(failStoringReviewWith));
                 services.AddSingleton<IReviewBasisSource>(sp =>
                     new ShapedBasisSource(this, ActivatorUtilities.CreateInstance<ReviewBasisAdapter>(sp)));
             });

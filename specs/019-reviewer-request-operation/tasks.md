@@ -74,3 +74,8 @@ Compiling stubs: `ReviewAvailability` (`src/AgenticChangeOps.Api/Composition/Rev
 ## Implementation strategy
 
 MVP is US1 plus the checks it needs (T012 to T014), but because the slice is one route, deliver all stories in one step: tests first, approval, then implementation, then the full suite.
+
+## Phase 5: Convergence
+
+- [x] T020 Add tests in `tests/AgenticChangeOps.Api.Tests/ReviewFailureEndpointTests.cs` that a storage failure while storing a review gives the existing 503 `storage-unavailable` shape (with a failure `category`) and that a lost version race gives the existing 409 `version-conflict` shape, both through `POST /change-requests/{id}/reviews`, with nothing stored and no model text, sample content, endpoint or deployment name in the response or logs; reuse the throwing-store pattern of `tests/AgenticChangeOps.Api.Tests/Storage/StorageErrorTests.cs` per spec Edge Cases and tasks T007 (partial)
+- [x] T021 Add a test in `tests/AgenticChangeOps.Api.Tests/ReviewEndpointTests.cs` that with the sample folder missing the route still returns 201 with a stored review whose `systemCheck` status is `NotPerformed` and no edits, and that the route works with the sample tools switched off, proving the operation adds no rule of its own per spec Edge Cases and FR-002 (partial)

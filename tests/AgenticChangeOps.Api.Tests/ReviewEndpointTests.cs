@@ -122,6 +122,23 @@ public sealed class ReviewEndpointTests
     }
 
     [Fact]
+    public async Task WithTheSampleFolderMissing_AndTheToolsOff_TheRouteStillGives201_WithTheCheckNotPerformed()
+    {
+        var missing = Path.Combine(Path.GetTempPath(), "changeops-review-route-gone-" + Guid.NewGuid().ToString("N"));
+        using var host = new ReviewHost(toolsOn: false, sampleFolder: missing);
+        var id = await host.ReadyForProposalAsync();
+        host.SeedProposal(id);
+
+        var response = await host.RequestReviewAsync(id);
+
+        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+        var check = (await response.ReadJsonAsync()).GetProperty("systemCheck");
+        Assert.Equal("NotPerformed", check.GetProperty("status").GetString());
+        Assert.Empty(check.GetProperty("edits").EnumerateArray());
+        Assert.False(Directory.Exists(missing));
+    }
+
+    [Fact]
     public async Task TheErrorBodyShape_MatchesTheProposalOperations()
     {
         using var host = new ReviewHost();

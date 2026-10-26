@@ -1,5 +1,6 @@
 using System.Net;
 using AgenticChangeOps.Api.Tests.Fakes;
+using AgenticChangeOps.Intake.Stores;
 using AgenticChangeOps.ModelAccess;
 
 namespace AgenticChangeOps.Api.Tests;
@@ -132,6 +133,39 @@ public sealed class ReviewFailureEndpointTests
 
         Assert.Equal(HttpStatusCode.BadGateway, response.StatusCode);
         Assert.Equal("generation-failed", (await response.ReadJsonAsync()).GetProperty("code").GetString());
+        await ReviewHttp.AssertNothingStoredAsync(host, id);
+        await AssertNoLeakAsync(host, id, response);
+    }
+
+    [Fact]
+    public async Task AStorageFailureWhileStoring_Is503StorageUnavailable_WithACategory_AndLeaksNothing()
+    {
+        using var host = new ReviewHost(failStoringReviewWith: new StorageUnavailableException(StorageFailureCategory.UnsupportedLayout));
+        var id = await host.ReadyForReviewAsync();
+
+        var response = await host.RequestReviewAsync(id);
+
+        Assert.Equal(HttpStatusCode.ServiceUnavailable, response.StatusCode);
+        var body = await response.ReadJsonAsync();
+        Assert.Equal("storage-unavailable", body.GetProperty("code").GetString());
+        Assert.Equal("UnsupportedLayout", body.GetProperty("category").GetString());
+        await ReviewHttp.AssertNothingStoredAsync(host, id);
+        await AssertNoLeakAsync(host, id, response);
+    }
+
+    [Fact]
+    public async Task ALostVersionRaceWhileStoring_Is409VersionConflict_InTheExistingShape_AndStoresNothing()
+    {
+        using var host = new ReviewHost(failStoringReviewWith: new StorageVersionConflictException());
+        var id = await host.ReadyForReviewAsync();
+
+        var response = await host.RequestReviewAsync(id);
+
+        Assert.Equal(HttpStatusCode.Conflict, response.StatusCode);
+        var body = await response.ReadJsonAsync();
+        Assert.Equal("version-conflict", body.GetProperty("code").GetString());
+        Assert.Equal("The request conflicts with a concurrent change; try again.", body.GetProperty("message").GetString());
+        Assert.False(body.TryGetProperty("category", out _));
         await ReviewHttp.AssertNothingStoredAsync(host, id);
         await AssertNoLeakAsync(host, id, response);
     }

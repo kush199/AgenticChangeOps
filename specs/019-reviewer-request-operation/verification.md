@@ -14,7 +14,7 @@ Run on branch `feature/reviewer-request-operation`, 2026-10-26, `dotnet test Age
 | Architect | 156 (2 skipped) | 156 (2 skipped) |
 | Developer | 172 | 172 |
 | Reviewer | 403 | 403 |
-| Api | 423 (2 skipped) | 483 (2 skipped): +60 new review route tests |
+| Api | 423 (2 skipped) | 486 (2 skipped): +63 new review route tests |
 
 Skipped are the opt-in live model checks. The live check of the new route was not run.
 
