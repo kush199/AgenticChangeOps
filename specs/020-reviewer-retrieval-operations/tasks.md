@@ -61,7 +61,7 @@ Compiling stubs: `ErrorMapper.NoReview()` (throwing `NotImplementedException`), 
 
 - [x] T017 Run `dotnet test AgenticChangeOps.sln`: every project green with the T002 counts plus the new tests; record in `specs/020-reviewer-retrieval-operations/verification.md` the totals, the list of existing-test edits (must equal `expected-test-edits.md`) and the golden diff summary. Tick `checklists/requirements.md` if still valid.
 - [x] T018 [P] Update `README.md` where it says reading reviews back is internal only (lines about "Reviews can be requested over HTTP; reading them back is internal only for now" and the "one HTTP operation to request" heading/section): list the two retrieval routes, the `no-review` code and the `Location` header on the request response. Search `*.md` outside `specs/` for other mentions.
-- [ ] T019 **[USER]**: add a memory note and report the live check as not run (needs real Azure OpenAI settings and a full chain). Commit on `feature/reviewer-retrieval-operations`, push and open the PR only when the user asks.
+- [x] T019 **[USER]**: add a memory note and report the live check as not run (needs real Azure OpenAI settings and a full chain). Commit on `feature/reviewer-retrieval-operations`, push and open the PR only when the user asks.
 
 ---
 
