@@ -46,7 +46,7 @@ public sealed class ReviewEndpointStructureTests
     }
 
     [Fact]
-    public void ExactlyOneRoute_MentionsReviews_AndItIsAPost()
+    public void ExactlyThreeRoutes_MentionReviews_OnePostAndTwoGets()
     {
         using var factory = new ApiFactory();
         using var client = factory.CreateClient();
@@ -56,9 +56,17 @@ public sealed class ReviewEndpointStructureTests
             .Where(e => (e.RoutePattern.RawText ?? string.Empty).Contains("review", StringComparison.OrdinalIgnoreCase))
             .ToList();
 
-        var route = Assert.Single(reviewRoutes);
-        Assert.Equal("/change-requests/{id}/reviews", route.RoutePattern.RawText);
-        var methods = route.Metadata.GetMetadata<Microsoft.AspNetCore.Routing.HttpMethodMetadata>()!.HttpMethods;
-        Assert.Equal(new[] { "POST" }, methods.ToArray());
+        var described = reviewRoutes
+            .Select(r => $"{string.Join(",", r.Metadata.GetMetadata<Microsoft.AspNetCore.Routing.HttpMethodMetadata>()!.HttpMethods)} {r.RoutePattern.RawText}")
+            .OrderBy(x => x, StringComparer.Ordinal)
+            .ToArray();
+        Assert.Equal(
+            new[]
+            {
+                "GET /change-requests/{id}/reviews",
+                "GET /change-requests/{id}/reviews/latest",
+                "POST /change-requests/{id}/reviews"
+            },
+            described);
     }
 }

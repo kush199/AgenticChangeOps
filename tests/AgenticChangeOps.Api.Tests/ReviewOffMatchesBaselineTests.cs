@@ -36,7 +36,7 @@ public sealed class ReviewOffMatchesBaselineTests
     }
 
     [Fact]
-    public void OnlyOneRoute_MentionsReviews()
+    public void OnlyThreeRoutes_MentionReviews()
     {
         using var factory = new ApiFactory();
         using var client = factory.CreateClient();
@@ -48,8 +48,8 @@ public sealed class ReviewOffMatchesBaselineTests
 
         Assert.NotEmpty(routes);
         Assert.Equal(
-            new[] { "/change-requests/{id}/reviews" },
-            routes.Where(r => r.Contains("review", StringComparison.OrdinalIgnoreCase)).ToArray());
+            new[] { "/change-requests/{id}/reviews", "/change-requests/{id}/reviews", "/change-requests/{id}/reviews/latest" },
+            routes.Where(r => r.Contains("review", StringComparison.OrdinalIgnoreCase)).OrderBy(r => r, StringComparer.Ordinal).ToArray());
     }
 
     [Fact]
@@ -64,7 +64,7 @@ public sealed class ReviewOffMatchesBaselineTests
         var doc = await response.ReadJsonAsync();
         var paths = doc.GetProperty("paths").EnumerateObject().Select(p => p.Name)
             .Where(n => n.Contains("review", StringComparison.OrdinalIgnoreCase)).ToArray();
-        Assert.Equal(new[] { "/change-requests/{id}/reviews" }, paths);
+        Assert.Equal(new[] { "/change-requests/{id}/reviews", "/change-requests/{id}/reviews/latest" }, paths.OrderBy(p => p, StringComparer.Ordinal));
         Assert.False(doc.TryGetProperty("tags", out var tags)
             && tags.EnumerateArray().Any(t => t.GetRawText().Contains("review", StringComparison.OrdinalIgnoreCase)));
     }

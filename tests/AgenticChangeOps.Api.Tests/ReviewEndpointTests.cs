@@ -9,7 +9,7 @@ namespace AgenticChangeOps.Api.Tests;
 public sealed class ReviewEndpointTests
 {
     [Fact]
-    public async Task AnEligibleRequest_Is201_WithTheStoredReview_AndNoLocation()
+    public async Task AnEligibleRequest_Is201_WithTheStoredReview_AndTheLatestLink()
     {
         using var host = new ReviewHost();
         var id = await host.ReadyForReviewAsync();
@@ -17,8 +17,7 @@ public sealed class ReviewEndpointTests
         var response = await host.RequestReviewAsync(id);
 
         Assert.Equal(HttpStatusCode.Created, response.StatusCode);
-        Assert.Null(response.Headers.Location);
-        Assert.False(response.Headers.Contains("Location"));
+        Assert.Equal($"/change-requests/{id}/reviews/latest", response.Headers.Location!.OriginalString);
         var body = await response.ReadJsonAsync();
         var stored = Assert.Single(host.Store.GetAgentOutputs<Review>(id));
         Assert.Equal(stored.ReviewId, body.GetProperty("reviewId").GetGuid());
@@ -33,6 +32,22 @@ public sealed class ReviewEndpointTests
     }
 
     private const System.Text.Json.JsonValueKind JsonValueKindArray = System.Text.Json.JsonValueKind.Array;
+
+    [Fact]
+    public async Task ASuccessfulRequest_CarriesALinkToTheLatestReview_AndItCanBeFollowed()
+    {
+        using var host = new ReviewHost();
+        var id = await host.ReadyForReviewAsync();
+
+        var response = await host.RequestReviewAsync(id);
+
+        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+        Assert.Equal($"/change-requests/{id}/reviews/latest", response.Headers.Location!.OriginalString);
+        var body = await response.ReadJsonAsync();
+        var followed = await host.Client.GetAsync(response.Headers.Location);
+        Assert.Equal(HttpStatusCode.OK, followed.StatusCode);
+        Assert.Equal(body.GetProperty("reviewId").GetGuid(), (await followed.ReadJsonAsync()).GetProperty("reviewId").GetGuid());
+    }
 
     [Fact]
     public async Task TheBody_HasNoRetrievalLink()
