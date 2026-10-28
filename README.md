@@ -20,9 +20,9 @@ This is a learning and portfolio project, built slice by slice with
 | **Automatic advancement** | Optional and off by default: when switched on, runs the requirements and design draft steps for requests that have one due, without anyone asking. Never makes a decision |
 | **Change proposals** | Optional, needs the sample tools: a Developer agent proposes a text-only change set (quoted edits, risks, test ideas) for an approved request with a current design. Every quote is checked against the real sample file; nothing is ever applied. Versioned and audited as `ProposalGenerated` |
 | **Reviews** | A Reviewer agent writes an advisory review of the latest change proposal of an approved request. The system first re-checks every proposed edit against the sample on its own; the model only writes findings, each citing a real entry of the requirements, design or proposal. Versioned and audited as `ReviewGenerated`; it **never changes any status and decides nothing** |
-| **HTTP API** | All of the above, over a local JSON API with a Swagger page. Reviews can be requested over HTTP; reading them back is internal only for now |
+| **HTTP API** | All of the above, over a local JSON API with a Swagger page. Reviews can be requested and read back (latest, history) over HTTP |
 
-Not built yet: HTTP operations to read reviews back, a human acceptance step for reviews, applying a proposal,
+Not built yet: a human acceptance step for reviews, applying a proposal,
 orchestration between agents, authentication.
 
 ## Design principles
@@ -349,22 +349,24 @@ proposals are available, the workflow status shows `offeredStep: "Proposal"` nex
 stage and next step; automatic advancement never runs a proposal, it runs only when a person asks.
 With the Developer unused, every existing response is exactly as before.
 
-## Reviewer agent: advisory reviews (one HTTP operation to request)
+## Reviewer agent: advisory reviews (three HTTP operations)
 
 For an **Approved** change request that has a requirements draft, a design draft based on the latest
 requirements draft, and a change proposal based on the latest design draft, the Reviewer agent can write
-an **advisory review** of the proposal. It is requested over HTTP and read back through the service
-(`IReviewService`: latest review, review history in version order), which is obtained from the host's
-service provider; there is no HTTP operation to read reviews yet.
+an **advisory review** of the proposal. It is requested and read back over HTTP (latest review, review history in version order).
 
 | Operation | Route |
 |---|---|
 | Request a review (no body) | `POST /change-requests/{id}/reviews` |
+| Latest review | `GET /change-requests/{id}/reviews/latest` |
+| Review history, oldest first | `GET /change-requests/{id}/reviews` |
 
-Success is `201` with the stored review and no link. Checks run in this order: malformed id `400`
+Success is `201` with the stored review and a `Location` link to the latest review. Checks run in this order: malformed id `400`
 `invalid-identifier`, unknown id `404` `not-found`, reviews not configured `503` `review-not-configured`,
 then the review itself: not eligible or outdated is `409` `conflict` naming the rule, a model failure is
 `502` `generation-failed` and refused findings are `502` `review-rejected`, each carrying only a category.
+
+The two read operations only read what is stored, so they work whether or not reviewing is configured: a malformed id is `400` `invalid-identifier`, an unknown id `404` `not-found`, and the latest of a change request with no review `404` `no-review`; the history of one with no review is `200` with an empty list.
 
 A review has two parts. The first is checked by the **system**, without any model: every proposed
 edit's quoted text is re-checked against the current sample, and only the edit's position and a fixed
@@ -404,7 +406,7 @@ unused, every existing response is exactly as before.
 
 ## Roadmap
 
-- HTTP operations to read reviews back, a human acceptance step for reviews, using the constitution's principles as review input, and a human-approved way to apply a proposal
+- A human acceptance step for reviews, using the constitution's principles as review input, and a human-approved way to apply a proposal
 - Orchestration between agents (Microsoft Agent Framework)
 - MCP tools for real systems (the Architect and Developer have read-only sample tools today)
 - Authentication

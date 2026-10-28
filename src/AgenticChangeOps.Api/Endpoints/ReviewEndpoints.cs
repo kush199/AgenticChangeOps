@@ -20,6 +20,20 @@ public static class ReviewEndpoints
             .Produces<ErrorResponse>(StatusCodes.Status500InternalServerError)
             .Produces<ErrorResponse>(StatusCodes.Status502BadGateway)
             .Produces<ErrorResponse>(StatusCodes.Status503ServiceUnavailable);
+
+        routes.MapGet("/change-requests/{id}/reviews/latest", GetLatest)
+            .WithName("GetLatestReview")
+            .WithSummary("Retrieve the latest review")
+            .Produces<Review>()
+            .Produces<ErrorResponse>(StatusCodes.Status400BadRequest)
+            .Produces<ErrorResponse>(StatusCodes.Status404NotFound);
+
+        routes.MapGet("/change-requests/{id}/reviews", GetHistory)
+            .WithName("GetReviewHistory")
+            .WithSummary("List every review version in ascending order")
+            .Produces<IReadOnlyList<Review>>()
+            .Produces<ErrorResponse>(StatusCodes.Status400BadRequest)
+            .Produces<ErrorResponse>(StatusCodes.Status404NotFound);
     }
 
     private static async Task<IResult> ReviewAsync(
@@ -42,7 +56,7 @@ public static class ReviewEndpoints
 
         var result = await service.ReviewAsync(changeRequestId, context.RequestAborted);
         if (result.IsSuccess)
-            return Results.Json(result.Review, statusCode: StatusCodes.Status201Created);
+            return Results.Created($"/change-requests/{changeRequestId}/reviews/latest", result.Review);
 
         LogNothingStored(loggers, result);
         return RequestParsing.Error(ErrorMapper.ForReviewing(result));
@@ -58,5 +72,30 @@ public static class ReviewEndpoints
 
         loggers.CreateLogger("AgenticChangeOps.Api.Reviewing")
             .LogWarning("Review request stored nothing: {Outcome}.", outcome);
+    }
+
+    private static IResult GetLatest(string id, IReviewService service)
+    {
+        if (!RequestParsing.TryParseId(id, out var changeRequestId))
+            return RequestParsing.Error(ErrorMapper.InvalidIdentifier());
+
+        var result = service.GetLatestReview(changeRequestId);
+        if (!result.IsSuccess)
+            return RequestParsing.Error(ErrorMapper.ForQuery(result.Errors));
+
+        return result.Value is null
+            ? RequestParsing.Error(ErrorMapper.NoReview())
+            : Results.Ok(result.Value);
+    }
+
+    private static IResult GetHistory(string id, IReviewService service)
+    {
+        if (!RequestParsing.TryParseId(id, out var changeRequestId))
+            return RequestParsing.Error(ErrorMapper.InvalidIdentifier());
+
+        var result = service.GetReviewHistory(changeRequestId);
+        return result.IsSuccess
+            ? Results.Ok(result.Value)
+            : RequestParsing.Error(ErrorMapper.ForQuery(result.Errors));
     }
 }

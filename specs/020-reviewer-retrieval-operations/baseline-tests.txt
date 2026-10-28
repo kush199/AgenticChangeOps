@@ -1,0 +1,15 @@
+# Baseline: dotnet test AgenticChangeOps.sln on ab2ebbb (before the change), 2026-10-28
+
+AgenticChangeOps.Intake.Tests              Passed 118  Failed 0  Skipped 0  Total 118
+AgenticChangeOps.Persistence.Tests         Passed  81  Failed 0  Skipped 0  Total  81
+AgenticChangeOps.Drafting.Tests            Passed  45  Failed 0  Skipped 0  Total  45
+AgenticChangeOps.ModelAccess.Tests         Passed 271  Failed 0  Skipped 0  Total 271
+AgenticChangeOps.SampleCode.Tests          Passed 123  Failed 0  Skipped 0  Total 123
+AgenticChangeOps.Workflow.Tests            Passed 194  Failed 0  Skipped 0  Total 194
+AgenticChangeOps.Agents.Requirement.Tests  Passed 157  Failed 0  Skipped 1  Total 158
+AgenticChangeOps.Agents.Architect.Tests    Passed 156  Failed 0  Skipped 2  Total 158
+AgenticChangeOps.Agents.Developer.Tests    Passed 172  Failed 0  Skipped 0  Total 172
+AgenticChangeOps.Agents.Reviewer.Tests     Passed 403  Failed 0  Skipped 0  Total 403
+AgenticChangeOps.Api.Tests                 Passed 486  Failed 0  Skipped 2  Total 488
+
+Skipped are the opt-in live model checks. 0 failed anywhere.

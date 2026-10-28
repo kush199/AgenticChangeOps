@@ -171,6 +171,53 @@ public sealed class ReviewHost : IDisposable
 
     public Task<HttpResponseMessage> RequestReviewAsync(Guid id) => RequestReviewAsync(id.ToString());
 
+    public Task<HttpResponseMessage> GetLatestReviewAsync(string idSegment) =>
+        Client.GetAsync($"/change-requests/{idSegment}/reviews/latest");
+
+    public Task<HttpResponseMessage> GetLatestReviewAsync(Guid id) => GetLatestReviewAsync(id.ToString());
+
+    public Task<HttpResponseMessage> GetReviewHistoryAsync(string idSegment) =>
+        Client.GetAsync($"/change-requests/{idSegment}/reviews");
+
+    public Task<HttpResponseMessage> GetReviewHistoryAsync(Guid id) => GetReviewHistoryAsync(id.ToString());
+
+    /// <summary>Requests <paramref name="count"/> reviews over HTTP, in turn, on a request ready for review.</summary>
+    public async Task RequestReviewsAsync(Guid id, int count)
+    {
+        for (var i = 0; i < count; i++)
+            (await RequestReviewAsync(id)).EnsureSuccessStatusCode();
+    }
+
+    /// <summary>
+    /// Stores consecutive synthetic reviews straight into the store (versions 1..count), for hosts where
+    /// reviewing is not configured and the review route cannot produce them.
+    /// </summary>
+    public IReadOnlyList<Review> SeedReviews(Guid id, int count)
+    {
+        var seeded = new List<Review>();
+        for (var version = 1; version <= count; version++)
+        {
+            var review = new Review(
+                ReviewId: Guid.NewGuid(), ChangeRequestId: id, Version: version,
+                RequirementsVersion: 1, DesignVersion: 1, ProposalVersion: 1,
+                GeneratedAt: DateTime.UtcNow, Status: ReviewStatus.Draft, AgentName: Review.ReviewerAgentName,
+                SystemCheck: new SystemCheck(SystemCheckStatus.NotPerformed, Array.Empty<EditCheck>()),
+                Findings: new[]
+                {
+                    new ReviewFinding(FindingCategory.UnmentionedRisk, FindingSeverity.Low,
+                        $"Synthetic finding {version}.", new[] { new ReviewReference(ReviewDocument.Proposal, ReferenceList.Changes, 1) })
+                },
+                OpenQuestions: new[] { $"Synthetic question {version}?" },
+                AdvisoryNote: Review.AdvisoryNoteText);
+            Store.SaveReview(review, new ChangeRequestAuditEntry(
+                AuditEntryId: Guid.NewGuid(), ChangeRequestId: id, EventType: AuditEventType.ReviewGenerated,
+                OccurredAt: review.GeneratedAt, Details: null, StatusBefore: ChangeRequestStatus.Approved,
+                StatusAfter: ChangeRequestStatus.Approved, AgentName: review.AgentName, DraftVersion: review.Version));
+            seeded.Add(review);
+        }
+        return seeded;
+    }
+
     public async Task<string> AuditJsonAsync(Guid id) =>
         await (await Client.GetAsync($"/change-requests/{id}/audit")).Content.ReadAsStringAsync();
 

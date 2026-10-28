@@ -22,22 +22,21 @@ public sealed class ReviewDescriptionTests
     }
 
     [Fact]
-    public async Task TheReviewPath_HasNoOtherOperation_AndNoRetrievalPathExists()
+    public async Task TheReviewPaths_AreExactlyTheRequestAndTheTwoRetrievalOperations()
     {
         using var host = new ReviewHost();
 
         var doc = await (await host.Client.GetAsync("/openapi/v1.json")).ReadJsonAsync();
         var paths = doc.GetProperty("paths");
 
-        var methods = paths.GetProperty(ReviewPath).EnumerateObject().Select(p => p.Name).ToArray();
-        Assert.Equal(new[] { "post" }, methods);
+        var methods = paths.GetProperty(ReviewPath).EnumerateObject().Select(p => p.Name).OrderBy(n => n).ToArray();
+        Assert.Equal(new[] { "get", "post" }, methods);
         Assert.Equal(
-            new[] { ReviewPath },
-            paths.EnumerateObject().Select(p => p.Name).Where(n => n.Contains("review", StringComparison.OrdinalIgnoreCase)).ToArray());
+            new[] { ReviewPath, ReviewPath + "/latest" },
+            paths.EnumerateObject().Select(p => p.Name).Where(n => n.Contains("review", StringComparison.OrdinalIgnoreCase)).OrderBy(n => n).ToArray());
     }
 
     [Theory]
-    [InlineData("/change-requests/{0}/reviews/latest")]
     [InlineData("/reviews")]
     public async Task NoRetrievalRoute_Exists(string template)
     {
@@ -51,12 +50,12 @@ public sealed class ReviewDescriptionTests
     }
 
     [Fact]
-    public async Task GetOnTheReviewRoute_IsMethodNotAllowed()
+    public async Task PutOnTheReviewRoute_IsMethodNotAllowed()
     {
         using var host = new ReviewHost();
         var id = await host.ReadyForReviewAsync();
 
-        var response = await host.Client.GetAsync($"/change-requests/{id}/reviews");
+        var response = await host.Client.PutAsync($"/change-requests/{id}/reviews", null);
 
         Assert.Equal(HttpStatusCode.MethodNotAllowed, response.StatusCode);
     }

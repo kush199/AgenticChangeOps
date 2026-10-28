@@ -159,6 +159,9 @@ public static class ErrorMapper
     public static (int StatusCode, ErrorResponse Body) NoProposal() =>
         (404, new ErrorResponse("no-proposal", "No change proposal exists yet for this change request."));
 
+    public static (int StatusCode, ErrorResponse Body) NoReview() =>
+        (404, new ErrorResponse("no-review", "No review exists yet for this change request."));
+
     public static (int StatusCode, ErrorResponse Body) ProposalNotConfigured() =>
         (503, new ErrorResponse("proposal-not-configured", "Change proposals are not configured on this server."));
 
