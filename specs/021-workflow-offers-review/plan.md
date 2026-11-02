@@ -87,7 +87,7 @@ src/AgenticChangeOps.Workflow/
 └── WorkflowService.cs     # Derive: replace the inline proposal offer with OfferRules
 
 src/AgenticChangeOps.Api/Composition/
-├── ProposalAvailability.cs / ReviewAvailability.cs   # adapters ReviewOffer, OfferFactSource added
+├── OfferAdapters.cs                                  # NEW: OfferFactSource, ReviewOffer (checks settings itself, logs nothing)
 └── ApiServiceRegistration.cs                        # register the two seams
 
 src/AgenticChangeOps.Api/ (published description)  # golden openapi.json: enum gains "Review"

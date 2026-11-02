@@ -16,7 +16,7 @@ No NEEDS CLARIFICATION remained. Decisions:
 
 ## 3. Reviewing availability
 
-- **Decision**: `IReviewOffer.IsOffered`, implemented over `ReviewAvailability.IsConfigured`, evaluated only after every other condition holds.
+- **Decision**: `IReviewOffer.IsOffered`, implemented as `ReviewOffer` in `AgenticChangeOps.Api/Composition/OfferAdapters.cs`. It checks the model and review settings itself on each ask (the same two checks the review setup makes) and logs nothing, and it is evaluated only after every other condition holds. (First planned over `ReviewAvailability.IsConfigured`; changed during implementation because that builds the lazy review setup and writes its "not configured" warning on a status read.)
 - **Rationale**: `ReviewSetup` is built lazily so a server that never uses the Reviewer is unaffected by review settings; evaluating last keeps most status reads from touching it. A missing seam (null) means no review offer, exactly as a missing `IProposalOffer` means no proposal offer.
 - **Alternatives**: evaluate on every read (needless setup for unrelated statuses).
 

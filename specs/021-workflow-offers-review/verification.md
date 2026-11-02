@@ -9,12 +9,12 @@
 | Drafting | 45 | 45 | 0 |
 | ModelAccess | 271 | 271 | 0 |
 | SampleCode | 123 | 123 | 0 |
-| Workflow | 194 | 232 | 38 (OfferRules, ReviewOffer, ReviewOfferAdvance, OfferStructure) |
+| Workflow | 194 | 233 | 39 (OfferRules, ReviewOffer, ReviewOfferAdvance, OfferStructure) |
 | Requirement | 158 (1 skipped) | 158 (1 skipped) | 0 |
 | Architect | 158 (2 skipped) | 158 (2 skipped) | 0 |
 | Developer | 172 | 172 | 0 |
 | Reviewer | 403 | 403 | 0 |
-| Api | 513 (2 skipped) | 522 (2 skipped) | 9 (ReviewOfferCompositionTests) |
+| Api | 513 (2 skipped) | 525 (2 skipped) | 12 (ReviewOfferCompositionTests, ReviewOfferSettingsTests) |
 
 Skipped are the opt-in live model checks. The live check was not run.
 
