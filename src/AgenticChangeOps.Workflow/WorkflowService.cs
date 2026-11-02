@@ -18,6 +18,8 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
     private readonly IStepAvailability _availability;
     private readonly IAutomaticStatusSource? _automatic;
     private readonly IProposalOffer? _proposalOffer;
+    private readonly IReviewOffer? _reviewOffer;
+    private readonly IOfferFactSource? _offerFacts;
 
     // One gate per change request so derive-then-run is a single step for that request, whether a
     // person or the automatic runner started it. Entries are never removed: the set is bounded by
@@ -30,7 +32,9 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
         IDesignDraftingService designs,
         IStepAvailability availability,
         IAutomaticStatusSource? automatic = null,
-        IProposalOffer? proposalOffer = null)
+        IProposalOffer? proposalOffer = null,
+        IReviewOffer? reviewOffer = null,
+        IOfferFactSource? offerFacts = null)
     {
         _store = store;
         _requirements = requirements;
@@ -38,6 +42,8 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
         _availability = availability;
         _automatic = automatic;
         _proposalOffer = proposalOffer;
+        _reviewOffer = reviewOffer;
+        _offerFacts = offerFacts;
     }
 
     public QueryResult<WorkflowStatus> GetStatus(Guid changeRequestId)
@@ -133,6 +139,8 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
         ChangeRequest? request;
         IReadOnlyList<RequirementsDraft> drafts;
         IReadOnlyList<DesignDraft> designs;
+        IReadOnlyList<ProposalFact> proposalFacts = Array.Empty<ProposalFact>();
+        IReadOnlyList<ReviewFact> reviewFacts = Array.Empty<ReviewFact>();
 
         lock (_store.SyncRoot)
         {
@@ -142,6 +150,12 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
 
             drafts = _store.GetDrafts(changeRequestId);
             designs = _store.GetDesigns(changeRequestId);
+
+            if (_offerFacts is not null)
+            {
+                proposalFacts = _offerFacts.GetProposals(changeRequestId);
+                reviewFacts = _offerFacts.GetReviews(changeRequestId);
+            }
         }
 
         var status = WorkflowRules.Derive(
@@ -155,10 +169,18 @@ public sealed class WorkflowService : IWorkflowService, IAutomaticStepRunner
         if (_automatic is not null)
             status = status with { Automatic = _automatic.Describe(changeRequestId, status.NextStep, status.CompletedSteps.Count) };
 
-        // The proposal is only ever offered, as an extra member: the stage, the next step and the
-        // reason above are untouched, so neither the workflow nor the automatic runner can run it.
-        if (status.Stage == WorkflowStage.DesignComplete && _proposalOffer is { IsOffered: true })
-            status = status with { OfferedStep = WorkflowStep.Proposal };
+        // The proposal or the review is only ever offered, as an extra member: the stage, the next step
+        // and the reason above are untouched, so neither the workflow nor the automatic runner can run
+        // it. Without a fact source only the proposal can be offered, exactly as before.
+        var offered = OfferRules.Derive(
+            status.Stage,
+            designs.Count == 0 ? null : designs.Max(d => d.Version),
+            _proposalOffer is { IsOffered: true },
+            () => _reviewOffer is { IsOffered: true },
+            proposalFacts,
+            reviewFacts);
+        if (offered is { } step)
+            status = status with { OfferedStep = step };
 
         return status;
     }

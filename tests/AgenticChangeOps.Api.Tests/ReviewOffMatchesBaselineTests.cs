@@ -96,7 +96,9 @@ public sealed class ReviewOffMatchesBaselineTests
 
         var body = await (await host.Client.GetAsync($"/change-requests/{id}/workflow")).Content.ReadAsStringAsync();
 
-        Assert.DoesNotContain("review", body, StringComparison.OrdinalIgnoreCase);
+        // A current proposal makes the status offer the review (slice 021); that one member is the only review mention.
+        Assert.Contains(",\"offeredStep\":\"Review\"", body);
+        Assert.DoesNotContain("review", body.Replace(",\"offeredStep\":\"Review\"", ""), StringComparison.OrdinalIgnoreCase);
     }
 
     [Fact]

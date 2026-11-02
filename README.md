@@ -348,6 +348,10 @@ after one `ToolCalled` entry per tool call (never with file text). Once a curren
 proposals are available, the workflow status shows `offeredStep: "Proposal"` next to its unchanged
 stage and next step; automatic advancement never runs a proposal, it runs only when a person asks.
 With the Developer unused, every existing response is exactly as before.
+Once a current proposal exists (one based on the latest design), the status offers `offeredStep: "Review"`
+instead, until that proposal has a review, and only when reviewing is configured. Both offers are information
+only: they never change the stage, next step, reason or completed steps, and neither the manual advance
+nor automatic advancement ever runs them.
 
 ## Reviewer agent: advisory reviews (three HTTP operations)
 

@@ -108,6 +108,9 @@ public static class ApiServiceRegistration
         // Workflow orchestration: derives status from recorded facts and runs the agents'
         // own services; the availability adapter reuses the two flags registered above.
         services.AddSingleton<IStepAvailability, StepAvailabilityAdapter>();
+        // The review is only ever offered by the status, never run by the workflow.
+        services.AddSingleton<IReviewOffer, ReviewOffer>();
+        services.AddSingleton<IOfferFactSource, OfferFactSource>();
         // One WorkflowService answers both the manual and the automatic path, so they share one
         // per-request gate and at most one step runs for a request at a time.
         services.AddSingleton<WorkflowService>();

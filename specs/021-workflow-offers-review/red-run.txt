@@ -1,0 +1,32 @@
+# Red run: new slice 021 tests against compiling stubs (OfferRules throws NotImplementedException; the service ignores the new seams)
+
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.OutsideDesignComplete_NothingIsOffered(stage: Rejected)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.ReviewOfferAdvanceTests.Advance_WithTheReviewAsTheOnlyOffer_ReportsNothingDue_AndChangesNothing
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.OutsideDesignComplete_NothingIsOffered(stage: AwaitingDecision)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.OutsideDesignComplete_NothingIsOffered(stage: Deferred)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.OutsideDesignComplete_NothingIsOffered(stage: ReadyForDesign)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.OutsideDesignComplete_NothingIsOffered(stage: AwaitingRequirementsDraft)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.AReviewOfAnOlderProposal_DoesNotSuppressTheReviewOfANewerCurrentProposal
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.WithACurrentProposalAndReviewingNotAvailable_NothingIsOffered_NotTheProposal(proposals: True)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.WithACurrentProposalAndReviewingNotAvailable_NothingIsOffered_NotTheProposal(proposals: False)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.TheOrderOfTheFacts_DoesNotChangeTheResult
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.WithNoCurrentProposal_TheProposalIsOffered_WhenProposalsAreAvailable
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.SeveralProposalsOnTheLatestDesign_UseTheHighestVersion
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.AProposalOnlyOnAnOlderDesign_IsNotCurrent_SoItDoesNotTriggerTheReview
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.ReviewAvailability_IsOnlyAskedWhenACurrentProposalHasNoReview
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.WithACurrentProposal_TheReviewReplacesTheProposal_WhateverProposalAvailabilityIs(proposals: True)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.WithACurrentProposal_TheReviewReplacesTheProposal_WhateverProposalAvailabilityIs(proposals: False)
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.AReviewOfTheNewerProposal_SuppressesTheOffer_EvenWithOlderOnesPresent
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.WithAReviewOfTheCurrentProposal_NothingFurtherIsOffered
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.WithNoCurrentProposal_NothingIsOffered_WhenProposalsAreNotAvailable
+  Failed AgenticChangeOps.Workflow.Tests.Unit.OfferRulesTests.WithACurrentProposalAndNoReview_TheReviewIsOffered_WhenReviewingIsAvailable
+  Failed AgenticChangeOps.Workflow.Tests.Unit.ReviewOfferTests.AProposalOnAnOlderDesign_DoesNotTriggerTheReview_AndAReviewOfAnOlderProposalDoesNotSuppressIt
+  Failed AgenticChangeOps.Workflow.Tests.Unit.ReviewOfferTests.TheReviewingSeam_IsOnlyAsked_WhenACurrentProposalHasNoReview
+  Failed AgenticChangeOps.Workflow.Tests.Unit.ReviewOfferTests.ACurrentProposalWithNoReview_OffersTheReview_AndChangesNothingElse
+  Failed AgenticChangeOps.Workflow.Tests.Unit.ReviewOfferTests.TheReview_ReplacesTheProposalOffer_WhereACurrentProposalExists
+Failed!  - Failed:    24, Passed:   205, Skipped:     0, Total:   229, Duration: 137 ms - AgenticChangeOps.Workflow.Tests.dll (net8.0)
+  Failed AgenticChangeOps.Api.Tests.ReviewOfferCompositionTests.AfterTheReview_NothingFurtherIsOffered
+  Failed AgenticChangeOps.Api.Tests.ReviewOfferCompositionTests.ANewerDesignAndProposal_OfferTheReviewAgain_AndTheOldReviewDoesNotSuppressIt
+  Failed AgenticChangeOps.Api.Tests.ReviewOfferCompositionTests.WithReviewingConfiguredButProposalsOff_ACurrentProposalStillOffersTheReview
+  Failed AgenticChangeOps.Api.Tests.ReviewOfferCompositionTests.AfterAProposal_TheStatusOffersTheReview_WithoutMakingItTheNextStep
+Failed!  - Failed:     4, Passed:     5, Skipped:     0, Total:     9, Duration: 1 s - AgenticChangeOps.Api.Tests.dll (net8.0)
