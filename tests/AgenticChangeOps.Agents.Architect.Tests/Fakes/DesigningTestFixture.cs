@@ -21,6 +21,7 @@ public sealed class DesigningTestFixture
     public ChangeRequestService Intake { get; }
     public ApprovalService Approval { get; }
     public DesignDraftingService Designing { get; }
+    public DesignDecisionService Deciding { get; }
 
     public DesigningTestFixture()
     {
@@ -28,6 +29,7 @@ public sealed class DesigningTestFixture
         Approval = new ApprovalService(Store, Clock, Ids, new ApprovalDecisionValidator());
         Designing = new DesignDraftingService(
             Store, Clock, Ids, Basis, Generator, new DesignContentValidator());
+        Deciding = new DesignDecisionService(Store, Clock, Ids, Basis);
     }
 
     /// <summary>Submits a valid synthetic change request and returns its id.</summary>
@@ -59,6 +61,19 @@ public sealed class DesigningTestFixture
             new ApprovalDecisionRequest(id, "Jordan Reed", ApprovalDecision.Approve, null));
         if (!decision.IsSuccess)
             throw new InvalidOperationException("Test setup could not approve the request.");
+        return id;
+    }
+
+    /// <summary>Approves a request with a requirements draft and drafts the given number of designs.</summary>
+    public async Task<Guid> ApproveAndDesignAsync(int designs = 1, int basisVersion = 1)
+    {
+        var id = ApproveWithBasis(basisVersion);
+        for (var i = 0; i < designs; i++)
+        {
+            var result = await Designing.DesignAsync(id);
+            if (!result.IsSuccess)
+                throw new InvalidOperationException("Test setup could not draft a design.");
+        }
         return id;
     }
 

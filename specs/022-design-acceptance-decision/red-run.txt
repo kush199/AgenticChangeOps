@@ -1,0 +1,49 @@
+# Red run: dotnet test AgenticChangeOps.sln, 2026-11-02 (stubs only, no behaviour)
+
+## New tests (--filter DesignDecision)
+Failed!  - Failed:    53, Passed:    16, Skipped:     0, Total:    69, Duration: 666 ms - AgenticChangeOps.Agents.Architect.Tests.dll (net8.0)
+Failed!  - Failed:    54, Passed:    10, Skipped:     0, Total:    64, Duration: 2 s - AgenticChangeOps.Api.Tests.dll (net8.0)
+
+## Failure reasons
+     56 System.NotImplementedException : The method or operation is not implemented.
+     32 Assert.Equal() Failure: Values differ
+      7 System.Net.Http.HttpRequestException : Response status code does not indicate su
+      4 System.Collections.Generic.KeyNotFoundException : The given key was not present 
+      3 Assert.Equal() Failure: Collections differ
+      2 Assert.Equal() Failure: Strings differ
+      1 Assert.Throws() Failure: Exception type was not an exact match
+      1 Assert.Single() Failure: The collection did not contain any matching items
+      1 Assert.Contains() Failure: Sub-string not found
+
+## Existing tests that are red (expected, golden/route list only)
+ApiBaselineTests.ApiDescription_IsTheRecordedOne  (golden: AuditEventType gains 9)
+ReviewSettingsTests.TheApiDescription_IsTheRecordedOne_EvenWithGarbageReviewSettings  (same golden)
+DescriptionTests.Description_IsServedAsJson_AndListsExactlyTheTwentyOneRoutes  (edited: route not yet added)
+
+## Passing now: guards on existing behaviour
+Agents.Architect.Tests.Unit.DesignDecisionStructureTests.NoOtherProject_NamesTheDecisionService(project: "AgenticChangeOps.Agents.Reviewer")
+Agents.Architect.Tests.Unit.DesignDecisionStructureTests.NoOtherProject_NamesTheDecisionService(project: "AgenticChangeOps.Drafting")
+Agents.Architect.Tests.Unit.DesignDecisionStructureTests.NoOtherProject_NamesTheDecisionService(project: "AgenticChangeOps.Agents.Requirement")
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.ADecision_RoundTripsWithItsAuditEntry_AndKeepsEveryMember(kind: "memory")
+Agents.Architect.Tests.Unit.DesignDecisionStructureTests.NoOtherProject_NamesTheDecisionService(project: "AgenticChangeOps.Agents.Developer")
+Agents.Architect.Tests.Unit.DesignDecisionStructureTests.NoOtherProject_NamesTheDecisionService(project: "AgenticChangeOps.Workflow")
+Agents.Architect.Tests.Unit.DesignDecisionStructureTests.NoOtherProject_NamesTheDecisionService(project: "AgenticChangeOps.Intake")
+Agents.Architect.Tests.Unit.DesignDecisionStructureTests.TheDecisionService_HoldsNoGeneratorOrModelClient
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.ADecision_RoundTripsWithItsAuditEntry_AndKeepsEveryMember(kind: "sqlite")
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.DecisionsOfOneRequest_AreNotVisibleToAnother_OrToOtherOutputTypes(kind: "sqlite")
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.DecisionsOfOneRequest_AreNotVisibleToAnother_OrToOtherOutputTypes(kind: "memory")
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.TheDurableStore_ReturnsTheSameDecisionsAfterARestart
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.ASecondDecision_OfTheSameVersion_IsRejectedByTheStore_AndStoresNeitherItemTwice(kind: "sqlite")
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.ASecondDecision_OfTheSameVersion_IsRejectedByTheStore_AndStoresNeitherItemTwice(kind: "memory")
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.ADecision_WithAnAuditEntryOfAnotherRequest_IsRejected_AndStoresNothing(kind: "sqlite")
+Agents.Architect.Tests.Unit.DesignDecisionStorageRoundTripTests.ADecision_WithAnAuditEntryOfAnotherRequest_IsRejected_AndStoresNothing(kind: "memory")
+Api.Tests.DesignDecisionStructureTests.NoOtherProject_ReferencesTheArchitectProjectForDecisions(project: "AgenticChangeOps.Workflow")
+Api.Tests.DesignDecisionStructureTests.NoOtherProject_ReferencesTheArchitectProjectForDecisions(project: "AgenticChangeOps.Agents.Reviewer")
+Api.Tests.DesignDecisionStructureTests.NoOtherProject_ReferencesTheArchitectProjectForDecisions(project: "AgenticChangeOps.Agents.Requirement")
+Api.Tests.DesignDecisionStructureTests.NoOtherProject_ReferencesTheArchitectProjectForDecisions(project: "AgenticChangeOps.Agents.Developer")
+Api.Tests.DesignDecisionStructureTests.OnlyTheDesignEndpointsAndTheCompositionNameTheDecisionService
+Api.Tests.DesignDecisionNoLeakTests.ASuccessfulDecision_AndTheDesignReads_CarryNoModelOrEndpointText
+Api.Tests.DesignDecisionRetrievalTests.RetrievalErrors_AreUnchanged
+Api.Tests.DesignDecisionNoLeakTests.NothingTheCallerSent_IsWrittenToALog
+Api.Tests.DesignDecisionNoLeakTests.NoErrorBody_EchoesTheDecisionValue
+Api.Tests.DesignDecisionDescriptionTests.TheAuditEventTypeEnum_GainsDesignDecidedAtTheEnd
