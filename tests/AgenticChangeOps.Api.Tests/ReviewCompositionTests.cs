@@ -78,6 +78,8 @@ public sealed class ReviewCompositionTests
         Assert.Equal(ChangeRequestStatus.Approved.ToString(), (await StatusAsync(host, id)));
     }
 
+    private const string OfferedReview = ",\"offeredStep\":\"Review\"";
+
     [Fact]
     public async Task TheAdvisoryReview_ChangesNoStatus()
     {
@@ -89,7 +91,9 @@ public sealed class ReviewCompositionTests
         await host.Reviewing.ReviewAsync(id);
 
         Assert.Equal(before, await StatusAsync(host, id));
-        Assert.Equal(workflowBefore, await (await host.Client.GetAsync($"/change-requests/{id}/workflow")).Content.ReadAsStringAsync());
+        // The only difference is the offer: before the review it is the offered step, afterwards nothing.
+        Assert.Contains(OfferedReview, workflowBefore);
+        Assert.Equal(workflowBefore.Replace(OfferedReview, ""), await (await host.Client.GetAsync($"/change-requests/{id}/workflow")).Content.ReadAsStringAsync());
     }
 
     [Fact]

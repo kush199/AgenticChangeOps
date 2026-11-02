@@ -18,6 +18,44 @@ public sealed class FakeStepAvailability : IStepAvailability
         step == WorkflowStep.RequirementsDraft ? RequirementsConfigured : DesignConfigured;
 }
 
+/// <summary>Settable proposal and review facts. Counts reads so a test can see what was consulted.</summary>
+public sealed class FakeOfferFactSource : IOfferFactSource
+{
+    public List<ProposalFact> Proposals { get; } = new();
+    public List<ReviewFact> Reviews { get; } = new();
+    public int Reads { get; private set; }
+
+    public IReadOnlyList<ProposalFact> GetProposals(Guid changeRequestId)
+    {
+        Reads++;
+        return Proposals.ToArray();
+    }
+
+    public IReadOnlyList<ReviewFact> GetReviews(Guid changeRequestId)
+    {
+        Reads++;
+        return Reviews.ToArray();
+    }
+}
+
+/// <summary>Settable review availability. Counts how often it was asked.</summary>
+public sealed class FakeReviewOffer : IReviewOffer
+{
+    private int _reads;
+
+    public bool Available { get; set; } = true;
+    public int Reads => _reads;
+
+    public bool IsOffered
+    {
+        get
+        {
+            _reads++;
+            return Available;
+        }
+    }
+}
+
 /// <summary>
 /// Test-only stand-in for the API composition adapter: reads the latest requirements draft
 /// through the real requirements service and copies it into the Architect's own read model.
@@ -52,6 +90,8 @@ public sealed class WorkflowTestFixture
     public FakeRequirementsGenerator RequirementsGenerator { get; } = new();
     public FakeDesignGenerator DesignGenerator { get; } = new();
     public FakeStepAvailability Availability { get; } = new();
+    public FakeOfferFactSource OfferFacts { get; } = new();
+    public FakeReviewOffer ReviewOffer { get; } = new();
     public ChangeRequestService Intake { get; }
     public ApprovalService Approval { get; }
     public RequirementsDraftingService Requirements { get; }
@@ -111,6 +151,19 @@ public sealed class WorkflowTestFixture
     {
         var id = await SubmittedWithDraftAsync();
         Decide(id, ApprovalDecision.Approve);
+        return id;
+    }
+
+    /// <summary>The workflow service wired with the fake offer seams (and the proposal offer when given).</summary>
+    public WorkflowService WorkflowWithOffers(IProposalOffer? proposalOffer = null) =>
+        new(Store, Requirements, Designs, Availability, null, proposalOffer, ReviewOffer, OfferFacts);
+
+    /// <summary>Approved with requirements, then the real design step: the DesignComplete stage.</summary>
+    public async Task<Guid> DesignCompleteAsync()
+    {
+        var id = await ApprovedWithDraftAsync();
+        if ((await Workflow.AdvanceAsync(id)).Outcome != AdvanceOutcome.Advanced)
+            throw new InvalidOperationException("Test setup could not draft the design.");
         return id;
     }
 

@@ -5,5 +5,6 @@ public enum WorkflowStep
 {
     RequirementsDraft,
     DesignDraft,
-    Proposal
+    Proposal,
+    Review
 }
