@@ -51,6 +51,24 @@ public static class ErrorMapper
         return errors.All(e => e.FieldName == StatusField) ? Conflict(errors) : ValidationFailed(errors);
     }
 
+    public static (int StatusCode, ErrorResponse Body) ForDesignDecision(DesignDecisionResult result) =>
+        result.Refusal switch
+        {
+            DesignDecisionRefusal.NotFound => NotFound(),
+            DesignDecisionRefusal.NotApproved => Conflict(result.Errors),
+            DesignDecisionRefusal.VersionNotFound => (404, new ErrorResponse(
+                "design-version-not-found", "The change request has no design with that version.")),
+            DesignDecisionRefusal.Outdated => (409, new ErrorResponse(
+                "design-outdated", "That design version is outdated and can no longer be decided.")),
+            DesignDecisionRefusal.AlreadyDecided => (409, new ErrorResponse(
+                "design-already-decided", "That design version has already been decided.")),
+            _ => ValidationFailed(result.Errors)
+        };
+
+    public static (int StatusCode, ErrorResponse Body) InvalidDesignVersion() =>
+        ValidationFailed(new[] { new ValidationError(
+            "DesignVersion", "The design version must be a whole number of 1 or more.") });
+
     public static (int StatusCode, ErrorResponse Body) ForDrafting(DraftingResult result)
     {
         var errors = result.Errors;

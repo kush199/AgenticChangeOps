@@ -64,6 +64,8 @@ public static class ApiServiceRegistration
         services.AddSingleton<DesignContentValidator>();
         services.AddSingleton<IRequirementsBasisSource, RequirementsBasisAdapter>();
         services.AddSingleton<IDesignDraftingService, DesignDraftingService>();
+        // A person's Accept or Reject on a design: only its own route calls this, never the workflow.
+        services.AddSingleton<IDesignDecisionService, DesignDecisionService>();
 
         // Change proposals (Developer): needs the sample tools, so everything about it is decided from
         // one setup object that reads the tools switch first. The workflow only ever shows the offer.

@@ -16,7 +16,8 @@ public sealed class DesignHost : IDisposable
     public DesignHost(
         FakeDesignGenerator? generator = null,
         bool configured = true,
-        bool useFakeBasis = true)
+        bool useFakeBasis = true,
+        Intake.Stores.IChangeRequestStore? store = null)
     {
         Generator = generator ?? FakeDesignGenerator.ReturnsSyntheticContent();
         Requirements = FakeDraftGenerator.ReturnsSyntheticContent();
@@ -25,6 +26,8 @@ public sealed class DesignHost : IDisposable
         {
             services.AddSingleton<IDesignDraftGenerator>(Generator);
             services.AddSingleton(new DesignAvailability(configured));
+            if (store is not null)
+                services.AddSingleton(store);
             if (useFakeBasis)
                 services.AddSingleton<IRequirementsBasisSource>(Basis);
         });

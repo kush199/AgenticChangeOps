@@ -19,6 +19,7 @@ This is a learning and portfolio project, built slice by slice with
 | **Durable storage** | Change requests, audit entries, requirements drafts and design drafts are kept in a local SQLite file and survive a restart. A stored item and its audit entry are stored together or not at all, and version numbers never repeat |
 | **Automatic advancement** | Optional and off by default: when switched on, runs the requirements and design draft steps for requests that have one due, without anyone asking. Never makes a decision |
 | **Change proposals** | Optional, needs the sample tools: a Developer agent proposes a text-only change set (quoted edits, risks, test ideas) for an approved request with a current design. Every quote is checked against the real sample file; nothing is ever applied. Versioned and audited as `ProposalGenerated` |
+| **Design decisions** | A person accepts or rejects the latest design draft with their name (and a reason, required for Reject). Each design version can be decided once and the decision is final; it appears on the design reads, is audited as `DesignDecided`, and is a recorded human action that **changes no status and triggers no other step** |
 | **Reviews** | A Reviewer agent writes an advisory review of the latest change proposal of an approved request. The system first re-checks every proposed edit against the sample on its own; the model only writes findings, each citing a real entry of the requirements, design or proposal. Versioned and audited as `ReviewGenerated`; it **never changes any status and decides nothing** |
 | **HTTP API** | All of the above, over a local JSON API with a Swagger page. Reviews can be requested and read back (latest, history) over HTTP |
 
@@ -173,8 +174,9 @@ Invoke-RestMethod "$base/change-requests/$id/audit"
 | GET | `/change-requests/{id}/drafts/latest` | Latest draft |
 | GET | `/change-requests/{id}/drafts` | Draft version history |
 | POST | `/change-requests/{id}/designs` | Request a design draft for an Approved request that has a requirements draft (calls the model) |
-| GET | `/change-requests/{id}/designs/latest` | Latest design draft |
-| GET | `/change-requests/{id}/designs` | Design draft version history |
+| POST | `/change-requests/{id}/designs/{version}/decisions` | Accept or Reject the latest design draft (name required, reason required for Reject). Refused if outdated or already decided; never automated |
+| GET | `/change-requests/{id}/designs/latest` | Latest design draft, with its `decision` once one exists |
+| GET | `/change-requests/{id}/designs` | Design draft version history, each version with its `decision` once one exists |
 | GET | `/operator/automatic-advancement` | Whether automatic advancement is on, and the latest check summary |
 
 Errors are JSON with a stable `code` and never include stack traces, endpoints or secrets.

@@ -6,10 +6,17 @@ namespace AgenticChangeOps.Api.Tests.Fakes;
 public sealed class CapturingLoggerProvider : ILoggerProvider
 {
     private readonly List<string> _lines = new();
+    private readonly List<(LogLevel Level, string Line)> _levelled = new();
 
     public IReadOnlyList<string> Lines
     {
         get { lock (_lines) return _lines.ToArray(); }
+    }
+
+    /// <summary>Every line with its level, for checks such as "nothing at warning or above".</summary>
+    public IReadOnlyList<(LogLevel Level, string Line)> LevelledLines
+    {
+        get { lock (_lines) return _levelled.ToArray(); }
     }
 
     public ILogger CreateLogger(string categoryName) => new CapturingLogger(categoryName, this);
@@ -18,9 +25,13 @@ public sealed class CapturingLoggerProvider : ILoggerProvider
     {
     }
 
-    private void Add(string line)
+    private void Add(LogLevel level, string line)
     {
-        lock (_lines) _lines.Add(line);
+        lock (_lines)
+        {
+            _lines.Add(line);
+            _levelled.Add((level, line));
+        }
     }
 
     private sealed class CapturingLogger : ILogger
@@ -45,7 +56,7 @@ public sealed class CapturingLoggerProvider : ILoggerProvider
             var text = $"{_category}: {formatter(state, exception)}";
             if (exception is not null)
                 text += $" | {exception}";
-            _owner.Add(text);
+            _owner.Add(logLevel, text);
         }
     }
 }
