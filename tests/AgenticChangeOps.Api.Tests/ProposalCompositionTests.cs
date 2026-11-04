@@ -31,7 +31,7 @@ public sealed class ProposalCompositionTests
     private static int Count(string text, string quote) =>
         text.Replace("\r\n", "\n").Split(quote.Replace("\r\n", "\n")).Length - 1;
 
-    /// <summary>Submit, draft requirements, approve, design: leaves the request ready for a proposal.</summary>
+    /// <summary>Submit, draft requirements, approve, design, accept the design: leaves the request ready for a proposal.</summary>
     private static async Task<Guid> ReadyAsync(ProposalHost host, string system, Func<IToolSession, CancellationToken, Task<ChatModelResponse>> proposalBehavior)
     {
         var id = await host.SubmittedAsync(system);
@@ -39,6 +39,8 @@ public sealed class ProposalCompositionTests
         (await host.Client.PostJsonAsync($"/change-requests/{id}/decisions", SyntheticData.Approve())).EnsureSuccessStatusCode();
         host.ToolClient.Behavior = ProposalHost.Returns(DesignJson);
         (await host.Client.PostAsync($"/change-requests/{id}/designs", null)).EnsureSuccessStatusCode();
+        (await host.Client.PostJsonAsync($"/change-requests/{id}/designs/1/decisions",
+            new { approverName = "Sam Sample", decision = "Accept", reason = (string?)null })).EnsureSuccessStatusCode();
         host.ToolClient.Behavior = proposalBehavior;
         return id;
     }

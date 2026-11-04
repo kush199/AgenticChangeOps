@@ -72,7 +72,9 @@ public sealed class ReviewOfferCompositionTests
         Assert.True(HasOffer(await StatusAsync(host, id), out var afterDesign));
         Assert.Equal("Proposal", afterDesign);
 
-        // A proposal on the newer design is current and has no review of it.
+        // A proposal on the newer design is current and has no review of it (the person accepts it first).
+        (await host.Client.PostJsonAsync($"/change-requests/{id}/designs/2/decisions",
+            new { approverName = "Sam Sample", decision = "Accept", reason = (string?)null })).EnsureSuccessStatusCode();
         (await host.Client.PostAsync($"/change-requests/{id}/proposals", null)).EnsureSuccessStatusCode();
         Assert.True(HasOffer(await StatusAsync(host, id), out var afterProposal));
         Assert.Equal("Review", afterProposal);

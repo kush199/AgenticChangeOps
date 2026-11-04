@@ -34,7 +34,8 @@ public sealed class FakeProposalBasisSource : IProposalBasisSource
         Assumptions: new[] { "The new window has no competing batch jobs." },
         OpenQuestions: new[] { "Should weekend runs keep the old schedule?" });
 
-    public static ProposalDesignBasis Design(int version = 1, int requirementsVersion = 1) => new(
+    public static ProposalDesignBasis Design(
+        int version = 1, int requirementsVersion = 1, ProposalDesignVerdict decision = ProposalDesignVerdict.None) => new(
         Version: version,
         RequirementsVersion: requirementsVersion,
         ApproachSummary: "Change the report hour in the portal settings only.",
@@ -42,8 +43,20 @@ public sealed class FakeProposalBasisSource : IProposalBasisSource
         ImpactAndRisks: new[] { "Reports arrive later for early readers." },
         Dependencies: new[] { "Batch import finishes before the new hour." },
         RollbackConsiderations: new[] { "Restore the previous hour." },
-        OpenQuestions: new[] { "Who confirms the new hour?" });
+        OpenQuestions: new[] { "Who confirms the new hour?" },
+        Decision: decision);
 
-    public static ProposalBasis Current(int requirementsVersion = 1, int designVersion = 1) =>
-        new(Requirements(requirementsVersion), Design(designVersion, requirementsVersion));
+    public static ProposalBasis Current(
+        int requirementsVersion = 1, int designVersion = 1, ProposalDesignVerdict decision = ProposalDesignVerdict.Accepted) =>
+        new(Requirements(requirementsVersion), Design(designVersion, requirementsVersion, decision));
+
+    /// <summary>Replaces only the latest design's verdict, keeping everything else in the stored basis.</summary>
+    public void SetDecision(Guid changeRequestId, ProposalDesignVerdict decision)
+    {
+        lock (_gate)
+        {
+            var basis = _bases[changeRequestId];
+            _bases[changeRequestId] = basis with { Design = basis.Design! with { Decision = decision } };
+        }
+    }
 }

@@ -128,6 +128,18 @@ public sealed class DeveloperStructureTests
     }
 
     [Fact]
+    public void TheDesignGate_ReadsAVerdictOnly_AndNeverReferencesAnotherAgentOrWritesADecision()
+    {
+        var folder = Path.Combine(RepositoryRoot(), "src", AgentProject);
+        var service = File.ReadAllText(Path.Combine(folder, "ProposalService.cs"));
+
+        // The verdict arrives on the design basis; the service has no way to read or write decisions.
+        Assert.Contains("ProposalDesignVerdict", File.ReadAllText(Path.Combine(folder, "ProposalBasis.cs")));
+        Assert.DoesNotMatch(@"SaveAgentOutput|GetAgentOutputs<\s*\w*Decision|IDesign\w*Service|AgenticChangeOps\.Agents\.(Architect|Requirement|Reviewer)", service);
+        Assert.Contains("DesignAcceptance", service);
+    }
+
+    [Fact]
     public void Intake_NamesNoProposalOrDeveloperType()
     {
         var folder = Path.Combine(RepositoryRoot(), "src", "AgenticChangeOps.Intake");

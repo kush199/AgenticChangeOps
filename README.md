@@ -309,7 +309,8 @@ change is the wording of the draft, which passes the usual validation and is rev
 
 When the sample codebase tools above are switched on, the Developer agent can propose a **change
 set as text** for an approved change request that has a requirements draft and a design draft based
-on the latest requirements draft. It reads the sample through the same read-only tools and returns a
+on the latest requirements draft **and whose latest design a person has accepted** (an undecided or
+rejected design is refused with a 409 before the model is reached). It reads the sample through the same read-only tools and returns a
 summary, a list of proposed edits, risks, ideas for testing, open questions and the sample files it
 read. Each edit names a file inside the sample, says whether it changes an existing file or adds a
 new one, quotes the exact existing text it replaces (for a change) and gives the replacement text.

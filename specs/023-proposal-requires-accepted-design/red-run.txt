@@ -1,0 +1,40 @@
+# Red run, 2026-11-04: tests T005-T018 written, gate not implemented (stubs only)
+# Totals: Developer 9 failed of 197 (172 existing + 25 new); Api 10 failed of 613 (594 existing + 19 new); all other projects unchanged and green.
+# Existing tests: 0 failures (test-fixture edits from baseline/expected-test-edits.md are in place).
+
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionLatestOnlyTests.ANewerAcceptedDesign_Proceeds_AfterARejectedOne
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionLatestOnlyTests.ANewerUndecidedDesign_IsRefused_EvenThoughAnEarlierOneWasAccepted
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionPreCheckTests.ADecisionError_AfterAPassingCheck_IsReportedAsOutdated_NeverAsADecisionRefusal
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionPreCheckTests.ADecisionRefusalFromTheFirstCheck_IsReturnedUnchanged_AndMakesNoGeneratorCall
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionRejectedTests.ARejectedLatestDesign_IsRefused_WithAReasonDifferentFromUndecided
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionStaleAtStoreTests.ProposalsStoredEarlier_AreUnchanged_ByALaterNewerDesign
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionStaleAtStoreTests.TheLatestDesignNoLongerAccepted_DuringGeneration_IsOutdated
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionUndecidedTests.AnUndecidedLatestDesign_IsRefused_OnTheAcceptanceField_WithNothingDone
+AgenticChangeOps.Agents.Developer.Tests.Unit.ProposalDecisionUndecidedTests.TheMessage_NamesOnlyTheId_AndNoDraftContent
+Failed!  - Failed:     9, Passed:   188, Skipped:     0, Total:   197, Duration: 1 s - AgenticChangeOps.Agents.Developer.Tests.dll (net8.0)
+AgenticChangeOps.Api.Tests.ProposalBasisAdapterDecisionTests.AnAcceptedLatestDesign_IsAccepted
+AgenticChangeOps.Api.Tests.ProposalBasisAdapterDecisionTests.ARejectedLatestDesign_IsRejected
+AgenticChangeOps.Api.Tests.ProposalDecisionEndpointTests.AnUndecidedDesign_Is409Conflict_NamingTheDecision_AndNothingHappens
+AgenticChangeOps.Api.Tests.ProposalDecisionEndpointTests.ARejectedDesign_Is409Conflict_WithADifferentMessage_AndNothingHappens
+AgenticChangeOps.Api.Tests.ProposalDecisionEndpointTests.TheRefusal_HasTheSameShapeAsTheOtherProposalConflicts
+AgenticChangeOps.Api.Tests.ProposalDecisionIsolationTests.ARefusedProposal_LeavesStatusWorkflowDecisionsAndAuditExactlyAsTheyWere
+AgenticChangeOps.Api.Tests.ProposalDecisionIsolationTests.ARefusedProposal_NeverRecordsOrChangesAnyDecision
+AgenticChangeOps.Api.Tests.ProposalDecisionNoLeakTests.ARefusal_ContainsNoSetting_Path_OrContent_InTheBodyOrTheLogs
+AgenticChangeOps.Api.Tests.ProposalDecisionOrderEndpointTests.OnlyTheLatestDesignsDecisionCounts_AcrossNewVersions
+Failed!  - Failed:    10, Passed:   601, Skipped:     2, Total:   613, Duration: 25 s - AgenticChangeOps.Api.Tests.dll (net8.0)
+
+# Failure reasons (all: the gate does not exist yet)
+      7    Assert.Equal() Failure: Values differ
+      5 Expected: Conflict
+      5 Actual:   Created
+      5    Assert.Single() Failure: The collection was empty
+      4 Expected: False
+      4 Actual:   True
+      4    Assert.False() Failure
+      2 Actual:   None
+      2    Assert.DoesNotContain() Failure: Sub-string found
+      1 Expected: Rejected
+      1 Expected: Accepted
+      1 Expected: ["code", "errors", "message"]
+      1 Actual:   ["agentName", "changeRequestId", "changes", "designVersion", "generatedAt", ···]
+      1    Assert.Equal() Failure: Collections differ

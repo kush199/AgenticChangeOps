@@ -20,9 +20,11 @@ public sealed class ProposalService : IProposalService
     private const string RequirementsDraftField = "RequirementsDraft";
     private const string DesignDraftField = "DesignDraft";
     private const string DesignDraftVersionField = "DesignDraftVersion";
+    internal const string DesignAcceptanceField = "DesignAcceptance";
 
     private readonly IChangeRequestStore _store;
     private readonly IIdGenerator _idGenerator;
+    private readonly Agent _agent;
     private readonly DraftingEngine<ChangeProposal, Bases, ProposalContent, ValidatedProposal, ProposalRejection> _engine;
 
     public ProposalService(
@@ -36,11 +38,19 @@ public sealed class ProposalService : IProposalService
     {
         _store = store;
         _idGenerator = idGenerator;
-        _engine = new(store, clock, new Agent(store, basisSource, generator, validator, verifier));
+        _agent = new Agent(store, basisSource, generator, validator, verifier);
+        _engine = new(store, clock, _agent);
     }
 
     public async Task<ProposalResult> ProposeAsync(Guid changeRequestId, CancellationToken cancellationToken = default)
     {
+        // The engine checks eligibility again when it stores. Checking here first means a decision
+        // error from the engine can only be a design that changed since this check passed (decisions
+        // are final), so it is reported as outdated rather than as a decision refusal.
+        var (_, firstError) = _agent.CheckEligibility(changeRequestId, _store.FindById(changeRequestId));
+        if (firstError is not null)
+            return ProposalResult.Failure(new[] { firstError });
+
         var outcome = await _engine
             .RunAsync(changeRequestId, cancellationToken, Save)
             .ConfigureAwait(false);
@@ -49,6 +59,8 @@ public sealed class ProposalService : IProposalService
             return ProposalResult.Success(outcome.Record!);
         if (outcome.Rejection is { } rejection)
             return ProposalResult.Rejected(rejection);
+        if (outcome.Errors.Any(e => e.FieldName == DesignAcceptanceField))
+            return ProposalResult.Failure(new[] { Agent.OutdatedDesign(changeRequestId) });
         return outcome.FailureCategory is { } category
             ? ProposalResult.Failure(outcome.Errors, category)
             : ProposalResult.Failure(outcome.Errors);
@@ -105,7 +117,7 @@ public sealed class ProposalService : IProposalService
 
     /// <summary>
     /// This agent's own parts. Intentional differences from the other agents: only Approved
-    /// requests, a requirements draft and a design draft that is based on it must exist, the
+    /// requests, a requirements draft and a design draft that is based on it must exist, the latest design must be Accepted, the
     /// content is verified against the real sample files and the whole proposal is refused on any
     /// mismatch, it has no automatic marker, and it rethrows cancellation from the generator when
     /// the caller's own token is cancelled.
@@ -137,7 +149,7 @@ public sealed class ProposalService : IProposalService
         /// <summary>
         /// Order matters: existence, then status (the basis source is not consulted for a request
         /// that is not Approved), then a requirements draft, then a design draft, then that the
-        /// design is based on the latest requirements draft.
+        /// design is based on the latest requirements draft, then that the latest design is Accepted.
         /// </summary>
         public (Bases? Basis, ValidationError? Error) CheckEligibility(Guid changeRequestId, ChangeRequest? request)
         {
@@ -165,6 +177,18 @@ public sealed class ProposalService : IProposalService
 
             if (basis.Design.RequirementsVersion != basis.Requirements.Version)
                 return (null, OutdatedDesign(changeRequestId));
+
+            if (basis.Design.Decision == ProposalDesignVerdict.None)
+                return (null, new ValidationError(
+                    DesignAcceptanceField,
+                    $"The latest design draft for change request {changeRequestId} has not been decided; " +
+                    "a person must accept it before a proposal can be drafted."));
+
+            if (basis.Design.Decision == ProposalDesignVerdict.Rejected)
+                return (null, new ValidationError(
+                    DesignAcceptanceField,
+                    $"The latest design draft for change request {changeRequestId} was rejected; " +
+                    "a proposal cannot be drafted until a newer design draft is accepted."));
 
             return (new Bases(basis.Requirements, basis.Design), null);
         }
@@ -199,7 +223,7 @@ public sealed class ProposalService : IProposalService
 
         public IReadOnlyList<ChangeProposal> ReadAll(Guid changeRequestId) => _store.GetProposals(changeRequestId);
 
-        private static ValidationError OutdatedDesign(Guid changeRequestId) =>
+        internal static ValidationError OutdatedDesign(Guid changeRequestId) =>
             new(
                 DesignDraftVersionField,
                 $"The design draft for change request {changeRequestId} is not based on the latest requirements " +

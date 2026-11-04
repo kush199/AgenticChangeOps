@@ -72,7 +72,10 @@ public static class ApiServiceRegistration
         services.AddSingleton<ProposalSetup>(CreateProposalSetup);
         services.AddSingleton(sp => new ProposalAvailability(sp.GetRequiredService<ProposalSetup>().State));
         services.AddSingleton<IProposalOffer, ProposalOffer>();
-        services.AddSingleton<IProposalBasisSource, ProposalBasisAdapter>();
+        services.AddSingleton<IProposalBasisSource>(sp => new ProposalBasisAdapter(
+            sp.GetRequiredService<IRequirementsDraftingService>(),
+            sp.GetRequiredService<IDesignDraftingService>(),
+            VerdictOnDesign(sp.GetRequiredService<IDesignDecisionService>())));
         services.AddSingleton<IProposalService>(sp =>
         {
             var setup = sp.GetRequiredService<ProposalSetup>();
@@ -380,4 +383,14 @@ public static class ApiServiceRegistration
         public Task<DraftContent?> GenerateAsync(ChangeRequest changeRequest, CancellationToken cancellationToken) =>
             throw new DraftGenerationException(GenerationFailureCategory.Unreachable);
     }
+
+    // Only the decision recorded on the given design version counts; an older version's never does.
+    private static Func<Guid, int, ProposalDesignVerdict> VerdictOnDesign(IDesignDecisionService decisions) =>
+        (changeRequestId, designVersion) =>
+            decisions.GetDecisions(changeRequestId).FirstOrDefault(d => d.Version == designVersion)?.Outcome switch
+            {
+                DesignDecisionOutcome.Accepted => ProposalDesignVerdict.Accepted,
+                DesignDecisionOutcome.Rejected => ProposalDesignVerdict.Rejected,
+                _ => ProposalDesignVerdict.None
+            };
 }
