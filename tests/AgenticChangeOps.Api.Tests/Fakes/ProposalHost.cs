@@ -25,7 +25,8 @@ public sealed class FakeProposalBasis : IProposalBasisSource
             return _bases.TryGetValue(changeRequestId, out var basis) ? basis : new ProposalBasis(null, null);
     }
 
-    public static ProposalBasis Current(int requirementsVersion = 1, int designVersion = 1) => new(
+    public static ProposalBasis Current(
+        int requirementsVersion = 1, int designVersion = 1, ProposalDesignVerdict decision = ProposalDesignVerdict.Accepted) => new(
         new ProposalRequirementsBasis(
             requirementsVersion, "Raise the number of orders shown per page.",
             new[] { "The page size is configurable." }, new[] { "Pages show the new size." },
@@ -33,7 +34,7 @@ public sealed class FakeProposalBasis : IProposalBasisSource
         new ProposalDesignBasis(
             designVersion, requirementsVersion, "Change the page size setting only.",
             new[] { "Orders settings" }, new[] { "Longer pages load more rows." }, Array.Empty<string>(),
-            new[] { "Restore the previous page size." }, Array.Empty<string>()));
+            new[] { "Restore the previous page size." }, Array.Empty<string>(), decision));
 }
 
 /// <summary>

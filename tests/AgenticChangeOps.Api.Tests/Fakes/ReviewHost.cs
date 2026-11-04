@@ -118,7 +118,7 @@ public sealed class ReviewHost : IDisposable
     public IReviewService Reviewing => Services.GetRequiredService<IReviewService>();
     public IChangeRequestStore Store => Services.GetRequiredService<IChangeRequestStore>();
 
-    /// <summary>Submit, draft requirements, approve, design: leaves the request ready for a proposal.</summary>
+    /// <summary>Submit, draft requirements, approve, design: accept the design: leaves the request ready for a proposal.</summary>
     public async Task<Guid> ReadyForProposalAsync(string affectedSystem = "Orders Service")
     {
         var id = await Client.SubmitAsync(new AgenticChangeOps.Api.Contracts.SubmitChangeRequestBody(
@@ -127,6 +127,8 @@ public sealed class ReviewHost : IDisposable
         (await Client.PostAsync($"/change-requests/{id}/drafts", null)).EnsureSuccessStatusCode();
         (await Client.PostJsonAsync($"/change-requests/{id}/decisions", SyntheticData.Approve())).EnsureSuccessStatusCode();
         (await Client.PostAsync($"/change-requests/{id}/designs", null)).EnsureSuccessStatusCode();
+        (await Client.PostJsonAsync($"/change-requests/{id}/designs/1/decisions",
+            new { approverName = "Sam Sample", decision = "Accept", reason = (string?)null })).EnsureSuccessStatusCode();
         return id;
     }
 

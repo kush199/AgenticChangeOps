@@ -52,11 +52,16 @@ public sealed class ProposalBasisAdapter : IProposalBasisSource
 {
     private readonly IRequirementsDraftingService _requirements;
     private readonly IDesignDraftingService _designs;
+    private readonly Func<Guid, int, ProposalDesignVerdict> _verdictOn;
 
-    public ProposalBasisAdapter(IRequirementsDraftingService requirements, IDesignDraftingService designs)
+    public ProposalBasisAdapter(
+        IRequirementsDraftingService requirements,
+        IDesignDraftingService designs,
+        Func<Guid, int, ProposalDesignVerdict> verdictOn)
     {
         _requirements = requirements;
         _designs = designs;
+        _verdictOn = verdictOn;
     }
 
     public ProposalBasis GetLatest(Guid changeRequestId)
@@ -74,7 +79,8 @@ public sealed class ProposalBasisAdapter : IProposalBasisSource
             design = new ProposalDesignBasis(
                 latest.Version, latest.RequirementsVersion, latest.ApproachSummary,
                 latest.AffectedComponents, latest.ImpactAndRisks, latest.Dependencies,
-                latest.RollbackConsiderations, latest.OpenQuestions);
+                latest.RollbackConsiderations, latest.OpenQuestions,
+                _verdictOn(changeRequestId, latest.Version));
 
         return new ProposalBasis(requirements, design);
     }

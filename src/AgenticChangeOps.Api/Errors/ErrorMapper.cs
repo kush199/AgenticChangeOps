@@ -21,6 +21,7 @@ public static class ErrorMapper
     private const string RequirementsDraftField = "RequirementsDraft";
     private const string DesignDraftField = "DesignDraft";
     private const string DesignDraftVersionField = "DesignDraftVersion";
+    private const string DesignAcceptanceField = "DesignAcceptance";
     private const string ProposalField = "Proposal";
     private const string ProposalVersionField = "ProposalVersion";
 
@@ -134,9 +135,10 @@ public static class ErrorMapper
                 "The change proposal could not be generated.",
                 Category: category.ToString()));
 
-        // Not Approved, no requirements draft, no design draft, or the design is not current: the
-        // request conflicts with the current state of the change request.
-        if (errors.All(e => e.FieldName is StatusField or RequirementsDraftField or DesignDraftField or DesignDraftVersionField))
+        // Not Approved, no requirements draft, no design draft, the design is not current, or the
+        // latest design is not Accepted: the request conflicts with the current state of the change request.
+        if (errors.All(e => e.FieldName is StatusField or RequirementsDraftField or DesignDraftField
+                or DesignDraftVersionField or DesignAcceptanceField))
             return Conflict(errors);
 
         return Unexpected();

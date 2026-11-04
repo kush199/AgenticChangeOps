@@ -9,7 +9,15 @@ public sealed record ProposalRequirementsBasis(
     IReadOnlyList<string> Assumptions,
     IReadOnlyList<string> OpenQuestions);
 
-/// <summary>The latest design draft, with the requirements version it was based on.</summary>
+/// <summary>A person's recorded verdict on the latest design draft; None while nobody has decided.</summary>
+public enum ProposalDesignVerdict
+{
+    None,
+    Accepted,
+    Rejected
+}
+
+/// <summary>The latest design draft, with the requirements version it was based on and its recorded verdict.</summary>
 public sealed record ProposalDesignBasis(
     int Version,
     int RequirementsVersion,
@@ -18,7 +26,8 @@ public sealed record ProposalDesignBasis(
     IReadOnlyList<string> ImpactAndRisks,
     IReadOnlyList<string> Dependencies,
     IReadOnlyList<string> RollbackConsiderations,
-    IReadOnlyList<string> OpenQuestions);
+    IReadOnlyList<string> OpenQuestions,
+    ProposalDesignVerdict Decision = ProposalDesignVerdict.None);
 
 /// <summary>What the Developer is given: either part is null when it does not exist.</summary>
 public sealed record ProposalBasis(ProposalRequirementsBasis? Requirements, ProposalDesignBasis? Design);
